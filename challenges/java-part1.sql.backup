@@ -1,0 +1,1404 @@
+-- ============================================================================
+-- Java Language Challenges - Part 1 (Easy)
+-- ============================================================================
+-- Total: 50 challenges (5 per unit × 10 units)
+-- Difficulty: EASY (1)
+-- ============================================================================
+
+-- Unit 1: 출력과 주석 (Output and Comments) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-hello-world', 'java', 'syntax', 1, 'Hello World', 'C로 첫 프로그램 작성하기', 'challenge', 1,
+'화면에 "Hello, World!"를 출력하는 프로그램을 작성하세요.',
+'- printf 함수를 사용하세요\n- 줄바꿈(\n)을 포함해야 합니다',
+'[{"input": "", "output": "Hello, World!"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}',
+'[{"input": "", "expected": "Hello, World!\n"}]',
+'["printf 함수의 사용법을 확인하세요", "문자열은 큰따옴표로 감싸야 합니다"]',
+ARRAY['basics', 'output', 'printf'], 5),
+
+('java-print-name', 'java', 'syntax', 2, '이름 출력하기', '자신의 이름을 출력하세요', 'challenge', 1,
+'화면에 "My name is [이름]" 형식으로 출력하는 프로그램을 작성하세요.',
+'- [이름] 부분에는 원하는 이름을 넣으세요\n- 줄바꿈을 포함해야 합니다',
+'[{"input": "", "output": "My name is John"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    printf("My name is John\n");
+    return 0;
+}',
+'[{"input": "", "expected": "My name is John\n"}]',
+'["printf로 문자열을 출력할 수 있습니다"]',
+ARRAY['basics', 'output'], 5),
+
+('java-multiline-output', 'java', 'syntax', 3, '여러 줄 출력', '여러 줄을 출력하세요', 'challenge', 1,
+'다음 세 줄을 출력하는 프로그램을 작성하세요:\nLine 1\nLine 2\nLine 3',
+'- 각 줄은 새로운 줄에 출력되어야 합니다',
+'[{"input": "", "output": "Line 1\nLine 2\nLine 3"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    printf("Line 1\n");
+    printf("Line 2\n");
+    printf("Line 3\n");
+    return 0;
+}',
+'[{"input": "", "expected": "Line 1\nLine 2\nLine 3\n"}]',
+'["printf를 여러 번 호출하거나 \\n을 사용하세요"]',
+ARRAY['basics', 'output'], 5),
+
+('java-single-line-comment', 'java', 'syntax', 4, '한 줄 주석', '주석을 사용하여 코드 설명하기', 'challenge', 1,
+'Hello를 출력하는 코드를 작성하고, 그 위에 한 줄 주석으로 "이것은 출력 코드입니다"를 추가하세요.',
+'- // 를 사용하여 주석을 작성하세요',
+'[{"input": "", "output": "Hello"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 주석과 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    // 이것은 출력 코드입니다
+    printf("Hello\n");
+    return 0;
+}',
+'[{"input": "", "expected": "Hello\n"}]',
+'["// 뒤의 내용은 실행되지 않습니다"]',
+ARRAY['basics', 'comments'], 5),
+
+('java-multi-line-comment', 'java', 'syntax', 5, '여러 줄 주석', '여러 줄 주석 사용하기', 'challenge', 1,
+'World를 출력하는 코드를 작성하고, 그 위에 여러 줄 주석으로 프로그램 설명을 추가하세요.',
+'- /* */ 를 사용하여 주석을 작성하세요',
+'[{"input": "", "output": "World"}]',
+'#include <stdio.h>
+
+int main() {
+    /* 여기에 주석과 코드를 작성하세요 */
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    /*
+     * 이 프로그램은 World를 출력합니다
+     * C 언어 기초 학습용입니다
+     */
+    printf("World\n");
+    return 0;
+}',
+'[{"input": "", "expected": "World\n"}]',
+'["/* */ 사이의 내용은 모두 주석입니다"]',
+ARRAY['basics', 'comments'], 5);
+
+-- Unit 2: 변수와 자료형 (Variables and Data Types) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-integer-variable', 'java', 'syntax', 6, '정수 변수', '정수형 변수 선언하고 출력하기', 'challenge', 1,
+'정수형 변수 num을 선언하고 42를 저장한 후 출력하세요.',
+'- int 타입을 사용하세요\n- %d를 사용하여 출력하세요',
+'[{"input": "", "output": "42"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num = 42;
+    printf("%d\n", num);
+    return 0;
+}',
+'[{"input": "", "expected": "42\n"}]',
+'["int는 정수를 저장하는 타입입니다", "printf의 %d는 정수 출력용입니다"]',
+ARRAY['basics', 'variables', 'int'], 5),
+
+('java-float-variable', 'java', 'syntax', 7, '실수 변수', '실수형 변수 선언하고 출력하기', 'challenge', 1,
+'실수형 변수 pi를 선언하고 3.14를 저장한 후 출력하세요.',
+'- float 타입을 사용하세요\n- %f를 사용하여 출력하세요',
+'[{"input": "", "output": "3.14"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    float pi = 3.14;
+    printf("%.2f\n", pi);
+    return 0;
+}',
+'[{"input": "", "expected": "3.14\n"}]',
+'["float는 실수를 저장합니다", "%.2f는 소수점 2자리까지 출력합니다"]',
+ARRAY['basics', 'variables', 'float'], 5),
+
+('java-char-variable', 'java', 'syntax', 8, '문자 변수', '문자형 변수 선언하고 출력하기', 'challenge', 1,
+'문자형 변수 grade를 선언하고 ''A''를 저장한 후 출력하세요.',
+'- char 타입을 사용하세요\n- %c를 사용하여 출력하세요',
+'[{"input": "", "output": "A"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    char grade = ''A'';
+    printf("%c\n", grade);
+    return 0;
+}',
+'[{"input": "", "expected": "A\n"}]',
+'["char는 한 글자를 저장합니다", "문자는 작은따옴표로 감쌉니다"]',
+ARRAY['basics', 'variables', 'char'], 5),
+
+('java-multiple-variables', 'java', 'syntax', 9, '여러 변수 선언', '여러 개의 변수 선언하기', 'challenge', 1,
+'정수 a=10, b=20을 선언하고 두 값을 공백으로 구분하여 출력하세요.',
+'- 한 줄에 출력해야 합니다',
+'[{"input": "", "output": "10 20"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a = 10, b = 20;
+    printf("%d %d\n", a, b);
+    return 0;
+}',
+'[{"input": "", "expected": "10 20\n"}]',
+'["여러 변수를 쉼표로 구분하여 선언할 수 있습니다"]',
+ARRAY['basics', 'variables'], 5),
+
+('java-variable-swap', 'java', 'syntax', 10, '변수값 교환', '두 변수의 값 바꾸기', 'challenge', 1,
+'a=5, b=10인 두 변수의 값을 서로 바꾼 후 출력하세요. (임시 변수 사용)',
+'- 출력 형식: a b',
+'[{"input": "", "output": "10 5"}]',
+'#include <stdio.h>
+
+int main() {
+    int a = 5, b = 10;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a = 5, b = 10;
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("%d %d\n", a, b);
+    return 0;
+}',
+'[{"input": "", "expected": "10 5\n"}]',
+'["임시 변수 temp를 사용하세요"]',
+ARRAY['basics', 'variables', 'swap'], 5);
+
+-- Unit 3: 연산자 (Operators) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-addition', 'java', 'basics', 11, '덧셈 계산', '두 수의 합 구하기', 'challenge', 1,
+'두 정수 a=15, b=25의 합을 계산하여 출력하세요.',
+'- + 연산자를 사용하세요',
+'[{"input": "", "output": "40"}]',
+'#include <stdio.h>
+
+int main() {
+    int a = 15, b = 25;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a = 15, b = 25;
+    int sum = a + b;
+    printf("%d\n", sum);
+    return 0;
+}',
+'[{"input": "", "expected": "40\n"}]',
+'["+ 연산자로 덧셈을 수행합니다"]',
+ARRAY['basics', 'operators', 'arithmetic'], 5),
+
+('java-subtraction', 'java', 'basics', 12, '뺄셈 계산', '두 수의 차 구하기', 'challenge', 1,
+'두 정수 a=50, b=30의 차를 계산하여 출력하세요.',
+'- - 연산자를 사용하세요',
+'[{"input": "", "output": "20"}]',
+'#include <stdio.h>
+
+int main() {
+    int a = 50, b = 30;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a = 50, b = 30;
+    int diff = a - b;
+    printf("%d\n", diff);
+    return 0;
+}',
+'[{"input": "", "expected": "20\n"}]',
+'["- 연산자로 뺄셈을 수행합니다"]',
+ARRAY['basics', 'operators', 'arithmetic'], 5),
+
+('java-multiplication', 'java', 'basics', 13, '곱셈 계산', '두 수의 곱 구하기', 'challenge', 1,
+'두 정수 a=7, b=8의 곱을 계산하여 출력하세요.',
+'- * 연산자를 사용하세요',
+'[{"input": "", "output": "56"}]',
+'#include <stdio.h>
+
+int main() {
+    int a = 7, b = 8;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a = 7, b = 8;
+    int product = a * b;
+    printf("%d\n", product);
+    return 0;
+}',
+'[{"input": "", "expected": "56\n"}]',
+'["* 연산자로 곱셈을 수행합니다"]',
+ARRAY['basics', 'operators', 'arithmetic'], 5),
+
+('java-division', 'java', 'basics', 14, '나눗셈 계산', '두 수의 몫 구하기', 'challenge', 1,
+'두 정수 a=20, b=4의 몫을 계산하여 출력하세요.',
+'- / 연산자를 사용하세요',
+'[{"input": "", "output": "5"}]',
+'#include <stdio.h>
+
+int main() {
+    int a = 20, b = 4;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a = 20, b = 4;
+    int quotient = a / b;
+    printf("%d\n", quotient);
+    return 0;
+}',
+'[{"input": "", "expected": "5\n"}]',
+'["/ 연산자로 나눗셈을 수행합니다"]',
+ARRAY['basics', 'operators', 'arithmetic'], 5),
+
+('java-modulo', 'java', 'basics', 15, '나머지 계산', '두 수의 나머지 구하기', 'challenge', 1,
+'두 정수 a=17, b=5의 나머지를 계산하여 출력하세요.',
+'- % 연산자를 사용하세요',
+'[{"input": "", "output": "2"}]',
+'#include <stdio.h>
+
+int main() {
+    int a = 17, b = 5;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a = 17, b = 5;
+    int remainder = a % b;
+    printf("%d\n", remainder);
+    return 0;
+}',
+'[{"input": "", "expected": "2\n"}]',
+'["% 연산자로 나머지를 구합니다"]',
+ARRAY['basics', 'operators', 'modulo'], 5);
+
+-- Unit 4: 조건문 (Conditional Statements) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-if-positive', 'java', 'basics', 16, '양수 판별', '숫자가 양수인지 확인하기', 'challenge', 1,
+'정수 num이 주어질 때, 양수이면 "Positive"를 출력하세요.',
+'- if 문을 사용하세요\n- num > 0 조건을 확인하세요',
+'[{"input": "5", "output": "Positive"}]',
+'#include <stdio.h>
+
+int main() {
+    int num;
+    scanf("%d", &num);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num;
+    scanf("%d", &num);
+    if (num > 0) {
+        printf("Positive\n");
+    }
+    return 0;
+}',
+'[{"input": "5", "expected": "Positive\n"}, {"input": "10", "expected": "Positive\n"}]',
+'["if (조건) { 실행할 코드 }"]',
+ARRAY['conditionals', 'if'], 5),
+
+('java-if-else-even', 'java', 'basics', 17, '짝수 홀수 판별', '짝수인지 홀수인지 판별하기', 'challenge', 1,
+'정수 num이 주어질 때, 짝수이면 "Even", 홀수이면 "Odd"를 출력하세요.',
+'- if-else 문을 사용하세요\n- % 연산자로 나머지를 확인하세요',
+'[{"input": "4", "output": "Even"}, {"input": "7", "output": "Odd"}]',
+'#include <stdio.h>
+
+int main() {
+    int num;
+    scanf("%d", &num);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num;
+    scanf("%d", &num);
+    if (num % 2 == 0) {
+        printf("Even\n");
+    } else {
+        printf("Odd\n");
+    }
+    return 0;
+}',
+'[{"input": "4", "expected": "Even\n"}, {"input": "7", "expected": "Odd\n"}]',
+'["num % 2 == 0 이면 짝수입니다"]',
+ARRAY['conditionals', 'if-else', 'modulo'], 5),
+
+('java-if-else-max', 'java', 'basics', 18, '두 수 중 큰 수', '두 수 중 더 큰 수 찾기', 'challenge', 1,
+'두 정수 a, b가 주어질 때, 더 큰 수를 출력하세요.',
+'- if-else 문을 사용하세요',
+'[{"input": "10 20", "output": "20"}, {"input": "30 15", "output": "30"}]',
+'#include <stdio.h>
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    if (a > b) {
+        printf("%d\n", a);
+    } else {
+        printf("%d\n", b);
+    }
+    return 0;
+}',
+'[{"input": "10 20", "expected": "20\n"}, {"input": "30 15", "expected": "30\n"}]',
+'["a > b를 비교하세요"]',
+ARRAY['conditionals', 'comparison'], 5),
+
+('java-if-else-if-grade', 'java', 'basics', 19, '점수로 등급 판정', '점수에 따라 등급 출력하기', 'challenge', 1,
+'점수 score가 주어질 때, 90 이상이면 "A", 80 이상이면 "B", 그 외는 "C"를 출력하세요.',
+'- if-else if-else 문을 사용하세요',
+'[{"input": "95", "output": "A"}, {"input": "85", "output": "B"}, {"input": "75", "output": "C"}]',
+'#include <stdio.h>
+
+int main() {
+    int score;
+    scanf("%d", &score);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int score;
+    scanf("%d", &score);
+    if (score >= 90) {
+        printf("A\n");
+    } else if (score >= 80) {
+        printf("B\n");
+    } else {
+        printf("C\n");
+    }
+    return 0;
+}',
+'[{"input": "95", "expected": "A\n"}, {"input": "85", "expected": "B\n"}, {"input": "75", "expected": "C\n"}]',
+'["조건을 순서대로 확인하세요"]',
+ARRAY['conditionals', 'if-else-if'], 5),
+
+('java-logical-and', 'java', 'basics', 20, '논리 연산 AND', '두 조건이 모두 참인지 확인하기', 'challenge', 1,
+'나이 age가 주어질 때, 18세 이상 65세 미만이면 "Adult"를 출력하세요.',
+'- && 연산자를 사용하세요',
+'[{"input": "25", "output": "Adult"}, {"input": "70", "output": ""}]',
+'#include <stdio.h>
+
+int main() {
+    int age;
+    scanf("%d", &age);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int age;
+    scanf("%d", &age);
+    if (age >= 18 && age < 65) {
+        printf("Adult\n");
+    }
+    return 0;
+}',
+'[{"input": "25", "expected": "Adult\n"}, {"input": "70", "expected": ""}]',
+'["&& 는 AND 연산자입니다"]',
+ARRAY['conditionals', 'logical-operators'], 5);
+
+-- Unit 5: 반복문 (Loops) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-for-1-to-10', 'java', 'basics', 21, '1부터 10까지 출력', 'for문으로 1부터 10까지 출력하기', 'challenge', 1,
+'for문을 사용하여 1부터 10까지의 숫자를 한 줄에 하나씩 출력하세요.',
+'- for문을 사용하세요',
+'[{"input": "", "output": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 10; i++) {
+        printf("%d\n", i);
+    }
+    return 0;
+}',
+'[{"input": "", "expected": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n"}]',
+'["for (int i = 1; i <= 10; i++)"]',
+ARRAY['loops', 'for'], 5),
+
+('java-while-countdown', 'java', 'basics', 22, '카운트다운', 'while문으로 카운트다운하기', 'challenge', 1,
+'while문을 사용하여 5부터 1까지 카운트다운을 출력하세요.',
+'- while문을 사용하세요',
+'[{"input": "", "output": "5\n4\n3\n2\n1"}]',
+'#include <stdio.h>
+
+int main() {
+    int count = 5;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int count = 5;
+    while (count > 0) {
+        printf("%d\n", count);
+        count--;
+    }
+    return 0;
+}',
+'[{"input": "", "expected": "5\n4\n3\n2\n1\n"}]',
+'["while (조건) { ... count--; }"]',
+ARRAY['loops', 'while'], 5),
+
+('java-sum-1-to-n', 'java', 'basics', 23, '1부터 N까지의 합', '1부터 N까지의 합 구하기', 'challenge', 1,
+'정수 N이 주어질 때, 1부터 N까지의 합을 계산하여 출력하세요.',
+'- for문을 사용하세요',
+'[{"input": "5", "output": "15"}, {"input": "10", "output": "55"}]',
+'#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+    scanf("%d", &n);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    printf("%d\n", sum);
+    return 0;
+}',
+'[{"input": "5", "expected": "15\n"}, {"input": "10", "expected": "55\n"}]',
+'["sum += i 로 누적합을 구하세요"]',
+ARRAY['loops', 'for', 'sum'], 5),
+
+('java-multiplication-table', 'java', 'basics', 24, '구구단', '구구단 출력하기', 'challenge', 1,
+'정수 N이 주어질 때, N단 구구단을 출력하세요. (1~9까지)',
+'- 형식: N x 1 = 결과',
+'[{"input": "3", "output": "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n3 x 4 = 12\n3 x 5 = 15\n3 x 6 = 18\n3 x 7 = 21\n3 x 8 = 24\n3 x 9 = 27"}]',
+'#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    for (int i = 1; i <= 9; i++) {
+        printf("%d x %d = %d\n", n, i, n * i);
+    }
+    return 0;
+}',
+'[{"input": "3", "expected": "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n3 x 4 = 12\n3 x 5 = 15\n3 x 6 = 18\n3 x 7 = 21\n3 x 8 = 24\n3 x 9 = 27\n"}]',
+'["for문으로 1~9까지 반복하세요"]',
+ARRAY['loops', 'for', 'multiplication'], 5),
+
+('java-do-while', 'java', 'basics', 25, 'do-while 반복', 'do-while문 사용하기', 'challenge', 1,
+'do-while문을 사용하여 1부터 5까지 출력하세요.',
+'- do-while문을 사용하세요',
+'[{"input": "", "output": "1\n2\n3\n4\n5"}]',
+'#include <stdio.h>
+
+int main() {
+    int i = 1;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int i = 1;
+    do {
+        printf("%d\n", i);
+        i++;
+    } while (i <= 5);
+    return 0;
+}',
+'[{"input": "", "expected": "1\n2\n3\n4\n5\n"}]',
+'["do { ... } while (조건);"]',
+ARRAY['loops', 'do-while'], 5);
+
+-- Unit 6: 함수 (Functions) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-function-add', 'java', 'basics', 26, '덧셈 함수', '두 수를 더하는 함수 만들기', 'challenge', 1,
+'두 정수를 입력받아 합을 반환하는 add 함수를 작성하세요.',
+'- int add(int a, int b) 형식으로 작성하세요',
+'[{"input": "3 5", "output": "8"}]',
+'#include <stdio.h>
+
+// 여기에 add 함수를 작성하세요
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("%d\n", add(a, b));
+    return 0;
+}',
+'#include <stdio.h>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("%d\n", add(a, b));
+    return 0;
+}',
+'[{"input": "3 5", "expected": "8\n"}]',
+'["return a + b;"]',
+ARRAY['functions', 'return'], 5),
+
+('java-function-square', 'java', 'basics', 27, '제곱 함수', '숫자의 제곱을 구하는 함수 만들기', 'challenge', 1,
+'정수 n을 입력받아 n의 제곱을 반환하는 square 함수를 작성하세요.',
+'- int square(int n) 형식으로 작성하세요',
+'[{"input": "4", "output": "16"}]',
+'#include <stdio.h>
+
+// 여기에 square 함수를 작성하세요
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d\n", square(n));
+    return 0;
+}',
+'#include <stdio.h>
+
+int square(int n) {
+    return n * n;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d\n", square(n));
+    return 0;
+}',
+'[{"input": "4", "expected": "16\n"}]',
+'["return n * n;"]',
+ARRAY['functions', 'return'], 5),
+
+('java-function-void', 'java', 'basics', 28, 'void 함수', '반환값이 없는 함수 만들기', 'challenge', 1,
+'문자열을 출력하는 void 타입의 greet 함수를 작성하세요. "Hello!"를 출력합니다.',
+'- void greet() 형식으로 작성하세요',
+'[{"input": "", "output": "Hello!"}]',
+'#include <stdio.h>
+
+// 여기에 greet 함수를 작성하세요
+
+int main() {
+    greet();
+    return 0;
+}',
+'#include <stdio.h>
+
+void greet() {
+    printf("Hello!\n");
+}
+
+int main() {
+    greet();
+    return 0;
+}',
+'[{"input": "", "expected": "Hello!\n"}]',
+'["void는 반환값이 없습니다"]',
+ARRAY['functions', 'void'], 5),
+
+('java-function-max', 'java', 'basics', 29, '최댓값 함수', '두 수 중 큰 수를 반환하는 함수', 'challenge', 1,
+'두 정수 중 큰 값을 반환하는 max 함수를 작성하세요.',
+'- if-else를 사용하세요',
+'[{"input": "7 12", "output": "12"}]',
+'#include <stdio.h>
+
+// 여기에 max 함수를 작성하세요
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("%d\n", max(a, b));
+    return 0;
+}',
+'#include <stdio.h>
+
+int max(int a, int b) {
+    if (a > b) return a;
+    else return b;
+}
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("%d\n", max(a, b));
+    return 0;
+}',
+'[{"input": "7 12", "expected": "12\n"}]',
+'["조건에 따라 다른 값을 반환하세요"]',
+ARRAY['functions', 'conditionals'], 5),
+
+('java-function-is-even', 'java', 'basics', 30, '짝수 판별 함수', '짝수인지 판별하는 함수', 'challenge', 1,
+'정수 n이 짝수이면 1, 홀수이면 0을 반환하는 isEven 함수를 작성하세요.',
+'- % 연산자를 사용하세요',
+'[{"input": "4", "output": "1"}, {"input": "7", "output": "0"}]',
+'#include <stdio.h>
+
+// 여기에 isEven 함수를 작성하세요
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d\n", isEven(n));
+    return 0;
+}',
+'#include <stdio.h>
+
+int isEven(int n) {
+    return n % 2 == 0;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("%d\n", isEven(n));
+    return 0;
+}',
+'[{"input": "4", "expected": "1\n"}, {"input": "7", "expected": "0\n"}]',
+'["n % 2 == 0은 1(true) 또는 0(false)을 반환합니다"]',
+ARRAY['functions', 'modulo'], 5);
+
+-- Unit 7: 배열 (Arrays) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-array-declare', 'java', 'basics', 31, '배열 선언', '배열 선언하고 초기화하기', 'challenge', 1,
+'크기가 5인 정수 배열을 선언하고 1, 2, 3, 4, 5로 초기화한 후 모든 요소를 출력하세요.',
+'- 배열 선언: int arr[5]',
+'[{"input": "", "output": "1 2 3 4 5"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}',
+'[{"input": "", "expected": "1 2 3 4 5 \n"}]',
+'["int arr[] = {1, 2, 3, 4, 5};"]',
+ARRAY['arrays', 'basics'], 5),
+
+('java-array-sum', 'java', 'basics', 32, '배열 합계', '배열 요소의 합 구하기', 'challenge', 1,
+'크기가 5인 배열의 모든 요소의 합을 계산하여 출력하세요.',
+'- for문을 사용하세요',
+'[{"input": "1 2 3 4 5", "output": "15"}]',
+'#include <stdio.h>
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int arr[5];
+    int sum = 0;
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+    printf("%d\n", sum);
+    return 0;
+}',
+'[{"input": "1 2 3 4 5", "expected": "15\n"}]',
+'["sum += arr[i]로 누적하세요"]',
+ARRAY['arrays', 'sum'], 5),
+
+('java-array-max', 'java', 'basics', 33, '배열 최댓값', '배열에서 가장 큰 값 찾기', 'challenge', 1,
+'크기가 5인 배열에서 가장 큰 값을 찾아 출력하세요.',
+'- for문과 if문을 사용하세요',
+'[{"input": "3 7 2 9 5", "output": "9"}]',
+'#include <stdio.h>
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int max = arr[0];
+    for (int i = 1; i < 5; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    printf("%d\n", max);
+    return 0;
+}',
+'[{"input": "3 7 2 9 5", "expected": "9\n"}]',
+'["첫 요소를 max로 설정하고 비교하세요"]',
+ARRAY['arrays', 'max'], 5),
+
+('java-array-reverse', 'java', 'basics', 34, '배열 뒤집기', '배열을 역순으로 출력하기', 'challenge', 1,
+'크기가 5인 배열을 입력받아 역순으로 출력하세요.',
+'- for문을 역순으로 돌리세요',
+'[{"input": "1 2 3 4 5", "output": "5 4 3 2 1"}]',
+'#include <stdio.h>
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    for (int i = 4; i >= 0; i--) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}',
+'[{"input": "1 2 3 4 5", "expected": "5 4 3 2 1 \n"}]',
+'["i = 4부터 i >= 0까지 감소시키세요"]',
+ARRAY['arrays', 'reverse'], 5),
+
+('java-array-search', 'java', 'basics', 35, '배열 검색', '배열에서 특정 값 찾기', 'challenge', 1,
+'크기가 5인 배열과 찾을 값 target이 주어질 때, target이 배열에 있으면 인덱스를, 없으면 -1을 출력하세요.',
+'- for문과 if문을 사용하세요',
+'[{"input": "1 2 3 4 5\n3", "output": "2"}]',
+'#include <stdio.h>
+
+int main() {
+    int arr[5], target;
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    scanf("%d", &target);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int arr[5], target;
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    scanf("%d", &target);
+    int index = -1;
+    for (int i = 0; i < 5; i++) {
+        if (arr[i] == target) {
+            index = i;
+            break;
+        }
+    }
+    printf("%d\n", index);
+    return 0;
+}',
+'[{"input": "1 2 3 4 5\n3", "expected": "2\n"}]',
+'["찾으면 break로 반복을 중단하세요"]',
+ARRAY['arrays', 'search'], 5);
+
+-- Unit 8: 포인터 기초 (Pointers Basics) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-pointer-address', 'java', 'basics', 36, '변수 주소 출력', '변수의 메모리 주소 출력하기', 'challenge', 1,
+'정수 변수 num의 값과 주소를 출력하세요.',
+'- & 연산자를 사용하여 주소를 얻으세요\n- %p로 주소를 출력하세요',
+'[{"input": "", "output": "Value: 10\nAddress: 0x..."}]',
+'#include <stdio.h>
+
+int main() {
+    int num = 10;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num = 10;
+    printf("Value: %d\n", num);
+    printf("Address: %p\n", (void*)&num);
+    return 0;
+}',
+'[{"input": "", "expected": "Value: 10\nAddress: "}]',
+'["&num은 num의 주소입니다"]',
+ARRAY['pointers', 'address'], 5),
+
+('java-pointer-declare', 'java', 'basics', 37, '포인터 선언', '포인터 변수 선언하고 사용하기', 'challenge', 1,
+'정수 변수 num과 그것을 가리키는 포인터 ptr을 선언하고, 포인터를 통해 값을 출력하세요.',
+'- int *ptr = &num;',
+'[{"input": "", "output": "20"}]',
+'#include <stdio.h>
+
+int main() {
+    int num = 20;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num = 20;
+    int *ptr = &num;
+    printf("%d\n", *ptr);
+    return 0;
+}',
+'[{"input": "", "expected": "20\n"}]',
+'["*ptr로 포인터가 가리키는 값을 얻습니다"]',
+ARRAY['pointers', 'basics'], 5),
+
+('java-pointer-modify', 'java', 'basics', 38, '포인터로 값 수정', '포인터를 통해 변수 값 변경하기', 'challenge', 1,
+'정수 변수 num=10을 포인터를 통해 30으로 변경하고 출력하세요.',
+'- *ptr = 30;',
+'[{"input": "", "output": "30"}]',
+'#include <stdio.h>
+
+int main() {
+    int num = 10;
+    int *ptr = &num;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num = 10;
+    int *ptr = &num;
+    *ptr = 30;
+    printf("%d\n", num);
+    return 0;
+}',
+'[{"input": "", "expected": "30\n"}]',
+'["*ptr = 30으로 값을 변경합니다"]',
+ARRAY['pointers', 'modify'], 5),
+
+('java-pointer-swap', 'java', 'basics', 39, '포인터로 swap 함수', '포인터를 이용한 swap 함수 만들기', 'challenge', 1,
+'두 정수의 값을 바꾸는 swap 함수를 포인터를 사용하여 작성하세요.',
+'- void swap(int *a, int *b)',
+'[{"input": "5 10", "output": "10 5"}]',
+'#include <stdio.h>
+
+// 여기에 swap 함수를 작성하세요
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    swap(&a, &b);
+    printf("%d %d\n", a, b);
+    return 0;
+}',
+'#include <stdio.h>
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int a, b;
+    scanf("%d %d", &a, &b);
+    swap(&a, &b);
+    printf("%d %d\n", a, b);
+    return 0;
+}',
+'[{"input": "5 10", "expected": "10 5\n"}]',
+'["임시 변수로 값을 바꾸세요"]',
+ARRAY['pointers', 'functions'], 5),
+
+('java-pointer-array', 'java', 'basics', 40, '포인터와 배열', '포인터로 배열 접근하기', 'challenge', 1,
+'배열을 포인터로 접근하여 모든 요소를 출력하세요.',
+'- *(arr + i) 또는 arr[i]',
+'[{"input": "", "output": "1 2 3 4 5"}]',
+'#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", *(ptr + i));
+    }
+    printf("\n");
+    return 0;
+}',
+'[{"input": "", "expected": "1 2 3 4 5 \n"}]',
+'["배열 이름은 첫 요소의 주소입니다"]',
+ARRAY['pointers', 'arrays'], 5);
+
+-- Unit 9: 입출력 (Input/Output) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-scanf-int', 'java', 'basics', 41, '정수 입력받기', 'scanf로 정수 입력받기', 'challenge', 1,
+'정수 하나를 입력받아 그대로 출력하세요.',
+'- scanf("%d", &num);',
+'[{"input": "42", "output": "42"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num;
+    scanf("%d", &num);
+    printf("%d\n", num);
+    return 0;
+}',
+'[{"input": "42", "expected": "42\n"}]',
+'["&num으로 주소를 전달하세요"]',
+ARRAY['io', 'scanf'], 5),
+
+('java-scanf-multiple', 'java', 'basics', 42, '여러 값 입력받기', '여러 개의 값을 한 번에 입력받기', 'challenge', 1,
+'세 개의 정수를 입력받아 합을 출력하세요.',
+'- scanf("%d %d %d", &a, &b, &c);',
+'[{"input": "1 2 3", "output": "6"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    printf("%d\n", a + b + c);
+    return 0;
+}',
+'[{"input": "1 2 3", "expected": "6\n"}]',
+'["공백으로 구분된 입력을 받을 수 있습니다"]',
+ARRAY['io', 'scanf'], 5),
+
+('java-printf-formatted', 'java', 'basics', 43, '형식 지정 출력', 'printf로 형식을 지정하여 출력하기', 'challenge', 1,
+'정수와 실수를 입력받아 "Int: [정수], Float: [실수]" 형식으로 출력하세요.',
+'- 실수는 소수점 2자리까지',
+'[{"input": "10 3.14", "output": "Int: 10, Float: 3.14"}]',
+'#include <stdio.h>
+
+int main() {
+    int num;
+    float fnum;
+    scanf("%d %f", &num, &fnum);
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num;
+    float fnum;
+    scanf("%d %f", &num, &fnum);
+    printf("Int: %d, Float: %.2f\n", num, fnum);
+    return 0;
+}',
+'[{"input": "10 3.14", "expected": "Int: 10, Float: 3.14\n"}]',
+'["%.2f는 소수점 2자리입니다"]',
+ARRAY['io', 'printf', 'format'], 5),
+
+('java-getchar', 'java', 'basics', 44, '문자 입력', 'getchar로 문자 입력받기', 'challenge', 1,
+'문자 하나를 입력받아 그대로 출력하세요.',
+'- char ch = getchar();',
+'[{"input": "A", "output": "A"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    char ch = getchar();
+    putchar(ch);
+    putchar(''\n'');
+    return 0;
+}',
+'[{"input": "A", "expected": "A\n"}]',
+'["putchar로 문자를 출력할 수 있습니다"]',
+ARRAY['io', 'getchar'], 5),
+
+('java-fgets', 'java', 'basics', 45, '문자열 입력', 'fgets로 문자열 입력받기', 'challenge', 1,
+'한 줄의 문자열을 입력받아 그대로 출력하세요.',
+'- fgets(str, sizeof(str), stdin);',
+'[{"input": "Hello World", "output": "Hello World"}]',
+'#include <stdio.h>
+
+int main() {
+    char str[100];
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    char str[100];
+    fgets(str, sizeof(str), stdin);
+    printf("%s", str);
+    return 0;
+}',
+'[{"input": "Hello World", "expected": "Hello World\n"}]',
+'["fgets는 줄바꿈도 포함합니다"]',
+ARRAY['io', 'fgets', 'string'], 5);
+
+-- Unit 10: 구조체 기초 (Structures Basics) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_java (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('java-struct-declare', 'java', 'basics', 46, '구조체 선언', '구조체 정의하고 사용하기', 'challenge', 1,
+'이름(문자열)과 나이(정수)를 가진 Person 구조체를 정의하고 값을 출력하세요.',
+'- struct Person { char name[50]; int age; };',
+'[{"input": "", "output": "Name: John, Age: 25"}]',
+'#include <stdio.h>
+#include <string.h>
+
+// 여기에 구조체를 정의하세요
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+#include <string.h>
+
+struct Person {
+    char name[50];
+    int age;
+};
+
+int main() {
+    struct Person p;
+    strcpy(p.name, "John");
+    p.age = 25;
+    printf("Name: %s, Age: %d\n", p.name, p.age);
+    return 0;
+}',
+'[{"input": "", "expected": "Name: John, Age: 25\n"}]',
+'["struct로 구조체를 정의합니다"]',
+ARRAY['struct', 'basics'], 5),
+
+('java-struct-input', 'java', 'basics', 47, '구조체 입력', '구조체에 값 입력받기', 'challenge', 1,
+'Point 구조체(x, y 좌표)를 정의하고 값을 입력받아 출력하세요.',
+'- 출력 형식: (x, y)',
+'[{"input": "3 4", "output": "(3, 4)"}]',
+'#include <stdio.h>
+
+struct Point {
+    int x;
+    int y;
+};
+
+int main() {
+    struct Point p;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+struct Point {
+    int x;
+    int y;
+};
+
+int main() {
+    struct Point p;
+    scanf("%d %d", &p.x, &p.y);
+    printf("(%d, %d)\n", p.x, p.y);
+    return 0;
+}',
+'[{"input": "3 4", "expected": "(3, 4)\n"}]',
+'["p.x, p.y로 멤버에 접근하세요"]',
+ARRAY['struct', 'input'], 5),
+
+('java-struct-array', 'java', 'basics', 48, '구조체 배열', '구조체 배열 사용하기', 'challenge', 1,
+'Student 구조체(이름, 점수) 3개를 배열로 선언하고 평균 점수를 계산하세요.',
+'- 구조체 배열: struct Student students[3];',
+'[{"input": "Alice 90\nBob 80\nCharlie 85", "output": "85"}]',
+'#include <stdio.h>
+
+struct Student {
+    char name[50];
+    int score;
+};
+
+int main() {
+    struct Student students[3];
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+struct Student {
+    char name[50];
+    int score;
+};
+
+int main() {
+    struct Student students[3];
+    int sum = 0;
+    for (int i = 0; i < 3; i++) {
+        scanf("%s %d", students[i].name, &students[i].score);
+        sum += students[i].score;
+    }
+    printf("%d\n", sum / 3);
+    return 0;
+}',
+'[{"input": "Alice 90\nBob 80\nCharlie 85", "expected": "85\n"}]',
+'["배열로 여러 구조체를 관리할 수 있습니다"]',
+ARRAY['struct', 'array'], 5),
+
+('java-struct-pointer', 'java', 'basics', 49, '구조체 포인터', '구조체 포인터 사용하기', 'challenge', 1,
+'Rectangle 구조체(width, height)의 포인터를 사용하여 넓이를 계산하세요.',
+'- ptr->width 형식으로 접근',
+'[{"input": "5 10", "output": "50"}]',
+'#include <stdio.h>
+
+struct Rectangle {
+    int width;
+    int height;
+};
+
+int main() {
+    struct Rectangle r;
+    struct Rectangle *ptr = &r;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+struct Rectangle {
+    int width;
+    int height;
+};
+
+int main() {
+    struct Rectangle r;
+    struct Rectangle *ptr = &r;
+    scanf("%d %d", &ptr->width, &ptr->height);
+    printf("%d\n", ptr->width * ptr->height);
+    return 0;
+}',
+'[{"input": "5 10", "expected": "50\n"}]',
+'["-> 연산자로 포인터를 통해 멤버에 접근합니다"]',
+ARRAY['struct', 'pointer'], 5),
+
+('java-struct-typedef', 'java', 'basics', 50, 'typedef 사용', 'typedef로 구조체 간단히 사용하기', 'challenge', 1,
+'typedef를 사용하여 Book 구조체(title, price)를 정의하고 사용하세요.',
+'- typedef struct { ... } Book;',
+'[{"input": "C_Programming 30", "output": "Title: C_Programming, Price: 30"}]',
+'#include <stdio.h>
+
+// 여기에 typedef 구조체를 정의하세요
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+typedef struct {
+    char title[50];
+    int price;
+} Book;
+
+int main() {
+    Book b;
+    scanf("%s %d", b.title, &b.price);
+    printf("Title: %s, Price: %d\n", b.title, b.price);
+    return 0;
+}',
+'[{"input": "C_Programming 30", "expected": "Title: C_Programming, Price: 30\n"}]',
+'["typedef를 사용하면 struct 키워드 없이 사용 가능합니다"]',
+ARRAY['struct', 'typedef'], 5);
+
+-- ============================================================================
+-- End of Java Language Part 1
+-- ============================================================================

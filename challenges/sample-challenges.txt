@@ -1,0 +1,200 @@
+('c-hello-world', 'c', 'syntax', 1, 'Hello World', 'C로 첫 프로그램 작성하기', 'challenge', 1,
+'화면에 "Hello, World!"를 출력하는 프로그램을 작성하세요.',
+'- printf 함수를 사용하세요\n- 줄바꿈(\n)을 포함해야 합니다',
+'[{"input": "", "output": "Hello, World!"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}',
+'[{"input": "", "expected": "Hello, World!\n"}]',
+'["printf 함수의 사용법을 확인하세요", "문자열은 큰따옴표로 감싸야 합니다"]',
+ARRAY['basics', 'output', 'printf'], 5),
+
+('c-print-name', 'c', 'syntax', 2, '이름 출력하기', '자신의 이름을 출력하세요', 'challenge', 1,
+'화면에 "My name is [이름]" 형식으로 출력하는 프로그램을 작성하세요.',
+'- [이름] 부분에는 원하는 이름을 넣으세요\n- 줄바꿈을 포함해야 합니다',
+'[{"input": "", "output": "My name is John"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    printf("My name is John\n");
+    return 0;
+}',
+'[{"input": "", "expected": "My name is John\n"}]',
+'["printf로 문자열을 출력할 수 있습니다"]',
+ARRAY['basics', 'output'], 5),
+
+('c-multiline-output', 'c', 'syntax', 3, '여러 줄 출력', '여러 줄을 출력하세요', 'challenge', 1,
+'다음 세 줄을 출력하는 프로그램을 작성하세요:\nLine 1\nLine 2\nLine 3',
+'- 각 줄은 새로운 줄에 출력되어야 합니다',
+'[{"input": "", "output": "Line 1\nLine 2\nLine 3"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    printf("Line 1\n");
+    printf("Line 2\n");
+    printf("Line 3\n");
+    return 0;
+}',
+'[{"input": "", "expected": "Line 1\nLine 2\nLine 3\n"}]',
+'["printf를 여러 번 호출하거나 \\n을 사용하세요"]',
+ARRAY['basics', 'output'], 5),
+
+('c-single-line-comment', 'c', 'syntax', 4, '한 줄 주석', '주석을 사용하여 코드 설명하기', 'challenge', 1,
+'Hello를 출력하는 코드를 작성하고, 그 위에 한 줄 주석으로 "이것은 출력 코드입니다"를 추가하세요.',
+'- // 를 사용하여 주석을 작성하세요',
+'[{"input": "", "output": "Hello"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 주석과 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    // 이것은 출력 코드입니다
+    printf("Hello\n");
+    return 0;
+}',
+'[{"input": "", "expected": "Hello\n"}]',
+'["// 뒤의 내용은 실행되지 않습니다"]',
+ARRAY['basics', 'comments'], 5),
+
+('c-multi-line-comment', 'c', 'syntax', 5, '여러 줄 주석', '여러 줄 주석 사용하기', 'challenge', 1,
+'World를 출력하는 코드를 작성하고, 그 위에 여러 줄 주석으로 프로그램 설명을 추가하세요.',
+'- /* */ 를 사용하여 주석을 작성하세요',
+'[{"input": "", "output": "World"}]',
+'#include <stdio.h>
+
+int main() {
+    /* 여기에 주석과 코드를 작성하세요 */
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    /*
+     * 이 프로그램은 World를 출력합니다
+     * C 언어 기초 학습용입니다
+     */
+    printf("World\n");
+    return 0;
+}',
+'[{"input": "", "expected": "World\n"}]',
+'["/* */ 사이의 내용은 모두 주석입니다"]',
+ARRAY['basics', 'comments'], 5);
+
+-- Unit 2: 변수와 자료형 (Variables and Data Types) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_c (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('c-integer-variable', 'c', 'syntax', 6, '정수 변수', '정수형 변수 선언하고 출력하기', 'challenge', 1,
+'정수형 변수 num을 선언하고 42를 저장한 후 출력하세요.',
+'- int 타입을 사용하세요\n- %d를 사용하여 출력하세요',
+'[{"input": "", "output": "42"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int num = 42;
+    printf("%d\n", num);
+    return 0;
+}',
+'[{"input": "", "expected": "42\n"}]',
+'["int는 정수를 저장하는 타입입니다", "printf의 %d는 정수 출력용입니다"]',
+ARRAY['basics', 'variables', 'int'], 5),
+
+('c-float-variable', 'c', 'syntax', 7, '실수 변수', '실수형 변수 선언하고 출력하기', 'challenge', 1,
+'실수형 변수 pi를 선언하고 3.14를 저장한 후 출력하세요.',
+'- float 타입을 사용하세요\n- %f를 사용하여 출력하세요',
+'[{"input": "", "output": "3.14"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    float pi = 3.14;
+    printf("%.2f\n", pi);
+    return 0;
+}',
+'[{"input": "", "expected": "3.14\n"}]',
+'["float는 실수를 저장합니다", "%.2f는 소수점 2자리까지 출력합니다"]',
+ARRAY['basics', 'variables', 'float'], 5),
+
+('c-char-variable', 'c', 'syntax', 8, '문자 변수', '문자형 변수 선언하고 출력하기', 'challenge', 1,
+'문자형 변수 grade를 선언하고 ''A''를 저장한 후 출력하세요.',
+'- char 타입을 사용하세요\n- %c를 사용하여 출력하세요',
+'[{"input": "", "output": "A"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    char grade = ''A'';
+    printf("%c\n", grade);
+    return 0;
+}',
+'[{"input": "", "expected": "A\n"}]',
+'["char는 한 글자를 저장합니다", "문자는 작은따옴표로 감쌉니다"]',
+ARRAY['basics', 'variables', 'char'], 5),
+
+('c-multiple-variables', 'c', 'syntax', 9, '여러 변수 선언', '여러 개의 변수 선언하기', 'challenge', 1,
+'정수 a=10, b=20을 선언하고 두 값을 공백으로 구분하여 출력하세요.',
+'- 한 줄에 출력해야 합니다',
+'[{"input": "", "output": "10 20"}]',
+'#include <stdio.h>
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <stdio.h>
+
+int main() {
+    int a = 10, b = 20;
+    printf("%d %d\n", a, b);
+    return 0;
+}',

@@ -1,0 +1,1540 @@
+-- ============================================================================
+-- C++ Language Challenges - Part 1 (Easy)
+-- ============================================================================
+-- Total: 50 challenges (5 per unit × 10 units)
+-- Difficulty: EASY (1)
+-- ============================================================================
+
+-- Unit 1: 출력과 주석 (Output and Comments) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-hello-world', 'cpp', 'syntax', 1, 'Hello World', 'C++로 첫 프로그램 작성하기', 'challenge', 1,
+'화면에 "Hello, World!"를 출력하는 프로그램을 작성하세요.',
+'- cout을 사용하세요\n- endl 또는 \n으로 줄바꿈',
+'[{"input": "", "output": "Hello, World!"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "Hello, World!\n"}]',
+'["cout << 로 출력합니다", "endl은 줄바꿈을 의미합니다"]',
+ARRAY['basics', 'output', 'cout'], 5),
+
+('cpp-print-numbers', 'cpp', 'syntax', 2, '숫자 출력', '여러 숫자 출력하기', 'challenge', 1,
+'정수 10, 20, 30을 공백으로 구분하여 한 줄에 출력하세요.',
+'- << 연산자를 연결하여 사용',
+'[{"input": "", "output": "10 20 30"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    cout << 10 << " " << 20 << " " << 30 << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "10 20 30\n"}]',
+'["<< 연산자를 여러 번 사용할 수 있습니다"]',
+ARRAY['basics', 'output'], 5),
+
+('cpp-multiline', 'cpp', 'syntax', 3, '여러 줄 출력', '여러 줄로 출력하기', 'challenge', 1,
+'세 줄에 걸쳐 "Line 1", "Line 2", "Line 3"을 출력하세요.',
+'- endl 또는 \n 사용',
+'[{"input": "", "output": "Line 1\nLine 2\nLine 3"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Line 1" << endl;
+    cout << "Line 2" << endl;
+    cout << "Line 3" << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "Line 1\nLine 2\nLine 3\n"}]',
+'["cout을 여러 번 호출하거나 \\n을 사용하세요"]',
+ARRAY['basics', 'output'], 5),
+
+('cpp-single-comment', 'cpp', 'syntax', 4, '한 줄 주석', '주석 사용하기', 'challenge', 1,
+'"C++"를 출력하고, 그 위에 한 줄 주석으로 "This is C++"를 추가하세요.',
+'- // 주석 사용',
+'[{"input": "", "output": "C++"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 주석과 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // This is C++
+    cout << "C++" << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "C++\n"}]',
+'["// 뒤의 내용은 실행되지 않습니다"]',
+ARRAY['basics', 'comments'], 5),
+
+('cpp-multi-comment', 'cpp', 'syntax', 5, '여러 줄 주석', '여러 줄 주석 사용하기', 'challenge', 1,
+'"Programming"을 출력하고, 위에 여러 줄 주석을 추가하세요.',
+'- /* */ 사용',
+'[{"input": "", "output": "Programming"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    /* 여기에 주석을 작성하세요 */
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    /*
+     * This program prints Programming
+     * C++ learning example
+     */
+    cout << "Programming" << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "Programming\n"}]',
+'["/* */ 사이의 모든 내용은 주석입니다"]',
+ARRAY['basics', 'comments'], 5);
+
+-- Unit 2: 변수와 자료형 (Variables and Data Types) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-int-variable', 'cpp', 'syntax', 6, '정수 변수', '정수형 변수 선언과 출력', 'challenge', 1,
+'정수형 변수 num을 선언하고 100을 저장한 후 출력하세요.',
+'- int 타입 사용',
+'[{"input": "", "output": "100"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 100;
+    cout << num << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "100\n"}]',
+'["int는 정수를 저장합니다"]',
+ARRAY['basics', 'variables', 'int'], 5),
+
+('cpp-double-variable', 'cpp', 'syntax', 7, '실수 변수', '실수형 변수 선언과 출력', 'challenge', 1,
+'실수형 변수 pi를 선언하고 3.14159를 저장한 후 출력하세요.',
+'- double 타입 사용',
+'[{"input": "", "output": "3.14159"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    double pi = 3.14159;
+    cout << pi << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "3.14159\n"}]',
+'["double은 실수를 저장합니다"]',
+ARRAY['basics', 'variables', 'double'], 5),
+
+('cpp-string-variable', 'cpp', 'syntax', 8, '문자열 변수', 'string 타입 사용하기', 'challenge', 1,
+'문자열 변수 name에 "Alice"를 저장하고 출력하세요.',
+'- string 타입 사용',
+'[{"input": "", "output": "Alice"}]',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string name = "Alice";
+    cout << name << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "Alice\n"}]',
+'["string은 C++의 문자열 타입입니다"]',
+ARRAY['basics', 'variables', 'string'], 5),
+
+('cpp-bool-variable', 'cpp', 'syntax', 9, '불린 변수', 'bool 타입 사용하기', 'challenge', 1,
+'불린 변수 isTrue에 true를 저장하고 출력하세요.',
+'- bool 타입 사용\n- boolalpha 사용하여 true/false로 출력',
+'[{"input": "", "output": "true"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+    // cout << boolalpha 를 사용하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    bool isTrue = true;
+    cout << boolalpha << isTrue << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "true\n"}]',
+'["boolalpha는 불린값을 문자로 출력합니다"]',
+ARRAY['basics', 'variables', 'bool'], 5),
+
+('cpp-auto-keyword', 'cpp', 'syntax', 10, 'auto 키워드', '타입 자동 추론하기', 'challenge', 1,
+'auto 키워드로 변수를 선언하고 42를 저장한 후 출력하세요.',
+'- auto 키워드 사용',
+'[{"input": "", "output": "42"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    auto value = 42;
+    cout << value << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "42\n"}]',
+'["auto는 초기값으로 타입을 자동 추론합니다"]',
+ARRAY['basics', 'variables', 'auto'], 5);
+
+-- Unit 3: 연산자 (Operators) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-arithmetic', 'cpp', 'basics', 11, '사칙연산', '기본 산술 연산하기', 'challenge', 1,
+'두 정수 a=20, b=3의 덧셈, 뺄셈, 곱셈, 나눗셈 결과를 각 줄에 출력하세요.',
+'- +, -, *, / 연산자 사용',
+'[{"input": "", "output": "23\n17\n60\n6"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 20, b = 3;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 20, b = 3;
+    cout << a + b << endl;
+    cout << a - b << endl;
+    cout << a * b << endl;
+    cout << a / b << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "23\n17\n60\n6\n"}]',
+'["정수 나눗셈은 소수점을 버립니다"]',
+ARRAY['basics', 'operators', 'arithmetic'], 5),
+
+('cpp-modulo', 'cpp', 'basics', 12, '나머지 연산', '나머지 구하기', 'challenge', 1,
+'두 정수 a=17, b=5의 나머지를 출력하세요.',
+'- % 연산자 사용',
+'[{"input": "", "output": "2"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 17, b = 5;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 17, b = 5;
+    cout << a % b << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "2\n"}]',
+'["% 연산자로 나머지를 구합니다"]',
+ARRAY['basics', 'operators', 'modulo'], 5),
+
+('cpp-increment', 'cpp', 'basics', 13, '증감 연산자', '++와 -- 사용하기', 'challenge', 1,
+'정수 x=5에 대해 ++x, x++의 결과를 각 줄에 출력하세요.',
+'- 전위/후위 증가 연산자',
+'[{"input": "", "output": "6\n6"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 5;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 5;
+    cout << ++x << endl;  // 6
+    cout << x++ << endl;  // 6 (출력 후 증가)
+    return 0;
+}',
+'[{"input": "", "expected": "6\n6\n"}]',
+'["전위는 먼저 증가, 후위는 나중에 증가"]',
+ARRAY['basics', 'operators', 'increment'], 5),
+
+('cpp-comparison', 'cpp', 'basics', 14, '비교 연산자', '값 비교하기', 'challenge', 1,
+'두 정수 a=10, b=20에 대해 a < b, a == b의 결과를 출력하세요.',
+'- boolalpha 사용하여 true/false로 출력',
+'[{"input": "", "output": "true\nfalse"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10, b = 20;
+    cout << boolalpha;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10, b = 20;
+    cout << boolalpha;
+    cout << (a < b) << endl;
+    cout << (a == b) << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "true\nfalse\n"}]',
+'["비교 연산자는 bool 값을 반환합니다"]',
+ARRAY['basics', 'operators', 'comparison'], 5),
+
+('cpp-logical', 'cpp', 'basics', 15, '논리 연산자', 'AND, OR, NOT 사용하기', 'challenge', 1,
+'bool a=true, b=false에 대해 a && b, a || b, !a의 결과를 출력하세요.',
+'- &&, ||, ! 연산자',
+'[{"input": "", "output": "false\ntrue\nfalse"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    bool a = true, b = false;
+    cout << boolalpha;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    bool a = true, b = false;
+    cout << boolalpha;
+    cout << (a && b) << endl;
+    cout << (a || b) << endl;
+    cout << !a << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "false\ntrue\nfalse\n"}]',
+'["&&는 AND, ||는 OR, !는 NOT"]',
+ARRAY['basics', 'operators', 'logical'], 5);
+
+-- Unit 4: 조건문 (Conditional Statements) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-if-positive', 'cpp', 'basics', 16, '양수 판별', '숫자가 양수인지 확인', 'challenge', 1,
+'정수 num을 입력받아 양수이면 "Positive"를 출력하세요.',
+'- if 문 사용',
+'[{"input": "10", "output": "Positive"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+    if (num > 0) {
+        cout << "Positive" << endl;
+    }
+    return 0;
+}',
+'[{"input": "10", "expected": "Positive\n"}]',
+'["if (조건) { 실행할 코드 }"]',
+ARRAY['conditionals', 'if'], 5),
+
+('cpp-if-else-even', 'cpp', 'basics', 17, '짝수 홀수', '짝수인지 홀수인지 판별', 'challenge', 1,
+'정수 num을 입력받아 짝수면 "Even", 홀수면 "Odd"를 출력하세요.',
+'- if-else 문 사용',
+'[{"input": "8", "output": "Even"}, {"input": "5", "output": "Odd"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+    if (num % 2 == 0) {
+        cout << "Even" << endl;
+    } else {
+        cout << "Odd" << endl;
+    }
+    return 0;
+}',
+'[{"input": "8", "expected": "Even\n"}, {"input": "5", "expected": "Odd\n"}]',
+'["num % 2 == 0이면 짝수입니다"]',
+ARRAY['conditionals', 'if-else'], 5),
+
+('cpp-if-else-max', 'cpp', 'basics', 18, '큰 수 찾기', '두 수 중 큰 수 출력', 'challenge', 1,
+'두 정수 a, b를 입력받아 큰 수를 출력하세요.',
+'- if-else 문 사용',
+'[{"input": "15 25", "output": "25"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    if (a > b) {
+        cout << a << endl;
+    } else {
+        cout << b << endl;
+    }
+    return 0;
+}',
+'[{"input": "15 25", "expected": "25\n"}]',
+'["a와 b를 비교하세요"]',
+ARRAY['conditionals', 'comparison'], 5),
+
+('cpp-if-else-if-grade', 'cpp', 'basics', 19, '학점 계산', '점수로 등급 매기기', 'challenge', 1,
+'점수를 입력받아 90 이상 A, 80 이상 B, 70 이상 C, 그 외 F를 출력하세요.',
+'- if-else if-else 문',
+'[{"input": "95", "output": "A"}, {"input": "85", "output": "B"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int score;
+    cin >> score;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int score;
+    cin >> score;
+    if (score >= 90) {
+        cout << "A" << endl;
+    } else if (score >= 80) {
+        cout << "B" << endl;
+    } else if (score >= 70) {
+        cout << "C" << endl;
+    } else {
+        cout << "F" << endl;
+    }
+    return 0;
+}',
+'[{"input": "95", "expected": "A\n"}, {"input": "85", "expected": "B\n"}]',
+'["조건을 순서대로 확인하세요"]',
+ARRAY['conditionals', 'if-else-if'], 5),
+
+('cpp-ternary', 'cpp', 'basics', 20, '삼항 연산자', '조건 연산자 사용하기', 'challenge', 1,
+'정수 n을 입력받아 짝수면 "Even", 홀수면 "Odd"를 삼항 연산자로 출력하세요.',
+'- ? : 연산자 사용',
+'[{"input": "6", "output": "Even"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    cout << (n % 2 == 0 ? "Even" : "Odd") << endl;
+    return 0;
+}',
+'[{"input": "6", "expected": "Even\n"}]',
+'["조건 ? 참일때값 : 거짓일때값"]',
+ARRAY['conditionals', 'ternary'], 5);
+
+-- Unit 5: 반복문 (Loops) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-for-loop', 'cpp', 'basics', 21, 'for 반복문', '1부터 10까지 출력', 'challenge', 1,
+'for문을 사용하여 1부터 10까지 출력하세요.',
+'- for 문 사용',
+'[{"input": "", "output": "1 2 3 4 5 6 7 8 9 10"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 10; i++) {
+        cout << i << " ";
+    }
+    cout << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "1 2 3 4 5 6 7 8 9 10 \n"}]',
+'["for (초기값; 조건; 증감) { }"]',
+ARRAY['loops', 'for'], 5),
+
+('cpp-while-loop', 'cpp', 'basics', 22, 'while 반복문', '카운트다운 출력', 'challenge', 1,
+'while문으로 5부터 1까지 카운트다운하세요.',
+'- while 문 사용',
+'[{"input": "", "output": "5 4 3 2 1"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int count = 5;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int count = 5;
+    while (count > 0) {
+        cout << count << " ";
+        count--;
+    }
+    cout << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "5 4 3 2 1 \n"}]',
+'["while (조건) { ... }"]',
+ARRAY['loops', 'while'], 5),
+
+('cpp-sum-loop', 'cpp', 'basics', 23, '합계 계산', '1부터 N까지 합', 'challenge', 1,
+'정수 N을 입력받아 1부터 N까지의 합을 계산하세요.',
+'- for 문 사용',
+'[{"input": "10", "output": "55"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    cout << sum << endl;
+    return 0;
+}',
+'[{"input": "10", "expected": "55\n"}]',
+'["sum에 누적하세요"]',
+ARRAY['loops', 'for', 'sum'], 5),
+
+('cpp-multiplication-table', 'cpp', 'basics', 24, '구구단', 'N단 구구단 출력', 'challenge', 1,
+'정수 N을 입력받아 N단 구구단(1~9)을 출력하세요.',
+'- 형식: N x 1 = 결과',
+'[{"input": "5", "output": "5 x 1 = 5\n5 x 2 = 10\n5 x 3 = 15\n5 x 4 = 20\n5 x 5 = 25\n5 x 6 = 30\n5 x 7 = 35\n5 x 8 = 40\n5 x 9 = 45"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 1; i <= 9; i++) {
+        cout << n << " x " << i << " = " << n * i << endl;
+    }
+    return 0;
+}',
+'[{"input": "5", "expected": "5 x 1 = 5\n5 x 2 = 10\n5 x 3 = 15\n5 x 4 = 20\n5 x 5 = 25\n5 x 6 = 30\n5 x 7 = 35\n5 x 8 = 40\n5 x 9 = 45\n"}]',
+'["1부터 9까지 반복하세요"]',
+ARRAY['loops', 'multiplication'], 5),
+
+('cpp-do-while', 'cpp', 'basics', 25, 'do-while 반복문', 'do-while 사용하기', 'challenge', 1,
+'do-while문으로 1부터 5까지 출력하세요.',
+'- do-while 문 사용',
+'[{"input": "", "output": "1 2 3 4 5"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 1;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 1;
+    do {
+        cout << i << " ";
+        i++;
+    } while (i <= 5);
+    cout << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "1 2 3 4 5 \n"}]',
+'["do { } while (조건);"]',
+ARRAY['loops', 'do-while'], 5);
+
+-- Unit 6: 함수 (Functions) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-function-add', 'cpp', 'basics', 26, '덧셈 함수', '두 수를 더하는 함수', 'challenge', 1,
+'두 정수를 더하는 add 함수를 작성하세요.',
+'- int add(int a, int b)',
+'[{"input": "5 7", "output": "12"}]',
+'#include <iostream>
+using namespace std;
+
+// 여기에 add 함수를 작성하세요
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << add(a, b) << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << add(a, b) << endl;
+    return 0;
+}',
+'[{"input": "5 7", "expected": "12\n"}]',
+'["return a + b;"]',
+ARRAY['functions', 'return'], 5),
+
+('cpp-function-max', 'cpp', 'basics', 27, '최댓값 함수', '큰 수 반환하기', 'challenge', 1,
+'두 정수 중 큰 값을 반환하는 max 함수를 작성하세요.',
+'- int max(int a, int b)',
+'[{"input": "10 20", "output": "20"}]',
+'#include <iostream>
+using namespace std;
+
+// 여기에 max 함수를 작성하세요
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << max(a, b) << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << max(a, b) << endl;
+    return 0;
+}',
+'[{"input": "10 20", "expected": "20\n"}]',
+'["조건에 따라 다른 값을 반환"]',
+ARRAY['functions', 'conditionals'], 5),
+
+('cpp-function-void', 'cpp', 'basics', 28, 'void 함수', '반환값 없는 함수', 'challenge', 1,
+'문자열을 출력하는 void 타입 printMessage 함수를 작성하세요.',
+'- void printMessage()',
+'[{"input": "", "output": "Hello from function"}]',
+'#include <iostream>
+using namespace std;
+
+// 여기에 printMessage 함수를 작성하세요
+
+int main() {
+    printMessage();
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+void printMessage() {
+    cout << "Hello from function" << endl;
+}
+
+int main() {
+    printMessage();
+    return 0;
+}',
+'[{"input": "", "expected": "Hello from function\n"}]',
+'["void는 반환값이 없습니다"]',
+ARRAY['functions', 'void'], 5),
+
+('cpp-function-square', 'cpp', 'basics', 29, '제곱 함수', '숫자의 제곱 구하기', 'challenge', 1,
+'정수 n의 제곱을 반환하는 square 함수를 작성하세요.',
+'- int square(int n)',
+'[{"input": "7", "output": "49"}]',
+'#include <iostream>
+using namespace std;
+
+// 여기에 square 함수를 작성하세요
+
+int main() {
+    int n;
+    cin >> n;
+    cout << square(n) << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int square(int n) {
+    return n * n;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << square(n) << endl;
+    return 0;
+}',
+'[{"input": "7", "expected": "49\n"}]',
+'["return n * n;"]',
+ARRAY['functions', 'math'], 5),
+
+('cpp-function-is-even', 'cpp', 'basics', 30, '짝수 판별 함수', '짝수인지 확인하는 함수', 'challenge', 1,
+'정수가 짝수면 true, 홀수면 false를 반환하는 isEven 함수를 작성하세요.',
+'- bool isEven(int n)',
+'[{"input": "8", "output": "true"}]',
+'#include <iostream>
+using namespace std;
+
+// 여기에 isEven 함수를 작성하세요
+
+int main() {
+    int n;
+    cin >> n;
+    cout << boolalpha << isEven(n) << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+bool isEven(int n) {
+    return n % 2 == 0;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << boolalpha << isEven(n) << endl;
+    return 0;
+}',
+'[{"input": "8", "expected": "true\n"}]',
+'["n % 2 == 0을 반환하세요"]',
+ARRAY['functions', 'bool'], 5);
+
+-- Unit 7: 배열 (Arrays) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-array-declare', 'cpp', 'basics', 31, '배열 선언', '배열 선언과 초기화', 'challenge', 1,
+'크기 5인 정수 배열을 {1,2,3,4,5}로 초기화하고 모든 요소를 출력하세요.',
+'- int arr[5]',
+'[{"input": "", "output": "1 2 3 4 5"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "1 2 3 4 5 \n"}]',
+'["int arr[] = {1, 2, 3, 4, 5};"]',
+ARRAY['arrays', 'basics'], 5),
+
+('cpp-array-sum', 'cpp', 'basics', 32, '배열 합계', '배열 요소의 합', 'challenge', 1,
+'5개의 정수를 입력받아 합을 계산하세요.',
+'- for 문 사용',
+'[{"input": "1 2 3 4 5", "output": "15"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    // 여기에 합계 계산 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5];
+    int sum = 0;
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+        sum += arr[i];
+    }
+    cout << sum << endl;
+    return 0;
+}',
+'[{"input": "1 2 3 4 5", "expected": "15\n"}]',
+'["sum += arr[i]로 누적"]',
+ARRAY['arrays', 'sum'], 5),
+
+('cpp-array-max', 'cpp', 'basics', 33, '배열 최댓값', '배열에서 최댓값 찾기', 'challenge', 1,
+'5개의 정수를 입력받아 최댓값을 출력하세요.',
+'- for 문과 if 문 사용',
+'[{"input": "3 7 2 9 5", "output": "9"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    // 여기에 최댓값 찾기 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    int maxVal = arr[0];
+    for (int i = 1; i < 5; i++) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+    cout << maxVal << endl;
+    return 0;
+}',
+'[{"input": "3 7 2 9 5", "expected": "9\n"}]',
+'["첫 요소를 max로 설정하고 비교"]',
+ARRAY['arrays', 'max'], 5),
+
+('cpp-array-reverse', 'cpp', 'basics', 34, '배열 역순 출력', '배열을 거꾸로 출력', 'challenge', 1,
+'5개의 정수를 입력받아 역순으로 출력하세요.',
+'- 역순 for 문',
+'[{"input": "1 2 3 4 5", "output": "5 4 3 2 1"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    // 여기에 역순 출력 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    for (int i = 4; i >= 0; i--) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}',
+'[{"input": "1 2 3 4 5", "expected": "5 4 3 2 1 \n"}]',
+'["i = 4부터 i >= 0까지"]',
+ARRAY['arrays', 'reverse'], 5),
+
+('cpp-range-based-loop', 'cpp', 'basics', 35, '범위 기반 for문', 'range-based for 사용', 'challenge', 1,
+'배열 {10, 20, 30, 40, 50}의 모든 요소를 범위 기반 for문으로 출력하세요.',
+'- for (auto x : arr)',
+'[{"input": "", "output": "10 20 30 40 50"}]',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    // 여기에 범위 기반 for문을 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    for (auto x : arr) {
+        cout << x << " ";
+    }
+    cout << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "10 20 30 40 50 \n"}]',
+'["for (auto 변수 : 배열)"]',
+ARRAY['arrays', 'range-for', 'c++11'], 5);
+
+-- Unit 8: 벡터 (Vectors) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-vector-declare', 'cpp', 'basics', 36, '벡터 선언', 'vector 사용하기', 'challenge', 1,
+'정수 벡터를 선언하고 {1,2,3,4,5}로 초기화한 후 출력하세요.',
+'- vector<int> 사용',
+'[{"input": "", "output": "1 2 3 4 5"}]',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+    for (auto x : v) {
+        cout << x << " ";
+    }
+    cout << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "1 2 3 4 5 \n"}]',
+'["vector<int> v = {...};"]',
+ARRAY['vector', 'basics', 'stl'], 5),
+
+('cpp-vector-push', 'cpp', 'basics', 37, '벡터 추가', 'push_back 사용하기', 'challenge', 1,
+'빈 벡터에 5개의 정수를 입력받아 추가한 후 출력하세요.',
+'- push_back() 사용',
+'[{"input": "1 2 3 4 5", "output": "1 2 3 4 5"}]',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v;
+    for (int i = 0; i < 5; i++) {
+        int x;
+        cin >> x;
+        v.push_back(x);
+    }
+    for (auto x : v) {
+        cout << x << " ";
+    }
+    cout << endl;
+    return 0;
+}',
+'[{"input": "1 2 3 4 5", "expected": "1 2 3 4 5 \n"}]',
+'["v.push_back(값)으로 추가"]',
+ARRAY['vector', 'push_back', 'stl'], 5),
+
+('cpp-vector-size', 'cpp', 'basics', 38, '벡터 크기', 'size() 사용하기', 'challenge', 1,
+'벡터 {10,20,30,40,50}의 크기를 출력하세요.',
+'- size() 메서드',
+'[{"input": "", "output": "5"}]',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30, 40, 50};
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30, 40, 50};
+    cout << v.size() << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "5\n"}]',
+'["v.size()는 원소 개수를 반환"]',
+ARRAY['vector', 'size', 'stl'], 5),
+
+('cpp-vector-access', 'cpp', 'basics', 39, '벡터 접근', '인덱스로 접근하기', 'challenge', 1,
+'벡터 {5,10,15,20,25}에서 인덱스 2의 값을 출력하세요.',
+'- v[index] 또는 v.at(index)',
+'[{"input": "", "output": "15"}]',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 10, 15, 20, 25};
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 10, 15, 20, 25};
+    cout << v[2] << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "15\n"}]',
+'["v[2] 또는 v.at(2)"]',
+ARRAY['vector', 'access', 'stl'], 5),
+
+('cpp-vector-clear', 'cpp', 'basics', 40, '벡터 비우기', 'clear() 사용하기', 'challenge', 1,
+'벡터 {1,2,3}을 비운 후 크기를 출력하세요.',
+'- clear() 메서드',
+'[{"input": "", "output": "0"}]',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3};
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3};
+    v.clear();
+    cout << v.size() << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "0\n"}]',
+'["v.clear()는 모든 원소를 제거"]',
+ARRAY['vector', 'clear', 'stl'], 5);
+
+-- Unit 9: 문자열 (Strings) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-string-input', 'cpp', 'basics', 41, '문자열 입력', '문자열 입력받기', 'challenge', 1,
+'문자열을 입력받아 그대로 출력하세요.',
+'- cin 또는 getline 사용',
+'[{"input": "Hello", "output": "Hello"}]',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cin >> str;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cin >> str;
+    cout << str << endl;
+    return 0;
+}',
+'[{"input": "Hello", "expected": "Hello\n"}]',
+'["cin >> str로 문자열 입력"]',
+ARRAY['strings', 'input'], 5),
+
+('cpp-string-length', 'cpp', 'basics', 42, '문자열 길이', 'length() 사용하기', 'challenge', 1,
+'문자열을 입력받아 길이를 출력하세요.',
+'- length() 또는 size() 메서드',
+'[{"input": "programming", "output": "11"}]',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cin >> str;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cin >> str;
+    cout << str.length() << endl;
+    return 0;
+}',
+'[{"input": "programming", "expected": "11\n"}]',
+'["str.length() 또는 str.size()"]',
+ARRAY['strings', 'length'], 5),
+
+('cpp-string-concat', 'cpp', 'basics', 43, '문자열 연결', '+ 연산자로 연결', 'challenge', 1,
+'두 문자열을 입력받아 연결한 후 출력하세요.',
+'- + 연산자 사용',
+'[{"input": "Hello World", "output": "HelloWorld"}]',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s1, s2;
+    cin >> s1 >> s2;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s1, s2;
+    cin >> s1 >> s2;
+    cout << s1 + s2 << endl;
+    return 0;
+}',
+'[{"input": "Hello World", "expected": "HelloWorld\n"}]',
+'["s1 + s2로 연결"]',
+ARRAY['strings', 'concatenation'], 5),
+
+('cpp-string-compare', 'cpp', 'basics', 44, '문자열 비교', '== 연산자로 비교', 'challenge', 1,
+'두 문자열을 입력받아 같으면 "Same", 다르면 "Different"를 출력하세요.',
+'- == 연산자',
+'[{"input": "hello hello", "output": "Same"}]',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s1, s2;
+    cin >> s1 >> s2;
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s1, s2;
+    cin >> s1 >> s2;
+    if (s1 == s2) {
+        cout << "Same" << endl;
+    } else {
+        cout << "Different" << endl;
+    }
+    return 0;
+}',
+'[{"input": "hello hello", "expected": "Same\n"}]',
+'["s1 == s2로 비교"]',
+ARRAY['strings', 'comparison'], 5),
+
+('cpp-string-substr', 'cpp', 'basics', 45, '부분 문자열', 'substr() 사용하기', 'challenge', 1,
+'문자열 "programming"의 인덱스 3부터 4글자를 출력하세요.',
+'- substr(pos, len) 메서드',
+'[{"input": "", "output": "gram"}]',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "programming";
+    // 여기에 코드를 작성하세요
+
+    return 0;
+}',
+'#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "programming";
+    cout << str.substr(3, 4) << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "gram\n"}]',
+'["str.substr(시작위치, 길이)"]',
+ARRAY['strings', 'substr'], 5);
+
+-- Unit 10: 클래스 기초 (Classes Basics) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_cpp (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('cpp-class-declare', 'cpp', 'basics', 46, '클래스 선언', '간단한 클래스 만들기', 'challenge', 1,
+'정수 멤버 변수 x를 가진 Point 클래스를 정의하고 값을 출력하세요.',
+'- class 키워드 사용',
+'[{"input": "", "output": "10"}]',
+'#include <iostream>
+using namespace std;
+
+// 여기에 Point 클래스를 정의하세요
+
+int main() {
+    Point p;
+    p.x = 10;
+    cout << p.x << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+class Point {
+public:
+    int x;
+};
+
+int main() {
+    Point p;
+    p.x = 10;
+    cout << p.x << endl;
+    return 0;
+}',
+'[{"input": "", "expected": "10\n"}]',
+'["class Point { public: int x; };"]',
+ARRAY['oop', 'class', 'basics'], 5),
+
+('cpp-class-constructor', 'cpp', 'basics', 47, '생성자', '생성자로 초기화하기', 'challenge', 1,
+'정수 멤버 변수 value를 가진 Number 클래스를 만들고, 생성자로 초기화하세요.',
+'- Number(int v) 생성자',
+'[{"input": "42", "output": "42"}]',
+'#include <iostream>
+using namespace std;
+
+class Number {
+public:
+    int value;
+    // 여기에 생성자를 작성하세요
+};
+
+int main() {
+    int v;
+    cin >> v;
+    Number n(v);
+    cout << n.value << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+class Number {
+public:
+    int value;
+    Number(int v) {
+        value = v;
+    }
+};
+
+int main() {
+    int v;
+    cin >> v;
+    Number n(v);
+    cout << n.value << endl;
+    return 0;
+}',
+'[{"input": "42", "expected": "42\n"}]',
+'["생성자는 클래스 이름과 같습니다"]',
+ARRAY['oop', 'constructor'], 5),
+
+('cpp-class-method', 'cpp', 'basics', 48, '멤버 함수', '클래스 메서드 만들기', 'challenge', 1,
+'두 정수 a, b를 더하는 add() 메서드를 가진 Calculator 클래스를 만드세요.',
+'- int add() 메서드',
+'[{"input": "5 3", "output": "8"}]',
+'#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    int a, b;
+    // 여기에 add 메서드를 작성하세요
+};
+
+int main() {
+    Calculator calc;
+    cin >> calc.a >> calc.b;
+    cout << calc.add() << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    int a, b;
+    int add() {
+        return a + b;
+    }
+};
+
+int main() {
+    Calculator calc;
+    cin >> calc.a >> calc.b;
+    cout << calc.add() << endl;
+    return 0;
+}',
+'[{"input": "5 3", "expected": "8\n"}]',
+'["멤버 변수에 접근할 수 있습니다"]',
+ARRAY['oop', 'methods'], 5),
+
+('cpp-class-private', 'cpp', 'basics', 49, 'private 멤버', '접근 제한자 사용하기', 'challenge', 1,
+'private 정수 age와 public getter getAge()를 가진 Person 클래스를 만드세요.',
+'- private와 public 구분',
+'[{"input": "25", "output": "25"}]',
+'#include <iostream>
+using namespace std;
+
+class Person {
+private:
+    int age;
+public:
+    // 여기에 setAge와 getAge를 작성하세요
+};
+
+int main() {
+    Person p;
+    int a;
+    cin >> a;
+    p.setAge(a);
+    cout << p.getAge() << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+class Person {
+private:
+    int age;
+public:
+    void setAge(int a) {
+        age = a;
+    }
+    int getAge() {
+        return age;
+    }
+};
+
+int main() {
+    Person p;
+    int a;
+    cin >> a;
+    p.setAge(a);
+    cout << p.getAge() << endl;
+    return 0;
+}',
+'[{"input": "25", "expected": "25\n"}]',
+'["private 멤버는 외부에서 접근 불가"]',
+ARRAY['oop', 'encapsulation', 'private'], 5),
+
+('cpp-class-rectangle', 'cpp', 'basics', 50, '직사각형 클래스', 'Rectangle 클래스 만들기', 'challenge', 1,
+'width, height를 가진 Rectangle 클래스를 만들고 넓이를 계산하는 area() 메서드를 작성하세요.',
+'- int area() 메서드',
+'[{"input": "5 10", "output": "50"}]',
+'#include <iostream>
+using namespace std;
+
+class Rectangle {
+public:
+    int width, height;
+    // 여기에 area 메서드를 작성하세요
+};
+
+int main() {
+    Rectangle rect;
+    cin >> rect.width >> rect.height;
+    cout << rect.area() << endl;
+    return 0;
+}',
+'#include <iostream>
+using namespace std;
+
+class Rectangle {
+public:
+    int width, height;
+    int area() {
+        return width * height;
+    }
+};
+
+int main() {
+    Rectangle rect;
+    cin >> rect.width >> rect.height;
+    cout << rect.area() << endl;
+    return 0;
+}',
+'[{"input": "5 10", "expected": "50\n"}]',
+'["return width * height;"]',
+ARRAY['oop', 'class', 'methods'], 5);
+
+-- ============================================================================
+-- End of C++ Language Part 1
+-- ============================================================================

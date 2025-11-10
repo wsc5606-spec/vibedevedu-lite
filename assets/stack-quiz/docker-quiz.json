@@ -1,0 +1,656 @@
+{
+  "title": "Docker 기초 퀴즈",
+  "description": "바데부와 함께하는 Docker 기초 완전정복 퀴즈 (50문제)",
+  "questions": [
+    {
+      "id": 1,
+      "chapter": 1,
+      "question": "Docker와 가상머신(VM)의 가장 큰 차이점은 무엇인가요?",
+      "options": [
+        "Docker는 OS 커널을 공유하지만, VM은 각각 완전한 OS를 실행한다",
+        "Docker는 GUI가 있지만, VM은 CLI만 사용한다",
+        "Docker는 무료지만, VM은 유료다",
+        "Docker는 Windows만 지원하지만, VM은 모든 OS를 지원한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Docker 컨테이너는 호스트 OS의 커널을 공유하여 가볍고 빠르지만, VM은 각각 완전한 OS를 포함하여 무겁고 느립니다. 바데부는 Docker를 선호해요! 🐳"
+    },
+    {
+      "id": 2,
+      "chapter": 1,
+      "question": "Docker 이미지에 대한 설명으로 올바른 것은?",
+      "options": [
+        "실행 중인 컨테이너의 인스턴스다",
+        "읽기 전용 템플릿이다",
+        "쓰기 가능한 파일 시스템이다",
+        "항상 최신 버전만 사용할 수 있다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Docker 이미지는 읽기 전용(Read-only) 템플릿입니다. 바데부는 이미지를 '붕어빵 틀'에 비유했죠! 🥞"
+    },
+    {
+      "id": 3,
+      "chapter": 1,
+      "question": "다음 중 Docker를 사용하는 주요 이점이 아닌 것은?",
+      "options": [
+        "일관된 환경 제공",
+        "빠른 배포",
+        "더 나은 그래픽 성능",
+        "리소스 효율성"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Docker는 그래픽 성능 향상이 목적이 아닙니다. 일관성, 속도, 리소스 효율성이 핵심이에요! 바데부가 알려드려요! 💡"
+    },
+    {
+      "id": 4,
+      "chapter": 1,
+      "question": "Docker Hub는 무엇인가요?",
+      "options": [
+        "Docker를 설치하는 프로그램",
+        "Docker 이미지를 저장하고 공유하는 저장소",
+        "Docker 컨테이너를 실행하는 엔진",
+        "Docker의 GUI 도구"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Docker Hub는 Docker 이미지의 GitHub와 같은 저장소입니다. 바데부도 이미지를 올려놨어요! 🐳"
+    },
+    {
+      "id": 5,
+      "chapter": 1,
+      "question": "'docker run hello-world' 명령어는 무엇을 하나요?",
+      "options": [
+        "Docker를 설치한다",
+        "hello-world 이미지를 다운로드하고 실행한다",
+        "Docker의 버전을 출력한다",
+        "모든 컨테이너를 중지한다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "이 명령어는 hello-world 이미지를 다운로드(pull)하고 컨테이너로 실행(run)합니다. 바데부의 첫 컨테이너! 🎉"
+    },
+    {
+      "id": 6,
+      "chapter": 2,
+      "question": "Docker 이미지의 레이어 구조의 장점이 아닌 것은?",
+      "options": [
+        "효율적인 저장 공간 사용",
+        "빠른 빌드 (캐시 활용)",
+        "레이어 공유로 디스크 절약",
+        "더 빠른 네트워크 속도"
+      ],
+      "correctAnswer": 3,
+      "explanation": "레이어 구조는 저장 공간과 빌드 속도에 유리하지만, 네트워크 속도를 직접적으로 개선하지는 않습니다. 바데부가 설명해드릴게요! 📚"
+    },
+    {
+      "id": 7,
+      "chapter": 2,
+      "question": "이미지 태그에서 'python:3.11-slim'의 의미는?",
+      "options": [
+        "Python 3.11의 전체 버전",
+        "Python 3.11의 경량화 버전",
+        "Python 3.11의 개발 버전",
+        "Python 3.11의 테스트 버전"
+      ],
+      "correctAnswer": 1,
+      "explanation": "'-slim' 태그는 경량화된 이미지를 의미합니다. 불필요한 패키지를 제거하여 크기를 줄였어요! 바데부도 slim 버전을 선호해요! 🎯"
+    },
+    {
+      "id": 8,
+      "chapter": 2,
+      "question": "컨테이너의 라이프사이클 순서로 올바른 것은?",
+      "options": [
+        "Created → Running → Stopped → Removed",
+        "Running → Created → Stopped → Removed",
+        "Created → Stopped → Running → Removed",
+        "Running → Stopped → Created → Removed"
+      ],
+      "correctAnswer": 0,
+      "explanation": "컨테이너는 생성(Created) → 실행(Running) → 중지(Stopped) → 삭제(Removed) 순서로 진행됩니다. 바데부와 함께 기억해요! 🔄"
+    },
+    {
+      "id": 9,
+      "chapter": 2,
+      "question": "'docker ps -a' 명령어는 무엇을 보여주나요?",
+      "options": [
+        "실행 중인 컨테이너만",
+        "모든 컨테이너 (중지된 것 포함)",
+        "모든 이미지",
+        "모든 볼륨"
+      ],
+      "correctAnswer": 1,
+      "explanation": "'-a' 옵션은 all(모든)을 의미하며, 실행 중이거나 중지된 모든 컨테이너를 보여줍니다. 바데부의 필수 명령어! 📋"
+    },
+    {
+      "id": 10,
+      "chapter": 2,
+      "question": "댕글링(dangling) 이미지란?",
+      "options": [
+        "태그가 없는 <none>:<none> 이미지",
+        "크기가 큰 이미지",
+        "오래된 이미지",
+        "사용 중인 이미지"
+      ],
+      "correctAnswer": 0,
+      "explanation": "댕글링 이미지는 태그가 없는 중간 레이어 이미지입니다. 'docker image prune'으로 정리할 수 있어요! 바데부가 알려드려요! 🧹"
+    },
+    {
+      "id": 11,
+      "chapter": 3,
+      "question": "Dockerfile에서 FROM 명령어의 역할은?",
+      "options": [
+        "포트를 노출한다",
+        "베이스 이미지를 지정한다",
+        "환경 변수를 설정한다",
+        "파일을 복사한다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "FROM은 Dockerfile의 첫 번째 명령어로 베이스 이미지를 지정합니다. 모든 이미지는 베이스 위에 구축돼요! 바데부의 기초! 🏗️"
+    },
+    {
+      "id": 12,
+      "chapter": 3,
+      "question": "COPY와 ADD 명령어의 차이점은?",
+      "options": [
+        "차이가 없다",
+        "ADD는 압축 해제와 URL 다운로드 기능이 있다",
+        "COPY가 더 빠르다",
+        "ADD만 환경 변수를 사용할 수 있다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ADD는 tar 압축 자동 해제와 URL 다운로드 기능이 있지만, 단순 복사는 COPY를 권장합니다. 바데부의 팁! 💡"
+    },
+    {
+      "id": 13,
+      "chapter": 3,
+      "question": "CMD와 ENTRYPOINT의 차이점은?",
+      "options": [
+        "차이가 없다",
+        "CMD는 덮어쓰기 가능하지만, ENTRYPOINT는 고정된다",
+        "ENTRYPOINT만 여러 개 사용 가능하다",
+        "CMD는 빌드 시 실행되지만, ENTRYPOINT는 런타임에 실행된다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CMD는 docker run 시 덮어쓸 수 있지만, ENTRYPOINT는 고정되고 인자만 추가됩니다. 바데부가 설명해드려요! 🎯"
+    },
+    {
+      "id": 14,
+      "chapter": 3,
+      "question": ".dockerignore 파일의 역할은?",
+      "options": [
+        "Docker 명령어를 무시한다",
+        "빌드 컨텍스트에서 제외할 파일을 지정한다",
+        "이미지에서 제거할 패키지를 지정한다",
+        "로그를 필터링한다"
+      ],
+      "correctAnswer": 1,
+      "explanation": ".dockerignore는 빌드 시 불필요한 파일(node_modules, .git 등)을 제외하여 빌드 속도를 향상시킵니다. 바데부의 필수 아이템! 🚀"
+    },
+    {
+      "id": 15,
+      "chapter": 3,
+      "question": "Dockerfile의 레이어 캐싱을 효율적으로 사용하려면?",
+      "options": [
+        "모든 명령어를 하나로 합친다",
+        "자주 변경되는 파일을 먼저 COPY한다",
+        "의존성 파일을 먼저 COPY하고 설치한 후 소스를 복사한다",
+        "캐시를 사용하지 않는다"
+      ],
+      "correctAnswer": 2,
+      "explanation": "package.json 같은 의존성 파일을 먼저 복사하고 설치하면, 소스 코드 변경 시에도 의존성 캐시를 활용할 수 있어요! 바데부의 최적화 팁! ⚡"
+    },
+    {
+      "id": 16,
+      "chapter": 4,
+      "question": "'docker run -d' 에서 -d 옵션의 의미는?",
+      "options": [
+        "debug 모드",
+        "detached (백그라운드) 모드",
+        "delete 모드",
+        "development 모드"
+      ],
+      "correctAnswer": 1,
+      "explanation": "-d는 detached 모드로, 컨테이너를 백그라운드에서 실행합니다. 터미널이 블록되지 않아요! 바데부가 자주 사용해요! 🎯"
+    },
+    {
+      "id": 17,
+      "chapter": 4,
+      "question": "'docker exec -it 컨테이너명 bash' 명령어는?",
+      "options": [
+        "컨테이너를 삭제한다",
+        "컨테이너 내부에 bash 셸로 접속한다",
+        "컨테이너를 재시작한다",
+        "컨테이너의 로그를 본다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "docker exec -it는 실행 중인 컨테이너 내부에 인터랙티브 터미널로 접속합니다. 바데부의 디버깅 필수 명령어! 🔧"
+    },
+    {
+      "id": 18,
+      "chapter": 4,
+      "question": "docker stop과 docker kill의 차이는?",
+      "options": [
+        "차이가 없다",
+        "stop은 우아한 종료(SIGTERM), kill은 즉시 종료(SIGKILL)",
+        "kill만 컨테이너를 삭제한다",
+        "stop이 더 빠르다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "docker stop은 정리 작업 시간을 주지만(10초), docker kill은 즉시 강제 종료합니다. 바데부는 stop을 권장해요! 🛑"
+    },
+    {
+      "id": 19,
+      "chapter": 4,
+      "question": "'docker logs -f' 에서 -f 옵션은?",
+      "options": [
+        "fast 모드",
+        "follow (실시간) 모드",
+        "file 모드",
+        "filter 모드"
+      ],
+      "correctAnswer": 1,
+      "explanation": "-f는 follow 옵션으로 실시간으로 로그를 스트리밍합니다. tail -f와 비슷해요! 바데부의 모니터링 도구! 📜"
+    },
+    {
+      "id": 20,
+      "chapter": 4,
+      "question": "'docker run --rm' 옵션의 역할은?",
+      "options": [
+        "컨테이너를 읽기 전용으로 실행",
+        "컨테이너 종료 시 자동으로 삭제",
+        "컨테이너를 재시작",
+        "모든 볼륨 삭제"
+      ],
+      "correctAnswer": 1,
+      "explanation": "--rm 옵션은 컨테이너 종료 시 자동으로 삭제합니다. 일회성 작업에 유용해요! 바데부가 자주 써요! 🗑️"
+    },
+    {
+      "id": 21,
+      "chapter": 5,
+      "question": "Docker 볼륨의 주요 장점이 아닌 것은?",
+      "options": [
+        "데이터 영구 저장",
+        "컨테이너 간 데이터 공유",
+        "더 빠른 네트워크 속도",
+        "백업 용이"
+      ],
+      "correctAnswer": 2,
+      "explanation": "볼륨은 데이터 영속성과 공유에 유용하지만, 네트워크 속도와는 관련이 없습니다. 바데부가 명확히 해드려요! 💾"
+    },
+    {
+      "id": 22,
+      "chapter": 5,
+      "question": "볼륨과 바인드 마운트의 차이점은?",
+      "options": [
+        "차이가 없다",
+        "볼륨은 Docker가 관리하지만, 바인드 마운트는 호스트 경로를 직접 마운트",
+        "바인드 마운트가 더 빠르다",
+        "볼륨은 읽기 전용이다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "볼륨은 Docker가 관리하는 영역에 저장되고, 바인드 마운트는 호스트의 특정 경로를 직접 마운트합니다. 바데부는 볼륨을 추천해요! 📂"
+    },
+    {
+      "id": 23,
+      "chapter": 5,
+      "question": "'docker volume create' 명령어는?",
+      "options": [
+        "컨테이너를 생성한다",
+        "명명된 볼륨을 생성한다",
+        "이미지를 생성한다",
+        "네트워크를 생성한다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "docker volume create는 명명된(named) 볼륨을 생성합니다. 데이터를 영구적으로 저장할 수 있어요! 바데부의 데이터 관리법! 🗄️"
+    },
+    {
+      "id": 24,
+      "chapter": 5,
+      "question": "tmpfs 마운트의 특징은?",
+      "options": [
+        "디스크에 영구 저장",
+        "메모리에 저장되어 컨테이너 종료 시 삭제",
+        "네트워크를 통해 마운트",
+        "읽기 전용"
+      ],
+      "correctAnswer": 1,
+      "explanation": "tmpfs는 메모리에 저장되어 빠르지만 컨테이너 종료 시 데이터가 사라집니다. 임시 데이터나 캐시에 적합해요! 바데부의 팁! 💨"
+    },
+    {
+      "id": 25,
+      "chapter": 5,
+      "question": "볼륨 백업을 위한 올바른 방법은?",
+      "options": [
+        "docker cp로 직접 복사",
+        "컨테이너를 통해 볼륨을 마운트하고 tar로 압축",
+        "볼륨을 삭제하고 재생성",
+        "백업이 불가능하다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "볼륨을 임시 컨테이너에 마운트하고 tar로 압축하는 것이 안전한 백업 방법입니다. 바데부의 백업 전략! 💾"
+    },
+    {
+      "id": 26,
+      "chapter": 6,
+      "question": "Docker의 기본 네트워크 드라이버는?",
+      "options": [
+        "host",
+        "bridge",
+        "overlay",
+        "none"
+      ],
+      "correctAnswer": 1,
+      "explanation": "기본 네트워크 드라이버는 bridge입니다. 같은 호스트의 컨테이너 간 통신에 사용돼요! 바데부도 이걸 써요! 🌉"
+    },
+    {
+      "id": 27,
+      "chapter": 6,
+      "question": "사용자 정의 bridge 네트워크의 장점은?",
+      "options": [
+        "더 빠른 속도",
+        "자동 DNS 해석으로 컨테이너명으로 통신 가능",
+        "무료",
+        "GUI 제공"
+      ],
+      "correctAnswer": 1,
+      "explanation": "사용자 정의 bridge는 자동 DNS 해석을 제공하여 컨테이너명으로 통신할 수 있습니다. 바데부는 항상 사용자 정의 네트워크를 써요! 🎯"
+    },
+    {
+      "id": 28,
+      "chapter": 6,
+      "question": "'docker run -p 8080:80' 에서 포트 매핑의 의미는?",
+      "options": [
+        "컨테이너 8080 → 호스트 80",
+        "호스트 8080 → 컨테이너 80",
+        "호스트와 컨테이너 모두 8080",
+        "랜덤 포트 할당"
+      ],
+      "correctAnswer": 1,
+      "explanation": "'-p 호스트:컨테이너' 형식입니다. 호스트의 8080 포트가 컨테이너의 80 포트로 매핑돼요! 바데부가 자주 사용해요! 🔌"
+    },
+    {
+      "id": 29,
+      "chapter": 6,
+      "question": "host 네트워크 드라이버의 특징은?",
+      "options": [
+        "가장 격리가 잘 된다",
+        "컨테이너가 호스트 네트워크를 직접 사용한다",
+        "가장 느리다",
+        "Windows에서만 사용 가능하다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "host 네트워크는 컨테이너가 호스트의 네트워크를 직접 사용합니다. 포트 매핑이 필요 없고 성능이 좋아요! 바데부의 성능 팁! 🚀"
+    },
+    {
+      "id": 30,
+      "chapter": 6,
+      "question": "네트워크 격리를 위한 모범 사례는?",
+      "options": [
+        "모든 컨테이너를 하나의 네트워크에 연결",
+        "프론트엔드와 백엔드를 별도 네트워크로 분리",
+        "네트워크를 사용하지 않는다",
+        "host 네트워크만 사용"
+      ],
+      "correctAnswer": 1,
+      "explanation": "보안을 위해 프론트엔드, 백엔드, 데이터베이스를 별도 네트워크로 분리하는 것이 좋습니다. 바데부의 보안 팁! 🔒"
+    },
+    {
+      "id": 31,
+      "chapter": 7,
+      "question": "Docker Compose의 주요 목적은?",
+      "options": [
+        "이미지를 압축한다",
+        "멀티 컨테이너 애플리케이션을 정의하고 실행한다",
+        "네트워크 속도를 향상시킨다",
+        "보안을 강화한다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Docker Compose는 여러 컨테이너를 YAML 파일로 정의하고 한 번에 관리할 수 있게 해줍니다. 바데부의 필수 도구! 🎼"
+    },
+    {
+      "id": 32,
+      "chapter": 7,
+      "question": "docker-compose.yml의 올바른 최상위 키가 아닌 것은?",
+      "options": [
+        "version",
+        "services",
+        "networks",
+        "containers"
+      ],
+      "correctAnswer": 3,
+      "explanation": "docker-compose.yml의 최상위 키는 version, services, networks, volumes입니다. containers는 없어요! 바데부가 정정해드려요! 📝"
+    },
+    {
+      "id": 33,
+      "chapter": 7,
+      "question": "'docker compose up -d' 명령어는?",
+      "options": [
+        "Compose 파일을 삭제한다",
+        "백그라운드에서 모든 서비스를 시작한다",
+        "디버그 모드로 실행한다",
+        "개발 환경만 시작한다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "-d 옵션은 detached 모드로 백그라운드에서 모든 서비스를 시작합니다. 바데부가 매일 쓰는 명령어! 🚀"
+    },
+    {
+      "id": 34,
+      "chapter": 7,
+      "question": "depends_on의 역할은?",
+      "options": [
+        "서비스 시작 순서를 정의한다",
+        "네트워크를 연결한다",
+        "볼륨을 공유한다",
+        "포트를 매핑한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "depends_on은 서비스 시작 순서를 정의하지만, 서비스가 준비되었는지는 보장하지 않습니다. 헬스체크와 함께 사용하세요! 바데부의 팁! 🔄"
+    },
+    {
+      "id": 35,
+      "chapter": 7,
+      "question": "'docker compose down -v' 에서 -v 옵션은?",
+      "options": [
+        "verbose 모드",
+        "볼륨도 함께 삭제",
+        "version 출력",
+        "validate만 수행"
+      ],
+      "correctAnswer": 1,
+      "explanation": "-v 옵션은 서비스 중지 시 볼륨도 함께 삭제합니다. 데이터가 삭제되니 주의하세요! 바데부의 경고! ⚠️"
+    },
+    {
+      "id": 36,
+      "chapter": 8,
+      "question": "멀티 스테이지 빌드의 주요 목적은?",
+      "options": [
+        "빌드 속도 향상",
+        "이미지 크기 최적화",
+        "네트워크 속도 향상",
+        "더 많은 기능 추가"
+      ],
+      "correctAnswer": 1,
+      "explanation": "멀티 스테이지 빌드는 이미지 크기를 크게 줄입니다. 빌드 도구는 제외하고 결과물만 포함해요! 바데부는 80% 이상 줄였어요! 🎯"
+    },
+    {
+      "id": 37,
+      "chapter": 8,
+      "question": "'FROM node:18 AS builder'에서 AS의 역할은?",
+      "options": [
+        "이미지를 압축한다",
+        "스테이지에 이름을 지정한다",
+        "환경 변수를 설정한다",
+        "포트를 노출한다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AS는 빌드 스테이지에 이름을 지정합니다. 나중에 COPY --from=builder로 참조할 수 있어요! 바데부의 멀티 스테이지 기초! 🏗️"
+    },
+    {
+      "id": 38,
+      "chapter": 8,
+      "question": "'COPY --from=builder /app/dist ./dist'의 의미는?",
+      "options": [
+        "호스트에서 파일 복사",
+        "builder 스테이지에서 파일 복사",
+        "네트워크에서 파일 다운로드",
+        "볼륨에서 파일 복사"
+      ],
+      "correctAnswer": 1,
+      "explanation": "--from 옵션으로 이전 스테이지나 다른 이미지에서 파일을 복사할 수 있습니다. 바데부의 선택적 복사 기술! 📦"
+    },
+    {
+      "id": 39,
+      "chapter": 8,
+      "question": "Go 애플리케이션에서 'FROM scratch'를 사용하는 이유는?",
+      "options": [
+        "개발 환경 제공",
+        "최소한의 크기 (OS도 없음)",
+        "더 많은 기능",
+        "더 나은 보안"
+      ],
+      "correctAnswer": 1,
+      "explanation": "scratch는 빈 이미지로, Go 같은 정적 바이너리에 최적입니다. 이미지 크기를 6MB까지 줄일 수 있어요! 바데부의 극한 최적화! 🔥"
+    },
+    {
+      "id": 40,
+      "chapter": 8,
+      "question": "멀티 스테이지 빌드에서 특정 스테이지까지만 빌드하려면?",
+      "options": [
+        "docker build .",
+        "docker build --target 스테이지명 .",
+        "docker build --stage 스테이지명 .",
+        "docker build --only 스테이지명 ."
+      ],
+      "correctAnswer": 1,
+      "explanation": "--target 옵션으로 특정 스테이지까지만 빌드할 수 있습니다. 개발/프로덕션 분리에 유용해요! 바데부의 활용법! 🎯"
+    },
+    {
+      "id": 41,
+      "chapter": 9,
+      "question": "Docker 이미지 태그의 올바른 형식은?",
+      "options": [
+        "이미지명-태그",
+        "이미지명:태그",
+        "이미지명@태그",
+        "이미지명#태그"
+      ],
+      "correctAnswer": 1,
+      "explanation": "이미지 태그는 '이미지명:태그' 형식입니다. 예: badebu/myapp:1.0 바데부가 알려드려요! 🏷️"
+    },
+    {
+      "id": 42,
+      "chapter": 9,
+      "question": "'docker push' 전에 반드시 해야 할 것은?",
+      "options": [
+        "컨테이너 실행",
+        "docker login으로 로그인",
+        "이미지 삭제",
+        "네트워크 생성"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Docker Hub에 푸시하려면 먼저 'docker login'으로 로그인해야 합니다. 바데부도 매번 로그인해요! 🔐"
+    },
+    {
+      "id": 43,
+      "chapter": 9,
+      "question": "프로덕션에서 latest 태그를 피해야 하는 이유는?",
+      "options": [
+        "느리다",
+        "예측 불가능하고 항상 변한다",
+        "크기가 크다",
+        "보안 취약점"
+      ],
+      "correctAnswer": 1,
+      "explanation": "latest는 항상 최신 버전을 가리켜 예측 불가능합니다. 프로덕션에서는 명시적 버전을 사용하세요! 바데부의 중요한 팁! ⚠️"
+    },
+    {
+      "id": 44,
+      "chapter": 9,
+      "question": "프라이빗 레지스트리를 구축하는 이미지는?",
+      "options": [
+        "nginx",
+        "registry:2",
+        "docker-hub",
+        "private-registry"
+      ],
+      "correctAnswer": 1,
+      "explanation": "registry:2 이미지로 자체 프라이빗 레지스트리를 구축할 수 있습니다. 바데부도 회사에서 사용해요! 🏢"
+    },
+    {
+      "id": 45,
+      "chapter": 9,
+      "question": "이미지 다이제스트(digest)로 풀(pull)하는 이유는?",
+      "options": [
+        "더 빠르다",
+        "불변성 보장",
+        "크기가 작다",
+        "자동 업데이트"
+      ],
+      "correctAnswer": 1,
+      "explanation": "다이제스트는 이미지의 고유 해시로 불변성을 보장합니다. 정확히 같은 이미지를 받을 수 있어요! 바데부의 안전 장치! 🔒"
+    },
+    {
+      "id": 46,
+      "chapter": 10,
+      "question": "프로덕션 환경에서 컨테이너를 실행할 때 권장사항은?",
+      "options": [
+        "root 사용자로 실행",
+        "비루트 사용자로 실행",
+        "항상 latest 태그 사용",
+        "재시작 정책 비활성화"
+      ],
+      "correctAnswer": 1,
+      "explanation": "보안을 위해 비루트 사용자로 실행해야 합니다. USER 명령어를 사용하세요! 바데부의 보안 원칙! 🔒"
+    },
+    {
+      "id": 47,
+      "chapter": 10,
+      "question": "헬스체크의 주요 목적은?",
+      "options": [
+        "이미지 크기 줄이기",
+        "컨테이너의 건강 상태 모니터링",
+        "빌드 속도 향상",
+        "네트워크 최적화"
+      ],
+      "correctAnswer": 1,
+      "explanation": "헬스체크는 컨테이너가 정상 작동하는지 주기적으로 확인합니다. 문제 발생 시 자동 재시작할 수 있어요! 바데부의 안정성 팁! 🏥"
+    },
+    {
+      "id": 48,
+      "chapter": 10,
+      "question": "컨테이너의 읽기 전용 파일시스템을 설정하는 옵션은?",
+      "options": [
+        "--read-only",
+        "--ro",
+        "--readonly",
+        "--lock"
+      ],
+      "correctAnswer": 0,
+      "explanation": "--read-only 옵션으로 파일시스템을 읽기 전용으로 만들 수 있습니다. 보안이 강화돼요! 바데부의 보안 강화! 🛡️"
+    },
+    {
+      "id": 49,
+      "chapter": 10,
+      "question": "프로덕션 환경의 재시작 정책으로 권장되는 것은?",
+      "options": [
+        "no",
+        "on-failure",
+        "unless-stopped",
+        "항상 재시작 안 함"
+      ],
+      "correctAnswer": 2,
+      "explanation": "unless-stopped는 수동으로 중지하기 전까지 자동 재시작합니다. 프로덕션에 최적이에요! 바데부의 안정성 전략! 🔄"
+    },
+    {
+      "id": 50,
+      "chapter": 10,
+      "question": "Docker 이미지 취약점 스캔 도구가 아닌 것은?",
+      "options": [
+        "docker scan",
+        "Trivy",
+        "Clair",
+        "docker test"
+      ],
+      "correctAnswer": 3,
+      "explanation": "docker scan, Trivy, Clair가 대표적인 스캔 도구입니다. docker test는 없어요! 바데부는 Trivy를 자주 써요! 🔍"
+    }
+  ]
+}

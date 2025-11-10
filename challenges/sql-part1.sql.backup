@@ -1,0 +1,600 @@
+-- ============================================================================
+-- SQL Language Challenges - Part 1 (Easy)
+-- ============================================================================
+-- Total: 50 challenges (5 per unit × 10 units)
+-- Difficulty: EASY (1)
+-- ============================================================================
+
+-- Unit 1: SELECT 기초 (SELECT Basics) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-select-all', 'sql', 'syntax', 1, '모든 데이터 조회', 'SELECT * 사용하기', 'challenge', 1,
+'users 테이블의 모든 데이터를 조회하세요.',
+'- SELECT * FROM 테이블명',
+'[{"input": "", "output": "모든 행과 열"}]',
+'-- users 테이블에서 모든 데이터를 조회하세요
+',
+'SELECT * FROM users;',
+'[{"input": "", "expected": "all rows"}]',
+'["*는 모든 컬럼을 의미합니다"]',
+ARRAY['select', 'basics'], 5),
+
+('sql-select-columns', 'sql', 'syntax', 2, '특정 컬럼 조회', '컬럼 지정하여 조회', 'challenge', 1,
+'users 테이블에서 name과 email 컬럼만 조회하세요.',
+'- SELECT 컬럼1, 컬럼2 FROM',
+'[{"input": "", "output": "name, email 컬럼"}]',
+'-- users 테이블에서 name과 email을 조회하세요
+',
+'SELECT name, email FROM users;',
+'[{"input": "", "expected": "name, email columns"}]',
+'["컬럼명을 쉼표로 구분합니다"]',
+ARRAY['select', 'columns'], 5),
+
+('sql-select-distinct', 'sql', 'syntax', 3, '중복 제거', 'DISTINCT 사용하기', 'challenge', 1,
+'users 테이블에서 중복을 제거한 city를 조회하세요.',
+'- SELECT DISTINCT',
+'[{"input": "", "output": "고유한 city 값들"}]',
+'-- users 테이블에서 중복 없는 city를 조회하세요
+',
+'SELECT DISTINCT city FROM users;',
+'[{"input": "", "expected": "unique cities"}]',
+'["DISTINCT는 중복을 제거합니다"]',
+ARRAY['select', 'distinct'], 5),
+
+('sql-select-limit', 'sql', 'syntax', 4, '결과 개수 제한', 'LIMIT 사용하기', 'challenge', 1,
+'users 테이블에서 상위 5개 행만 조회하세요.',
+'- LIMIT 숫자',
+'[{"input": "", "output": "상위 5개 행"}]',
+'-- users 테이블에서 상위 5개만 조회하세요
+',
+'SELECT * FROM users LIMIT 5;',
+'[{"input": "", "expected": "5 rows"}]',
+'["LIMIT으로 행 개수를 제한합니다"]',
+ARRAY['select', 'limit'], 5),
+
+('sql-select-alias', 'sql', 'syntax', 5, '별칭 사용', 'AS로 별칭 지정', 'challenge', 1,
+'users 테이블에서 name을 "사용자명"이라는 별칭으로 조회하세요.',
+'- AS 별칭',
+'[{"input": "", "output": "name AS 사용자명"}]',
+'-- name 컬럼을 "사용자명"이라는 별칭으로 조회하세요
+',
+'SELECT name AS 사용자명 FROM users;',
+'[{"input": "", "expected": "name with alias"}]',
+'["AS로 별칭을 지정합니다"]',
+ARRAY['select', 'alias'], 5);
+
+-- Unit 2: WHERE 조건 (WHERE Clause) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-where-equal', 'sql', 'basics', 6, '같음 조건', '= 연산자 사용', 'challenge', 1,
+'users 테이블에서 city가 "Seoul"인 사용자를 조회하세요.',
+'- WHERE 컬럼 = 값',
+'[{"input": "", "output": "city가 Seoul인 행들"}]',
+'-- city가 "Seoul"인 사용자를 조회하세요
+',
+'SELECT * FROM users WHERE city = ''Seoul'';',
+'[{"input": "", "expected": "Seoul users"}]',
+'["WHERE 절로 조건을 지정합니다"]',
+ARRAY['where', 'equality'], 5),
+
+('sql-where-greater', 'sql', 'basics', 7, '크기 비교', '>, < 연산자', 'challenge', 1,
+'products 테이블에서 price가 10000 이상인 제품을 조회하세요.',
+'- WHERE 컬럼 >= 값',
+'[{"input": "", "output": "price >= 10000인 제품"}]',
+'-- price가 10000 이상인 제품을 조회하세요
+',
+'SELECT * FROM products WHERE price >= 10000;',
+'[{"input": "", "expected": "products with price >= 10000"}]',
+'[">=는 이상, >는 초과를 의미합니다"]',
+ARRAY['where', 'comparison'], 5),
+
+('sql-where-and', 'sql', 'basics', 8, 'AND 조건', '여러 조건 동시 만족', 'challenge', 1,
+'users 테이블에서 city가 "Seoul"이고 age가 20 이상인 사용자를 조회하세요.',
+'- WHERE 조건1 AND 조건2',
+'[{"input": "", "output": "Seoul이고 age >= 20"}]',
+'-- city가 Seoul이고 age가 20 이상인 사용자를 조회하세요
+',
+'SELECT * FROM users WHERE city = ''Seoul'' AND age >= 20;',
+'[{"input": "", "expected": "Seoul users aged 20+"}]',
+'["AND는 모든 조건을 만족해야 합니다"]',
+ARRAY['where', 'and'], 5),
+
+('sql-where-or', 'sql', 'basics', 9, 'OR 조건', '조건 중 하나 만족', 'challenge', 1,
+'users 테이블에서 city가 "Seoul" 또는 "Busan"인 사용자를 조회하세요.',
+'- WHERE 조건1 OR 조건2',
+'[{"input": "", "output": "Seoul 또는 Busan"}]',
+'-- city가 Seoul 또는 Busan인 사용자를 조회하세요
+',
+'SELECT * FROM users WHERE city = ''Seoul'' OR city = ''Busan'';',
+'[{"input": "", "expected": "Seoul or Busan users"}]',
+'["OR는 하나라도 만족하면 됩니다"]',
+ARRAY['where', 'or'], 5),
+
+('sql-where-in', 'sql', 'basics', 10, 'IN 조건', '여러 값 중 하나', 'challenge', 1,
+'users 테이블에서 city가 "Seoul", "Busan", "Incheon" 중 하나인 사용자를 조회하세요.',
+'- WHERE 컬럼 IN (값1, 값2, ...)',
+'[{"input": "", "output": "3개 도시 중 하나"}]',
+'-- city가 Seoul, Busan, Incheon 중 하나인 사용자를 조회하세요
+',
+'SELECT * FROM users WHERE city IN (''Seoul'', ''Busan'', ''Incheon'');',
+'[{"input": "", "expected": "users from 3 cities"}]',
+'["IN은 여러 OR 조건을 간결하게 표현합니다"]',
+ARRAY['where', 'in'], 5);
+
+-- Unit 3: ORDER BY 정렬 (Sorting) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-order-asc', 'sql', 'basics', 11, '오름차순 정렬', 'ASC로 정렬', 'challenge', 1,
+'users 테이블을 name 기준 오름차순으로 조회하세요.',
+'- ORDER BY 컬럼 ASC',
+'[{"input": "", "output": "name 오름차순"}]',
+'-- name 기준 오름차순으로 조회하세요
+',
+'SELECT * FROM users ORDER BY name ASC;',
+'[{"input": "", "expected": "ascending by name"}]',
+'["ASC는 오름차순(기본값)입니다"]',
+ARRAY['order-by', 'asc'], 5),
+
+('sql-order-desc', 'sql', 'basics', 12, '내림차순 정렬', 'DESC로 정렬', 'challenge', 1,
+'products 테이블을 price 기준 내림차순으로 조회하세요.',
+'- ORDER BY 컬럼 DESC',
+'[{"input": "", "output": "price 내림차순"}]',
+'-- price 기준 내림차순으로 조회하세요
+',
+'SELECT * FROM products ORDER BY price DESC;',
+'[{"input": "", "expected": "descending by price"}]',
+'["DESC는 내림차순입니다"]',
+ARRAY['order-by', 'desc'], 5),
+
+('sql-order-multiple', 'sql', 'basics', 13, '다중 정렬', '여러 컬럼으로 정렬', 'challenge', 1,
+'users 테이블을 city 오름차순, age 내림차순으로 조회하세요.',
+'- ORDER BY 컬럼1, 컬럼2 DESC',
+'[{"input": "", "output": "city ASC, age DESC"}]',
+'-- city 오름차순, age 내림차순으로 조회하세요
+',
+'SELECT * FROM users ORDER BY city ASC, age DESC;',
+'[{"input": "", "expected": "sorted by city then age"}]',
+'["첫 번째 컬럼으로 먼저 정렬, 같으면 두 번째 컬럼으로 정렬"]',
+ARRAY['order-by', 'multiple'], 5),
+
+('sql-order-limit', 'sql', 'basics', 14, '정렬 후 제한', 'ORDER BY와 LIMIT 조합', 'challenge', 1,
+'products 테이블에서 price가 가장 비싼 상위 3개를 조회하세요.',
+'- ORDER BY ... DESC LIMIT',
+'[{"input": "", "output": "가장 비싼 3개"}]',
+'-- 가장 비싼 상위 3개 제품을 조회하세요
+',
+'SELECT * FROM products ORDER BY price DESC LIMIT 3;',
+'[{"input": "", "expected": "top 3 expensive products"}]',
+'["내림차순 정렬 후 LIMIT 사용"]',
+ARRAY['order-by', 'limit'], 5),
+
+('sql-order-null', 'sql', 'basics', 15, 'NULL 정렬', 'NULL 값 처리', 'challenge', 1,
+'users 테이블을 email 오름차순으로 조회하세요(NULL 포함).',
+'- NULL은 정렬 시 특별 처리',
+'[{"input": "", "output": "email 정렬"}]',
+'-- email 기준 오름차순으로 조회하세요
+',
+'SELECT * FROM users ORDER BY email ASC;',
+'[{"input": "", "expected": "sorted by email"}]',
+'["NULL은 오름차순에서 먼저 나타납니다"]',
+ARRAY['order-by', 'null'], 5);
+
+-- Unit 4: 집계 함수 (Aggregate Functions) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-count', 'sql', 'basics', 16, '행 개수 세기', 'COUNT 함수', 'challenge', 1,
+'users 테이블의 전체 행 개수를 조회하세요.',
+'- COUNT(*) 또는 COUNT(컬럼)',
+'[{"input": "", "output": "행 개수"}]',
+'-- users 테이블의 행 개수를 조회하세요
+',
+'SELECT COUNT(*) FROM users;',
+'[{"input": "", "expected": "total count"}]',
+'["COUNT(*)는 모든 행을 셉니다"]',
+ARRAY['aggregate', 'count'], 5),
+
+('sql-sum', 'sql', 'basics', 17, '합계 구하기', 'SUM 함수', 'challenge', 1,
+'orders 테이블의 amount 합계를 구하세요.',
+'- SUM(컬럼)',
+'[{"input": "", "output": "amount 합계"}]',
+'-- amount의 합계를 구하세요
+',
+'SELECT SUM(amount) FROM orders;',
+'[{"input": "", "expected": "total amount"}]',
+'["SUM은 숫자 컬럼의 합계를 구합니다"]',
+ARRAY['aggregate', 'sum'], 5),
+
+('sql-avg', 'sql', 'basics', 18, '평균 구하기', 'AVG 함수', 'challenge', 1,
+'products 테이블의 price 평균을 구하세요.',
+'- AVG(컬럼)',
+'[{"input": "", "output": "price 평균"}]',
+'-- price의 평균을 구하세요
+',
+'SELECT AVG(price) FROM products;',
+'[{"input": "", "expected": "average price"}]',
+'["AVG는 평균값을 구합니다"]',
+ARRAY['aggregate', 'avg'], 5),
+
+('sql-max-min', 'sql', 'basics', 19, '최댓값과 최솟값', 'MAX, MIN 함수', 'challenge', 1,
+'products 테이블의 price 최댓값과 최솟값을 조회하세요.',
+'- MAX(컬럼), MIN(컬럼)',
+'[{"input": "", "output": "최댓값, 최솟값"}]',
+'-- price의 최댓값과 최솟값을 조회하세요
+',
+'SELECT MAX(price), MIN(price) FROM products;',
+'[{"input": "", "expected": "max and min price"}]',
+'["MAX는 최댓값, MIN은 최솟값"]',
+ARRAY['aggregate', 'max', 'min'], 5),
+
+('sql-count-distinct', 'sql', 'basics', 20, '고유 값 개수', 'COUNT(DISTINCT)', 'challenge', 1,
+'users 테이블의 고유한 city 개수를 세세요.',
+'- COUNT(DISTINCT 컬럼)',
+'[{"input": "", "output": "고유 city 개수"}]',
+'-- 고유한 city의 개수를 세세요
+',
+'SELECT COUNT(DISTINCT city) FROM users;',
+'[{"input": "", "expected": "unique city count"}]',
+'["COUNT(DISTINCT)는 중복 제거 후 개수를 셉니다"]',
+ARRAY['aggregate', 'count', 'distinct'], 5);
+
+-- Unit 5: GROUP BY (Grouping) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-group-count', 'sql', 'basics', 21, '그룹별 개수', 'GROUP BY로 그룹화', 'challenge', 1,
+'users 테이블에서 city별 사용자 수를 조회하세요.',
+'- GROUP BY 컬럼',
+'[{"input": "", "output": "city별 count"}]',
+'-- city별 사용자 수를 조회하세요
+',
+'SELECT city, COUNT(*) FROM users GROUP BY city;',
+'[{"input": "", "expected": "count by city"}]',
+'["GROUP BY로 그룹을 나누고 집계합니다"]',
+ARRAY['group-by', 'count'], 5),
+
+('sql-group-sum', 'sql', 'basics', 22, '그룹별 합계', 'GROUP BY와 SUM', 'challenge', 1,
+'orders 테이블에서 user_id별 amount 합계를 조회하세요.',
+'- GROUP BY user_id',
+'[{"input": "", "output": "user_id별 sum"}]',
+'-- user_id별 amount 합계를 조회하세요
+',
+'SELECT user_id, SUM(amount) FROM orders GROUP BY user_id;',
+'[{"input": "", "expected": "sum by user"}]',
+'["각 그룹별로 SUM을 계산합니다"]',
+ARRAY['group-by', 'sum'], 5),
+
+('sql-group-avg', 'sql', 'basics', 23, '그룹별 평균', 'GROUP BY와 AVG', 'challenge', 1,
+'products 테이블에서 category별 price 평균을 조회하세요.',
+'- GROUP BY category',
+'[{"input": "", "output": "category별 avg"}]',
+'-- category별 price 평균을 조회하세요
+',
+'SELECT category, AVG(price) FROM products GROUP BY category;',
+'[{"input": "", "expected": "average by category"}]',
+'["그룹별로 평균을 구합니다"]',
+ARRAY['group-by', 'avg'], 5),
+
+('sql-group-multiple', 'sql', 'basics', 24, '다중 그룹화', '여러 컬럼으로 그룹화', 'challenge', 1,
+'orders 테이블에서 user_id, status별 개수를 조회하세요.',
+'- GROUP BY 컬럼1, 컬럼2',
+'[{"input": "", "output": "user_id, status별 count"}]',
+'-- user_id, status별 개수를 조회하세요
+',
+'SELECT user_id, status, COUNT(*) FROM orders GROUP BY user_id, status;',
+'[{"input": "", "expected": "count by user and status"}]',
+'["여러 컬럼으로 그룹을 나눌 수 있습니다"]',
+ARRAY['group-by', 'multiple'], 5),
+
+('sql-group-order', 'sql', 'basics', 25, '그룹 정렬', 'GROUP BY와 ORDER BY', 'challenge', 1,
+'users 테이블에서 city별 사용자 수를 많은 순으로 조회하세요.',
+'- GROUP BY ... ORDER BY COUNT(*) DESC',
+'[{"input": "", "output": "count 내림차순"}]',
+'-- city별 사용자 수를 많은 순으로 조회하세요
+',
+'SELECT city, COUNT(*) AS cnt FROM users GROUP BY city ORDER BY cnt DESC;',
+'[{"input": "", "expected": "cities by user count desc"}]',
+'["집계 결과를 정렬할 수 있습니다"]',
+ARRAY['group-by', 'order-by'], 5);
+
+-- Unit 6: HAVING 조건 (HAVING Clause) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-having-count', 'sql', 'basics', 26, 'HAVING으로 필터', '그룹 조건', 'challenge', 1,
+'users 테이블에서 사용자가 3명 이상인 city만 조회하세요.',
+'- HAVING COUNT(*) >= 3',
+'[{"input": "", "output": "3명 이상인 city"}]',
+'-- 사용자가 3명 이상인 city를 조회하세요
+',
+'SELECT city, COUNT(*) FROM users GROUP BY city HAVING COUNT(*) >= 3;',
+'[{"input": "", "expected": "cities with 3+ users"}]',
+'["HAVING은 그룹화 후 조건을 적용합니다"]',
+ARRAY['having', 'count'], 5),
+
+('sql-having-sum', 'sql', 'basics', 27, 'HAVING과 SUM', '합계 조건', 'challenge', 1,
+'orders 테이블에서 총 주문액이 100000 이상인 user_id를 조회하세요.',
+'- HAVING SUM(...) >= 100000',
+'[{"input": "", "output": "sum >= 100000"}]',
+'-- 총 주문액이 100000 이상인 사용자를 조회하세요
+',
+'SELECT user_id, SUM(amount) FROM orders GROUP BY user_id HAVING SUM(amount) >= 100000;',
+'[{"input": "", "expected": "users with high total"}]',
+'["집계 함수 결과에 조건을 적용합니다"]',
+ARRAY['having', 'sum'], 5),
+
+('sql-having-avg', 'sql', 'basics', 28, 'HAVING과 AVG', '평균 조건', 'challenge', 1,
+'products 테이블에서 평균 가격이 50000 이상인 category를 조회하세요.',
+'- HAVING AVG(...) >= 50000',
+'[{"input": "", "output": "avg >= 50000"}]',
+'-- 평균 가격이 50000 이상인 category를 조회하세요
+',
+'SELECT category, AVG(price) FROM products GROUP BY category HAVING AVG(price) >= 50000;',
+'[{"input": "", "expected": "categories with high avg"}]',
+'["평균값으로 그룹을 필터링합니다"]',
+ARRAY['having', 'avg'], 5),
+
+('sql-where-having', 'sql', 'basics', 29, 'WHERE와 HAVING', '조건 조합', 'challenge', 1,
+'users 테이블에서 age가 20 이상인 사용자 중 city별로 2명 이상인 곳을 조회하세요.',
+'- WHERE ... GROUP BY ... HAVING',
+'[{"input": "", "output": "필터 후 그룹화"}]',
+'-- age >= 20인 사용자 중 city별 2명 이상인 곳을 조회하세요
+',
+'SELECT city, COUNT(*) FROM users WHERE age >= 20 GROUP BY city HAVING COUNT(*) >= 2;',
+'[{"input": "", "expected": "filtered and grouped"}]',
+'["WHERE는 그룹화 전, HAVING은 그룹화 후 조건"]',
+ARRAY['where', 'having'], 5),
+
+('sql-having-multiple', 'sql', 'basics', 30, '복합 HAVING', '여러 HAVING 조건', 'challenge', 1,
+'orders 테이블에서 주문 건수가 5개 이상이고 총액이 500000 이상인 user_id를 조회하세요.',
+'- HAVING 조건1 AND 조건2',
+'[{"input": "", "output": "복합 조건"}]',
+'-- 주문 5개 이상이고 총액 500000 이상인 사용자를 조회하세요
+',
+'SELECT user_id, COUNT(*), SUM(amount) FROM orders GROUP BY user_id HAVING COUNT(*) >= 5 AND SUM(amount) >= 500000;',
+'[{"input": "", "expected": "users with multiple conditions"}]',
+'["HAVING 절에 AND로 여러 조건을 결합합니다"]',
+ARRAY['having', 'multiple'], 5);
+
+-- Unit 7: JOIN - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-inner-join', 'sql', 'basics', 31, 'INNER JOIN', '내부 조인', 'challenge', 1,
+'users와 orders를 user_id로 조인하여 조회하세요.',
+'- INNER JOIN ... ON',
+'[{"input": "", "output": "조인된 결과"}]',
+'-- users와 orders를 user_id로 조인하세요
+',
+'SELECT * FROM users INNER JOIN orders ON users.id = orders.user_id;',
+'[{"input": "", "expected": "joined table"}]',
+'["INNER JOIN은 양쪽에 모두 있는 데이터만 조회"]',
+ARRAY['join', 'inner-join'], 5),
+
+('sql-left-join', 'sql', 'basics', 32, 'LEFT JOIN', '왼쪽 조인', 'challenge', 1,
+'users와 orders를 LEFT JOIN하여 주문이 없는 사용자도 포함하여 조회하세요.',
+'- LEFT JOIN ... ON',
+'[{"input": "", "output": "모든 users 포함"}]',
+'-- users와 orders를 LEFT JOIN하세요
+',
+'SELECT * FROM users LEFT JOIN orders ON users.id = orders.user_id;',
+'[{"input": "", "expected": "all users with orders"}]',
+'["LEFT JOIN은 왼쪽 테이블의 모든 행을 포함"]',
+ARRAY['join', 'left-join'], 5),
+
+('sql-join-select', 'sql', 'basics', 33, 'JOIN 컬럼 선택', '특정 컬럼만 조회', 'challenge', 1,
+'users와 orders를 조인하여 name과 amount만 조회하세요.',
+'- SELECT 테이블.컬럼',
+'[{"input": "", "output": "name, amount"}]',
+'-- users의 name과 orders의 amount를 조회하세요
+',
+'SELECT users.name, orders.amount FROM users INNER JOIN orders ON users.id = orders.user_id;',
+'[{"input": "", "expected": "name and amount"}]',
+'["테이블명.컬럼명으로 구분합니다"]',
+ARRAY['join', 'select'], 5),
+
+('sql-join-where', 'sql', 'basics', 34, 'JOIN과 WHERE', '조인 후 필터', 'challenge', 1,
+'users와 orders를 조인하여 amount가 10000 이상인 주문만 조회하세요.',
+'- JOIN ... WHERE',
+'[{"input": "", "output": "amount >= 10000"}]',
+'-- 조인 후 amount >= 10000인 주문을 조회하세요
+',
+'SELECT * FROM users INNER JOIN orders ON users.id = orders.user_id WHERE orders.amount >= 10000;',
+'[{"input": "", "expected": "high amount orders"}]',
+'["JOIN 후 WHERE로 조건을 추가합니다"]',
+ARRAY['join', 'where'], 5),
+
+('sql-join-group', 'sql', 'basics', 35, 'JOIN과 GROUP BY', '조인 후 그룹화', 'challenge', 1,
+'users와 orders를 조인하여 사용자별 주문 총액을 조회하세요.',
+'- JOIN ... GROUP BY',
+'[{"input": "", "output": "user별 총액"}]',
+'-- 사용자별 주문 총액을 조회하세요
+',
+'SELECT users.name, SUM(orders.amount) FROM users INNER JOIN orders ON users.id = orders.user_id GROUP BY users.name;',
+'[{"input": "", "expected": "total by user"}]',
+'["JOIN 후 GROUP BY로 집계합니다"]',
+ARRAY['join', 'group-by'], 5);
+
+-- Unit 8: 서브쿼리 (Subqueries) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-subquery-where', 'sql', 'basics', 36, 'WHERE 서브쿼리', '조건에 서브쿼리', 'challenge', 1,
+'products에서 평균 가격보다 비싼 제품을 조회하세요.',
+'- WHERE 컬럼 > (SELECT ...)',
+'[{"input": "", "output": "평균 이상 제품"}]',
+'-- 평균 가격보다 비싼 제품을 조회하세요
+',
+'SELECT * FROM products WHERE price > (SELECT AVG(price) FROM products);',
+'[{"input": "", "expected": "above average products"}]',
+'["서브쿼리로 동적인 조건을 만듭니다"]',
+ARRAY['subquery', 'where'], 5),
+
+('sql-subquery-in', 'sql', 'basics', 37, 'IN 서브쿼리', 'IN절에 서브쿼리', 'challenge', 1,
+'주문이 있는 사용자만 users에서 조회하세요.',
+'- WHERE id IN (SELECT ...)',
+'[{"input": "", "output": "주문 있는 사용자"}]',
+'-- 주문이 있는 사용자만 조회하세요
+',
+'SELECT * FROM users WHERE id IN (SELECT user_id FROM orders);',
+'[{"input": "", "expected": "users with orders"}]',
+'["서브쿼리 결과를 IN으로 필터링"]',
+ARRAY['subquery', 'in'], 5),
+
+('sql-subquery-exists', 'sql', 'basics', 38, 'EXISTS 서브쿼리', '존재 여부 확인', 'challenge', 1,
+'주문이 있는 사용자를 EXISTS로 조회하세요.',
+'- WHERE EXISTS (SELECT ...)',
+'[{"input": "", "output": "주문 있는 사용자"}]',
+'-- EXISTS를 사용하여 주문이 있는 사용자를 조회하세요
+',
+'SELECT * FROM users WHERE EXISTS (SELECT 1 FROM orders WHERE orders.user_id = users.id);',
+'[{"input": "", "expected": "users with orders"}]',
+'["EXISTS는 존재 여부만 확인합니다"]',
+ARRAY['subquery', 'exists'], 5),
+
+('sql-subquery-from', 'sql', 'basics', 39, 'FROM 서브쿼리', '서브쿼리를 테이블로', 'challenge', 1,
+'각 city별 평균 age를 구한 결과에서 평균이 30 이상인 city를 조회하세요.',
+'- FROM (SELECT ...) AS alias',
+'[{"input": "", "output": "avg >= 30인 city"}]',
+'-- city별 평균 age가 30 이상인 곳을 조회하세요
+',
+'SELECT * FROM (SELECT city, AVG(age) AS avg_age FROM users GROUP BY city) AS t WHERE avg_age >= 30;',
+'[{"input": "", "expected": "cities with avg age 30+"}]',
+'["서브쿼리를 임시 테이블처럼 사용합니다"]',
+ARRAY['subquery', 'from'], 5),
+
+('sql-subquery-select', 'sql', 'basics', 40, 'SELECT 서브쿼리', '컬럼에 서브쿼리', 'challenge', 1,
+'users와 함께 각 사용자의 주문 개수를 조회하세요.',
+'- SELECT (SELECT ...) AS',
+'[{"input": "", "output": "user와 주문 개수"}]',
+'-- 각 사용자와 주문 개수를 조회하세요
+',
+'SELECT name, (SELECT COUNT(*) FROM orders WHERE orders.user_id = users.id) AS order_count FROM users;',
+'[{"input": "", "expected": "users with order count"}]',
+'["SELECT 절에 서브쿼리를 사용합니다"]',
+ARRAY['subquery', 'select'], 5);
+
+-- Unit 9: INSERT, UPDATE, DELETE - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-insert-basic', 'sql', 'basics', 41, '데이터 삽입', 'INSERT INTO', 'challenge', 1,
+'users 테이블에 (name="John", age=25, city="Seoul") 데이터를 삽입하세요.',
+'- INSERT INTO ... VALUES',
+'[{"input": "", "output": "1 row inserted"}]',
+'-- users에 John, 25, Seoul을 삽입하세요
+',
+'INSERT INTO users (name, age, city) VALUES (''John'', 25, ''Seoul'');',
+'[{"input": "", "expected": "inserted"}]',
+'["VALUES로 값을 지정합니다"]',
+ARRAY['insert', 'basics'], 5),
+
+('sql-insert-multiple', 'sql', 'basics', 42, '여러 행 삽입', '한 번에 여러 데이터', 'challenge', 1,
+'users에 2명의 데이터를 한 번에 삽입하세요.',
+'- VALUES (...), (...)',
+'[{"input": "", "output": "2 rows inserted"}]',
+'-- 2명의 데이터를 한 번에 삽입하세요
+',
+'INSERT INTO users (name, age, city) VALUES (''Alice'', 30, ''Busan''), (''Bob'', 22, ''Incheon'');',
+'[{"input": "", "expected": "2 inserted"}]',
+'["VALUES를 쉼표로 구분합니다"]',
+ARRAY['insert', 'multiple'], 5),
+
+('sql-update-basic', 'sql', 'basics', 43, '데이터 수정', 'UPDATE SET', 'challenge', 1,
+'users에서 id=1인 사용자의 age를 30으로 수정하세요.',
+'- UPDATE ... SET ... WHERE',
+'[{"input": "", "output": "1 row updated"}]',
+'-- id=1인 사용자의 age를 30으로 수정하세요
+',
+'UPDATE users SET age = 30 WHERE id = 1;',
+'[{"input": "", "expected": "updated"}]',
+'["WHERE 없이 UPDATE하면 모든 행이 수정됩니다!"]',
+ARRAY['update', 'basics'], 5),
+
+('sql-update-multiple', 'sql', 'basics', 44, '여러 컬럼 수정', 'SET 여러 컬럼', 'challenge', 1,
+'users에서 id=2인 사용자의 name="Jane", city="Seoul"로 수정하세요.',
+'- SET 컬럼1=값1, 컬럼2=값2',
+'[{"input": "", "output": "1 row updated"}]',
+'-- id=2인 사용자의 name과 city를 수정하세요
+',
+'UPDATE users SET name = ''Jane'', city = ''Seoul'' WHERE id = 2;',
+'[{"input": "", "expected": "updated"}]',
+'["SET 절에 쉼표로 여러 컬럼을 지정합니다"]',
+ARRAY['update', 'multiple'], 5),
+
+('sql-delete-basic', 'sql', 'basics', 45, '데이터 삭제', 'DELETE FROM', 'challenge', 1,
+'users에서 age가 20 미만인 사용자를 삭제하세요.',
+'- DELETE FROM ... WHERE',
+'[{"input": "", "output": "rows deleted"}]',
+'-- age < 20인 사용자를 삭제하세요
+',
+'DELETE FROM users WHERE age < 20;',
+'[{"input": "", "expected": "deleted"}]',
+'["WHERE 없이 DELETE하면 모든 행이 삭제됩니다!"]',
+ARRAY['delete', 'basics'], 5);
+
+-- Unit 10: 테이블 관리 (Table Management) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges_sql (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('sql-create-table', 'sql', 'basics', 46, '테이블 생성', 'CREATE TABLE', 'challenge', 1,
+'id(INT), name(VARCHAR), age(INT) 컬럼을 가진 students 테이블을 생성하세요.',
+'- CREATE TABLE ... (...)',
+'[{"input": "", "output": "table created"}]',
+'-- students 테이블을 생성하세요
+',
+'CREATE TABLE students (id INT, name VARCHAR(100), age INT);',
+'[{"input": "", "expected": "created"}]',
+'["각 컬럼의 타입을 지정합니다"]',
+ARRAY['ddl', 'create'], 5),
+
+('sql-create-primary-key', 'sql', 'basics', 47, 'PRIMARY KEY', '기본키 설정', 'challenge', 1,
+'id를 PRIMARY KEY로 하는 products 테이블을 생성하세요.',
+'- PRIMARY KEY',
+'[{"input": "", "output": "table with PK"}]',
+'-- id를 PRIMARY KEY로 하는 products를 생성하세요
+',
+'CREATE TABLE products (id INT PRIMARY KEY, name VARCHAR(100), price INT);',
+'[{"input": "", "expected": "created with PK"}]',
+'["PRIMARY KEY는 고유하고 NULL이 아닙니다"]',
+ARRAY['ddl', 'primary-key'], 5),
+
+('sql-alter-add-column', 'sql', 'basics', 48, '컬럼 추가', 'ALTER TABLE ADD', 'challenge', 1,
+'users 테이블에 email(VARCHAR) 컬럼을 추가하세요.',
+'- ALTER TABLE ... ADD',
+'[{"input": "", "output": "column added"}]',
+'-- users에 email 컬럼을 추가하세요
+',
+'ALTER TABLE users ADD email VARCHAR(100);',
+'[{"input": "", "expected": "column added"}]',
+'["ALTER TABLE로 테이블 구조를 변경합니다"]',
+ARRAY['ddl', 'alter', 'add'], 5),
+
+('sql-drop-table', 'sql', 'basics', 49, '테이블 삭제', 'DROP TABLE', 'challenge', 1,
+'temp 테이블을 삭제하세요.',
+'- DROP TABLE',
+'[{"input": "", "output": "table dropped"}]',
+'-- temp 테이블을 삭제하세요
+',
+'DROP TABLE temp;',
+'[{"input": "", "expected": "dropped"}]',
+'["DROP TABLE은 테이블을 완전히 삭제합니다"]',
+ARRAY['ddl', 'drop'], 5),
+
+('sql-truncate', 'sql', 'basics', 50, '테이블 비우기', 'TRUNCATE TABLE', 'challenge', 1,
+'logs 테이블의 모든 데이터를 삭제하세요(구조는 유지).',
+'- TRUNCATE TABLE',
+'[{"input": "", "output": "table truncated"}]',
+'-- logs 테이블을 비우세요
+',
+'TRUNCATE TABLE logs;',
+'[{"input": "", "expected": "truncated"}]',
+'["TRUNCATE는 DELETE보다 빠르지만 롤백 불가"]',
+ARRAY['ddl', 'truncate'], 5);
+
+-- ============================================================================
+-- End of SQL Language Part 1
+-- ============================================================================

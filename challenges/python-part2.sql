@@ -1,0 +1,1203 @@
+-- ============================================================================
+-- Python Language Challenges - Part 2 (Medium & Hard)
+-- ============================================================================
+-- Total: 50 challenges (5 per unit × 10 units)
+-- Difficulty: MEDIUM (2) for Units 1-6, HARD (3) for Units 7-10
+-- ============================================================================
+
+-- Unit 1: 출력과 주석 (Output and Comments) - 5 challenges (MEDIUM)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-pattern-triangle', 'python', 'syntax', 51, '삼각형 패턴', '별표로 삼각형 그리기', 'challenge', 2,
+'정수 N이 주어질 때, N줄의 삼각형 패턼을 출력하세요.\n예: N=3일 때\n*\n**\n***',
+'- 중첩 반복문 사용\n- 1 ≤ N ≤ 10',
+'[{"input": "3", "output": "*\n**\n***"}]',
+'
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < i; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+',
+'[{"input": "3", "expected": "*\n**\n***\n"}, {"input": "5", "expected": "*\n**\n***\n****\n*****\n"}]',
+'["바깥 루프는 줄 수, 안쪽 루프는 별의 개수입니다"]',
+ARRAY['loops', 'pattern', 'nested'], 10),
+
+('python-pyramid-pattern', 'python', 'syntax', 52, '피라미드 패턴', '공백과 별표로 피라미드 그리기', 'challenge', 2,
+'정수 N이 주어질 때, N줄의 피라미드를 출력하세요.\n예: N=3일 때\n  *\n ***\n*****',
+'- 공백과 별표 계산 필요\n- 1 ≤ N ≤ 10',
+'[{"input": "3", "output": "  *\n ***\n*****"}]',
+'
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < n - i; j++) {
+            printf(" ");
+        }
+        for (int j = 0; j < 2 * i - 1; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+',
+'[{"input": "3", "expected": "  *\n ***\n*****\n"}]',
+'["각 줄의 공백 수와 별 수를 계산하세요"]',
+ARRAY['loops', 'pattern', 'pyramid'], 15),
+
+('python-diamond-pattern', 'python', 'syntax', 53, '다이아몬드 패턴', '다이아몬드 모양 그리기', 'challenge', 2,
+'홀수 N이 주어질 때, N줄의 다이아몬드를 출력하세요.',
+'- 상단 절반과 하단 절반으로 나누어 생각\n- N은 홀수',
+'[{"input": "5", "output": "  *\n ***\n*****\n ***\n  *"}]',
+'
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+    int mid = n / 2 + 1;
+
+    // 상단
+    for (int i = 1; i <= mid; i++) {
+        for (int j = 0; j < mid - i; j++) printf(" ");
+        for (int j = 0; j < 2 * i - 1; j++) printf("*");
+        printf("\n");
+    }
+
+    // 하단
+    for (int i = mid - 1; i >= 1; i--) {
+        for (int j = 0; j < mid - i; j++) printf(" ");
+        for (int j = 0; j < 2 * i - 1; j++) printf("*");
+        printf("\n");
+    }
+
+',
+'[{"input": "5", "expected": "  *\n ***\n*****\n ***\n  *\n"}]',
+'["중간 지점을 기준으로 상하로 나누세요"]',
+ARRAY['loops', 'pattern', 'diamond'], 15),
+
+('python-formatted-table', 'python', 'syntax', 54, '테이블 형식 출력', '정렬된 테이블 출력하기', 'challenge', 2,
+'N개의 숫자를 입력받아 3열로 정렬하여 출력하세요.',
+'- 각 열의 너비는 5칸\n- 오른쪽 정렬',
+'[{"input": "6\n1 22 333 4 55 666", "output": "    1   22  333\n    4   55  666"}]',
+'
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("%5d", arr[i]);
+        if ((i + 1) % 3 == 0) printf("\n");
+    }
+    if (n % 3 != 0) printf("\n");
+
+',
+'[{"input": "6\n1 22 333 4 55 666", "expected": "    1   22  333\n    4   55  666\n"}]',
+'["%5d는 5칸 오른쪽 정렬입니다"]',
+ARRAY['output', 'formatting', 'alignment'], 10),
+
+('python-ascii-art', 'python', 'syntax', 55, 'ASCII 아트', 'ASCII 문자로 그림 그리기', 'challenge', 2,
+'입력받은 문자로 5x5 사각형 테두리를 그리세요.',
+'- 테두리만 입력 문자로, 내부는 공백',
+'[{"input": "#", "output": "#####\n#   #\n#   #\n#   #\n#####"}]',
+'
+    char ch;
+    scanf("%c", &ch);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    char ch;
+    scanf("%c", &ch);
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (i == 0 || i == 4 || j == 0 || j == 4) {
+                printf("%c", ch);
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+
+',
+'[{"input": "#", "expected": "#####\n#   #\n#   #\n#   #\n#####\n"}]',
+'["테두리 조건: 첫/마지막 행 또는 첫/마지막 열"]',
+ARRAY['pattern', 'ascii', 'loops'], 15);
+
+-- Unit 2: 변수와 자료형 (Variables and Data Types) - 5 challenges (MEDIUM)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-bit-operations', 'python', 'basics', 56, '비트 연산', '비트 연산자로 값 조작하기', 'challenge', 2,
+'두 정수 a, b가 주어질 때, AND, OR, XOR 연산 결과를 출력하세요.',
+'- &, |, ^ 연산자 사용\n- 각 줄에 하나씩 출력',
+'[{"input": "12 10", "output": "8\n14\n6"}]',
+'
+    int a, b;
+    scanf("%d %d", &a, &b);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int a, b;
+    scanf("%d %d", &a, &b);
+    print(a & b)
+    print(a | b)
+    print(a ^ b)
+',
+'[{"input": "12 10", "expected": "8\n14\n6\n"}]',
+'["& (AND), | (OR), ^ (XOR)"]',
+ARRAY['bitwise', 'operators'], 10),
+
+('python-sizeof-types', 'python', 'basics', 57, '자료형 크기', '다양한 자료형의 크기 출력하기', 'challenge', 2,
+'char, int, float, double의 크기를 바이트 단위로 출력하세요.',
+'- sizeof 연산자 사용',
+'[{"input": "", "output": "1\n4\n4\n8"}]',
+'
+    // 여기에 코드를 작성하세요
+
+',
+'
+    printf("%zu\n", sizeof(char));
+    printf("%zu\n", sizeof(int));
+    printf("%zu\n", sizeof(float));
+    printf("%zu\n", sizeof(double));
+',
+'[{"input": "", "expected": "1\n4\n4\n8\n"}]',
+'["sizeof는 바이트 크기를 반환합니다"]',
+ARRAY['sizeof', 'data-types'], 10),
+
+('python-type-casting', 'python', 'basics', 58, '타입 캐스팅', '명시적 타입 변환하기', 'challenge', 2,
+'정수 나눗셈과 실수 나눗셈 결과를 각각 출력하세요.',
+'- (float) 캐스팅 사용\n- 소수점 2자리',
+'[{"input": "7 2", "output": "3\n3.50"}]',
+'
+    int a, b;
+    scanf("%d %d", &a, &b);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int a, b;
+    scanf("%d %d", &a, &b);
+    print(a / b)
+    printf("%.2f\n", (float)a / b);
+',
+'[{"input": "7 2", "expected": "3\n3.50\n"}]',
+'["정수 나눗셈은 소수점을 버립니다"]',
+ARRAY['casting', 'division'], 10),
+
+('python-const-variables', 'python', 'basics', 59, '상수 사용', 'const 키워드로 상수 선언하기', 'challenge', 2,
+'원의 반지름을 입력받아 둘레와 넓이를 계산하세요. (PI는 상수로 정의)',
+'- const double PI = 3.14159;\n- 소수점 2자리',
+'[{"input": "5", "output": "31.42\n78.54"}]',
+'
+    const double PI = 3.14159;
+    int r;
+    scanf("%d", &r);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    const double PI = 3.14159;
+    int r;
+    scanf("%d", &r);
+    printf("%.2f\n", 2 * PI * r);
+    printf("%.2f\n", PI * r * r);
+',
+'[{"input": "5", "expected": "31.42\n78.54\n"}]',
+'["const는 값을 변경할 수 없게 합니다"]',
+ARRAY['const', 'math'], 10),
+
+('python-enum-weekday', 'python', 'basics', 60, '열거형 사용', 'enum으로 요일 표현하기', 'challenge', 2,
+'0-6의 숫자를 입력받아 해당하는 요일을 출력하세요.',
+'- enum 사용\n- 0=MON, 1=TUE, ..., 6=SUN',
+'[{"input": "0", "output": "MON"}, {"input": "3", "output": "THU"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'',
+'[{"input": "0", "expected": "MON\n"}, {"input": "3", "expected": "THU\n"}]',
+'["enum은 0부터 시작하는 정수값입니다"]',
+ARRAY['enum', 'array'], 10);
+
+-- Unit 3: 연산자 (Operators) - 5 challenges (MEDIUM)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-compound-interest', 'python', 'basics', 61, '복리 계산', '복리 이자 계산하기', 'challenge', 2,
+'원금 P, 이율 r(%), 기간 n(년)이 주어질 때, 복리 원리금을 계산하세요.\n공식: P * (1 + r/100)^n',
+'- pow 함수 사용\n- #include <math.h>\n- 소수점 2자리',
+'[{"input": "1000 5 3", "output": "1157.63"}]',
+'#include <math.h>
+
+int main() {
+    double P, r;
+    int n;
+    scanf("%lf %lf %d", &P, &r, &n);
+    // 여기에 코드를 작성하세요
+
+',
+'',
+'[{"input": "1000 5 3", "expected": "1157.63\n"}]',
+'["pow(base, exponent)로 거듭제곱을 계산합니다"]',
+ARRAY['math', 'pow', 'operators'], 15),
+
+('python-increment-decrement', 'python', 'basics', 62, '증감 연산자', '전위/후위 증감 연산자 이해하기', 'challenge', 2,
+'정수 x가 주어질 때, ++x, x++, --x, x--의 결과를 순서대로 출력하세요.',
+'- 각 연산 후 x값도 변경됨',
+'[{"input": "5", "output": "6\n6\n6\n6"}]',
+'
+    int x;
+    scanf("%d", &x);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int x;
+    scanf("%d", &x);
+    print(++x)  // 6
+    print(x++)  // 6 (출력 후 증가)
+    print(--x)  // 6 (다시 감소)
+    print(x--)  // 6 (출력 후 감소)
+',
+'[{"input": "5", "expected": "6\n6\n6\n6\n"}]',
+'["전위는 먼저 증가/감소, 후위는 나중에 증가/감소"]',
+ARRAY['operators', 'increment'], 10),
+
+('python-ternary-operator', 'python', 'basics', 63, '삼항 연산자', '조건 연산자로 간결한 코드 작성', 'challenge', 2,
+'세 정수 a, b, c가 주어질 때, 가장 큰 값을 삼항 연산자로 찾아 출력하세요.',
+'- ? : 연산자 사용\n- 중첩 삼항 연산자',
+'[{"input": "5 8 3", "output": "8"}]',
+'
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    int max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+    print(max)
+',
+'[{"input": "5 8 3", "expected": "8\n"}]',
+'["조건 ? 참일때값 : 거짓일때값"]',
+ARRAY['operators', 'ternary'], 10),
+
+('python-bitwise-shift', 'python', 'basics', 64, '비트 시프트', '좌측/우측 시프트 연산', 'challenge', 2,
+'정수 n과 k가 주어질 때, n을 왼쪽으로 k번, 오른쪽으로 k번 시프트한 결과를 출력하세요.',
+'- << 와 >> 연산자',
+'[{"input": "8 2", "output": "32\n2"}]',
+'
+    int n, k;
+    scanf("%d %d", &n, &k);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n, k;
+    scanf("%d %d", &n, &k);
+    print(n << k)
+    print(n >> k)
+',
+'[{"input": "8 2", "expected": "32\n2\n"}]',
+'["왼쪽 시프트는 2배씩, 오른쪽은 2로 나누기"]',
+ARRAY['bitwise', 'shift'], 10),
+
+('python-gcd-lcm', 'python', 'basics', 65, '최대공약수와 최소공배수', 'GCD와 LCM 구하기', 'challenge', 2,
+'두 정수의 최대공약수(GCD)와 최소공배수(LCM)를 구하세요.',
+'- 유클리드 호제법 사용\n- LCM = (a * b) / GCD',
+'[{"input": "12 18", "output": "6\n36"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "12 18", "expected": "6\n36\n"}]',
+'["GCD(a, b) = GCD(b, a % b)"]',
+ARRAY['math', 'gcd', 'algorithm'], 15);
+
+-- Unit 4: 조건문 (Conditional Statements) - 5 challenges (MEDIUM)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-leap-year', 'python', 'basics', 66, '윤년 판별', '윤년인지 확인하기', 'challenge', 2,
+'연도가 주어질 때, 윤년이면 "Leap", 평년이면 "Common"을 출력하세요.\n윤년: 4의 배수이면서 100의 배수가 아니거나, 400의 배수',
+'- 조건을 정확히 구현',
+'[{"input": "2000", "output": "Leap"}, {"input": "1900", "output": "Common"}]',
+'
+    int year;
+    scanf("%d", &year);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int year;
+    scanf("%d", &year);
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        print("Leap")
+    } else {
+        print("Common")
+    }
+',
+'[{"input": "2000", "expected": "Leap\n"}, {"input": "1900", "expected": "Common\n"}]',
+'["논리 연산자를 조합하세요"]',
+ARRAY['conditionals', 'logic'], 10),
+
+('python-triangle-type', 'python', 'basics', 67, '삼각형 종류', '세 변의 길이로 삼각형 종류 판별', 'challenge', 2,
+'세 변 a, b, c가 주어질 때, 정삼각형(Equilateral), 이등변삼각형(Isosceles), 부등변삼각형(Scalene), 또는 삼각형 아님(Not a triangle)을 출력하세요.',
+'- 삼각형 성립 조건: 두 변의 합 > 나머지 한 변',
+'[{"input": "3 3 3", "output": "Equilateral"}, {"input": "3 3 5", "output": "Isosceles"}]',
+'
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+
+    if (a + b <= c || b + c <= a || a + c <= b) {
+        print("Not a triangle")
+    } else if (a == b && b == c) {
+        print("Equilateral")
+    } else if (a == b || b == c || a == c) {
+        print("Isosceles")
+    } else {
+        print("Scalene")
+    }
+
+',
+'[{"input": "3 3 3", "expected": "Equilateral\n"}, {"input": "3 3 5", "expected": "Isosceles\n"}]',
+'["먼저 삼각형이 성립하는지 확인하세요"]',
+ARRAY['conditionals', 'geometry'], 15),
+
+('python-quadrant', 'python', 'basics', 68, '사분면 판별', '좌표의 사분면 결정하기', 'challenge', 2,
+'점 (x, y)가 주어질 때, 어느 사분면에 속하는지 출력하세요.\n1, 2, 3, 4 중 하나 또는 "Axis"(축 위)',
+'- x축, y축 위도 고려',
+'[{"input": "5 3", "output": "1"}, {"input": "-2 4", "output": "2"}]',
+'
+    int x, y;
+    scanf("%d %d", &x, &y);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int x, y;
+    scanf("%d %d", &x, &y);
+
+    if (x == 0 || y == 0) {
+        print("Axis")
+    } else if (x > 0 && y > 0) {
+        print("1")
+    } else if (x < 0 && y > 0) {
+        print("2")
+    } else if (x < 0 && y < 0) {
+        print("3")
+    } else {
+        print("4")
+    }
+
+',
+'[{"input": "5 3", "expected": "1\n"}, {"input": "-2 4", "expected": "2\n"}]',
+'["x, y의 부호를 확인하세요"]',
+ARRAY['conditionals', 'math'], 10),
+
+('python-bmi-calculator', 'python', 'basics', 69, 'BMI 계산기', '체질량지수로 비만도 판정', 'challenge', 2,
+'체중(kg)과 키(cm)가 주어질 때, BMI를 계산하고 등급을 출력하세요.\nBMI = 체중 / (키/100)²\n18.5 미만: Underweight, 18.5-25: Normal, 25-30: Overweight, 30 이상: Obese',
+'- 소수점 계산 주의',
+'[{"input": "70 175", "output": "Normal"}]',
+'
+    double weight, height;
+    scanf("%lf %lf", &weight, &height);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    double weight, height;
+    scanf("%lf %lf", &weight, &height);
+
+    double bmi = weight / ((height / 100) * (height / 100));
+
+    if (bmi < 18.5) {
+        print("Underweight")
+    } else if (bmi < 25) {
+        print("Normal")
+    } else if (bmi < 30) {
+        print("Overweight")
+    } else {
+        print("Obese")
+    }
+
+',
+'[{"input": "70 175", "expected": "Normal\n"}]',
+'["키를 미터로 변환하세요"]',
+ARRAY['conditionals', 'math', 'health'], 10),
+
+('python-switch-calculator', 'python', 'basics', 70, 'Switch 계산기', 'switch문으로 계산기 만들기', 'challenge', 2,
+'두 정수 a, b와 연산자(+, -, *, /)가 주어질 때, 결과를 출력하세요.',
+'- switch 문 사용\n- 나눗셈은 정수 나눗셈',
+'[{"input": "10 5 +", "output": "15"}, {"input": "10 3 /", "output": "3"}]',
+'
+    int a, b;
+    char op;
+    scanf("%d %d %c", &a, &b, &op);
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int a, b;
+    char op;
+    scanf("%d %d %c", &a, &b, &op);
+
+    switch (op) {
+        case ''+'':
+            print(a + b)
+            break;
+        case ''-'':
+            print(a - b)
+            break;
+        case ''*'':
+            print(a * b)
+            break;
+        case ''/'':
+            print(a / b)
+            break;
+    }
+
+',
+'[{"input": "10 5 +", "expected": "15\n"}, {"input": "10 3 /", "expected": "3\n"}]',
+'["switch는 정수/문자 값으로 분기합니다"]',
+ARRAY['switch', 'calculator'], 10);
+
+-- Unit 5: 반복문 (Loops) - 5 challenges (MEDIUM)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-fibonacci', 'python', 'basics', 71, '피보나치 수열', 'N번째 피보나치 수 구하기', 'challenge', 2,
+'정수 N이 주어질 때, N번째 피보나치 수를 출력하세요.\nF(1)=1, F(2)=1, F(n)=F(n-1)+F(n-2)',
+'- 반복문 사용\n- 1 ≤ N ≤ 20',
+'[{"input": "7", "output": "13"}]',
+'
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+
+    int a = 1, b = 1;
+    if (n == 1 || n == 2) {
+        print("1")
+    } else {
+        for (int i = 3; i <= n; i++) {
+            int temp = a + b;
+            a = b;
+            b = temp;
+        }
+        print(b)
+    }
+
+',
+'[{"input": "7", "expected": "13\n"}]',
+'["이전 두 값을 유지하세요"]',
+ARRAY['loops', 'fibonacci', 'sequence'], 15),
+
+('python-prime-check', 'python', 'basics', 72, '소수 판별', '소수인지 확인하기', 'challenge', 2,
+'정수 N이 주어질 때, 소수이면 "Prime", 아니면 "Not Prime"을 출력하세요.',
+'- 2부터 √N까지 나누어떨어지는지 확인\n- N ≥ 2',
+'[{"input": "17", "output": "Prime"}, {"input": "20", "output": "Not Prime"}]',
+'#include <math.h>
+
+int main() {
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'[{"input": "17", "expected": "Prime\n"}, {"input": "20", "expected": "Not Prime\n"}]',
+'["sqrt(n)까지만 확인하면 됩니다"]',
+ARRAY['loops', 'prime', 'math'], 15),
+
+('python-digit-sum', 'python', 'basics', 73, '자릿수 합', '각 자릿수의 합 구하기', 'challenge', 2,
+'정수 N이 주어질 때, 각 자릿수의 합을 구하세요.',
+'- % 10으로 마지막 자리 추출\n- / 10으로 자릿수 제거',
+'[{"input": "12345", "output": "15"}]',
+'
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+
+    int sum = 0;
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+
+    print(sum)
+',
+'[{"input": "12345", "expected": "15\n"}]',
+'["반복하면서 자릿수를 줄여가세요"]',
+ARRAY['loops', 'digits', 'math'], 10),
+
+('python-reverse-number', 'python', 'basics', 74, '숫자 뒤집기', '숫자를 거꾸로 만들기', 'challenge', 2,
+'정수 N이 주어질 때, 자릿수를 거꾸로 뒤집은 수를 출력하세요.',
+'- 1230 → 321 (앞의 0은 무시)',
+'[{"input": "12345", "output": "54321"}]',
+'
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+
+    int reversed = 0;
+    while (n > 0) {
+        reversed = reversed * 10 + n % 10;
+        n /= 10;
+    }
+
+    print(reversed)
+',
+'[{"input": "12345", "expected": "54321\n"}]',
+'["역순 수를 10배 하고 마지막 자리를 더하세요"]',
+ARRAY['loops', 'digits'], 10),
+
+('python-collatz-conjecture', 'python', 'basics', 75, '콜라츠 추측', '1이 될 때까지의 단계 수', 'challenge', 2,
+'정수 N이 주어질 때, 1이 될 때까지의 단계 수를 출력하세요.\n짝수: N/2, 홀수: 3N+1',
+'- N ≥ 1',
+'[{"input": "6", "output": "8"}]',
+'
+    int n;
+    n = int(input())
+    // 여기에 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+
+    int count = 0;
+    while (n != 1) {
+        if (n % 2 == 0) {
+            n /= 2;
+        } else {
+            n = 3 * n + 1;
+        }
+        count++;
+    }
+
+    print(count)
+',
+'[{"input": "6", "expected": "8\n"}]',
+'["단계마다 카운트를 증가시키세요"]',
+ARRAY['loops', 'algorithm', 'math'], 15);
+
+-- Unit 6: 함수 (Functions) - 5 challenges (MEDIUM)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-factorial-function', 'python', 'basics', 76, '팩토리얼 함수', 'N! 계산 함수 만들기', 'challenge', 2,
+'정수 N의 팩토리얼을 계산하는 함수를 작성하세요.',
+'- int factorial(int n)\n- 반복문 사용',
+'[{"input": "5", "output": "120"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "5", "expected": "120\n"}]',
+'["1부터 n까지 곱하세요"]',
+ARRAY['functions', 'factorial', 'math'], 10),
+
+('python-recursive-fibonacci', 'python', 'basics', 77, '재귀 피보나치', '재귀 함수로 피보나치 수 구하기', 'challenge', 2,
+'재귀 함수를 사용하여 N번째 피보나치 수를 구하세요.',
+'- int fib(int n)\n- 재귀 호출',
+'[{"input": "7", "output": "13"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "7", "expected": "13\n"}]',
+'["기저 사례와 재귀 호출을 구현하세요"]',
+ARRAY['functions', 'recursion', 'fibonacci'], 15),
+
+('python-power-function', 'python', 'basics', 78, '거듭제곱 함수', 'base^exponent 계산하기', 'challenge', 2,
+'base와 exponent가 주어질 때, base^exponent를 계산하는 함수를 작성하세요.',
+'- int power(int base, int exp)\n- 반복문 사용',
+'[{"input": "2 10", "output": "1024"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "2 10", "expected": "1024\n"}]',
+'["base를 exp번 곱하세요"]',
+ARRAY['functions', 'power', 'math'], 10),
+
+('python-array-function', 'python', 'basics', 79, '배열 함수', '배열을 함수로 전달하기', 'challenge', 2,
+'배열과 크기를 입력받아 평균을 계산하는 함수를 작성하세요.',
+'- double average(int arr[], int size)',
+'[{"input": "5\n10 20 30 40 50", "output": "30.00"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "5\n10 20 30 40 50", "expected": "30.00\n"}]',
+'["배열은 포인터로 전달됩니다"]',
+ARRAY['functions', 'arrays', 'average'], 15),
+
+('python-pass-by-reference', 'python', 'basics', 80, '참조로 전달', '포인터로 값 변경하기', 'challenge', 2,
+'두 정수의 합과 차를 동시에 구하는 함수를 작성하세요.',
+'- void calculate(int a, int b, int *sum, int *diff)',
+'[{"input": "10 3", "output": "13\n7"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "10 3", "expected": "13\n7\n"}]',
+'["포인터를 통해 값을 변경하세요"]',
+ARRAY['functions', 'pointers', 'pass-by-reference'], 15);
+
+-- Unit 7: 배열 (Arrays) - 5 challenges (HARD)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-bubble-sort', 'python', 'advanced', 81, '버블 정렬', '배열을 오름차순으로 정렬하기', 'challenge', 3,
+'N개의 정수를 버블 정렬 알고리즘으로 오름차순 정렬하세요.',
+'- 인접한 원소를 비교하여 교환\n- 1 ≤ N ≤ 100',
+'[{"input": "5\n64 34 25 12 22", "output": "12 22 25 34 64"}]',
+'
+    int n;
+    n = int(input())
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // 여기에 버블 정렬 코드를 작성하세요
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+',
+'
+    int n;
+    n = int(input())
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+',
+'[{"input": "5\n64 34 25 12 22", "expected": "12 22 25 34 64 \n"}]',
+'["중첩 루프로 인접 원소를 비교하세요"]',
+ARRAY['arrays', 'sorting', 'bubble-sort'], 20),
+
+('python-binary-search', 'python', 'advanced', 82, '이진 탐색', '정렬된 배열에서 값 찾기', 'challenge', 3,
+'정렬된 배열에서 target을 이진 탐색으로 찾아 인덱스를 반환하세요. 없으면 -1',
+'- 중간값과 비교하여 탐색 범위를 절반씩 줄임',
+'[{"input": "5\n1 3 5 7 9\n5", "output": "2"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "5\n1 3 5 7 9\n5", "expected": "2\n"}]',
+'["left, right 포인터로 범위를 좁혀가세요"]',
+ARRAY['arrays', 'search', 'binary-search'], 20),
+
+('python-2d-array-transpose', 'python', 'advanced', 83, '행렬 전치', '2차원 배열 전치하기', 'challenge', 3,
+'N×M 행렬을 전치(행과 열을 바꿈)하여 출력하세요.',
+'- 2 ≤ N, M ≤ 10',
+'[{"input": "2 3\n1 2 3\n4 5 6", "output": "1 4\n2 5\n3 6"}]',
+'
+    int n, m;
+    scanf("%d %d", &n, &m);
+    int arr[10][10];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    // 여기에 전치 및 출력 코드를 작성하세요
+
+',
+'
+    int n, m;
+    scanf("%d %d", &n, &m);
+    int arr[10][10];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    for (int j = 0; j < m; j++) {
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+',
+'[{"input": "2 3\n1 2 3\n4 5 6", "expected": "1 4 \n2 5 \n3 6 \n"}]',
+'["행과 열의 인덱스를 바꿔서 출력하세요"]',
+ARRAY['arrays', '2d-array', 'matrix'], 20),
+
+('python-array-rotation', 'python', 'advanced', 84, '배열 회전', '배열을 K번 회전하기', 'challenge', 3,
+'N개의 정수 배열을 왼쪽으로 K번 회전하세요.',
+'- 회전: [1,2,3,4,5]를 1번 회전 → [2,3,4,5,1]',
+'[{"input": "5 2\n1 2 3 4 5", "output": "3 4 5 1 2"}]',
+'
+    int n, k;
+    scanf("%d %d", &n, &k);
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // 여기에 회전 코드를 작성하세요
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+',
+'
+    int n, k;
+    scanf("%d %d", &n, &k);
+    int arr[100], temp[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    k = k % n;  // k가 n보다 클 경우 대비
+    for (int i = 0; i < n; i++) {
+        temp[i] = arr[(i + k) % n];
+    }
+    for (int i = 0; i < n; i++) {
+        arr[i] = temp[i];
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+',
+'[{"input": "5 2\n1 2 3 4 5", "expected": "3 4 5 1 2 \n"}]',
+'["임시 배열을 사용하거나 % 연산으로 인덱스 계산"]',
+ARRAY['arrays', 'rotation'], 25),
+
+('python-subarray-sum', 'python', 'advanced', 85, '부분 배열 합', '연속된 부분 배열의 최대 합', 'challenge', 3,
+'N개의 정수 배열에서 연속된 부분 배열의 합 중 최댓값을 구하세요. (카데인 알고리즘)',
+'- 음수 포함 가능\n- 1 ≤ N ≤ 100',
+'[{"input": "8\n-2 1 -3 4 -1 2 1 -5", "output": "6"}]',
+'
+    int n;
+    n = int(input())
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // 여기에 카데인 알고리즘을 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int maxSum = arr[0];
+    int currentSum = arr[0];
+
+    for (int i = 1; i < n; i++) {
+        currentSum = (currentSum + arr[i] > arr[i]) ? currentSum + arr[i] : arr[i];
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+        }
+    }
+
+    print(maxSum)
+',
+'[{"input": "8\n-2 1 -3 4 -1 2 1 -5", "expected": "6\n"}]',
+'["현재까지의 합 vs 새로 시작, 둘 중 큰 값 선택"]',
+ARRAY['arrays', 'kadane', 'algorithm'], 30);
+
+-- Unit 8: 포인터 (Pointers) - 5 challenges (HARD)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-pointer-arithmetic', 'python', 'advanced', 86, '포인터 산술', '포인터로 배열 순회하기', 'challenge', 3,
+'배열을 포인터 산술 연산만으로 순회하여 합을 구하세요.',
+'- [] 사용 금지, *(ptr + i) 형태 사용',
+'[{"input": "5\n1 2 3 4 5", "output": "15"}]',
+'
+    int n;
+    n = int(input())
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int *ptr = arr;
+    // 여기에 포인터 산술로 합을 구하는 코드를 작성하세요
+
+',
+'
+    int n;
+    n = int(input())
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int *ptr = arr;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += *(ptr + i);
+    }
+
+    print(sum)
+',
+'[{"input": "5\n1 2 3 4 5", "expected": "15\n"}]',
+'["ptr + i는 i번째 요소의 주소입니다"]',
+ARRAY['pointers', 'arithmetic'], 20),
+
+('python-double-pointer', 'python', 'advanced', 87, '이중 포인터', '포인터의 포인터 사용하기', 'challenge', 3,
+'이중 포인터를 사용하여 두 포인터가 가리키는 값을 교환하세요.',
+'- void swap(int **pp1, int **pp2)',
+'[{"input": "10 20", "output": "20 10"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "10 20", "expected": "20 10\n"}]',
+'["**pp는 포인터가 가리키는 포인터가 가리키는 값"]',
+ARRAY['pointers', 'double-pointer'], 25),
+
+('python-function-pointer', 'python', 'advanced', 88, '함수 포인터', '함수 포인터로 연산 선택', 'challenge', 3,
+'함수 포인터를 사용하여 사칙연산을 선택적으로 수행하세요.',
+'- int (*operation)(int, int)',
+'[{"input": "10 5 +", "output": "15"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "10 5 +", "expected": "15\n"}]',
+'["함수 이름은 함수의 주소입니다"]',
+ARRAY['pointers', 'function-pointer'], 30),
+
+('python-dynamic-array', 'python', 'advanced', 89, '동적 배열', 'malloc으로 동적 메모리 할당', 'challenge', 3,
+'크기를 입력받아 동적 배열을 생성하고, 값을 입력받아 합을 구하세요.',
+'- malloc 사용\n- free로 메모리 해제',
+'[{"input": "5\n1 2 3 4 5", "output": "15"}]',
+'#include <stdlib.h>
+
+int main() {
+    int n;
+    n = int(input())
+
+    // 여기에 malloc으로 배열을 할당하고 사용하는 코드를 작성하세요
+
+',
+'[{"input": "5\n1 2 3 4 5", "expected": "15\n"}]',
+'["malloc(크기)로 할당, free(포인터)로 해제"]',
+ARRAY['pointers', 'malloc', 'dynamic'], 25),
+
+('python-linked-list-basics', 'python', 'advanced', 90, '연결 리스트 기초', '단순 연결 리스트 구현', 'challenge', 3,
+'정수를 저장하는 연결 리스트를 만들고 모든 값을 출력하세요.',
+'- struct Node 정의\n- 동적 할당 사용',
+'[{"input": "3\n1 2 3", "output": "1 2 3"}]',
+'#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+int main() {
+    int n;
+    n = int(input())
+
+    // 여기에 연결 리스트를 만들고 출력하는 코드를 작성하세요
+
+',
+'[{"input": "3\n1 2 3", "expected": "1 2 3 \n"}]',
+'["각 노드를 동적 할당하고 연결하세요"]',
+ARRAY['pointers', 'linked-list', 'data-structures'], 30);
+
+-- Unit 9: 파일 입출력 (File I/O) - 5 challenges (HARD)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-file-write', 'python', 'advanced', 91, '파일 쓰기', '파일에 텍스트 쓰기', 'challenge', 3,
+'문자열을 입력받아 "output.txt" 파일에 쓰세요.',
+'- fopen, fprintf, fclose 사용',
+'[{"input": "Hello World", "output": "File written"}]',
+'
+    char str[100];
+    fgets(str, sizeof(str), stdin);
+
+    // 여기에 파일 쓰기 코드를 작성하세요
+
+    print("File written")
+',
+'
+    char str[100];
+    fgets(str, sizeof(str), stdin);
+
+    FILE *fp = fopen("output.txt", "w");
+    if (fp != NULL) {
+        fprintf(fp, "%s", str);
+        fclose(fp);
+    }
+
+    print("File written")
+',
+'[{"input": "Hello World", "expected": "File written\n"}]',
+'["fopen(파일명, 모드), fprintf(파일, 형식, ...), fclose(파일)"]',
+ARRAY['file-io', 'write'], 20),
+
+('python-file-read', 'python', 'advanced', 92, '파일 읽기', '파일에서 텍스트 읽기', 'challenge', 3,
+'"input.txt" 파일의 내용을 읽어 화면에 출력하세요.',
+'- fopen, fgets, fclose 사용',
+'[{"input": "", "output": "File content"}]',
+'
+    // 여기에 파일 읽기 코드를 작성하세요
+
+',
+'
+    FILE *fp = fopen("input.txt", "r");
+    if (fp != NULL) {
+        char line[256];
+        while (fgets(line, sizeof(line), fp) != NULL) {
+            printf("%s", line);
+        }
+        fclose(fp);
+    }
+
+',
+'[{"input": "", "expected": "File content\n"}]',
+'["fgets는 한 줄씩 읽습니다"]',
+ARRAY['file-io', 'read'], 20),
+
+('python-file-copy', 'python', 'advanced', 93, '파일 복사', '파일 내용을 다른 파일로 복사', 'challenge', 3,
+'"source.txt"의 내용을 "dest.txt"로 복사하세요.',
+'- 읽기와 쓰기를 동시에',
+'[{"input": "", "output": "File copied"}]',
+'
+    // 여기에 파일 복사 코드를 작성하세요
+
+    print("File copied")
+',
+'
+    FILE *src = fopen("source.txt", "r");
+    FILE *dest = fopen("dest.txt", "w");
+
+    if (src != NULL && dest != NULL) {
+        char ch;
+        while ((ch = fgetc(src)) != EOF) {
+            fputc(ch, dest);
+        }
+        fclose(src);
+        fclose(dest);
+    }
+
+    print("File copied")
+',
+'[{"input": "", "expected": "File copied\n"}]',
+'["fgetc로 한 문자씩 읽고 fputc로 씁니다"]',
+ARRAY['file-io', 'copy'], 25),
+
+('python-file-word-count', 'python', 'advanced', 94, '파일 단어 수', '파일의 단어 개수 세기', 'challenge', 3,
+'"text.txt" 파일의 단어 개수를 세어 출력하세요.',
+'- 공백으로 구분된 단어',
+'[{"input": "", "output": "5"}]',
+'
+    // 여기에 단어 카운트 코드를 작성하세요
+
+',
+'
+    FILE *fp = fopen("text.txt", "r");
+    int count = 0;
+    char word[100];
+
+    if (fp != NULL) {
+        while (fscanf(fp, "%s", word) == 1) {
+            count++;
+        }
+        fclose(fp);
+    }
+
+    print(count)
+',
+'[{"input": "", "expected": "5\n"}]',
+'["fscanf로 단어를 하나씩 읽으세요"]',
+ARRAY['file-io', 'parsing'], 25),
+
+('python-binary-file', 'python', 'advanced', 95, '바이너리 파일', '구조체를 바이너리 파일로 저장', 'challenge', 3,
+'Person 구조체를 바이너리 파일에 쓰고 읽으세요.',
+'- fwrite, fread 사용\n- "rb", "wb" 모드',
+'[{"input": "John 25", "output": "John 25"}]',
+'
+# 여기에 코드를 작성하세요
+
+',
+'[{"input": "John 25", "expected": "John 25\n"}]',
+'["fwrite(&구조체, 크기, 개수, 파일)"]',
+ARRAY['file-io', 'binary', 'struct'], 30);
+
+-- Unit 10: 문자열 처리 (String Processing) - 5 challenges (HARD)
+-- ============================================================================
+
+INSERT INTO challenges_python (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('python-string-reverse', 'python', 'advanced', 96, '문자열 뒤집기', '문자열을 거꾸로 만들기', 'challenge', 3,
+'문자열을 입력받아 뒤집어서 출력하세요.',
+'- 직접 구현 (strrev 사용 금지)',
+'[{"input": "hello", "output": "olleh"}]',
+'#include <string.h>
+
+int main() {
+    char str[100];
+    scanf("%s", str);
+
+    // 여기에 문자열 뒤집기 코드를 작성하세요
+
+    printf("%s\n", str);
+',
+'[{"input": "hello", "expected": "olleh\n"}]',
+'["양 끝부터 중간까지 교환하세요"]',
+ARRAY['strings', 'reverse'], 20),
+
+('python-palindrome-check', 'python', 'advanced', 97, '회문 검사', '회문인지 확인하기', 'challenge', 3,
+'문자열이 회문(앞뒤가 같음)인지 확인하세요. "Yes" 또는 "No"',
+'- 대소문자 구분 없음',
+'[{"input": "racecar", "output": "Yes"}, {"input": "hello", "output": "No"}]',
+'#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str[100];
+    scanf("%s", str);
+
+    // 여기에 회문 검사 코드를 작성하세요
+
+',
+'[{"input": "racecar", "expected": "Yes\n"}, {"input": "hello", "expected": "No\n"}]',
+'["tolower로 소문자 변환하여 비교"]',
+ARRAY['strings', 'palindrome'], 20),
+
+('python-string-tokenize', 'python', 'advanced', 98, '문자열 토큰화', '공백으로 문자열 나누기', 'challenge', 3,
+'공백으로 구분된 문자열을 나누어 각 단어를 한 줄씩 출력하세요.',
+'- strtok 사용',
+'[{"input": "hello world test", "output": "hello\nworld\ntest"}]',
+'#include <string.h>
+
+int main() {
+    char str[100];
+    fgets(str, sizeof(str), stdin);
+
+    // 여기에 토큰화 코드를 작성하세요
+
+',
+'[{"input": "hello world test", "expected": "hello\nworld\ntest\n"}]',
+'["strtok(문자열, 구분자)를 반복 호출"]',
+ARRAY['strings', 'tokenize', 'parsing'], 25),
+
+('python-anagram-check', 'python', 'advanced', 99, '애너그램 검사', '두 문자열이 애너그램인지 확인', 'challenge', 3,
+'두 문자열이 애너그램(같은 문자로 구성)인지 확인하세요.',
+'- 문자 빈도수를 세어 비교',
+'[{"input": "listen\nsilent", "output": "Yes"}]',
+'#include <string.h>
+
+int main() {
+    char str1[100], str2[100];
+    scanf("%s %s", str1, str2);
+
+    // 여기에 애너그램 검사 코드를 작성하세요
+
+',
+'[{"input": "listen\nsilent", "expected": "Yes\n"}]',
+'["각 문자의 출현 횟수를 세세요"]',
+ARRAY['strings', 'anagram', 'algorithm'], 25),
+
+('python-substring-search', 'python', 'advanced', 100, '부분 문자열 찾기', '문자열 내 부분 문자열 위치 찾기', 'challenge', 3,
+'문자열 s에서 패턴 p가 처음 나타나는 위치를 출력하세요. 없으면 -1',
+'- 직접 구현 (strstr 사용 금지)\n- 인덱스는 0부터',
+'[{"input": "hello world\nworld", "output": "6"}]',
+'#include <string.h>
+
+int main() {
+    char s[100], p[100];
+    fgets(s, sizeof(s), stdin);
+    fgets(p, sizeof(p), stdin);
+
+    // 줄바꿈 제거
+    s[strcspn(s, "\n")] = 0;
+    p[strcspn(p, "\n")] = 0;
+
+    // 여기에 부분 문자열 검색 코드를 작성하세요
+
+',
+'[{"input": "hello world\nworld", "expected": "6\n"}]',
+'["각 위치에서 패턴과 일치하는지 확인"]',
+ARRAY['strings', 'search', 'algorithm'], 30);
+
+-- ============================================================================
+-- End of Python Language Part 2
+-- ============================================================================

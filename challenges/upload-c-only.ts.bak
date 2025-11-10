@@ -1,0 +1,205 @@
+import { createClient } from '@supabase/supabase-js';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as dotenv from 'dotenv';
+
+// .env 파일 로드
+dotenv.config({ path: path.join(__dirname, '../../.env') });
+
+const SUPABASE_URL = process.env.SUPABASE_URL!;
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+
+if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
+  console.error('❌ SUPABASE_URL 또는 SUPABASE_SERVICE_ROLE_KEY가 설정되지 않았습니다.');
+  process.exit(1);
+}
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+
+// SQL에서 챌린지 데이터 추출
+function extractChallengesFromSql(sqlContent: string): any[] {
+  const challenges: any[] = [];
+  const insertRegex = /INSERT INTO challenges[^V]+VALUES\s*\(([\s\S]+?)\)(?:,\s*\(|;)/g;
+  let match;
+
+  while ((match = insertRegex.exec(sqlContent)) !== null) {
+    try {
+      const valuesStr = match[1];
+      const challenge = parseChallenge(valuesStr);
+      if (challenge) {
+        challenges.push(challenge);
+      }
+    } catch (err: any) {
+      console.error('⚠️  챌린지 파싱 오류:', err.message);
+    }
+  }
+
+  return challenges;
+}
+
+function parseChallenge(valuesStr: string): any | null {
+  const parts: string[] = [];
+  let current = '';
+  let inString = false;
+  let depth = 0;
+
+  for (let i = 0; i < valuesStr.length; i++) {
+    const char = valuesStr[i];
+
+    if (char === "'" && (i === 0 || valuesStr[i - 1] !== '\\')) {
+      inString = !inString;
+      current += char;
+      continue;
+    }
+
+    if (!inString) {
+      if (char === '[' || char === '{') depth++;
+      if (char === ']' || char === '}') depth--;
+
+      if (char === ',' && depth === 0) {
+        parts.push(current.trim());
+        current = '';
+        continue;
+      }
+    }
+
+    current += char;
+  }
+
+  if (current.trim()) {
+    parts.push(current.trim());
+  }
+
+  if (parts.length < 17) {
+    return null;
+  }
+
+  const cleanValue = (str: string) => {
+    str = str.trim();
+    if (str.startsWith("'") && str.endsWith("'")) {
+      return str.slice(1, -1).replace(/\'/g, "'");
+    }
+    return str;
+  };
+
+  const parseArray = (str: string): string[] => {
+    if (!str.startsWith('ARRAY[')) return [];
+    const inner = str.slice(6, -1);
+    return inner.split(',').map(s => cleanValue(s.trim()));
+  };
+
+  return {
+    slug: cleanValue(parts[0]),
+    language: cleanValue(parts[1]),
+    kind: cleanValue(parts[2]),
+    level: parseInt(cleanValue(parts[3])) || 1,
+    title: cleanValue(parts[4]),
+    description: cleanValue(parts[5]),
+    category: cleanValue(parts[6]),
+    difficulty: parseInt(cleanValue(parts[7])) || 1,
+    problem_description: cleanValue(parts[8]),
+    constraints: cleanValue(parts[9]),
+    examples: cleanValue(parts[10]),
+    initial_code: cleanValue(parts[11]),
+    solution_code: cleanValue(parts[12]),
+    test_cases: cleanValue(parts[13]),
+    hints: cleanValue(parts[14]),
+    tags: parseArray(parts[15]),
+    estimated_time: parseInt(cleanValue(parts[16])) || 5,
+  };
+}
+
+async function main() {
+  console.log('\n🚀 C 언어 챌린지 업로드 시작\n');
+
+  // 1. 기존 C 언어 데이터 삭제
+  console.log('🗑️  기존 C 언어 챌린지 삭제 중...');
+  const { error: deleteError } = await supabase
+    .from('challenges')
+    .delete()
+    .eq('language', 'c');
+
+  if (deleteError && deleteError.code !== 'PGRST116') {
+    console.error('❌ 삭제 실패:', deleteError.message);
+  } else {
+    console.log('✅ 기존 데이터 삭제 완료\n');
+  }
+
+  // 2. Part1 업로드
+  console.log('📤 c-part1.sql 읽는 중...');
+  const part1Path = path.join(__dirname, 'c-part1.sql');
+  const part1Content = fs.readFileSync(part1Path, 'utf-8');
+  const part1Challenges = extractChallengesFromSql(part1Content);
+  console.log(`   📊 ${part1Challenges.length}개 챌린지 발견`);
+
+  let successCount = 0;
+  const batchSize = 10;
+
+  for (let i = 0; i < part1Challenges.length; i += batchSize) {
+    const batch = part1Challenges.slice(i, i + batchSize);
+    const { error } = await supabase.from('challenges').insert(batch);
+
+    if (error) {
+      console.error(`   ❌ [${i + 1}-${i + batch.length}] 실패:`, error.message);
+    } else {
+      successCount += batch.length;
+      console.log(`   ✅ [${i + 1}-${i + batch.length}] 성공`);
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
+  console.log(`   ✅ Part1: ${successCount}/${part1Challenges.length}개 업로드 성공\n`);
+
+  // 3. Part2 업로드
+  console.log('📤 c-part2.sql 읽는 중...');
+  const part2Path = path.join(__dirname, 'c-part2.sql');
+  const part2Content = fs.readFileSync(part2Path, 'utf-8');
+  const part2Challenges = extractChallengesFromSql(part2Content);
+  console.log(`   📊 ${part2Challenges.length}개 챌린지 발견`);
+
+  successCount = 0;
+
+  for (let i = 0; i < part2Challenges.length; i += batchSize) {
+    const batch = part2Challenges.slice(i, i + batchSize);
+    const { error } = await supabase.from('challenges').insert(batch);
+
+    if (error) {
+      console.error(`   ❌ [${i + 1}-${i + batch.length}] 실패:`, error.message);
+    } else {
+      successCount += batch.length;
+      console.log(`   ✅ [${i + 1}-${i + batch.length}] 성공`);
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
+  console.log(`   ✅ Part2: ${successCount}/${part2Challenges.length}개 업로드 성공\n`);
+
+  // 4. 최종 확인
+  const { data, error } = await supabase
+    .from('challenges')
+    .select('unit_number, id')
+    .eq('language', 'c')
+    .order('unit_number');
+
+  if (error) {
+    console.error('❌ 확인 실패:', error);
+    return;
+  }
+
+  const unitCounts: Record<number, number> = {};
+  data?.forEach(challenge => {
+    unitCounts[challenge.unit_number] = (unitCounts[challenge.unit_number] || 0) + 1;
+  });
+
+  console.log('=== C 언어 챌린지 업로드 결과 ===\n');
+  for (let unit = 1; unit <= 10; unit++) {
+    const count = unitCounts[unit] || 0;
+    const status = count > 0 ? '✅' : '❌';
+    console.log(`${status} Unit ${unit}: ${count} challenges`);
+  }
+  console.log(`\n총 ${data?.length || 0}개 챌린지 업로드됨\n`);
+}
+
+main().catch(console.error);

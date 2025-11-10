@@ -1,0 +1,554 @@
+-- ====================================
+-- CSS Language Challenges - Part 2
+-- Levels 51-100 (MEDIUM 30개 + HARD 20개)
+-- ====================================
+
+-- Unit 11: 고급 Flexbox (5 problems - MEDIUM)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-flex-wrap', 'css', 'syntax', 51, 'Flex 줄바꿈', 'flex-wrap', 'challenge', 2,
+'아이템이 넘치면 다음 줄로 넘기세요.',
+'- flex-wrap: wrap\n- 여러 줄 허용',
+'[{"input": "", "output": "줄바꿈 flex"}]',
+'.container {\n    display: flex;\n    /* 줄바꿈 허용 */\n}',
+'.container {\n    display: flex;\n    flex-wrap: wrap;\n}',
+'[{"input": "", "expected": "flex wrap"}]',
+'["nowrap(기본), wrap, wrap-reverse 값을 사용할 수 있습니다"]',
+ARRAY['flexbox', 'wrap'], 10),
+
+('css-flex-grow', 'css', 'syntax', 52, 'Flex 성장', 'flex-grow', 'challenge', 2,
+'특정 아이템이 남은 공간을 모두 차지하게 하세요.',
+'- flex-grow: 1\n- 성장 비율',
+'[{"input": "", "output": "성장하는 아이템"}]',
+'.item {\n    /* 남은 공간 차지 */\n}',
+'.item {\n    flex-grow: 1;\n}',
+'[{"input": "", "expected": "flex-grow 1"}]',
+'["flex-grow는 남은 공간을 비율로 나눕니다"]',
+ARRAY['flexbox', 'flex-grow'], 12),
+
+('css-flex-shrink', 'css', 'syntax', 53, 'Flex 축소', 'flex-shrink', 'challenge', 2,
+'아이템이 축소되지 않게 하세요.',
+'- flex-shrink: 0\n- 축소 방지',
+'[{"input": "", "output": "축소 안 됨"}]',
+'.item {\n    /* 축소 방지 */\n}',
+'.item {\n    flex-shrink: 0;\n}',
+'[{"input": "", "expected": "no shrink"}]',
+'["flex-shrink: 0은 고정 크기 아이템을 만듭니다"]',
+ARRAY['flexbox', 'flex-shrink'], 12),
+
+('css-align-self', 'css', 'syntax', 54, '개별 정렬', 'align-self', 'challenge', 2,
+'특정 아이템만 다르게 정렬하세요.',
+'- align-self: flex-end\n- 개별 아이템 정렬',
+'[{"input": "", "output": "개별 정렬"}]',
+'.special {\n    /* 하단 정렬 */\n}',
+'.special {\n    align-self: flex-end;\n}',
+'[{"input": "", "expected": "align-self end"}]',
+'["align-self는 개별 아이템의 align-items를 재정의합니다"]',
+ARRAY['flexbox', 'align-self'], 12),
+
+('css-order', 'css', 'syntax', 55, 'Flex 순서', 'order 속성', 'challenge', 2,
+'아이템의 시각적 순서를 변경하세요.',
+'- order: -1\n- 표시 순서 조정',
+'[{"input": "", "output": "순서 변경"}]',
+'.first {\n    /* 맨 앞으로 */\n}',
+'.first {\n    order: -1;\n}',
+'[{"input": "", "expected": "order -1"}]',
+'["order 값이 작을수록 앞에 배치됩니다"]',
+ARRAY['flexbox', 'order'], 12);
+
+-- Unit 12: Grid 기본 (5 problems - MEDIUM)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-grid-container', 'css', 'syntax', 56, 'Grid 컨테이너', 'display: grid', 'challenge', 2,
+'Grid 레이아웃을 활성화하세요.',
+'- display: grid\n- grid 컨테이너 생성',
+'[{"input": "", "output": "grid 컨테이너"}]',
+'.container {\n    /* grid 활성화 */\n}',
+'.container {\n    display: grid;\n}',
+'[{"input": "", "expected": "grid container"}]',
+'["display: grid는 2차원 레이아웃을 만듭니다"]',
+ARRAY['grid', 'basics'], 10),
+
+('css-grid-template-columns', 'css', 'syntax', 57, 'Grid 열', 'grid-template-columns', 'challenge', 2,
+'3개의 동일한 너비 열을 만드세요.',
+'- grid-template-columns: 1fr 1fr 1fr\n- 또는 repeat(3, 1fr)',
+'[{"input": "", "output": "3열 그리드"}]',
+'.container {\n    display: grid;\n    /* 3개 열 */\n}',
+'.container {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n}',
+'[{"input": "", "expected": "3 columns"}]',
+'["fr은 fraction 단위로 비율을 나타냅니다"]',
+ARRAY['grid', 'columns'], 12),
+
+('css-grid-gap', 'css', 'syntax', 58, 'Grid 간격', 'gap', 'challenge', 2,
+'그리드 아이템 사이에 20px 간격을 추가하세요.',
+'- gap: 20px\n- 행과 열 간격',
+'[{"input": "", "output": "20px 간격"}]',
+'.container {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    /* 간격 추가 */\n}',
+'.container {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 20px;\n}',
+'[{"input": "", "expected": "20px gap"}]',
+'["gap은 row-gap과 column-gap의 단축 속성입니다"]',
+ARRAY['grid', 'gap'], 10),
+
+('css-grid-column-span', 'css', 'syntax', 59, '열 병합', 'grid-column', 'challenge', 2,
+'아이템이 2개 열을 차지하게 하세요.',
+'- grid-column: span 2\n- 열 병합',
+'[{"input": "", "output": "2열 병합"}]',
+'.wide {\n    /* 2열 차지 */\n}',
+'.wide {\n    grid-column: span 2;\n}',
+'[{"input": "", "expected": "span 2 columns"}]',
+'["span은 몇 개의 셀을 차지할지 지정합니다"]',
+ARRAY['grid', 'span'], 12),
+
+('css-grid-template-areas', 'css', 'syntax', 60, 'Grid 영역', 'grid-template-areas', 'challenge', 2,
+'이름이 있는 그리드 영역을 정의하세요.',
+'- grid-template-areas\n- 시각적 레이아웃 정의',
+'[{"input": "", "output": "명명된 영역"}]',
+'.container {\n    display: grid;\n    /* 영역 정의 */\n}',
+'.container {\n    display: grid;\n    grid-template-areas:\n        "header header"\n        "sidebar main"\n        "footer footer";\n}',
+'[{"input": "", "expected": "template areas"}]',
+'["grid-area로 요소를 영역에 배치합니다"]',
+ARRAY['grid', 'areas'], 15);
+
+-- Unit 13: 변형과 애니메이션 (5 problems - MEDIUM)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-transform-rotate', 'css', 'syntax', 61, '회전 변형', 'transform: rotate', 'challenge', 2,
+'요소를 45도 회전하세요.',
+'- transform: rotate(45deg)\n- 회전 변환',
+'[{"input": "", "output": "45도 회전"}]',
+'.rotated {\n    /* 45도 회전 */\n}',
+'.rotated {\n    transform: rotate(45deg);\n}',
+'[{"input": "", "expected": "45deg rotation"}]',
+'["deg, rad, turn 단위를 사용할 수 있습니다"]',
+ARRAY['transform', 'rotate'], 10),
+
+('css-transform-scale', 'css', 'syntax', 62, '크기 변형', 'transform: scale', 'challenge', 2,
+'호버 시 요소를 1.2배 확대하세요.',
+'- transform: scale(1.2)\n- 크기 조정',
+'[{"input": "", "output": "확대 효과"}]',
+'.card:hover {\n    /* 1.2배 확대 */\n}',
+'.card:hover {\n    transform: scale(1.2);\n}',
+'[{"input": "", "expected": "scale 1.2"}]',
+'["scale(x, y)로 가로세로 다르게 확대할 수 있습니다"]',
+ARRAY['transform', 'scale'], 10),
+
+('css-transition', 'css', 'syntax', 63, '전환 효과', 'transition', 'challenge', 2,
+'모든 속성 변화에 0.3초 전환 효과를 추가하세요.',
+'- transition: all 0.3s\n- 부드러운 변화',
+'[{"input": "", "output": "전환 효과"}]',
+'.button {\n    /* 전환 효과 */\n}',
+'.button {\n    transition: all 0.3s;\n}',
+'[{"input": "", "expected": "transition 0.3s"}]',
+'["transition은 속성, 시간, 타이밍 함수를 지정합니다"]',
+ARRAY['transition', 'animation'], 12),
+
+('css-keyframes', 'css', 'syntax', 64, '키프레임 애니메이션', '@keyframes', 'challenge', 2,
+'페이드인 애니메이션을 정의하세요.',
+'- @keyframes 규칙\n- opacity 변화',
+'[{"input": "", "output": "페이드인"}]',
+'/* 페이드인 애니메이션 */\n',
+'@keyframes fadeIn {\n    from {\n        opacity: 0;\n    }\n    to {\n        opacity: 1;\n    }\n}',
+'[{"input": "", "expected": "fadeIn keyframes"}]',
+'["from/to 또는 0%/100% 키워드를 사용합니다"]',
+ARRAY['animation', 'keyframes'], 15),
+
+('css-animation', 'css', 'syntax', 65, '애니메이션 적용', 'animation', 'challenge', 2,
+'fadeIn 애니메이션을 1초 동안 재생하세요.',
+'- animation: fadeIn 1s\n- 애니메이션 실행',
+'[{"input": "", "output": "애니메이션 실행"}]',
+'.element {\n    /* 애니메이션 적용 */\n}',
+'.element {\n    animation: fadeIn 1s;\n}',
+'[{"input": "", "expected": "animation applied"}]',
+'["animation은 이름, 시간, 타이밍, 반복 등을 지정합니다"]',
+ARRAY['animation', 'apply'], 12);
+
+-- Unit 14: 반응형 디자인 (5 problems - MEDIUM)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-media-query-basic', 'css', 'syntax', 66, '미디어 쿼리', '@media', 'challenge', 2,
+'화면이 768px 이하일 때 글자 크기를 14px로 변경하세요.',
+'- @media (max-width: 768px)\n- 반응형 중단점',
+'[{"input": "", "output": "모바일 글자 크기"}]',
+'body {\n    font-size: 16px;\n}\n\n/* 768px 이하 */\n',
+'body {\n    font-size: 16px;\n}\n\n@media (max-width: 768px) {\n    body {\n        font-size: 14px;\n    }\n}',
+'[{"input": "", "expected": "media query"}]',
+'["max-width는 이하, min-width는 이상을 의미합니다"]',
+ARRAY['responsive', 'media-query'], 12),
+
+('css-mobile-first', 'css', 'syntax', 67, '모바일 우선', 'min-width 미디어 쿼리', 'challenge', 2,
+'모바일 우선으로 태블릿 이상에서 3열 그리드를 만드세요.',
+'- 기본: 1열\n- min-width: 768px에서 3열',
+'[{"input": "", "output": "모바일 우선"}]',
+'.container {\n    /* 기본: 1열 */\n}\n\n/* 768px 이상 */\n',
+'.container {\n    display: grid;\n    grid-template-columns: 1fr;\n}\n\n@media (min-width: 768px) {\n    .container {\n        grid-template-columns: repeat(3, 1fr);\n    }\n}',
+'[{"input": "", "expected": "mobile first grid"}]',
+'["모바일 우선은 min-width를 사용합니다"]',
+ARRAY['responsive', 'mobile-first'], 15),
+
+('css-responsive-images', 'css', 'syntax', 68, '반응형 이미지', 'max-width: 100%', 'challenge', 2,
+'이미지가 부모를 넘지 않게 하세요.',
+'- max-width: 100%\n- height: auto',
+'[{"input": "", "output": "반응형 이미지"}]',
+'img {\n    /* 반응형 설정 */\n}',
+'img {\n    max-width: 100%;\n    height: auto;\n}',
+'[{"input": "", "expected": "responsive img"}]',
+'["max-width: 100%는 이미지가 부모를 넘지 않게 합니다"]',
+ARRAY['responsive', 'images'], 10),
+
+('css-container-query', 'css', 'syntax', 69, '컨테이너 쿼리', '@container', 'challenge', 2,
+'컨테이너 너비 기준으로 스타일을 변경하세요.',
+'- container-type: inline-size\n- @container 쿼리',
+'[{"input": "", "output": "컨테이너 쿼리"}]',
+'.parent {\n    /* 컨테이너 설정 */\n}\n\n/* 컨테이너 400px 이상 */\n',
+'.parent {\n    container-type: inline-size;\n}\n\n@container (min-width: 400px) {\n    .child {\n        font-size: 18px;\n    }\n}',
+'[{"input": "", "expected": "container query"}]',
+'["컨테이너 쿼리는 부모 크기 기준으로 반응합니다"]',
+ARRAY['responsive', 'container-query'], 18),
+
+('css-clamp', 'css', 'syntax', 70, '유동적 크기', 'clamp() 함수', 'challenge', 2,
+'글자 크기를 최소 16px, 최대 24px로 제한하세요.',
+'- clamp(min, preferred, max)\n- 유동적 크기',
+'[{"input": "", "output": "clamp 크기"}]',
+'h1 {\n    /* clamp 사용 */\n}',
+'h1 {\n    font-size: clamp(16px, 5vw, 24px);\n}',
+'[{"input": "", "expected": "clamp font size"}]',
+'["clamp는 최소, 선호, 최대 값 사이를 유지합니다"]',
+ARRAY['responsive', 'clamp'], 15);
+
+-- Unit 15: 고급 선택자 (5 problems - MEDIUM)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-descendant-selector', 'css', 'syntax', 71, '자손 선택자', '공백 선택자', 'challenge', 2,
+'nav 안의 모든 a 태그를 선택하세요.',
+'- 공백으로 자손 선택\n- nav a',
+'[{"input": "", "output": "nav 링크"}]',
+'/* nav 안의 a 선택 */\n',
+'nav a {\n    color: blue;\n}',
+'[{"input": "", "expected": "nav a selected"}]',
+'["자손 선택자는 모든 하위 요소를 선택합니다"]',
+ARRAY['selector', 'descendant'], 10),
+
+('css-child-selector', 'css', 'syntax', 72, '자식 선택자', '> 선택자', 'challenge', 2,
+'div의 직접 자식인 p만 선택하세요.',
+'- > 선택자\n- 직접 자식만',
+'[{"input": "", "output": "직접 자식"}]',
+'/* div > p */\n',
+'div > p {\n    margin-bottom: 10px;\n}',
+'[{"input": "", "expected": "direct children"}]',
+'["자식 선택자는 직접 자식만 선택합니다"]',
+ARRAY['selector', 'child'], 10),
+
+('css-adjacent-sibling', 'css', 'syntax', 73, '인접 형제 선택자', '+ 선택자', 'challenge', 2,
+'h2 바로 다음의 p를 선택하세요.',
+'- + 선택자\n- 바로 다음 형제',
+'[{"input": "", "output": "인접 형제"}]',
+'/* h2 + p */\n',
+'h2 + p {\n    margin-top: 0;\n}',
+'[{"input": "", "expected": "adjacent sibling"}]',
+'["+는 바로 다음 형제만 선택합니다"]',
+ARRAY['selector', 'adjacent'], 12),
+
+('css-general-sibling', 'css', 'syntax', 74, '일반 형제 선택자', '~ 선택자', 'challenge', 2,
+'h2 이후의 모든 p를 선택하세요.',
+'- ~ 선택자\n- 뒤의 모든 형제',
+'[{"input": "", "output": "모든 형제"}]',
+'/* h2 ~ p */\n',
+'h2 ~ p {\n    color: gray;\n}',
+'[{"input": "", "expected": "general siblings"}]',
+'["~는 이후의 모든 형제를 선택합니다"]',
+ARRAY['selector', 'sibling'], 12),
+
+('css-attribute-selector', 'css', 'syntax', 75, '속성 선택자', '[속성] 선택자', 'challenge', 2,
+'target 속성이 있는 a 태그를 선택하세요.',
+'- [속성] 선택자\n- 속성 존재 확인',
+'[{"input": "", "output": "속성 선택"}]',
+'/* target 속성이 있는 a */\n',
+'a[target] {\n    font-weight: bold;\n}',
+'[{"input": "", "expected": "attribute selector"}]',
+'["[속성=값], [속성^=값], [속성$=값] 등 다양한 형태가 있습니다"]',
+ARRAY['selector', 'attribute'], 12);
+
+-- Unit 16: 가상 요소 (5 problems - HARD)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-before', 'css', 'syntax', 76, '::before 가상 요소', '앞에 콘텐츠 추가', 'challenge', 3,
+'모든 링크 앞에 "→" 아이콘을 추가하세요.',
+'- ::before 가상 요소\n- content 속성',
+'[{"input": "", "output": "아이콘 추가"}]',
+'a {\n    /* before 추가 */\n}',
+'a::before {\n    content: "→ ";\n}',
+'[{"input": "", "expected": "before content"}]',
+'["::before는 요소 앞에 콘텐츠를 삽입합니다"]',
+ARRAY['pseudo-element', 'before', 'hard'], 15),
+
+('css-after', 'css', 'syntax', 77, '::after 가상 요소', '뒤에 콘텐츠 추가', 'challenge', 3,
+'외부 링크 뒤에 "↗" 아이콘을 추가하세요.',
+'- ::after 가상 요소\n- [target="_blank"] 선택자',
+'[{"input": "", "output": "외부 링크 표시"}]',
+'a[target="_blank"] {\n    /* after 추가 */\n}',
+'a[target="_blank"]::after {\n    content: " ↗";\n}',
+'[{"input": "", "expected": "after content"}]',
+'["::after는 요소 뒤에 콘텐츠를 삽입합니다"]',
+ARRAY['pseudo-element', 'after', 'hard'], 15),
+
+('css-first-letter', 'css', 'syntax', 78, '::first-letter', '첫 글자 스타일', 'challenge', 3,
+'문단의 첫 글자를 크게 만드세요.',
+'- ::first-letter\n- font-size, color 변경',
+'[{"input": "", "output": "드롭캡"}]',
+'p::first-letter {\n    /* 첫 글자 스타일 */\n}',
+'p::first-letter {\n    font-size: 2em;\n    font-weight: bold;\n}',
+'[{"input": "", "expected": "first letter styled"}]',
+'["::first-letter는 드롭캡 효과를 만듭니다"]',
+ARRAY['pseudo-element', 'first-letter', 'hard'], 15),
+
+('css-selection', 'css', 'syntax', 79, '::selection', '선택 영역 스타일', 'challenge', 3,
+'텍스트 선택 시 배경색을 노란색으로 변경하세요.',
+'- ::selection 가상 요소\n- background-color',
+'[{"input": "", "output": "선택 스타일"}]',
+'::selection {\n    /* 선택 스타일 */\n}',
+'::selection {\n    background-color: yellow;\n    color: black;\n}',
+'[{"input": "", "expected": "selection styled"}]',
+'["::selection은 사용자가 선택한 텍스트에 적용됩니다"]',
+ARRAY['pseudo-element', 'selection', 'hard'], 15),
+
+('css-placeholder', 'css', 'syntax', 80, '::placeholder', '플레이스홀더 스타일', 'challenge', 3,
+'input의 placeholder 색상을 회색으로 변경하세요.',
+'- ::placeholder 가상 요소\n- color 변경',
+'[{"input": "", "output": "placeholder 스타일"}]',
+'input::placeholder {\n    /* placeholder 색상 */\n}',
+'input::placeholder {\n    color: gray;\n    opacity: 0.7;\n}',
+'[{"input": "", "expected": "placeholder styled"}]',
+'["::placeholder는 입력 힌트 텍스트를 스타일링합니다"]',
+ARRAY['pseudo-element', 'placeholder', 'hard'], 15);
+
+-- Unit 17: 고급 레이아웃 (5 problems - HARD)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-position-sticky', 'css', 'syntax', 81, 'Sticky 위치', 'position: sticky', 'challenge', 3,
+'스크롤 시 헤더를 상단에 고정하세요.',
+'- position: sticky\n- top: 0',
+'[{"input": "", "output": "고정 헤더"}]',
+'header {\n    /* sticky 위치 */\n}',
+'header {\n    position: sticky;\n    top: 0;\n    background: white;\n}',
+'[{"input": "", "expected": "sticky header"}]',
+'["sticky는 스크롤에 따라 relative와 fixed 사이를 전환합니다"]',
+ARRAY['layout', 'position', 'sticky', 'hard'], 18),
+
+('css-z-index', 'css', 'syntax', 82, '쌓임 순서', 'z-index', 'challenge', 3,
+'모달을 다른 요소 위에 배치하세요.',
+'- z-index: 1000\n- position 필수',
+'[{"input": "", "output": "최상위 모달"}]',
+'.modal {\n    position: fixed;\n    /* z-index 설정 */\n}',
+'.modal {\n    position: fixed;\n    z-index: 1000;\n}',
+'[{"input": "", "expected": "high z-index"}]',
+'["z-index는 position이 static이 아닐 때만 동작합니다"]',
+ARRAY['layout', 'z-index', 'hard'], 15),
+
+('css-columns', 'css', 'syntax', 83, '다단 레이아웃', 'columns', 'challenge', 3,
+'텍스트를 3단으로 나누세요.',
+'- columns: 3\n- column-gap 설정',
+'[{"input": "", "output": "3단 레이아웃"}]',
+'.article {\n    /* 3단 레이아웃 */\n}',
+'.article {\n    columns: 3;\n    column-gap: 2em;\n}',
+'[{"input": "", "expected": "3 columns"}]',
+'["columns는 신문 스타일 레이아웃을 만듭니다"]',
+ARRAY['layout', 'columns', 'hard'], 18),
+
+('css-aspect-ratio', 'css', 'syntax', 84, '종횡비', 'aspect-ratio', 'challenge', 3,
+'요소의 종횡비를 16:9로 유지하세요.',
+'- aspect-ratio: 16 / 9\n- 비율 유지',
+'[{"input": "", "output": "16:9 비율"}]',
+'.video-container {\n    /* 16:9 비율 */\n}',
+'.video-container {\n    aspect-ratio: 16 / 9;\n}',
+'[{"input": "", "expected": "16:9 aspect ratio"}]',
+'["aspect-ratio는 너비에 맞춰 높이를 자동 조정합니다"]',
+ARRAY['layout', 'aspect-ratio', 'hard'], 18),
+
+('css-object-fit', 'css', 'syntax', 85, '객체 맞춤', 'object-fit', 'challenge', 3,
+'이미지가 컨테이너를 꽉 채우되 비율을 유지하세요.',
+'- object-fit: cover\n- 비율 유지하며 채우기',
+'[{"input": "", "output": "cover 이미지"}]',
+'img {\n    width: 100%;\n    height: 300px;\n    /* object-fit */\n}',
+'img {\n    width: 100%;\n    height: 300px;\n    object-fit: cover;\n}',
+'[{"input": "", "expected": "object-fit cover"}]',
+'["contain, cover, fill, none, scale-down 값이 있습니다"]',
+ARRAY['layout', 'object-fit', 'hard'], 18);
+
+-- Unit 18: 고급 효과 (5 problems - HARD)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-filter', 'css', 'syntax', 86, 'Filter 효과', 'filter 속성', 'challenge', 3,
+'이미지에 흐림 효과를 추가하세요.',
+'- filter: blur(5px)\n- 시각 효과',
+'[{"input": "", "output": "흐림 이미지"}]',
+'img {\n    /* 흐림 효과 */\n}',
+'img {\n    filter: blur(5px);\n}',
+'[{"input": "", "expected": "blur filter"}]',
+'["blur, brightness, contrast, grayscale 등 다양한 필터가 있습니다"]',
+ARRAY['effects', 'filter', 'hard'], 18),
+
+('css-backdrop-filter', 'css', 'syntax', 87, '배경 필터', 'backdrop-filter', 'challenge', 3,
+'배경을 흐리게 하는 유리 효과를 만드세요.',
+'- backdrop-filter: blur(10px)\n- 배경 효과',
+'[{"input": "", "output": "유리 효과"}]',
+'.glass {\n    /* 배경 흐림 */\n}',
+'.glass {\n    background: rgba(255, 255, 255, 0.5);\n    backdrop-filter: blur(10px);\n}',
+'[{"input": "", "expected": "backdrop blur"}]',
+'["backdrop-filter는 요소 뒤의 배경에 효과를 적용합니다"]',
+ARRAY['effects', 'backdrop-filter', 'hard'], 20),
+
+('css-text-shadow', 'css', 'syntax', 88, '텍스트 그림자', 'text-shadow', 'challenge', 3,
+'텍스트에 그림자를 추가하세요.',
+'- text-shadow: x y blur color\n- 텍스트 효과',
+'[{"input": "", "output": "그림자 텍스트"}]',
+'h1 {\n    /* 텍스트 그림자 */\n}',
+'h1 {\n    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);\n}',
+'[{"input": "", "expected": "text shadow"}]',
+'["여러 그림자를 쉼표로 구분하여 추가할 수 있습니다"]',
+ARRAY['effects', 'text-shadow', 'hard'], 15),
+
+('css-gradient', 'css', 'syntax', 89, '그라디언트', 'linear-gradient', 'challenge', 3,
+'선형 그라디언트 배경을 만드세요.',
+'- background: linear-gradient()\n- 색상 전환',
+'[{"input": "", "output": "그라디언트 배경"}]',
+'.hero {\n    /* 그라디언트 배경 */\n}',
+'.hero {\n    background: linear-gradient(to right, #667eea, #764ba2);\n}',
+'[{"input": "", "expected": "gradient bg"}]',
+'["linear-gradient, radial-gradient, conic-gradient가 있습니다"]',
+ARRAY['effects', 'gradient', 'hard'], 18),
+
+('css-blend-mode', 'css', 'syntax', 90, '혼합 모드', 'mix-blend-mode', 'challenge', 3,
+'요소를 배경과 혼합하세요.',
+'- mix-blend-mode: multiply\n- 레이어 혼합',
+'[{"input": "", "output": "혼합 효과"}]',
+'.overlay {\n    /* 혼합 모드 */\n}',
+'.overlay {\n    mix-blend-mode: multiply;\n}',
+'[{"input": "", "expected": "blend mode"}]',
+'["multiply, screen, overlay, darken, lighten 등이 있습니다"]',
+ARRAY['effects', 'blend-mode', 'hard'], 20);
+
+-- Unit 19: 변수와 함수 (5 problems - HARD)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-variables', 'css', 'syntax', 91, 'CSS 변수', '커스텀 속성', 'challenge', 3,
+'CSS 변수로 메인 색상을 정의하고 사용하세요.',
+'- --변수명: 값\n- var(--변수명) 사용',
+'[{"input": "", "output": "CSS 변수"}]',
+':root {\n    /* 변수 정의 */\n}\n\n.button {\n    /* 변수 사용 */\n}',
+':root {\n    --primary-color: #007bff;\n}\n\n.button {\n    background-color: var(--primary-color);\n}',
+'[{"input": "", "expected": "css variables"}]',
+'[":root에 정의하면 전역에서 사용할 수 있습니다"]',
+ARRAY['advanced', 'variables', 'hard'], 18),
+
+('css-var-fallback', 'css', 'syntax', 92, '변수 폴백', 'var() 기본값', 'challenge', 3,
+'변수가 없을 때 폴백 값을 지정하세요.',
+'- var(--변수, 폴백값)\n- 기본값 제공',
+'[{"input": "", "output": "폴백 값"}]',
+'.element {\n    /* 폴백 포함 */\n}',
+'.element {\n    color: var(--text-color, black);\n}',
+'[{"input": "", "expected": "var with fallback"}]',
+'["var()의 두 번째 인자로 폴백 값을 지정합니다"]',
+ARRAY['advanced', 'variables', 'hard'], 18),
+
+('css-min-max', 'css', 'syntax', 93, 'min/max 함수', '최소/최대 값', 'challenge', 3,
+'너비를 최소 300px, 최대 50%로 제한하세요.',
+'- min(), max() 함수\n- 값 제한',
+'[{"input": "", "output": "min/max 제한"}]',
+'.container {\n    /* min/max 사용 */\n}',
+'.container {\n    width: min(50%, 600px);\n}',
+'[{"input": "", "expected": "min width"}]',
+'["min()은 가장 작은 값을, max()는 가장 큰 값을 선택합니다"]',
+ARRAY['advanced', 'functions', 'hard'], 20),
+
+('css-attr', 'css', 'syntax', 94, 'attr() 함수', '속성 값 사용', 'challenge', 3,
+'data 속성의 값을 content로 표시하세요.',
+'- attr() 함수\n- HTML 속성 접근',
+'[{"input": "", "output": "속성 값 표시"}]',
+'a::after {\n    /* data-label 표시 */\n}',
+'a::after {\n    content: " (" attr(data-label) ")";\n}',
+'[{"input": "", "expected": "attr content"}]',
+'["attr()로 HTML 속성 값을 CSS에서 사용할 수 있습니다"]',
+ARRAY['advanced', 'functions', 'hard'], 20),
+
+('css-counter', 'css', 'syntax', 95, 'CSS 카운터', 'counter() 함수', 'challenge', 3,
+'섹션 번호를 자동으로 매기세요.',
+'- counter-reset\n- counter-increment\n- counter()',
+'[{"input": "", "output": "자동 번호"}]',
+'body {\n    /* 카운터 리셋 */\n}\n\nsection::before {\n    /* 카운터 사용 */\n}',
+'body {\n    counter-reset: section;\n}\n\nsection {\n    counter-increment: section;\n}\n\nsection::before {\n    content: "Section " counter(section) ": ";\n}',
+'[{"input": "", "expected": "counter numbering"}]',
+'["CSS 카운터로 자동 번호 매기기를 구현할 수 있습니다"]',
+ARRAY['advanced', 'counter', 'hard'], 25);
+
+-- Unit 20: 최신 CSS (5 problems - HARD)
+INSERT INTO challenges_css (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+('css-subgrid', 'css', 'syntax', 96, 'Subgrid', '중첩 그리드 정렬', 'challenge', 3,
+'자식 그리드가 부모 그리드 라인을 따르게 하세요.',
+'- grid-template-columns: subgrid\n- 부모 그리드 상속',
+'[{"input": "", "output": "subgrid"}]',
+'.child {\n    display: grid;\n    /* subgrid 사용 */\n}',
+'.child {\n    display: grid;\n    grid-template-columns: subgrid;\n}',
+'[{"input": "", "expected": "subgrid layout"}]',
+'["subgrid는 자식이 부모의 그리드 트랙을 상속합니다"]',
+ARRAY['modern', 'grid', 'subgrid', 'hard'], 25),
+
+('css-is-where', 'css', 'syntax', 97, ':is()와 :where()', '선택자 목록', 'challenge', 3,
+':is()로 여러 선택자를 간결하게 작성하세요.',
+'- :is() 가상 클래스\n- 선택자 그룹화',
+'[{"input": "", "output": "is selector"}]',
+'/* h1, h2, h3의 a를 선택 */\n',
+':is(h1, h2, h3) a {\n    color: blue;\n}',
+'[{"input": "", "expected": "is selector"}]',
+'[":is()는 명시도를 가지지만 :where()는 명시도가 0입니다"]',
+ARRAY['modern', 'selector', 'is', 'hard'], 20),
+
+('css-has', 'css', 'syntax', 98, ':has() 선택자', '부모 선택자', 'challenge', 3,
+'이미지가 있는 article을 선택하세요.',
+'- :has() 가상 클래스\n- 자식 기준 부모 선택',
+'[{"input": "", "output": "has selector"}]',
+'/* 이미지가 있는 article */\n',
+'article:has(img) {\n    border: 2px solid blue;\n}',
+'[{"input": "", "expected": "has img selector"}]',
+'[":has()는 부모 선택자로, 특정 자식을 가진 요소를 선택합니다"]',
+ARRAY['modern', 'selector', 'has', 'hard'], 25),
+
+('css-scroll-snap', 'css', 'syntax', 99, 'Scroll Snap', '스크롤 스냅', 'challenge', 3,
+'스크롤 시 섹션에 스냅되게 하세요.',
+'- scroll-snap-type\n- scroll-snap-align',
+'[{"input": "", "output": "scroll snap"}]',
+'.container {\n    /* scroll snap container */\n}\n\n.section {\n    /* snap point */\n}',
+'.container {\n    scroll-snap-type: y mandatory;\n    overflow-y: scroll;\n}\n\n.section {\n    scroll-snap-align: start;\n}',
+'[{"input": "", "expected": "scroll snap"}]',
+'["scroll-snap은 풀 페이지 스크롤이나 캐러셀에 유용합니다"]',
+ARRAY['modern', 'scroll', 'hard'], 25),
+
+('css-layer', 'css', 'syntax', 100, '@layer', '레이어 순서', 'challenge', 3,
+'CSS 레이어로 명시도를 관리하세요.',
+'- @layer 규칙\n- 레이어 순서 정의',
+'[{"input": "", "output": "cascade layers"}]',
+'/* 레이어 정의 */\n',
+'@layer reset, base, components;\n\n@layer reset {\n    * { margin: 0; }\n}\n\n@layer base {\n    body { font-family: sans-serif; }\n}',
+'[{"input": "", "expected": "layer defined"}]',
+'["@layer는 명시도 대신 순서로 우선순위를 관리합니다"]',
+ARRAY['modern', 'layer', 'hard'], 25);
+
+-- ====================================
+-- 완료 메시지
+-- ====================================
+DO $$
+BEGIN
+  RAISE NOTICE '✅ CSS Part 2 완료 (50 challenges: 30 MEDIUM + 20 HARD)';
+  RAISE NOTICE '📊 CSS 전체 완료: 100 challenges';
+  RAISE NOTICE '';
+  RAISE NOTICE '🎉🎉🎉 모든 챌린지 생성 완료! 🎉🎉🎉';
+  RAISE NOTICE '';
+  RAISE NOTICE '📊 최종 통계:';
+  RAISE NOTICE '   ✅ C: 100 challenges';
+  RAISE NOTICE '   ✅ C++: 100 challenges';
+  RAISE NOTICE '   ✅ C#: 100 challenges';
+  RAISE NOTICE '   ✅ Dart: 100 challenges';
+  RAISE NOTICE '   ✅ Go: 100 challenges';
+  RAISE NOTICE '   ✅ Java: 100 challenges';
+  RAISE NOTICE '   ✅ JavaScript: 100 challenges';
+  RAISE NOTICE '   ✅ Kotlin: 100 challenges';
+  RAISE NOTICE '   ✅ Python: 100 challenges';
+  RAISE NOTICE '   ✅ TypeScript: 100 challenges';
+  RAISE NOTICE '   ✅ SQL: 100 challenges';
+  RAISE NOTICE '   ✅ HTML: 100 challenges';
+  RAISE NOTICE '   ✅ CSS: 100 challenges';
+  RAISE NOTICE '';
+  RAISE NOTICE '📁 총 1,300 챌린지 (13개 언어)';
+  RAISE NOTICE '';
+  RAISE NOTICE '⚠️  참고: 각 언어별 part1, part2 파일을 DB에 실행하세요!';
+END $$;

@@ -1,0 +1,405 @@
+{
+  "language": "flutter",
+  "questions": [
+    {
+      "id": 1,
+      "chapter": 1,
+      "question": "바데부가 Flutter로 앱을 만들고 있습니다. 모든 UI 요소는 무엇으로 만들어지나요?",
+      "options": ["컴포넌트", "위젯(Widget)", "뷰(View)", "엘리먼트"],
+      "correctAnswer": 1,
+      "explanation": "Flutter에서는 모든 UI 요소가 위젯(Widget)으로 구성됩니다. 버튼, 텍스트, 레이아웃 등 화면에 보이는 모든 것이 위젯입니다."
+    },
+    {
+      "id": 2,
+      "chapter": 1,
+      "question": "바데부가 변하지 않는 위젯을 만들려고 합니다. 어떤 위젯을 사용해야 하나요?",
+      "options": ["StatefulWidget", "StatelessWidget", "DynamicWidget", "ImmutableWidget"],
+      "correctAnswer": 1,
+      "explanation": "StatelessWidget은 상태가 변하지 않는 위젯입니다. 한 번 생성되면 내부 데이터가 변경되지 않습니다."
+    },
+    {
+      "id": 3,
+      "chapter": 1,
+      "question": "바데부가 버튼을 클릭할 때마다 화면의 숫자를 업데이트하고 싶습니다. 어떤 위젯을 사용해야 하나요?",
+      "options": ["StatelessWidget", "StatefulWidget", "ConstWidget", "UpdateWidget"],
+      "correctAnswer": 1,
+      "explanation": "StatefulWidget은 상태가 변할 수 있는 위젯입니다. 사용자 입력이나 시간에 따라 화면이 변경되어야 할 때 사용합니다."
+    },
+    {
+      "id": 4,
+      "chapter": 1,
+      "question": "바데부가 StatefulWidget에서 화면을 다시 그리려면 어떤 메서드를 호출해야 하나요?",
+      "options": ["rebuild()", "setState()", "update()", "refresh()"],
+      "correctAnswer": 1,
+      "explanation": "setState()는 위젯의 상태를 변경하고 화면을 다시 그리도록 Flutter에 알립니다. 상태 변경 로직은 setState() 내부에 작성합니다."
+    },
+    {
+      "id": 5,
+      "chapter": 1,
+      "question": "바데부가 다음 코드를 실행했습니다. 무엇이 출력되나요?\n\nText('Hello ${1 + 1}')",
+      "options": ["Hello 1 + 1", "Hello 2", "Hello ${1 + 1}", "에러 발생"],
+      "correctAnswer": 1,
+      "explanation": "Dart의 문자열 보간(interpolation)을 사용하면 ${} 안의 표현식이 평가되어 결과값이 삽입됩니다. 1 + 1은 2가 됩니다."
+    },
+    {
+      "id": 6,
+      "chapter": 2,
+      "question": "바데부가 위젯을 세로로 배치하고 싶습니다. 어떤 레이아웃 위젯을 사용해야 하나요?",
+      "options": ["Row", "Column", "Stack", "Container"],
+      "correctAnswer": 1,
+      "explanation": "Column은 자식 위젯들을 세로 방향(위에서 아래로)으로 배치하는 레이아웃 위젯입니다."
+    },
+    {
+      "id": 7,
+      "chapter": 2,
+      "question": "바데부가 위젯을 가로로 배치하고 싶습니다. 어떤 레이아웃 위젯을 사용해야 하나요?",
+      "options": ["Column", "Row", "Stack", "Grid"],
+      "correctAnswer": 1,
+      "explanation": "Row는 자식 위젯들을 가로 방향(왼쪽에서 오른쪽으로)으로 배치하는 레이아웃 위젯입니다."
+    },
+    {
+      "id": 8,
+      "chapter": 2,
+      "question": "바데부가 위젯들을 겹쳐서 배치하고 싶습니다. 어떤 위젯을 사용해야 하나요?",
+      "options": ["Layer", "Overlay", "Stack", "Positioned"],
+      "correctAnswer": 2,
+      "explanation": "Stack은 자식 위젯들을 겹쳐서 배치할 수 있는 레이아웃 위젯입니다. 배경 이미지 위에 텍스트를 올릴 때 유용합니다."
+    },
+    {
+      "id": 9,
+      "chapter": 2,
+      "question": "바데부가 Row 안의 위젯이 남은 공간을 모두 차지하게 하고 싶습니다. 어떤 위젯으로 감싸야 하나요?",
+      "options": ["Fill", "Expanded", "Stretch", "FullWidth"],
+      "correctAnswer": 1,
+      "explanation": "Expanded는 Row나 Column 내에서 남은 공간을 모두 차지하도록 자식 위젯을 확장합니다."
+    },
+    {
+      "id": 10,
+      "chapter": 2,
+      "question": "바데부가 Flexible과 Expanded의 차이점을 이해하려고 합니다. 올바른 설명은?",
+      "options": ["둘은 완전히 동일합니다", "Expanded는 반드시 남은 공간을 모두 차지하지만, Flexible은 필요한 만큼만 차지할 수 있습니다", "Flexible만 Row에서 사용 가능합니다", "Expanded는 더 이상 사용되지 않습니다"],
+      "correctAnswer": 1,
+      "explanation": "Expanded는 Flexible(fit: FlexFit.tight)의 축약형으로, 반드시 모든 공간을 차지합니다. Flexible은 fit 속성을 조절하여 유연하게 설정할 수 있습니다."
+    },
+    {
+      "id": 11,
+      "chapter": 3,
+      "question": "바데부가 StatefulWidget에서 변수를 변경했지만 화면이 업데이트되지 않습니다. 무엇을 빠뜨렸나요?",
+      "options": ["rebuild() 호출", "setState() 호출", "update() 호출", "notifyListeners() 호출"],
+      "correctAnswer": 1,
+      "explanation": "StatefulWidget에서 상태를 변경하고 화면을 업데이트하려면 반드시 setState() 안에서 변수를 변경해야 합니다."
+    },
+    {
+      "id": 12,
+      "chapter": 3,
+      "question": "바데부가 여러 위젯에서 같은 데이터를 공유하고 싶습니다. 어떤 패키지를 사용하는 것이 좋나요?",
+      "options": ["shared_data", "provider", "state_manager", "data_holder"],
+      "correctAnswer": 1,
+      "explanation": "provider는 Flutter에서 가장 널리 사용되는 상태 관리 패키지로, 위젯 트리 전체에서 데이터를 공유할 수 있습니다."
+    },
+    {
+      "id": 13,
+      "chapter": 3,
+      "question": "바데부가 Provider를 사용하여 상태를 관리합니다. 상태가 변경될 때 리스너들에게 알리려면 어떤 메서드를 호출해야 하나요?",
+      "options": ["notify()", "notifyListeners()", "update()", "setState()"],
+      "correctAnswer": 1,
+      "explanation": "ChangeNotifier를 상속받은 클래스에서 notifyListeners()를 호출하면 모든 리스너들에게 상태 변경을 알립니다."
+    },
+    {
+      "id": 14,
+      "chapter": 3,
+      "question": "바데부가 ChangeNotifier를 사용하는 클래스를 만들고 있습니다. 올바른 사용법은?",
+      "options": ["class Counter implements ChangeNotifier", "class Counter extends ChangeNotifier", "class Counter uses ChangeNotifier", "class Counter with ChangeNotifier"],
+      "correctAnswer": 1,
+      "explanation": "ChangeNotifier는 클래스로, extends 키워드를 사용하여 상속받아야 합니다."
+    },
+    {
+      "id": 15,
+      "chapter": 3,
+      "question": "바데부가 Provider로 제공된 데이터를 읽고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": ["Provider.get<T>(context)", "Provider.of<T>(context)", "context.getProvider<T>()", "context.read<T>()"],
+      "correctAnswer": 1,
+      "explanation": "Provider.of<T>(context)는 Provider로 제공된 데이터를 읽는 기본 방법입니다. context.read<T>()와 context.watch<T>()도 사용 가능합니다."
+    },
+    {
+      "id": 16,
+      "chapter": 4,
+      "question": "바데부가 새로운 페이지로 이동하고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": ["Navigator.go()", "Navigator.push()", "Navigator.navigate()", "Navigator.open()"],
+      "correctAnswer": 1,
+      "explanation": "Navigator.push()는 새로운 페이지를 스택에 추가하고 해당 페이지로 이동합니다."
+    },
+    {
+      "id": 17,
+      "chapter": 4,
+      "question": "바데부가 현재 페이지를 닫고 이전 페이지로 돌아가고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": ["Navigator.back()", "Navigator.pop()", "Navigator.close()", "Navigator.return()"],
+      "correctAnswer": 1,
+      "explanation": "Navigator.pop()은 현재 페이지를 스택에서 제거하고 이전 페이지로 돌아갑니다."
+    },
+    {
+      "id": 18,
+      "chapter": 4,
+      "question": "바데부가 페이지 이동 시 데이터를 전달하고 싶습니다. Navigator.push의 어떤 부분을 사용해야 하나요?",
+      "options": ["Route의 settings 속성", "Route의 builder에서 생성자로 전달", "Navigator.pushData()", "context.sendData()"],
+      "correctAnswer": 1,
+      "explanation": "MaterialPageRoute의 builder에서 새 페이지의 생성자를 통해 데이터를 전달할 수 있습니다. 예: MaterialPageRoute(builder: (context) => DetailPage(data: myData))"
+    },
+    {
+      "id": 19,
+      "chapter": 4,
+      "question": "바데부가 named routes를 사용하고 싶습니다. MaterialApp에서 어떤 속성을 설정해야 하나요?",
+      "options": ["routes", "namedRoutes", "routeMap", "routeTable"],
+      "correctAnswer": 0,
+      "explanation": "MaterialApp의 routes 속성에 Map<String, WidgetBuilder> 형태로 라우트 이름과 빌더를 정의합니다."
+    },
+    {
+      "id": 20,
+      "chapter": 4,
+      "question": "바데부가 named route로 이동하고 싶습니다. 올바른 코드는?",
+      "options": ["Navigator.push(context, '/detail')", "Navigator.pushNamed(context, '/detail')", "Navigator.navigate(context, '/detail')", "Navigator.goTo(context, '/detail')"],
+      "correctAnswer": 1,
+      "explanation": "Navigator.pushNamed()는 이름으로 정의된 라우트로 이동할 때 사용합니다."
+    },
+    {
+      "id": 21,
+      "chapter": 5,
+      "question": "바데부가 사용자로부터 텍스트 입력을 받고 싶습니다. 어떤 위젯을 사용해야 하나요?",
+      "options": ["Input", "TextField", "TextBox", "EditText"],
+      "correctAnswer": 1,
+      "explanation": "TextField는 사용자로부터 텍스트 입력을 받는 Flutter의 기본 위젯입니다."
+    },
+    {
+      "id": 22,
+      "chapter": 5,
+      "question": "바데부가 TextField의 값을 프로그램에서 읽고 싶습니다. 무엇을 사용해야 하나요?",
+      "options": ["TextController", "TextEditingController", "InputController", "FieldController"],
+      "correctAnswer": 1,
+      "explanation": "TextEditingController는 TextField의 값을 읽고 제어하는 데 사용됩니다. controller.text로 값을 읽을 수 있습니다."
+    },
+    {
+      "id": 23,
+      "chapter": 5,
+      "question": "바데부가 여러 입력 필드를 하나의 그룹으로 관리하고 싶습니다. 어떤 위젯을 사용해야 하나요?",
+      "options": ["FormGroup", "Form", "InputGroup", "FieldSet"],
+      "correctAnswer": 1,
+      "explanation": "Form 위젯은 여러 입력 필드를 그룹화하고 일괄적으로 검증(validation)할 수 있게 해줍니다."
+    },
+    {
+      "id": 24,
+      "chapter": 5,
+      "question": "바데부가 Form 내부의 입력 필드를 검증하려면 어떤 위젯을 사용해야 하나요?",
+      "options": ["ValidatedTextField", "TextFormField", "FormTextField", "ValidTextField"],
+      "correctAnswer": 1,
+      "explanation": "TextFormField는 Form 안에서 사용되며, validator 속성을 통해 입력값을 검증할 수 있습니다."
+    },
+    {
+      "id": 25,
+      "chapter": 5,
+      "question": "바데부가 Form의 모든 필드를 검증하고 싶습니다. 어떤 메서드를 호출해야 하나요?",
+      "options": ["formKey.validate()", "formKey.currentState!.validate()", "form.validateAll()", "form.check()"],
+      "correctAnswer": 1,
+      "explanation": "GlobalKey<FormState>로 Form을 참조하고, formKey.currentState!.validate()를 호출하여 모든 필드를 검증합니다."
+    },
+    {
+      "id": 26,
+      "chapter": 6,
+      "question": "바데부가 스크롤 가능한 리스트를 만들고 싶습니다. 어떤 위젯을 사용해야 하나요?",
+      "options": ["ScrollList", "ListView", "ListBox", "ScrollView"],
+      "correctAnswer": 1,
+      "explanation": "ListView는 세로 또는 가로로 스크롤 가능한 리스트를 만드는 위젯입니다."
+    },
+    {
+      "id": 27,
+      "chapter": 6,
+      "question": "바데부가 많은 아이템을 효율적으로 표시하고 싶습니다. 어떤 ListView 생성자를 사용해야 하나요?",
+      "options": ["ListView()", "ListView.builder()", "ListView.custom()", "ListView.efficient()"],
+      "correctAnswer": 1,
+      "explanation": "ListView.builder()는 화면에 보이는 아이템만 생성하여 메모리를 효율적으로 사용합니다. 많은 데이터를 표시할 때 필수적입니다."
+    },
+    {
+      "id": 28,
+      "chapter": 6,
+      "question": "바데부가 ListView.builder를 사용합니다. itemCount를 설정하지 않으면 어떻게 되나요?",
+      "options": ["에러가 발생합니다", "무한 스크롤이 가능합니다", "아무것도 표시되지 않습니다", "자동으로 아이템 개수를 계산합니다"],
+      "correctAnswer": 1,
+      "explanation": "itemCount를 설정하지 않으면 무한히 스크롤 가능한 리스트가 됩니다. 일반적으로는 데이터 리스트의 길이를 itemCount로 설정합니다."
+    },
+    {
+      "id": 29,
+      "chapter": 6,
+      "question": "바데부가 격자(그리드) 형태로 아이템을 표시하고 싶습니다. 어떤 위젯을 사용해야 하나요?",
+      "options": ["Grid", "GridView", "TableView", "MatrixView"],
+      "correctAnswer": 1,
+      "explanation": "GridView는 아이템을 격자 형태로 배치하는 위젯입니다. 갤러리나 상품 목록 등에 사용됩니다."
+    },
+    {
+      "id": 30,
+      "chapter": 6,
+      "question": "바데부가 GridView에서 열의 개수를 고정하고 싶습니다. 어떤 속성을 사용해야 하나요?",
+      "options": ["columnCount", "crossAxisCount", "gridCount", "columns"],
+      "correctAnswer": 1,
+      "explanation": "GridView.count()의 crossAxisCount 속성으로 가로축의 아이템 개수(열의 개수)를 지정합니다."
+    },
+    {
+      "id": 31,
+      "chapter": 7,
+      "question": "바데부가 Flutter에서 HTTP 요청을 보내고 싶습니다. 어떤 패키지를 사용해야 하나요?",
+      "options": ["network", "http", "request", "fetch"],
+      "correctAnswer": 1,
+      "explanation": "http 패키지는 Flutter에서 HTTP 요청을 보내기 위한 공식 패키지입니다."
+    },
+    {
+      "id": 32,
+      "chapter": 7,
+      "question": "바데부가 GET 요청으로 데이터를 가져오고 싶습니다. 올바른 코드는?",
+      "options": ["http.get(url)", "http.fetch(url)", "http.request(url)", "http.download(url)"],
+      "correctAnswer": 0,
+      "explanation": "http.get()은 지정된 URL로 GET 요청을 보내는 메서드입니다. Uri 객체를 인자로 받습니다."
+    },
+    {
+      "id": 33,
+      "chapter": 7,
+      "question": "바데부가 서버에 데이터를 전송하고 싶습니다. 어떤 HTTP 메서드를 사용해야 하나요?",
+      "options": ["GET", "POST", "FETCH", "SEND"],
+      "correctAnswer": 1,
+      "explanation": "POST 메서드는 서버에 데이터를 전송할 때 사용됩니다. http.post()로 구현합니다."
+    },
+    {
+      "id": 34,
+      "chapter": 7,
+      "question": "바데부가 비동기 데이터를 화면에 표시하고 싶습니다. 어떤 위젯을 사용해야 하나요?",
+      "options": ["AsyncBuilder", "FutureBuilder", "DataBuilder", "LoadingBuilder"],
+      "correctAnswer": 1,
+      "explanation": "FutureBuilder는 Future 객체의 상태에 따라 다른 위젯을 빌드합니다. 로딩, 에러, 데이터 상태를 쉽게 처리할 수 있습니다."
+    },
+    {
+      "id": 35,
+      "chapter": 7,
+      "question": "바데부가 FutureBuilder에서 데이터 로딩 상태를 확인하려면 무엇을 체크해야 하나요?",
+      "options": ["snapshot.loading", "snapshot.connectionState", "snapshot.status", "snapshot.isLoading"],
+      "correctAnswer": 1,
+      "explanation": "snapshot.connectionState를 확인하여 ConnectionState.waiting, ConnectionState.done 등의 상태를 파악할 수 있습니다."
+    },
+    {
+      "id": 36,
+      "chapter": 8,
+      "question": "바데부가 앱을 종료해도 데이터를 유지하고 싶습니다. 간단한 키-값 저장에는 어떤 패키지를 사용해야 하나요?",
+      "options": ["local_storage", "shared_preferences", "persistent_data", "app_storage"],
+      "correctAnswer": 1,
+      "explanation": "shared_preferences는 간단한 키-값 쌍을 로컬에 저장하는 Flutter 패키지입니다."
+    },
+    {
+      "id": 37,
+      "chapter": 8,
+      "question": "바데부가 shared_preferences 인스턴스를 얻고 싶습니다. 올바른 코드는?",
+      "options": ["SharedPreferences.get()", "SharedPreferences.getInstance()", "SharedPreferences.create()", "SharedPreferences.init()"],
+      "correctAnswer": 1,
+      "explanation": "SharedPreferences.getInstance()는 비동기 메서드로, SharedPreferences 인스턴스를 반환합니다. await와 함께 사용해야 합니다."
+    },
+    {
+      "id": 38,
+      "chapter": 8,
+      "question": "바데부가 정수 값을 저장하고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": ["prefs.save('key', 123)", "prefs.setInt('key', 123)", "prefs.put('key', 123)", "prefs.store('key', 123)"],
+      "correctAnswer": 1,
+      "explanation": "setInt()는 정수 값을 저장하는 메서드입니다. setString(), setBool(), setDouble() 등 타입별 메서드가 있습니다."
+    },
+    {
+      "id": 39,
+      "chapter": 8,
+      "question": "바데부가 저장된 문자열 값을 읽고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": ["prefs.read('key')", "prefs.getString('key')", "prefs.get('key')", "prefs.load('key')"],
+      "correctAnswer": 1,
+      "explanation": "getString()은 저장된 문자열 값을 읽습니다. 값이 없으면 null을 반환합니다."
+    },
+    {
+      "id": 40,
+      "chapter": 8,
+      "question": "바데부가 저장된 특정 키의 값을 삭제하고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": ["prefs.delete('key')", "prefs.remove('key')", "prefs.clear('key')", "prefs.erase('key')"],
+      "correctAnswer": 1,
+      "explanation": "remove()는 특정 키의 값을 삭제합니다. clear()는 모든 저장된 값을 삭제합니다."
+    },
+    {
+      "id": 41,
+      "chapter": 9,
+      "question": "바데부가 간단한 애니메이션을 만들고 싶습니다. 코드 없이 사용할 수 있는 위젯은?",
+      "options": ["Animation", "AnimatedContainer", "Animator", "MotionContainer"],
+      "correctAnswer": 1,
+      "explanation": "AnimatedContainer는 속성이 변경될 때 자동으로 애니메이션됩니다. duration만 지정하면 복잡한 코드 없이 애니메이션을 만들 수 있습니다."
+    },
+    {
+      "id": 42,
+      "chapter": 9,
+      "question": "바데부가 AnimatedContainer의 애니메이션 시간을 2초로 설정하고 싶습니다. 올바른 코드는?",
+      "options": ["duration: 2000", "duration: Duration(seconds: 2)", "time: 2", "animationTime: 2"],
+      "correctAnswer": 1,
+      "explanation": "duration 속성은 Duration 객체를 받습니다. Duration(seconds: 2)는 2초를 의미합니다."
+    },
+    {
+      "id": 43,
+      "chapter": 9,
+      "question": "바데부가 복잡한 커스텀 애니메이션을 만들고 싶습니다. 무엇을 사용해야 하나요?",
+      "options": ["AnimationManager", "AnimationController", "CustomAnimator", "MotionController"],
+      "correctAnswer": 1,
+      "explanation": "AnimationController는 애니메이션의 진행을 세밀하게 제어할 수 있는 컨트롤러입니다. 복잡한 애니메이션 구현에 필수적입니다."
+    },
+    {
+      "id": 44,
+      "chapter": 9,
+      "question": "바데부가 AnimationController를 사용합니다. 어떤 mixin을 추가해야 하나요?",
+      "options": ["AnimationMixin", "TickerProviderStateMixin", "AnimationProvider", "ControllerMixin"],
+      "correctAnswer": 1,
+      "explanation": "AnimationController를 사용하려면 State 클래스에 SingleTickerProviderStateMixin 또는 TickerProviderStateMixin을 추가해야 합니다."
+    },
+    {
+      "id": 45,
+      "chapter": 9,
+      "question": "바데부가 애니메이션을 시작하고 싶습니다. AnimationController의 어떤 메서드를 호출해야 하나요?",
+      "options": ["controller.start()", "controller.forward()", "controller.play()", "controller.begin()"],
+      "correctAnswer": 1,
+      "explanation": "forward()는 애니메이션을 시작(0.0에서 1.0으로)합니다. reverse()는 역방향으로 재생합니다."
+    },
+    {
+      "id": 46,
+      "chapter": 10,
+      "question": "바데부가 새로운 패키지를 프로젝트에 추가하고 싶습니다. 어떤 파일을 수정해야 하나요?",
+      "options": ["package.json", "pubspec.yaml", "dependencies.yaml", "packages.json"],
+      "correctAnswer": 1,
+      "explanation": "pubspec.yaml은 Flutter 프로젝트의 의존성과 메타데이터를 관리하는 파일입니다."
+    },
+    {
+      "id": 47,
+      "chapter": 10,
+      "question": "바데부가 pubspec.yaml에 패키지를 추가했습니다. 다음에 무엇을 실행해야 하나요?",
+      "options": ["flutter install", "flutter pub get", "flutter package install", "flutter download"],
+      "correctAnswer": 1,
+      "explanation": "flutter pub get 명령어는 pubspec.yaml에 정의된 패키지를 다운로드하고 설치합니다."
+    },
+    {
+      "id": 48,
+      "chapter": 10,
+      "question": "바데부가 Flutter 패키지를 검색하고 싶습니다. 어떤 웹사이트를 방문해야 하나요?",
+      "options": ["flutter.dev", "pub.dev", "packages.flutter.io", "flutter.packages.com"],
+      "correctAnswer": 1,
+      "explanation": "pub.dev는 Dart와 Flutter 패키지를 검색하고 문서를 확인할 수 있는 공식 패키지 저장소입니다."
+    },
+    {
+      "id": 49,
+      "chapter": 10,
+      "question": "바데부가 특정 버전의 패키지를 설치하고 싶습니다. pubspec.yaml에 어떻게 작성해야 하나요?",
+      "options": ["http: 0.13.0", "http: ^0.13.0", "http: version 0.13.0", "http: =0.13.0"],
+      "correctAnswer": 1,
+      "explanation": "^0.13.0은 0.13.0 이상 0.14.0 미만의 호환 가능한 버전을 의미합니다. ^(캐럿) 기호는 시맨틱 버전 관리를 따릅니다."
+    },
+    {
+      "id": 50,
+      "chapter": 10,
+      "question": "바데부가 개발 중에만 사용할 패키지를 추가하고 싶습니다. pubspec.yaml의 어느 섹션에 추가해야 하나요?",
+      "options": ["dependencies", "dev_dependencies", "development", "test_dependencies"],
+      "correctAnswer": 1,
+      "explanation": "dev_dependencies는 개발 및 테스트 중에만 필요한 패키지를 정의합니다. 프로덕션 빌드에는 포함되지 않습니다."
+    }
+  ]
+}

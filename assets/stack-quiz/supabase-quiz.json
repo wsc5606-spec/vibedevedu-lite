@@ -1,0 +1,655 @@
+{
+  "language": "supabase",
+  "questions": [
+    {
+      "id": 1,
+      "chapter": 1,
+      "question": "바데부가 Supabase를 처음 시작하려고 합니다. Supabase는 무엇인가요?",
+      "options": [
+        "프론트엔드 프레임워크",
+        "오픈소스 Firebase 대안 (Backend as a Service)",
+        "데이터베이스 관리 도구",
+        "클라우드 스토리지 서비스"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Supabase는 Firebase의 오픈소스 대안으로, PostgreSQL 데이터베이스, 인증, 스토리지, 실시간 구독 등을 제공하는 Backend as a Service(BaaS) 플랫폼입니다."
+    },
+    {
+      "id": 2,
+      "chapter": 1,
+      "question": "바데부가 새로운 Supabase 프로젝트를 만들었습니다. 프로젝트에 접근하기 위해 필요한 것은?",
+      "options": [
+        "프로젝트 ID만 있으면 됩니다",
+        "API Key만 있으면 됩니다",
+        "Project URL과 anon public API key가 필요합니다",
+        "계정 이메일과 비밀번호만 있으면 됩니다"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Supabase 프로젝트에 접근하려면 Project URL(supabaseUrl)과 anon public API key가 필요합니다. 이 두 값은 프로젝트 설정에서 확인할 수 있습니다."
+    },
+    {
+      "id": 3,
+      "chapter": 1,
+      "question": "바데부가 Flutter 앱에서 Supabase를 사용하려고 합니다. 어떤 패키지를 설치해야 하나요?",
+      "options": [
+        "firebase_flutter",
+        "supabase_flutter",
+        "supabase_dart",
+        "flutter_backend"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Flutter에서 Supabase를 사용하려면 supabase_flutter 패키지를 설치해야 합니다. 이 패키지는 Supabase의 모든 기능을 Flutter에서 사용할 수 있게 해줍니다."
+    },
+    {
+      "id": 4,
+      "chapter": 1,
+      "question": "바데부가 Supabase를 초기화하고 있습니다. 올바른 코드는?\n\nawait Supabase.initialize(\n  url: 'YOUR_URL',\n  anonKey: 'YOUR_KEY',\n);",
+      "options": [
+        "Supabase.init()",
+        "Supabase.setup()",
+        "Supabase.initialize()",
+        "Supabase.connect()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Supabase.initialize()는 앱에서 Supabase를 사용하기 전에 호출해야 하는 초기화 메서드입니다. url과 anonKey를 파라미터로 받습니다."
+    },
+    {
+      "id": 5,
+      "chapter": 1,
+      "question": "바데부가 초기화된 Supabase 클라이언트 인스턴스를 가져오고 싶습니다. 어떻게 해야 하나요?",
+      "options": [
+        "Supabase.client",
+        "Supabase.instance.client",
+        "Supabase.getClient()",
+        "SupabaseClient.getInstance()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Supabase.instance.client를 통해 초기화된 Supabase 클라이언트 인스턴스에 접근할 수 있습니다. 이를 통해 데이터베이스, 인증, 스토리지 등의 기능을 사용합니다."
+    },
+    {
+      "id": 6,
+      "chapter": 2,
+      "question": "바데부가 Supabase에서 사용하는 데이터베이스가 무엇인지 궁금합니다. 정답은?",
+      "options": [
+        "MySQL",
+        "MongoDB",
+        "PostgreSQL",
+        "SQLite"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Supabase는 PostgreSQL을 기반으로 합니다. PostgreSQL은 강력하고 확장 가능한 오픈소스 관계형 데이터베이스입니다."
+    },
+    {
+      "id": 7,
+      "chapter": 2,
+      "question": "바데부가 Supabase 대시보드에서 새로운 테이블을 만들고 싶습니다. 어디로 가야 하나요?",
+      "options": [
+        "Database > Tables",
+        "Table Editor",
+        "Schema Builder",
+        "Data Manager"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Table Editor 메뉴에서 테이블을 생성, 수정, 삭제할 수 있습니다. GUI를 통해 쉽게 테이블 구조를 관리할 수 있습니다."
+    },
+    {
+      "id": 8,
+      "chapter": 2,
+      "question": "바데부가 'users' 테이블을 만들 때 기본적으로 생성되는 컬럼은 무엇인가요?",
+      "options": [
+        "user_id",
+        "id",
+        "uuid",
+        "primary_key"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Supabase에서 테이블을 생성하면 기본적으로 'id' 컬럼이 primary key로 자동 생성됩니다. 타입은 int8이며 자동 증가합니다."
+    },
+    {
+      "id": 9,
+      "chapter": 2,
+      "question": "바데부가 테이블에 created_at 컬럼을 추가하면서 현재 시간을 자동으로 저장하고 싶습니다. 어떤 설정을 해야 하나요?",
+      "options": [
+        "Auto-increment 체크",
+        "Default value에 now() 입력",
+        "Timestamp 타입 선택",
+        "Required 체크"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Default value에 now()를 설정하면 레코드 생성 시 자동으로 현재 시간이 저장됩니다. timestamp with time zone 타입과 함께 사용합니다."
+    },
+    {
+      "id": 10,
+      "chapter": 2,
+      "question": "바데부가 두 테이블 간의 관계를 설정하고 싶습니다. 어떤 개념을 사용해야 하나요?",
+      "options": [
+        "Link",
+        "Foreign Key",
+        "Reference",
+        "Join"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Foreign Key(외래 키)를 사용하여 테이블 간의 관계를 정의합니다. 예를 들어 posts 테이블의 user_id가 users 테이블의 id를 참조하도록 설정할 수 있습니다."
+    },
+    {
+      "id": 11,
+      "chapter": 3,
+      "question": "바데부가 'posts' 테이블의 모든 데이터를 가져오고 싶습니다. 올바른 코드는?",
+      "options": [
+        "supabase.from('posts').get()",
+        "supabase.from('posts').select()",
+        "supabase.table('posts').all()",
+        "supabase.query('posts')"
+      ],
+      "correctAnswer": 1,
+      "explanation": "supabase.from('테이블명').select()는 테이블의 데이터를 조회하는 기본 메서드입니다. select() 안에 컬럼명을 지정할 수도 있습니다."
+    },
+    {
+      "id": 12,
+      "chapter": 3,
+      "question": "바데부가 특정 컬럼만 선택해서 가져오고 싶습니다. 'id'와 'title'만 가져오는 코드는?",
+      "options": [
+        "select('id, title')",
+        "select(['id', 'title'])",
+        "select('id').select('title')",
+        "select(columns: ['id', 'title'])"
+      ],
+      "correctAnswer": 0,
+      "explanation": "select('컬럼1, 컬럼2')처럼 쉼표로 구분하여 여러 컬럼을 선택할 수 있습니다. select('*')는 모든 컬럼을 의미합니다."
+    },
+    {
+      "id": 13,
+      "chapter": 3,
+      "question": "바데부가 id가 5인 게시글만 가져오고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": [
+        "where('id', 5)",
+        "eq('id', 5)",
+        "filter('id', 5)",
+        "match('id', 5)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "eq('컬럼명', 값)은 equal(같음) 조건으로 데이터를 필터링합니다. supabase.from('posts').select().eq('id', 5)처럼 사용합니다."
+    },
+    {
+      "id": 14,
+      "chapter": 3,
+      "question": "바데부가 'likes' 컬럼이 100보다 큰 게시글을 찾고 싶습니다. 올바른 코드는?",
+      "options": [
+        "gt('likes', 100)",
+        "greaterThan('likes', 100)",
+        "moreThan('likes', 100)",
+        "above('likes', 100)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "gt('컬럼명', 값)은 greater than(초과) 조건입니다. gte()는 이상, lt()는 미만, lte()는 이하를 의미합니다."
+    },
+    {
+      "id": 15,
+      "chapter": 3,
+      "question": "바데부가 결과를 created_at 기준으로 최신순으로 정렬하고 싶습니다. 어떻게 해야 하나요?",
+      "options": [
+        "sort('created_at', desc: true)",
+        "order('created_at', { ascending: false })",
+        "orderBy('created_at', 'desc')",
+        "arrange('created_at', descending: true)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "order('컬럼명', { ascending: false })는 내림차순 정렬입니다. ascending: true는 오름차순입니다."
+    },
+    {
+      "id": 16,
+      "chapter": 4,
+      "question": "바데부가 Row Level Security(RLS)에 대해 배우고 있습니다. RLS의 목적은 무엇인가요?",
+      "options": [
+        "데이터베이스 속도 향상",
+        "행(row) 단위로 접근 권한 제어",
+        "테이블 구조 보호",
+        "SQL 인젝션 방지"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Row Level Security(RLS)는 각 행(row)에 대한 접근 권한을 세밀하게 제어합니다. 사용자별로 볼 수 있는 데이터를 다르게 설정할 수 있습니다."
+    },
+    {
+      "id": 17,
+      "chapter": 4,
+      "question": "바데부가 테이블에 RLS를 활성화하려고 합니다. Supabase 대시보드에서 어떻게 해야 하나요?",
+      "options": [
+        "Table Settings에서 'Enable Security' 토글",
+        "Authentication > Policies에서 활성화",
+        "Table Editor에서 'Enable RLS' 클릭",
+        "Database > Security에서 설정"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Table Editor에서 테이블을 선택하고 'Enable RLS' 버튼을 클릭하면 해당 테이블에 Row Level Security가 활성화됩니다."
+    },
+    {
+      "id": 18,
+      "chapter": 4,
+      "question": "바데부가 RLS를 활성화했는데 아무 데이터도 조회되지 않습니다. 왜 그럴까요?",
+      "options": [
+        "데이터베이스 오류입니다",
+        "RLS 정책(Policy)을 생성하지 않았기 때문입니다",
+        "API Key가 잘못되었습니다",
+        "네트워크 연결 문제입니다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "RLS를 활성화하면 기본적으로 모든 접근이 차단됩니다. 데이터에 접근하려면 허용 정책(Policy)을 생성해야 합니다."
+    },
+    {
+      "id": 19,
+      "chapter": 4,
+      "question": "바데부가 모든 사용자가 게시글을 읽을 수 있도록 정책을 만들고 싶습니다. 어떤 SQL을 사용해야 하나요?",
+      "options": [
+        "CREATE POLICY \"모두 읽기\" ON posts FOR SELECT TO public USING (true);",
+        "CREATE POLICY \"모두 읽기\" ON posts FOR ALL USING (true);",
+        "CREATE POLICY \"모두 읽기\" ON posts ALLOW SELECT;",
+        "SET POLICY \"모두 읽기\" ON posts FOR SELECT;"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOR SELECT는 조회 권한, TO public은 모든 사용자, USING (true)는 항상 허용을 의미합니다. 이 정책으로 모든 사용자가 데이터를 읽을 수 있습니다."
+    },
+    {
+      "id": 20,
+      "chapter": 4,
+      "question": "바데부가 사용자가 자신의 게시글만 수정할 수 있도록 하고 싶습니다. USING 절에 어떤 조건을 사용해야 하나요?",
+      "options": [
+        "user_id = current_user()",
+        "auth.uid() = user_id",
+        "session.user_id = user_id",
+        "current_user_id() = user_id"
+      ],
+      "correctAnswer": 1,
+      "explanation": "auth.uid()는 현재 로그인한 사용자의 ID를 반환합니다. 이를 user_id 컬럼과 비교하여 자신의 데이터만 접근하도록 제한할 수 있습니다."
+    },
+    {
+      "id": 21,
+      "chapter": 5,
+      "question": "바데부가 Supabase로 사용자 회원가입을 구현하고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": [
+        "supabase.auth.register()",
+        "supabase.auth.signUp()",
+        "supabase.auth.createUser()",
+        "supabase.auth.signup()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "supabase.auth.signUp()은 이메일과 비밀번호로 새로운 사용자를 생성합니다. 기본적으로 이메일 확인이 필요합니다."
+    },
+    {
+      "id": 22,
+      "chapter": 5,
+      "question": "바데부가 이메일과 비밀번호로 로그인하고 싶습니다. 올바른 코드는?",
+      "options": [
+        "supabase.auth.login(email: 'test@test.com', password: '123456')",
+        "supabase.auth.signIn(email: 'test@test.com', password: '123456')",
+        "supabase.auth.signInWithPassword(email: 'test@test.com', password: '123456')",
+        "supabase.auth.authenticate(email: 'test@test.com', password: '123456')"
+      ],
+      "correctAnswer": 2,
+      "explanation": "signInWithPassword()는 이메일과 비밀번호로 로그인하는 메서드입니다. 성공 시 사용자 정보와 세션 토큰을 반환합니다."
+    },
+    {
+      "id": 23,
+      "chapter": 5,
+      "question": "바데부가 현재 로그인한 사용자 정보를 가져오고 싶습니다. 어떻게 해야 하나요?",
+      "options": [
+        "supabase.auth.user",
+        "supabase.auth.currentUser",
+        "supabase.auth.currentUser()",
+        "supabase.auth.currentSession?.user"
+      ],
+      "correctAnswer": 3,
+      "explanation": "supabase.auth.currentSession?.user를 통해 현재 로그인한 사용자 정보를 얻을 수 있습니다. 로그인하지 않았다면 null입니다."
+    },
+    {
+      "id": 24,
+      "chapter": 5,
+      "question": "바데부가 로그아웃을 구현하고 싶습니다. 올바른 코드는?",
+      "options": [
+        "supabase.auth.logout()",
+        "supabase.auth.signOut()",
+        "supabase.auth.disconnect()",
+        "supabase.auth.endSession()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "supabase.auth.signOut()은 현재 세션을 종료하고 사용자를 로그아웃시킵니다. 로컬 저장소의 토큰도 삭제됩니다."
+    },
+    {
+      "id": 25,
+      "chapter": 5,
+      "question": "바데부가 Google 소셜 로그인을 구현하고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": [
+        "supabase.auth.signInWithOAuth(provider: OAuthProvider.google)",
+        "supabase.auth.googleSignIn()",
+        "supabase.auth.signInWithGoogle()",
+        "supabase.auth.socialLogin('google')"
+      ],
+      "correctAnswer": 0,
+      "explanation": "signInWithOAuth()는 소셜 로그인을 구현하는 메서드입니다. provider로 Google, GitHub, Facebook 등을 지정할 수 있습니다."
+    },
+    {
+      "id": 26,
+      "chapter": 6,
+      "question": "바데부가 Supabase Realtime에 대해 배우고 있습니다. Realtime의 기능은 무엇인가요?",
+      "options": [
+        "데이터베이스 백업",
+        "실시간 데이터 변경 사항 구독",
+        "서버 모니터링",
+        "자동 스케일링"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Supabase Realtime은 데이터베이스의 INSERT, UPDATE, DELETE 변경 사항을 실시간으로 구독할 수 있게 해줍니다. 채팅, 알림 등에 유용합니다."
+    },
+    {
+      "id": 27,
+      "chapter": 6,
+      "question": "바데부가 'messages' 테이블의 변경 사항을 구독하고 싶습니다. 올바른 코드는?",
+      "options": [
+        "supabase.from('messages').watch()",
+        "supabase.from('messages').on().subscribe()",
+        "supabase.channel('messages').on('postgres_changes', ...).subscribe()",
+        "supabase.realtime('messages').listen()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "supabase.channel()로 채널을 생성하고 on('postgres_changes', ...)로 PostgreSQL 변경 사항을 구독합니다. 그 후 subscribe()를 호출합니다."
+    },
+    {
+      "id": 28,
+      "chapter": 6,
+      "question": "바데부가 INSERT 이벤트만 감지하고 싶습니다. event 파라미터에 무엇을 지정해야 하나요?",
+      "options": [
+        "event: 'CREATE'",
+        "event: 'INSERT'",
+        "event: 'NEW'",
+        "event: 'ADD'"
+      ],
+      "correctAnswer": 1,
+      "explanation": "event: 'INSERT'는 새로운 레코드 삽입을 감지합니다. 'UPDATE', 'DELETE', '*'(모든 변경) 등도 사용할 수 있습니다."
+    },
+    {
+      "id": 29,
+      "chapter": 6,
+      "question": "바데부가 Realtime 구독을 중지하고 싶습니다. 어떻게 해야 하나요?",
+      "options": [
+        "channel.stop()",
+        "channel.unsubscribe()",
+        "channel.close()",
+        "channel.disconnect()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "channel.unsubscribe()는 구독을 중지하고 리소스를 해제합니다. 메모리 누수를 방지하기 위해 사용하지 않는 구독은 반드시 중지해야 합니다."
+    },
+    {
+      "id": 30,
+      "chapter": 6,
+      "question": "바데부가 특정 사용자의 메시지만 구독하고 싶습니다. 어떤 옵션을 사용해야 하나요?",
+      "options": [
+        "where: 'user_id=eq.123'",
+        "filter: 'user_id=eq.123'",
+        "condition: 'user_id=eq.123'",
+        "query: 'user_id=eq.123'"
+      ],
+      "correctAnswer": 1,
+      "explanation": "filter 옵션을 사용하여 조건에 맞는 변경 사항만 구독할 수 있습니다. 'user_id=eq.123' 형식으로 조건을 지정합니다."
+    },
+    {
+      "id": 31,
+      "chapter": 7,
+      "question": "바데부가 Supabase Storage에 파일을 업로드하고 싶습니다. 먼저 무엇을 만들어야 하나요?",
+      "options": [
+        "폴더(Folder)",
+        "버킷(Bucket)",
+        "디렉토리(Directory)",
+        "컨테이너(Container)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Supabase Storage는 버킷(Bucket) 단위로 파일을 관리합니다. 버킷은 Storage 메뉴에서 생성할 수 있으며, public 또는 private으로 설정 가능합니다."
+    },
+    {
+      "id": 32,
+      "chapter": 7,
+      "question": "바데부가 'avatars' 버킷에 이미지를 업로드하고 싶습니다. 올바른 코드는?",
+      "options": [
+        "supabase.storage.upload('avatars', file)",
+        "supabase.storage.from('avatars').upload('path/file.jpg', file)",
+        "supabase.storage.bucket('avatars').upload(file)",
+        "supabase.upload('avatars', file)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "storage.from('버킷명').upload('경로/파일명', 파일데이터)로 파일을 업로드합니다. 첫 번째 인자는 저장될 경로와 파일명입니다."
+    },
+    {
+      "id": 33,
+      "chapter": 7,
+      "question": "바데부가 업로드한 파일의 공개 URL을 가져오고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": [
+        "getUrl('path/file.jpg')",
+        "getPublicUrl('path/file.jpg')",
+        "publicUrl('path/file.jpg')",
+        "url('path/file.jpg')"
+      ],
+      "correctAnswer": 1,
+      "explanation": "getPublicUrl('경로/파일명')은 파일의 공개 접근 URL을 반환합니다. public 버킷에서만 작동합니다."
+    },
+    {
+      "id": 34,
+      "chapter": 7,
+      "question": "바데부가 private 버킷의 파일에 접근할 임시 URL을 생성하고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": [
+        "getTempUrl()",
+        "createSignedUrl('path/file.jpg', 60)",
+        "getTemporaryUrl()",
+        "signedUrl('path/file.jpg', expiresIn: 60)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "createSignedUrl('경로/파일명', 초)는 지정된 시간 동안만 유효한 서명된 URL을 생성합니다. private 파일에 안전하게 접근할 수 있습니다."
+    },
+    {
+      "id": 35,
+      "chapter": 7,
+      "question": "바데부가 스토리지에서 파일을 삭제하고 싶습니다. 올바른 코드는?",
+      "options": [
+        "supabase.storage.from('avatars').delete(['path/file.jpg'])",
+        "supabase.storage.from('avatars').remove('path/file.jpg')",
+        "supabase.storage.from('avatars').destroy('path/file.jpg')",
+        "supabase.storage.delete('avatars', 'path/file.jpg')"
+      ],
+      "correctAnswer": 0,
+      "explanation": "storage.from('버킷명').remove(['파일경로1', '파일경로2'])로 파일을 삭제합니다. 배열 형태로 여러 파일을 한 번에 삭제할 수 있습니다."
+    },
+    {
+      "id": 36,
+      "chapter": 8,
+      "question": "바데부가 Supabase Edge Functions에 대해 배우고 있습니다. Edge Functions의 장점은?",
+      "options": [
+        "데이터베이스 속도 향상",
+        "사용자와 가까운 위치에서 서버리스 함수 실행",
+        "자동 데이터 백업",
+        "무료 스토리지 제공"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Edge Functions는 전 세계 여러 지역에서 서버리스 함수를 실행하여 지연 시간을 줄입니다. Deno 런타임을 사용하며 TypeScript로 작성됩니다."
+    },
+    {
+      "id": 37,
+      "chapter": 8,
+      "question": "바데부가 새로운 Edge Function을 생성하려고 합니다. 어떤 CLI 명령어를 사용해야 하나요?",
+      "options": [
+        "supabase create function hello",
+        "supabase functions new hello",
+        "supabase edge create hello",
+        "supabase new function hello"
+      ],
+      "correctAnswer": 1,
+      "explanation": "supabase functions new 함수명 명령어로 새로운 Edge Function을 생성합니다. supabase/functions/ 폴더에 템플릿이 생성됩니다."
+    },
+    {
+      "id": 38,
+      "chapter": 8,
+      "question": "바데부가 Edge Function에서 요청 본문(body)을 읽고 싶습니다. 어떻게 해야 하나요?",
+      "options": [
+        "req.body",
+        "req.json()",
+        "req.getBody()",
+        "req.data()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "await req.json()으로 요청 본문을 JSON으로 파싱합니다. req.text()는 텍스트로, req.formData()는 폼 데이터로 읽습니다."
+    },
+    {
+      "id": 39,
+      "chapter": 8,
+      "question": "바데부가 Edge Function에서 JSON 응답을 반환하고 싶습니다. 올바른 코드는?",
+      "options": [
+        "return { data: 'hello' }",
+        "return Response.json({ data: 'hello' })",
+        "return new Response(JSON.stringify({ data: 'hello' }))",
+        "return json({ data: 'hello' })"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Response.json(객체)는 JSON 응답을 쉽게 생성하는 헬퍼 메서드입니다. 자동으로 Content-Type 헤더를 설정합니다."
+    },
+    {
+      "id": 40,
+      "chapter": 8,
+      "question": "바데부가 Edge Function을 배포하려고 합니다. 어떤 명령어를 사용해야 하나요?",
+      "options": [
+        "supabase functions deploy hello",
+        "supabase deploy function hello",
+        "supabase push function hello",
+        "supabase functions upload hello"
+      ],
+      "correctAnswer": 0,
+      "explanation": "supabase functions deploy 함수명 명령어로 Edge Function을 Supabase 프로젝트에 배포합니다."
+    },
+    {
+      "id": 41,
+      "chapter": 9,
+      "question": "바데부가 데이터베이스 트리거(Trigger)에 대해 배우고 있습니다. 트리거는 언제 실행되나요?",
+      "options": [
+        "수동으로 호출할 때",
+        "특정 시간에 자동으로",
+        "테이블에 INSERT, UPDATE, DELETE 이벤트 발생 시",
+        "서버 재시작 시"
+      ],
+      "correctAnswer": 2,
+      "explanation": "트리거는 테이블의 특정 이벤트(INSERT, UPDATE, DELETE)가 발생할 때 자동으로 실행되는 함수입니다."
+    },
+    {
+      "id": 42,
+      "chapter": 9,
+      "question": "바데부가 게시글이 생성될 때마다 자동으로 updated_at을 현재 시간으로 설정하는 트리거를 만들고 싶습니다. 먼저 무엇을 만들어야 하나요?",
+      "options": [
+        "Policy",
+        "Function",
+        "Index",
+        "View"
+      ],
+      "correctAnswer": 1,
+      "explanation": "트리거를 만들기 전에 먼저 실행될 함수(Function)를 생성해야 합니다. 함수는 PL/pgSQL로 작성됩니다."
+    },
+    {
+      "id": 43,
+      "chapter": 9,
+      "question": "바데부가 updated_at을 자동 설정하는 함수를 만들었습니다. 다음 코드에서 반환해야 하는 값은?\n\nCREATE FUNCTION update_timestamp()\nRETURNS TRIGGER AS $$\nBEGIN\n  NEW.updated_at = now();\n  RETURN ?;\nEND;\n$$ LANGUAGE plpgsql;",
+      "options": [
+        "OLD",
+        "NEW",
+        "TRUE",
+        "NULL"
+      ],
+      "correctAnswer": 1,
+      "explanation": "트리거 함수는 NEW를 반환해야 수정된 값이 적용됩니다. OLD는 변경 전 값을 의미합니다."
+    },
+    {
+      "id": 44,
+      "chapter": 9,
+      "question": "바데부가 저장 프로시저(Stored Procedure)를 클라이언트에서 호출하고 싶습니다. 어떤 메서드를 사용해야 하나요?",
+      "options": [
+        "supabase.call('function_name')",
+        "supabase.rpc('function_name')",
+        "supabase.exec('function_name')",
+        "supabase.procedure('function_name')"
+      ],
+      "correctAnswer": 1,
+      "explanation": "supabase.rpc('함수명', { 파라미터 })로 데이터베이스 함수를 호출할 수 있습니다. RPC는 Remote Procedure Call의 약자입니다."
+    },
+    {
+      "id": 45,
+      "chapter": 9,
+      "question": "바데부가 트리거를 생성하는 SQL을 작성하고 있습니다. 올바른 구문은?",
+      "options": [
+        "CREATE TRIGGER update_posts AFTER UPDATE ON posts EXECUTE update_timestamp();",
+        "CREATE TRIGGER update_posts AFTER UPDATE ON posts EXECUTE FUNCTION update_timestamp();",
+        "CREATE TRIGGER update_posts ON UPDATE posts RUN update_timestamp();",
+        "CREATE TRIGGER update_posts FOR UPDATE ON posts CALL update_timestamp();"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CREATE TRIGGER 트리거명 AFTER 이벤트 ON 테이블명 EXECUTE FUNCTION 함수명(); 형식으로 트리거를 생성합니다."
+    },
+    {
+      "id": 46,
+      "chapter": 10,
+      "question": "바데부가 프로덕션 배포를 준비하고 있습니다. RLS를 설정하지 않은 테이블이 있을 때 취해야 할 조치는?",
+      "options": [
+        "그대로 배포해도 됩니다",
+        "반드시 모든 테이블에 RLS를 활성화하고 적절한 정책을 설정해야 합니다",
+        "API Key만 변경하면 됩니다",
+        "테이블을 삭제합니다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "보안을 위해 모든 테이블에 RLS를 활성화하고 적절한 접근 정책을 설정하는 것이 중요합니다. RLS 없이는 누구나 데이터에 접근할 수 있습니다."
+    },
+    {
+      "id": 47,
+      "chapter": 10,
+      "question": "바데부가 anon key와 service_role key의 차이를 알고 싶습니다. service_role key는 언제 사용해야 하나요?",
+      "options": [
+        "클라이언트 앱에서 항상 사용",
+        "RLS를 우회해야 하는 서버 사이드 작업에만 사용",
+        "개발 환경에서만 사용",
+        "두 키는 완전히 동일합니다"
+      ],
+      "correctAnswer": 1,
+      "explanation": "service_role key는 모든 RLS를 우회하므로 절대 클라이언트에 노출해서는 안 되며, 서버 사이드 관리 작업에만 사용해야 합니다."
+    },
+    {
+      "id": 48,
+      "chapter": 10,
+      "question": "바데부가 데이터베이스 백업을 설정하고 싶습니다. Supabase에서 자동 백업은 어떻게 되나요?",
+      "options": [
+        "수동으로만 백업 가능",
+        "Pro 플랜 이상에서 일일 자동 백업 제공",
+        "자동 백업은 지원하지 않음",
+        "무료 플랜도 시간별 백업 제공"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Supabase는 Pro 플랜 이상에서 일일 자동 백업을 제공하며, 수동 백업도 가능합니다. 백업은 7일간 보관됩니다."
+    },
+    {
+      "id": 49,
+      "chapter": 10,
+      "question": "바데부가 데이터베이스 성능을 모니터링하고 싶습니다. Supabase에서 어디를 확인해야 하나요?",
+      "options": [
+        "Settings > Performance",
+        "Database > Logs",
+        "Reports > Performance",
+        "대시보드의 Usage 섹션"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Supabase 대시보드의 Usage 섹션에서 API 요청, 데이터베이스 연결, 스토리지 사용량 등을 모니터링할 수 있습니다."
+    },
+    {
+      "id": 50,
+      "chapter": 10,
+      "question": "바데부가 프로덕션 환경의 데이터베이스 인덱스를 최적화하고 싶습니다. 인덱스를 생성해야 하는 경우는?",
+      "options": [
+        "모든 컬럼에 인덱스 생성",
+        "WHERE, JOIN, ORDER BY에 자주 사용되는 컬럼에만 생성",
+        "primary key에만 생성",
+        "인덱스는 자동 생성되므로 신경 쓸 필요 없음"
+      ],
+      "correctAnswer": 1,
+      "explanation": "인덱스는 쿼리 성능을 향상시키지만 저장 공간과 쓰기 성능에 영향을 줍니다. WHERE, JOIN, ORDER BY에 자주 사용되는 컬럼에만 선택적으로 생성해야 합니다."
+    }
+  ]
+}

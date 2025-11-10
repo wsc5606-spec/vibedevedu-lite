@@ -1,0 +1,655 @@
+{
+  "language": "python",
+  "questions": [
+    {
+      "id": 1,
+      "chapter": 1,
+      "question": "바데부가 Python으로 첫 프로그램을 작성하려고 합니다. 화면에 'Hello, World!'를 출력하는 올바른 코드는?",
+      "options": [
+        "print('Hello, World!')",
+        "console.log('Hello, World!')",
+        "System.out.println('Hello, World!')",
+        "echo 'Hello, World!'"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Python에서는 print() 함수를 사용하여 출력합니다."
+    },
+    {
+      "id": 2,
+      "chapter": 1,
+      "question": "Python에서 한 줄 주석을 작성하는 방법은?",
+      "options": [
+        "// 주석",
+        "<!-- 주석 -->",
+        "# 주석",
+        "/* 주석 */"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Python에서는 # 기호로 한 줄 주석을 작성합니다."
+    },
+    {
+      "id": 3,
+      "chapter": 1,
+      "question": "바데부가 여러 줄 주석을 작성하려고 합니다. Python에서 여러 줄 주석을 작성하는 방법은?",
+      "options": [
+        "/* 여러 줄 주석 */",
+        "''' 여러 줄 주석 ''' 또는 \"\"\" 여러 줄 주석 \"\"\"",
+        "// 여러 줄 주석",
+        "<!-- 여러 줄 주석 -->"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서는 ''' 또는 \"\"\"로 여러 줄 주석(독스트링)을 작성합니다."
+    },
+    {
+      "id": 4,
+      "chapter": 1,
+      "question": "다음 중 Python 파일의 확장자는?",
+      "options": [
+        ".java",
+        ".js",
+        ".py",
+        ".cpp"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Python 파일의 확장자는 .py입니다."
+    },
+    {
+      "id": 5,
+      "chapter": 1,
+      "question": "바데부가 print() 함수로 여러 값을 출력하려고 합니다. 올바른 방법은?",
+      "options": [
+        "print('이름:', '바데부')",
+        "print('이름:' + '바데부')",
+        "print('이름: {}'.format('바데부'))",
+        "위의 모든 방법"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Python에서는 여러 방법으로 값을 출력할 수 있습니다."
+    },
+    {
+      "id": 6,
+      "chapter": 2,
+      "question": "바데부가 변수에 값을 저장하려고 합니다. Python에서 변수를 선언하고 값을 할당하는 방법은?",
+      "options": [
+        "int x = 10",
+        "var x = 10",
+        "x = 10",
+        "let x = 10"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Python에서는 타입을 명시하지 않고 변수명 = 값 형태로 할당합니다."
+    },
+    {
+      "id": 7,
+      "chapter": 2,
+      "question": "다음 중 Python의 정수형(int) 값은?",
+      "options": [
+        "3.14",
+        "42",
+        "'42'",
+        "True"
+      ],
+      "correctAnswer": 1,
+      "explanation": "42는 정수형(int) 값입니다. 3.14는 실수, '42'는 문자열, True는 불리언입니다."
+    },
+    {
+      "id": 8,
+      "chapter": 2,
+      "question": "바데부가 문자열과 숫자를 더하려고 합니다. 다음 중 올바른 코드는?",
+      "options": [
+        "print('나이: ' + 25)",
+        "print('나이: ' + str(25))",
+        "print('나이: ' + int('25'))",
+        "print('나이: ', 25)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "문자열과 숫자를 더하려면 str()로 형변환하거나 ,로 구분하여 출력합니다. 정답 2번이 +로 연결하는 올바른 방법입니다."
+    },
+    {
+      "id": 9,
+      "chapter": 2,
+      "question": "Python에서 변수의 타입을 확인하는 함수는?",
+      "options": [
+        "typeof()",
+        "type()",
+        "getType()",
+        "checkType()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서는 type() 함수로 변수의 타입을 확인합니다."
+    },
+    {
+      "id": 10,
+      "chapter": 2,
+      "question": "바데부가 True 또는 False 값을 저장하려고 합니다. 이 데이터 타입은?",
+      "options": [
+        "int",
+        "str",
+        "bool",
+        "float"
+      ],
+      "correctAnswer": 2,
+      "explanation": "True/False 값을 저장하는 타입은 bool(불리언)입니다."
+    },
+    {
+      "id": 11,
+      "chapter": 3,
+      "question": "바데부가 두 숫자를 더하려고 합니다. Python에서 덧셈 연산자는?",
+      "options": [
+        "add",
+        "+",
+        "plus",
+        "&"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서 덧셈 연산자는 +입니다."
+    },
+    {
+      "id": 12,
+      "chapter": 3,
+      "question": "10을 3으로 나눈 나머지를 구하는 코드는?",
+      "options": [
+        "10 / 3",
+        "10 % 3",
+        "10 // 3",
+        "10 mod 3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "나머지를 구하는 연산자는 %(모듈로)입니다."
+    },
+    {
+      "id": 13,
+      "chapter": 3,
+      "question": "바데부가 사용자로부터 입력을 받으려고 합니다. Python에서 입력을 받는 함수는?",
+      "options": [
+        "scanf()",
+        "cin()",
+        "input()",
+        "read()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Python에서는 input() 함수로 사용자 입력을 받습니다."
+    },
+    {
+      "id": 14,
+      "chapter": 3,
+      "question": "다음 중 비교 연산자가 아닌 것은?",
+      "options": [
+        "==",
+        "!=",
+        "=",
+        ">="
+      ],
+      "correctAnswer": 2,
+      "explanation": "=는 할당 연산자입니다. ==가 비교 연산자입니다."
+    },
+    {
+      "id": 15,
+      "chapter": 3,
+      "question": "바데부가 AND 논리 연산을 하려고 합니다. Python의 AND 연산자는?",
+      "options": [
+        "&&",
+        "and",
+        "&",
+        "AND"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서 AND 연산자는 'and'입니다."
+    },
+    {
+      "id": 16,
+      "chapter": 4,
+      "question": "바데부가 나이가 20 이상일 때만 실행되는 코드를 작성하려고 합니다. 올바른 조건문은?",
+      "options": [
+        "if age >= 20:",
+        "if (age >= 20) then:",
+        "if age >= 20 {",
+        "when age >= 20:"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Python에서 if문은 'if 조건:' 형태로 작성하며, 콜론(:)으로 끝납니다."
+    },
+    {
+      "id": 17,
+      "chapter": 4,
+      "question": "Python에서 if-else문의 올바른 구조는?",
+      "options": [
+        "if 조건: / 코드 / else / 코드",
+        "if 조건: / 코드 / else: / 코드",
+        "if (조건) { 코드 } else { 코드 }",
+        "if 조건 then 코드 else 코드"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python의 if-else문은 각 블록 뒤에 콜론(:)을 사용하고 들여쓰기로 블록을 구분합니다."
+    },
+    {
+      "id": 18,
+      "chapter": 4,
+      "question": "바데부가 점수에 따라 등급을 매기려고 합니다. 여러 조건을 확인하는 키워드는?",
+      "options": [
+        "else if",
+        "elif",
+        "elseif",
+        "otherwise"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서는 elif를 사용하여 추가 조건을 확인합니다."
+    },
+    {
+      "id": 19,
+      "chapter": 4,
+      "question": "다음 코드의 결과는? x = 10 / if x > 5: / print('크다') / else: / print('작다')",
+      "options": [
+        "크다",
+        "작다",
+        "에러",
+        "아무것도 출력안됨"
+      ],
+      "correctAnswer": 0,
+      "explanation": "x는 10이고, 10 > 5는 참이므로 '크다'가 출력됩니다."
+    },
+    {
+      "id": 20,
+      "chapter": 4,
+      "question": "바데부가 조건문에서 여러 조건을 동시에 확인하려고 합니다. 사용할 논리 연산자는?",
+      "options": [
+        "and, or",
+        "&&, ||",
+        "&, |",
+        "AND, OR"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Python에서는 'and', 'or' 키워드를 사용합니다."
+    },
+    {
+      "id": 21,
+      "chapter": 5,
+      "question": "바데부가 1부터 5까지 출력하려고 합니다. 올바른 for문은?",
+      "options": [
+        "for i in range(5):",
+        "for i in range(1, 6):",
+        "for (i = 1; i <= 5; i++):",
+        "for i from 1 to 5:"
+      ],
+      "correctAnswer": 1,
+      "explanation": "range(1, 6)은 1부터 5까지를 의미합니다. range의 끝 값은 포함되지 않습니다."
+    },
+    {
+      "id": 22,
+      "chapter": 5,
+      "question": "Python에서 무한 반복문을 만드는 방법은?",
+      "options": [
+        "while True:",
+        "for (;;):",
+        "loop forever:",
+        "repeat:"
+      ],
+      "correctAnswer": 0,
+      "explanation": "'while True:'는 조건이 항상 참이므로 무한 반복됩니다."
+    },
+    {
+      "id": 23,
+      "chapter": 5,
+      "question": "바데부가 반복문을 중간에 종료하려고 합니다. 사용할 키워드는?",
+      "options": [
+        "stop",
+        "exit",
+        "break",
+        "end"
+      ],
+      "correctAnswer": 2,
+      "explanation": "break 키워드는 반복문을 즉시 종료합니다."
+    },
+    {
+      "id": 24,
+      "chapter": 5,
+      "question": "현재 반복을 건너뛰고 다음 반복으로 넘어가는 키워드는?",
+      "options": [
+        "skip",
+        "next",
+        "continue",
+        "pass"
+      ],
+      "correctAnswer": 2,
+      "explanation": "continue 키워드는 현재 반복을 건너뛰고 다음 반복으로 넘어갑니다."
+    },
+    {
+      "id": 25,
+      "chapter": 5,
+      "question": "다음 코드의 결과는? for i in range(3): / print(i)",
+      "options": [
+        "0 1 2",
+        "1 2 3",
+        "0 1 2 3",
+        "1 2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "range(3)은 0, 1, 2를 생성합니다. 0부터 시작하며 3은 포함되지 않습니다."
+    },
+    {
+      "id": 26,
+      "chapter": 6,
+      "question": "바데부가 함수를 정의하려고 합니다. Python에서 함수를 정의하는 키워드는?",
+      "options": [
+        "function",
+        "def",
+        "func",
+        "define"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서는 def 키워드로 함수를 정의합니다."
+    },
+    {
+      "id": 27,
+      "chapter": 6,
+      "question": "함수에서 값을 반환하는 키워드는?",
+      "options": [
+        "return",
+        "give",
+        "output",
+        "result"
+      ],
+      "correctAnswer": 0,
+      "explanation": "return 키워드로 함수의 결과값을 반환합니다."
+    },
+    {
+      "id": 28,
+      "chapter": 6,
+      "question": "바데부가 매개변수가 있는 함수를 만들려고 합니다. 올바른 함수 정의는?",
+      "options": [
+        "def greet(name):",
+        "function greet(name):",
+        "def greet[name]:",
+        "func greet(name):"
+      ],
+      "correctAnswer": 0,
+      "explanation": "def 함수명(매개변수): 형태로 함수를 정의합니다."
+    },
+    {
+      "id": 29,
+      "chapter": 6,
+      "question": "다음 중 함수 호출이 올바른 것은?",
+      "options": [
+        "greet('바데부')",
+        "call greet('바데부')",
+        "execute greet('바데부')",
+        "run greet('바데부')"
+      ],
+      "correctAnswer": 0,
+      "explanation": "함수명(인자) 형태로 함수를 호출합니다."
+    },
+    {
+      "id": 30,
+      "chapter": 6,
+      "question": "바데부가 기본값을 가진 매개변수를 만들려고 합니다. 올바른 방법은?",
+      "options": [
+        "def greet(name = '바데부'):",
+        "def greet(name default '바데부'):",
+        "def greet(name: '바데부'):",
+        "def greet(name := '바데부'):"
+      ],
+      "correctAnswer": 0,
+      "explanation": "매개변수명 = 기본값 형태로 기본값을 지정합니다."
+    },
+    {
+      "id": 31,
+      "chapter": 7,
+      "question": "바데부가 리스트를 만들려고 합니다. Python에서 리스트를 만드는 방법은?",
+      "options": [
+        "list = (1, 2, 3)",
+        "list = [1, 2, 3]",
+        "list = {1, 2, 3}",
+        "list = <1, 2, 3>"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서 리스트는 대괄호 []로 만듭니다."
+    },
+    {
+      "id": 32,
+      "chapter": 7,
+      "question": "리스트의 첫 번째 요소에 접근하는 방법은?",
+      "options": [
+        "list[1]",
+        "list[0]",
+        "list.first()",
+        "list(0)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python의 인덱스는 0부터 시작하므로 list[0]이 첫 번째 요소입니다."
+    },
+    {
+      "id": 33,
+      "chapter": 7,
+      "question": "바데부가 리스트에 요소를 추가하려고 합니다. 사용할 메서드는?",
+      "options": [
+        "add()",
+        "append()",
+        "insert()",
+        "push()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "append() 메서드는 리스트의 끝에 요소를 추가합니다."
+    },
+    {
+      "id": 34,
+      "chapter": 7,
+      "question": "딕셔너리(dictionary)를 만드는 올바른 방법은?",
+      "options": [
+        "dict = ['key': 'value']",
+        "dict = ('key': 'value')",
+        "dict = {'key': 'value'}",
+        "dict = <'key': 'value'>"
+      ],
+      "correctAnswer": 2,
+      "explanation": "딕셔너리는 중괄호 {}와 키:값 쌍으로 만듭니다."
+    },
+    {
+      "id": 35,
+      "chapter": 7,
+      "question": "바데부가 리스트의 길이를 구하려고 합니다. 사용할 함수는?",
+      "options": [
+        "size()",
+        "length()",
+        "len()",
+        "count()"
+      ],
+      "correctAnswer": 2,
+      "explanation": "len() 함수는 리스트의 길이(요소 개수)를 반환합니다."
+    },
+    {
+      "id": 36,
+      "chapter": 8,
+      "question": "바데부가 클래스를 정의하려고 합니다. Python에서 클래스를 정의하는 키워드는?",
+      "options": [
+        "class",
+        "object",
+        "struct",
+        "type"
+      ],
+      "correctAnswer": 0,
+      "explanation": "class 키워드로 클래스를 정의합니다."
+    },
+    {
+      "id": 37,
+      "chapter": 8,
+      "question": "클래스의 생성자 메서드 이름은?",
+      "options": [
+        "__init__",
+        "constructor",
+        "__new__",
+        "initialize"
+      ],
+      "correctAnswer": 0,
+      "explanation": "__init__ 메서드는 클래스의 생성자입니다."
+    },
+    {
+      "id": 38,
+      "chapter": 8,
+      "question": "바데부가 클래스의 인스턴스를 만들려고 합니다. 올바른 방법은?",
+      "options": [
+        "obj = new MyClass()",
+        "obj = MyClass()",
+        "obj = create MyClass()",
+        "obj = instance MyClass()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "클래스명()으로 인스턴스를 생성합니다. new 키워드는 사용하지 않습니다."
+    },
+    {
+      "id": 39,
+      "chapter": 8,
+      "question": "클래스 메서드의 첫 번째 매개변수로 관례적으로 사용하는 이름은?",
+      "options": [
+        "this",
+        "self",
+        "me",
+        "obj"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서는 관례적으로 self를 사용하여 인스턴스 자신을 참조합니다."
+    },
+    {
+      "id": 40,
+      "chapter": 8,
+      "question": "바데부가 상속을 구현하려고 합니다. 올바른 구문은?",
+      "options": [
+        "class Child extends Parent:",
+        "class Child(Parent):",
+        "class Child inherits Parent:",
+        "class Child <- Parent:"
+      ],
+      "correctAnswer": 1,
+      "explanation": "class 자식클래스(부모클래스): 형태로 상속을 구현합니다."
+    },
+    {
+      "id": 41,
+      "chapter": 9,
+      "question": "바데부가 파일을 읽기 모드로 열려고 합니다. 올바른 코드는?",
+      "options": [
+        "f = open('file.txt', 'r')",
+        "f = read('file.txt')",
+        "f = file.open('file.txt')",
+        "f = open('file.txt', 'read')"
+      ],
+      "correctAnswer": 0,
+      "explanation": "open(파일명, 'r')로 파일을 읽기 모드로 엽니다."
+    },
+    {
+      "id": 42,
+      "chapter": 9,
+      "question": "파일을 쓰기 모드로 여는 모드 문자는?",
+      "options": [
+        "'r'",
+        "'w'",
+        "'write'",
+        "'output'"
+      ],
+      "correctAnswer": 1,
+      "explanation": "'w'는 쓰기 모드입니다. 'r'은 읽기, 'a'는 추가 모드입니다."
+    },
+    {
+      "id": 43,
+      "chapter": 9,
+      "question": "바데부가 파일을 안전하게 열고 닫으려고 합니다. 권장되는 방법은?",
+      "options": [
+        "f = open() 후 f.close()",
+        "with open() as f:",
+        "file.open() 후 file.close()",
+        "open() 후 자동으로 닫힘"
+      ],
+      "correctAnswer": 1,
+      "explanation": "with 문을 사용하면 자동으로 파일이 닫힙니다."
+    },
+    {
+      "id": 44,
+      "chapter": 9,
+      "question": "파일의 모든 내용을 한 번에 읽는 메서드는?",
+      "options": [
+        "readAll()",
+        "read()",
+        "getAll()",
+        "fetchAll()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "read() 메서드는 파일의 전체 내용을 읽습니다."
+    },
+    {
+      "id": 45,
+      "chapter": 9,
+      "question": "바데부가 파일에 텍스트를 쓰려고 합니다. 사용할 메서드는?",
+      "options": [
+        "print()",
+        "write()",
+        "save()",
+        "output()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "write() 메서드로 파일에 텍스트를 씁니다."
+    },
+    {
+      "id": 46,
+      "chapter": 10,
+      "question": "바데부가 예외를 처리하려고 합니다. Python에서 예외 처리 구문은?",
+      "options": [
+        "try-catch",
+        "try-except",
+        "begin-rescue",
+        "try-error"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Python에서는 try-except 구문으로 예외를 처리합니다."
+    },
+    {
+      "id": 47,
+      "chapter": 10,
+      "question": "예외 발생 여부와 관계없이 항상 실행되는 블록은?",
+      "options": [
+        "else",
+        "finally",
+        "always",
+        "end"
+      ],
+      "correctAnswer": 1,
+      "explanation": "finally 블록은 예외 발생 여부와 관계없이 항상 실행됩니다."
+    },
+    {
+      "id": 48,
+      "chapter": 10,
+      "question": "바데부가 직접 예외를 발생시키려고 합니다. 사용할 키워드는?",
+      "options": [
+        "throw",
+        "raise",
+        "error",
+        "exception"
+      ],
+      "correctAnswer": 1,
+      "explanation": "raise 키워드로 예외를 발생시킵니다."
+    },
+    {
+      "id": 49,
+      "chapter": 10,
+      "question": "여러 종류의 예외를 처리하는 올바른 방법은?",
+      "options": [
+        "except Exception1, Exception2:",
+        "except (Exception1, Exception2):",
+        "except Exception1 or Exception2:",
+        "except Exception1 and Exception2:"
+      ],
+      "correctAnswer": 1,
+      "explanation": "except (Exception1, Exception2): 형태로 여러 예외를 처리합니다."
+    },
+    {
+      "id": 50,
+      "chapter": 10,
+      "question": "바데부가 모든 예외를 잡으려고 합니다. 가장 일반적인 예외 클래스는?",
+      "options": [
+        "Error",
+        "Exception",
+        "AllErrors",
+        "BaseException"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Exception은 대부분의 예외를 잡을 수 있는 기본 예외 클래스입니다."
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "language": "cicd",
+  "questions": [
+    {
+      "id": 1,
+      "chapter": 1,
+      "question": "바데부가 CI/CD를 처음 배우고 있습니다. CI (Continuous Integration)의 주요 목적은 무엇일까요?",
+      "options": ["코드를 자주 통합하고 자동으로 테스트하기", "수동으로 배포하기", "코드를 백업하기", "문서 자동 생성하기"],
+      "correctAnswer": 0,
+      "explanation": "CI는 개발자들이 코드를 자주 통합하고 자동으로 빌드 및 테스트하여 문제를 빠르게 발견하는 것이 주요 목적입니다."
+    },
+    {
+      "id": 2,
+      "chapter": 1,
+      "question": "바데부가 배포 자동화를 고민하고 있습니다. CD가 의미하는 두 가지 개념은?",
+      "options": ["Continuous Deployment와 Continuous Delivery", "Code Development와 Code Deployment", "Continuous Debug와 Continuous Design", "Code Delivery와 Cloud Deployment"],
+      "correctAnswer": 0,
+      "explanation": "CD는 Continuous Deployment(지속적 배포)와 Continuous Delivery(지속적 전달) 두 가지를 의미합니다. 둘 다 배포 자동화와 관련이 있습니다."
+    },
+    {
+      "id": 3,
+      "chapter": 1,
+      "question": "바데부가 CI/CD의 장점을 동료에게 설명하려고 합니다. CI/CD의 주요 이점이 아닌 것은?",
+      "options": ["빠른 피드백", "반복 작업 제거", "코드 작성 속도 향상", "실수 방지"],
+      "correctAnswer": 2,
+      "explanation": "CI/CD는 테스트와 배포를 자동화하지만, 코드를 더 빠르게 작성하게 해주지는 않습니다. 대신 품질과 배포 속도를 향상시킵니다."
+    },
+    {
+      "id": 4,
+      "chapter": 1,
+      "question": "바데부가 전통적인 수동 배포 방식의 문제점을 겪었습니다. 다음 중 CI/CD로 해결할 수 있는 문제는?",
+      "options": ["서버 하드웨어 비용", "반복적인 수동 작업으로 인한 시간 낭비", "프로그래밍 언어 선택", "디자인 품질"],
+      "correctAnswer": 1,
+      "explanation": "CI/CD는 반복적인 빌드, 테스트, 배포 작업을 자동화하여 시간을 절약하고 실수를 줄입니다."
+    },
+    {
+      "id": 5,
+      "chapter": 1,
+      "question": "바데부가 CI/CD 도구를 선택하고 있습니다. GitHub Actions의 주요 장점이 아닌 것은?",
+      "options": ["GitHub와 완벽 통합", "공개 저장소는 무료", "설정이 매우 복잡함", "다양한 마켓플레이스 액션"],
+      "correctAnswer": 2,
+      "explanation": "GitHub Actions는 YAML 파일로 간단하게 설정할 수 있어 초보자도 쉽게 시작할 수 있습니다."
+    },
+    {
+      "id": 6,
+      "chapter": 2,
+      "question": "바데부가 첫 워크플로우를 만들고 있습니다. GitHub Actions 워크플로우 파일을 저장해야 하는 올바른 경로는?",
+      "options": [".github/actions/", ".github/workflows/", ".actions/workflows/", "workflows/"],
+      "correctAnswer": 1,
+      "explanation": ".github/workflows/ 폴더에 YAML 파일을 저장하면 GitHub Actions가 자동으로 인식하고 실행합니다."
+    },
+    {
+      "id": 7,
+      "chapter": 2,
+      "question": "바데부가 워크플로우 실행 결과를 확인하려고 합니다. GitHub에서 Actions 실행 결과를 볼 수 있는 곳은?",
+      "options": ["Settings 탭", "Issues 탭", "Actions 탭", "Pull requests 탭"],
+      "correctAnswer": 2,
+      "explanation": "GitHub 저장소의 Actions 탭에서 모든 워크플로우 실행 이력과 결과를 확인할 수 있습니다."
+    },
+    {
+      "id": 8,
+      "chapter": 2,
+      "question": "바데부가 공개 저장소에서 GitHub Actions를 사용하고 있습니다. 공개 저장소의 무료 사용량은?",
+      "options": ["월 1,000분", "월 2,000분", "무제한", "월 500분"],
+      "correctAnswer": 2,
+      "explanation": "공개 저장소에서는 GitHub Actions를 무제한 무료로 사용할 수 있습니다. 비공개 저장소는 무료 플랜에서 월 2,000분까지 사용 가능합니다."
+    },
+    {
+      "id": 9,
+      "chapter": 2,
+      "question": "바데부가 README에 CI 상태 배지를 추가하려고 합니다. 상태 배지의 주요 용도는?",
+      "options": ["코드 줄 수 표시", "프로젝트 빌드 상태를 한눈에 확인", "다운로드 횟수 표시", "기여자 수 표시"],
+      "correctAnswer": 1,
+      "explanation": "상태 배지는 프로젝트의 빌드/테스트 상태를 시각적으로 표시하여 방문자가 프로젝트의 건강 상태를 쉽게 확인할 수 있게 합니다."
+    },
+    {
+      "id": 10,
+      "chapter": 2,
+      "question": "바데부가 워크플로우 파일 형식을 확인하고 있습니다. GitHub Actions 워크플로우는 어떤 형식으로 작성하나요?",
+      "options": ["JSON", "XML", "YAML", "TOML"],
+      "correctAnswer": 2,
+      "explanation": "GitHub Actions 워크플로우는 YAML 형식으로 작성하며, 들여쓰기가 매우 중요합니다."
+    },
+    {
+      "id": 11,
+      "chapter": 3,
+      "question": "바데부가 워크플로우의 기본 구조를 배우고 있습니다. 워크플로우의 필수 요소가 아닌 것은?",
+      "options": ["name", "on", "jobs", "author"],
+      "correctAnswer": 3,
+      "explanation": "워크플로우의 필수 요소는 on(트리거)과 jobs입니다. name은 선택사항이며, author는 존재하지 않는 속성입니다."
+    },
+    {
+      "id": 12,
+      "chapter": 3,
+      "question": "바데부가 특정 브랜치에 푸시할 때만 워크플로우를 실행하려고 합니다. 올바른 설정은?",
+      "options": ["on: push: branch: main", "on: push: branches: [main]", "on: branch: main", "trigger: push: main"],
+      "correctAnswer": 1,
+      "explanation": "on: push: branches: [main] 형식으로 특정 브랜치의 푸시 이벤트를 트리거로 지정할 수 있습니다."
+    },
+    {
+      "id": 13,
+      "chapter": 3,
+      "question": "바데부가 매일 자정에 자동으로 실행되는 워크플로우를 만들려고 합니다. 사용해야 하는 이벤트는?",
+      "options": ["daily", "schedule", "timer", "cron"],
+      "correctAnswer": 1,
+      "explanation": "schedule 이벤트와 cron 문법을 사용하여 정기적으로 워크플로우를 실행할 수 있습니다."
+    },
+    {
+      "id": 14,
+      "chapter": 3,
+      "question": "바데부가 워크플로우의 runs-on을 설정하고 있습니다. runs-on의 역할은?",
+      "options": ["워크플로우 이름", "실행 환경 지정", "실행 시간", "실행 권한"],
+      "correctAnswer": 1,
+      "explanation": "runs-on은 워크플로우가 실행될 환경(ubuntu-latest, windows-latest, macos-latest 등)을 지정합니다."
+    },
+    {
+      "id": 15,
+      "chapter": 3,
+      "question": "바데부가 특정 파일이 변경될 때만 워크플로우를 실행하려고 합니다. 사용해야 하는 필터는?",
+      "options": ["files", "paths", "changes", "includes"],
+      "correctAnswer": 1,
+      "explanation": "paths 필터를 사용하여 특정 파일이나 디렉토리가 변경될 때만 워크플로우를 실행할 수 있습니다."
+    },
+    {
+      "id": 16,
+      "chapter": 4,
+      "question": "바데부가 Job 간 의존성을 설정하려고 합니다. 다른 Job이 완료된 후 실행하려면 어떤 키워드를 사용해야 하나요?",
+      "options": ["depends", "needs", "after", "requires"],
+      "correctAnswer": 1,
+      "explanation": "needs 키워드를 사용하여 특정 Job이 완료된 후에 다른 Job을 실행하도록 의존성을 설정할 수 있습니다."
+    },
+    {
+      "id": 17,
+      "chapter": 4,
+      "question": "바데부가 빌드 결과를 다른 Job에서 사용하려고 합니다. 어떤 기능을 사용해야 하나요?",
+      "options": ["Cache", "Artifact", "Storage", "Transfer"],
+      "correctAnswer": 1,
+      "explanation": "Artifact를 사용하여 빌드 결과물이나 테스트 리포트를 업로드하고, 다른 Job에서 다운로드하여 사용할 수 있습니다."
+    },
+    {
+      "id": 18,
+      "chapter": 4,
+      "question": "바데부가 명령어를 실행하는 Step을 만들고 있습니다. 명령어 실행에 사용하는 키워드는?",
+      "options": ["exec", "run", "command", "execute"],
+      "correctAnswer": 1,
+      "explanation": "run 키워드를 사용하여 쉘 명령어를 실행할 수 있습니다."
+    },
+    {
+      "id": 19,
+      "chapter": 4,
+      "question": "바데부가 미리 만들어진 액션을 사용하려고 합니다. 액션 사용에 필요한 키워드는?",
+      "options": ["action", "uses", "import", "include"],
+      "correctAnswer": 1,
+      "explanation": "uses 키워드로 GitHub Marketplace나 다른 저장소의 액션을 사용할 수 있습니다."
+    },
+    {
+      "id": 20,
+      "chapter": 4,
+      "question": "바데부가 특정 조건에서만 Step을 실행하려고 합니다. 조건부 실행에 사용하는 키워드는?",
+      "options": ["when", "condition", "if", "check"],
+      "correctAnswer": 2,
+      "explanation": "if 키워드를 사용하여 조건이 참일 때만 Step이나 Job을 실행할 수 있습니다."
+    },
+    {
+      "id": 21,
+      "chapter": 5,
+      "question": "바데부가 코드 푸시 시 워크플로우를 트리거하려고 합니다. 사용해야 하는 이벤트는?",
+      "options": ["commit", "push", "upload", "deploy"],
+      "correctAnswer": 1,
+      "explanation": "push 이벤트는 브랜치에 코드가 푸시될 때 워크플로우를 트리거합니다."
+    },
+    {
+      "id": 22,
+      "chapter": 5,
+      "question": "바데부가 PR 생성 시 자동 테스트를 실행하려고 합니다. 사용해야 하는 이벤트는?",
+      "options": ["pr", "pull_request", "merge_request", "review"],
+      "correctAnswer": 1,
+      "explanation": "pull_request 이벤트는 PR이 생성되거나 업데이트될 때 워크플로우를 트리거합니다."
+    },
+    {
+      "id": 23,
+      "chapter": 5,
+      "question": "바데부가 매주 월요일 오전 9시에 워크플로우를 실행하려고 합니다. cron 문법으로 올바른 것은?",
+      "options": ["0 9 * * 1", "9 0 1 * *", "0 9 1 * *", "1 9 0 * *"],
+      "correctAnswer": 0,
+      "explanation": "cron 문법은 '분 시 일 월 요일' 순서입니다. '0 9 * * 1'은 월요일(1) 오전 9시 0분을 의미합니다."
+    },
+    {
+      "id": 24,
+      "chapter": 5,
+      "question": "바데부가 수동으로 워크플로우를 실행하고 싶습니다. 사용해야 하는 이벤트는?",
+      "options": ["manual", "workflow_dispatch", "trigger", "run"],
+      "correctAnswer": 1,
+      "explanation": "workflow_dispatch 이벤트를 사용하면 Actions 탭에서 수동으로 워크플로우를 실행할 수 있습니다."
+    },
+    {
+      "id": 25,
+      "chapter": 5,
+      "question": "바데부가 문서 파일 변경 시에는 워크플로우를 실행하지 않으려고 합니다. 어떤 필터를 사용해야 하나요?",
+      "options": ["paths-exclude", "ignore-paths", "skip-paths", "exclude-files"],
+      "correctAnswer": 0,
+      "explanation": "paths-ignore 필터를 사용하여 특정 경로나 파일 패턴을 제외할 수 있습니다."
+    },
+    {
+      "id": 26,
+      "chapter": 6,
+      "question": "바데부가 코드를 체크아웃하려고 합니다. 사용해야 하는 공식 액션은?",
+      "options": ["actions/clone@v3", "actions/checkout@v3", "actions/pull@v3", "actions/get-code@v3"],
+      "correctAnswer": 1,
+      "explanation": "actions/checkout@v3는 저장소의 코드를 워크플로우 환경으로 가져오는 가장 기본적인 액션입니다."
+    },
+    {
+      "id": 27,
+      "chapter": 6,
+      "question": "바데부가 Node.js 환경을 설정하려고 합니다. 사용해야 하는 액션은?",
+      "options": ["actions/node@v3", "actions/setup-node@v3", "actions/nodejs@v3", "actions/install-node@v3"],
+      "correctAnswer": 1,
+      "explanation": "actions/setup-node@v3는 특정 버전의 Node.js를 설치하고 npm 캐싱을 제공합니다."
+    },
+    {
+      "id": 28,
+      "chapter": 6,
+      "question": "바데부가 빌드 속도를 높이기 위해 의존성을 캐싱하려고 합니다. 사용해야 하는 액션은?",
+      "options": ["actions/save@v3", "actions/cache@v3", "actions/store@v3", "actions/remember@v3"],
+      "correctAnswer": 1,
+      "explanation": "actions/cache@v3는 의존성이나 빌드 결과를 캐싱하여 워크플로우 실행 시간을 크게 단축시킵니다."
+    },
+    {
+      "id": 29,
+      "chapter": 6,
+      "question": "바데부가 액션의 버전을 지정하고 있습니다. 가장 권장되는 버전 지정 방식은?",
+      "options": ["최신 커밋 SHA", "브랜치 이름", "메이저 버전 (v3)", "패치 버전 (v3.5.2)"],
+      "correctAnswer": 2,
+      "explanation": "메이저 버전(v3)을 사용하면 버그 수정과 기능 개선을 자동으로 받으면서도 호환성이 보장됩니다."
+    },
+    {
+      "id": 30,
+      "chapter": 6,
+      "question": "바데부가 GitHub Marketplace에서 액션을 선택하고 있습니다. 신뢰할 수 있는 액션을 선택하는 기준이 아닌 것은?",
+      "options": ["높은 Star 개수", "최근 업데이트 여부", "개발자 이름이 멋있음", "좋은 문서화"],
+      "correctAnswer": 2,
+      "explanation": "액션을 선택할 때는 인기도(Stars), 유지보수 상태, 문서 품질, 보안 검증 등을 확인해야 합니다."
+    },
+    {
+      "id": 31,
+      "chapter": 7,
+      "question": "바데부가 API 키를 안전하게 저장하려고 합니다. 어디에 저장해야 하나요?",
+      "options": ["코드 파일에 직접", "README 파일에", "GitHub Secrets에", ".env 파일을 커밋"],
+      "correctAnswer": 2,
+      "explanation": "API 키나 비밀번호 같은 민감한 정보는 반드시 GitHub Secrets에 저장해야 하며, 절대 코드에 직접 작성하면 안 됩니다."
+    },
+    {
+      "id": 32,
+      "chapter": 7,
+      "question": "바데부가 워크플로우에서 Secret을 사용하려고 합니다. Secret에 접근하는 올바른 방법은?",
+      "options": ["${{ secrets.API_KEY }}", "${{ env.API_KEY }}", "${{ github.API_KEY }}", "${{ vars.API_KEY }}"],
+      "correctAnswer": 0,
+      "explanation": "${{ secrets.SECRET_NAME }} 형식으로 GitHub Secrets에 저장된 값에 접근할 수 있습니다."
+    },
+    {
+      "id": 33,
+      "chapter": 7,
+      "question": "바데부가 환경 변수를 설정하고 있습니다. 워크플로우 전체에서 사용할 환경 변수를 정의하는 위치는?",
+      "options": ["각 Step마다", "각 Job마다", "워크플로우 최상위 레벨", "on 섹션 내부"],
+      "correctAnswer": 2,
+      "explanation": "워크플로우 파일의 최상위에 env를 정의하면 모든 Job과 Step에서 사용할 수 있습니다."
+    },
+    {
+      "id": 34,
+      "chapter": 7,
+      "question": "바데부가 Secret이 로그에 출력될까 걱정하고 있습니다. GitHub Actions는 Secret을 어떻게 보호하나요?",
+      "options": ["아무 보호 없음", "자동으로 마스킹 처리 (***)", "암호화하여 표시", "로그에서 완전 삭제"],
+      "correctAnswer": 1,
+      "explanation": "GitHub Actions는 Secret 값이 로그에 출력되면 자동으로 '***'로 마스킹하여 보호합니다."
+    },
+    {
+      "id": 35,
+      "chapter": 7,
+      "question": "바데부가 개발, 스테이징, 프로덕션 환경을 분리하려고 합니다. 각 환경의 Secret을 어떻게 관리해야 하나요?",
+      "options": ["하나의 Secret으로 모든 환경 관리", "환경별로 다른 이름의 Secret 생성", "코드에서 환경 구분", "환경 변수로만 관리"],
+      "correctAnswer": 1,
+      "explanation": "DEV_API_KEY, STAGING_API_KEY, PROD_API_KEY처럼 환경별로 다른 Secret을 생성하여 관리하는 것이 안전합니다."
+    },
+    {
+      "id": 36,
+      "chapter": 8,
+      "question": "바데부가 여러 Node.js 버전에서 테스트하려고 합니다. 매트릭스 빌드를 정의하는 키워드는?",
+      "options": ["matrix", "versions", "multiple", "parallel"],
+      "correctAnswer": 0,
+      "explanation": "strategy.matrix를 사용하여 여러 버전, OS, 환경에서 동시에 테스트할 수 있습니다."
+    },
+    {
+      "id": 37,
+      "chapter": 8,
+      "question": "바데부가 3개 OS와 3개 Node 버전으로 매트릭스를 구성했습니다. 총 몇 개의 Job이 실행되나요?",
+      "options": ["3개", "6개", "9개", "12개"],
+      "correctAnswer": 2,
+      "explanation": "매트릭스는 모든 조합을 생성합니다. 3개 OS × 3개 Node 버전 = 9개의 Job이 실행됩니다."
+    },
+    {
+      "id": 38,
+      "chapter": 8,
+      "question": "바데부가 특정 OS와 Node 버전 조합을 제외하려고 합니다. 사용해야 하는 키워드는?",
+      "options": ["remove", "exclude", "skip", "ignore"],
+      "correctAnswer": 1,
+      "explanation": "matrix.exclude를 사용하여 특정 조합을 제외할 수 있습니다."
+    },
+    {
+      "id": 39,
+      "chapter": 8,
+      "question": "바데부가 하나의 매트릭스 Job이 실패했을 때 나머지도 모두 취소되는 것을 막고 싶습니다. 어떻게 설정해야 하나요?",
+      "options": ["fail-fast: false", "continue-on-error: true", "ignore-failures: true", "keep-running: true"],
+      "correctAnswer": 0,
+      "explanation": "strategy.fail-fast: false로 설정하면 하나가 실패해도 나머지 매트릭스 Job들이 계속 실행됩니다."
+    },
+    {
+      "id": 40,
+      "chapter": 8,
+      "question": "바데부가 매트릭스 빌드의 동시 실행 수를 제한하려고 합니다. 사용해야 하는 키워드는?",
+      "options": ["limit", "max-parallel", "concurrent", "max-jobs"],
+      "correctAnswer": 1,
+      "explanation": "strategy.max-parallel로 동시에 실행되는 Job의 최대 개수를 제한할 수 있습니다."
+    },
+    {
+      "id": 41,
+      "chapter": 9,
+      "question": "바데부가 Vercel에 자동 배포를 설정하려고 합니다. 필요한 정보가 아닌 것은?",
+      "options": ["VERCEL_TOKEN", "VERCEL_ORG_ID", "VERCEL_PROJECT_ID", "VERCEL_PASSWORD"],
+      "correctAnswer": 3,
+      "explanation": "Vercel 배포에는 TOKEN, ORG_ID, PROJECT_ID가 필요하며, PASSWORD는 사용하지 않습니다."
+    },
+    {
+      "id": 42,
+      "chapter": 9,
+      "question": "바데부가 무중단 배포를 구현하려고 합니다. Blue-Green 배포의 핵심 개념은?",
+      "options": ["서버를 파란색과 녹색으로 칠하기", "두 개의 동일한 환경을 준비하고 트래픽 전환", "색상으로 환경 구분", "배포 중 화면 색상 변경"],
+      "correctAnswer": 1,
+      "explanation": "Blue-Green 배포는 두 개의 동일한 프로덕션 환경을 준비하고, 새 버전 배포 후 트래픽을 전환하여 무중단 배포를 실현합니다."
+    },
+    {
+      "id": 43,
+      "chapter": 9,
+      "question": "바데부가 Canary 배포를 이해하고 있습니다. Canary 배포의 주요 특징은?",
+      "options": ["모든 사용자에게 동시 배포", "일부 사용자에게 먼저 배포하고 점진적 확대", "배포 취소 불가", "자동 롤백 없음"],
+      "correctAnswer": 1,
+      "explanation": "Canary 배포는 소수 사용자에게 먼저 배포하여 문제를 조기에 발견하고, 문제가 없으면 점진적으로 확대하는 안전한 배포 전략입니다."
+    },
+    {
+      "id": 44,
+      "chapter": 9,
+      "question": "바데부가 배포 후 서비스 정상 동작을 확인하려고 합니다. 사용하는 검증 방법은?",
+      "options": ["Code Review", "헬스 체크(Health Check)", "린트 검사", "타입 체크"],
+      "correctAnswer": 1,
+      "explanation": "헬스 체크는 배포 후 서비스가 정상적으로 응답하는지 확인하는 중요한 검증 단계입니다."
+    },
+    {
+      "id": 45,
+      "chapter": 9,
+      "question": "바데부가 배포 실패 시 이전 버전으로 되돌리려고 합니다. 이 작업을 무엇이라고 하나요?",
+      "options": ["리셋(Reset)", "롤백(Rollback)", "언두(Undo)", "리버트(Revert)"],
+      "correctAnswer": 1,
+      "explanation": "롤백은 문제가 발생한 배포를 취소하고 이전의 안정적인 버전으로 되돌리는 작업입니다."
+    },
+    {
+      "id": 46,
+      "chapter": 10,
+      "question": "바데부가 워크플로우를 최적화하려고 합니다. 빌드 시간을 단축하는 가장 효과적인 방법은?",
+      "options": ["더 빠른 컴퓨터 구매", "캐싱 활용", "코드 줄이기", "주석 제거"],
+      "correctAnswer": 1,
+      "explanation": "의존성과 빌드 결과를 캐싱하면 매번 처음부터 다시 설치/빌드할 필요가 없어 시간을 크게 단축할 수 있습니다."
+    },
+    {
+      "id": 47,
+      "chapter": 10,
+      "question": "바데부가 GitHub Actions의 보안을 강화하려고 합니다. 권한 설정의 모범 사례는?",
+      "options": ["모든 권한 부여", "최소 권한 원칙 적용", "권한 설정 생략", "관리자 권한 항상 부여"],
+      "correctAnswer": 1,
+      "explanation": "최소 권한 원칙에 따라 워크플로우가 필요한 최소한의 권한만 부여하는 것이 보안상 가장 안전합니다."
+    },
+    {
+      "id": 48,
+      "chapter": 10,
+      "question": "바데부가 반복되는 워크플로우 코드를 재사용하려고 합니다. 어떤 기능을 사용해야 하나요?",
+      "options": ["코드 복사-붙여넣기", "Composite Actions 또는 Reusable Workflows", "주석으로 설명", "별도 저장소 생성"],
+      "correctAnswer": 1,
+      "explanation": "Composite Actions나 Reusable Workflows를 사용하면 반복되는 코드를 한 곳에서 관리하고 여러 워크플로우에서 재사용할 수 있습니다."
+    },
+    {
+      "id": 49,
+      "chapter": 10,
+      "question": "바데부가 의존성 취약점을 자동으로 검사하려고 합니다. 사용하는 명령어는?",
+      "options": ["npm check", "npm audit", "npm security", "npm scan"],
+      "correctAnswer": 1,
+      "explanation": "npm audit 명령어는 의존성에서 알려진 보안 취약점을 검사하고 리포트를 제공합니다."
+    },
+    {
+      "id": 50,
+      "chapter": 10,
+      "question": "바데부가 워크플로우 실패 시 팀에 알림을 보내려고 합니다. 가장 일반적으로 사용하는 알림 방법은?",
+      "options": ["전화", "Slack 또는 이메일", "문자 메시지", "우편"],
+      "correctAnswer": 1,
+      "explanation": "Slack이나 이메일을 통한 자동 알림이 가장 일반적이며, 워크플로우에 쉽게 통합할 수 있습니다."
+    }
+  ]
+}

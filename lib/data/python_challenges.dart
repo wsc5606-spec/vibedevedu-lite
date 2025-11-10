@@ -1,0 +1,111 @@
+/// PYTHON 챌린지 데이터 (총 5개)
+/// SQL에서 자동 변환됨
+
+class PythonChallenges {
+  static List<Map<String, dynamic>> getChallenges() {
+    return [
+      {
+        'slug': r'''python-hello-world''',
+        'language': r'''python''',
+        'kind': r'''syntax''',
+        'level': 1,
+        'title': r'''Hello World''',
+        'description': r'''C로 첫 프로그램 작성하기''',
+        'category': r'''challenge''',
+        'difficulty': 1,
+        'problem_description': r'''화면에 "Hello, World!"를 출력하는 프로그램을 작성하세요.''',
+        'constraints': r'''- printf 함수를 사용하세요\n- 줄바꿈(\n)을 포함해야 합니다''',
+        'examples': r'''[{"input": "", "output": "Hello, World!"}]''',
+        'initial_code': r'''// 여기에 코드를 작성하세요''',
+        'solution_code': r'''print("Hello, World!")''',
+        'test_cases': r'''[{"input": "", "expected": "Hello, World!\n"}]''',
+        'hints': r'''["printf 함수의 사용법을 확인하세요", "문자열은 큰따옴표로 감싸야 합니다"]''',
+        'tags': r'''["basics", "output", "printf"]''',
+        'estimated_time': 5,
+      },
+      {
+        'slug': r'''python-print-name''',
+        'language': r'''python''',
+        'kind': r'''syntax''',
+        'level': 2,
+        'title': r'''이름 출력하기''',
+        'description': r'''자신의 이름을 출력하세요''',
+        'category': r'''challenge''',
+        'difficulty': 1,
+        'problem_description': r'''화면에 "My name is [이름]" 형식으로 출력하는 프로그램을 작성하세요.''',
+        'constraints': r'''- [이름] 부분에는 원하는 이름을 넣으세요\n- 줄바꿈을 포함해야 합니다''',
+        'examples': r'''[{"input": "", "output": "My name is John"}]''',
+        'initial_code': r'''// 여기에 코드를 작성하세요''',
+        'solution_code': r'''print("My name is John")''',
+        'test_cases': r'''[{"input": "", "expected": "My name is John\n"}]''',
+        'hints': r'''["printf로 문자열을 출력할 수 있습니다"]''',
+        'tags': r'''["basics", "output"]''',
+        'estimated_time': 5,
+      },
+      {
+        'slug': r'''python-multiline-output''',
+        'language': r'''python''',
+        'kind': r'''syntax''',
+        'level': 3,
+        'title': r'''여러 줄 출력''',
+        'description': r'''여러 줄을 출력하세요''',
+        'category': r'''challenge''',
+        'difficulty': 1,
+        'problem_description': r'''다음 세 줄을 출력하는 프로그램을 작성하세요:\nLine 1\nLine 2\nLine 3''',
+        'constraints': r'''- 각 줄은 새로운 줄에 출력되어야 합니다''',
+        'examples': r'''[{"input": "", "output": "Line 1\nLine 2\nLine 3"}]''',
+        'initial_code': r'''// 여기에 코드를 작성하세요''',
+        'solution_code': r'''print("Line 1")
+    print("Line 2")
+    print("Line 3")''',
+        'test_cases': r'''[{"input": "", "expected": "Line 1\nLine 2\nLine 3\n"}]''',
+        'hints': r'''["printf를 여러 번 호출하거나 \\n을 사용하세요"]''',
+        'tags': r'''["basics", "output"]''',
+        'estimated_time': 5,
+      },
+      {
+        'slug': r'''python-single-line-comment''',
+        'language': r'''python''',
+        'kind': r'''syntax''',
+        'level': 4,
+        'title': r'''한 줄 주석''',
+        'description': r'''주석을 사용하여 코드 설명하기''',
+        'category': r'''challenge''',
+        'difficulty': 1,
+        'problem_description': r'''Hello를 출력하는 코드를 작성하고, 그 위에 한 줄 주석으로 "이것은 출력 코드입니다"를 추가하세요.''',
+        'constraints': r'''- // 를 사용하여 주석을 작성하세요''',
+        'examples': r'''[{"input": "", "output": "Hello"}]''',
+        'initial_code': r'''// 여기에 주석과 코드를 작성하세요''',
+        'solution_code': r'''// 이것은 출력 코드입니다
+    print("Hello")''',
+        'test_cases': r'''[{"input": "", "expected": "Hello\n"}]''',
+        'hints': r'''["// 뒤의 내용은 실행되지 않습니다"]''',
+        'tags': r'''["basics", "comments"]''',
+        'estimated_time': 5,
+      },
+      {
+        'slug': r'''python-multi-line-comment''',
+        'language': r'''python''',
+        'kind': r'''syntax''',
+        'level': 5,
+        'title': r'''여러 줄 주석''',
+        'description': r'''여러 줄 주석 사용하기''',
+        'category': r'''challenge''',
+        'difficulty': 1,
+        'problem_description': r'''World를 출력하는 코드를 작성하고, 그 위에 여러 줄 주석으로 프로그램 설명을 추가하세요.''',
+        'constraints': r'''- /* */ 를 사용하여 주석을 작성하세요''',
+        'examples': r'''[{"input": "", "output": "World"}]''',
+        'initial_code': r'''/* 여기에 주석과 코드를 작성하세요 */''',
+        'solution_code': r'''/*
+     * 이 프로그램은 World를 출력합니다
+     * C 언어 기초 학습용입니다
+     */
+    print("World")''',
+        'test_cases': r'''[{"input": "", "expected": "World\n"}]''',
+        'hints': r'''["/* */ 사이의 내용은 모두 주석입니다"]''',
+        'tags': r'''["basics", "comments"]''',
+        'estimated_time': 5,
+      },
+    ];
+  }
+}

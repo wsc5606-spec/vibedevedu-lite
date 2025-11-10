@@ -1,0 +1,655 @@
+{
+  "language": "springboot",
+  "questions": [
+    {
+      "id": 1,
+      "chapter": 1,
+      "question": "바데부가 Spring Boot 프로젝트를 시작하려고 합니다. Spring Boot의 가장 큰 장점은 무엇인가요?",
+      "options": [
+        "자동 설정(Auto Configuration)으로 복잡한 설정을 줄여준다",
+        "Java를 사용하지 않아도 된다",
+        "데이터베이스가 필요 없다",
+        "HTML을 자동으로 생성해준다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Boot의 가장 큰 장점은 자동 설정(Auto Configuration)입니다. 기존 Spring Framework는 XML이나 Java Config로 복잡한 설정이 필요했지만, Spring Boot는 @SpringBootApplication 어노테이션과 함께 대부분의 설정을 자동으로 처리해줍니다."
+    },
+    {
+      "id": 2,
+      "chapter": 1,
+      "question": "바데부가 Spring Boot 프로젝트를 생성할 때 가장 흔히 사용하는 도구는 무엇인가요?",
+      "options": [
+        "Spring Initializer (start.spring.io)",
+        "Eclipse IDE만으로 충분",
+        "Microsoft Word",
+        "Photoshop"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Initializer (start.spring.io)는 Spring Boot 프로젝트를 쉽게 생성할 수 있는 공식 웹 도구입니다. 필요한 의존성을 선택하면 프로젝트 템플릿을 자동으로 생성해주며, IntelliJ IDEA나 VS Code 같은 IDE에서도 내장되어 있습니다."
+    },
+    {
+      "id": 3,
+      "chapter": 1,
+      "question": "바데부가 pom.xml 파일을 열었습니다. <parent> 태그의 역할은 무엇인가요?",
+      "options": [
+        "Spring Boot의 버전 관리와 의존성 관리를 상속받는다",
+        "프로젝트의 이름을 설정한다",
+        "데이터베이스 연결 정보를 저장한다",
+        "Java 버전을 설정한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "<parent> 태그는 spring-boot-starter-parent를 상속받아 Spring Boot의 버전 관리와 의존성 관리를 자동으로 처리합니다. 이를 통해 각 라이브러리의 버전을 명시하지 않아도 호환되는 버전이 자동으로 설정됩니다."
+    },
+    {
+      "id": 4,
+      "chapter": 1,
+      "question": "바데부가 Spring Boot 애플리케이션을 실행하려고 합니다. main 메서드가 있는 클래스에 반드시 필요한 어노테이션은?",
+      "options": [
+        "@SpringBootApplication",
+        "@Controller",
+        "@Service",
+        "@Repository"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@SpringBootApplication 어노테이션은 Spring Boot 애플리케이션의 시작점을 표시합니다. 이 어노테이션은 @Configuration, @EnableAutoConfiguration, @ComponentScan을 포함하고 있어 자동 설정과 컴포넌트 스캔을 활성화합니다."
+    },
+    {
+      "id": 5,
+      "chapter": 1,
+      "question": "바데부가 application.properties 파일에서 서버 포트를 8081로 변경하려고 합니다. 올바른 설정은?",
+      "options": [
+        "server.port=8081",
+        "port=8081",
+        "spring.port=8081",
+        "application.port=8081"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Boot에서 서버 포트를 변경하려면 application.properties 파일에 'server.port=8081'과 같이 설정합니다. 기본 포트는 8080이며, 이 설정으로 원하는 포트로 변경할 수 있습니다."
+    },
+    {
+      "id": 6,
+      "chapter": 2,
+      "question": "바데부가 의존성 주입(Dependency Injection)에 대해 배우고 있습니다. DI의 주요 장점은?",
+      "options": [
+        "객체 간의 결합도를 낮추고 테스트가 쉬워진다",
+        "코드 실행 속도가 10배 빨라진다",
+        "데이터베이스가 필요 없어진다",
+        "메모리 사용량이 절반으로 줄어든다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "의존성 주입(DI)의 가장 큰 장점은 객체 간의 결합도를 낮추는 것입니다. 클래스가 직접 의존 객체를 생성하지 않고 외부에서 주입받으므로, 코드 변경이 쉽고 단위 테스트 시 Mock 객체로 대체하기 용이합니다."
+    },
+    {
+      "id": 7,
+      "chapter": 2,
+      "question": "바데부가 @Autowired 어노테이션을 사용하려고 합니다. 이 어노테이션의 역할은?",
+      "options": [
+        "Spring 컨테이너가 자동으로 의존 객체를 주입해준다",
+        "클래스를 자동으로 컴파일해준다",
+        "데이터베이스에 자동으로 연결해준다",
+        "HTML을 자동으로 생성해준다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@Autowired는 Spring의 의존성 주입 어노테이션입니다. 필드, 생성자, 세터 메서드에 사용할 수 있으며, Spring 컨테이너가 타입에 맞는 빈(Bean)을 찾아 자동으로 주입해줍니다. 최근에는 생성자 주입 방식이 권장됩니다."
+    },
+    {
+      "id": 8,
+      "chapter": 2,
+      "question": "바데부가 @Component, @Service, @Repository의 차이점을 궁금해합니다. 이들의 공통점은?",
+      "options": [
+        "모두 Spring Bean으로 등록되어 IoC 컨테이너가 관리한다",
+        "모두 데이터베이스 연결에만 사용된다",
+        "모두 REST API 엔드포인트를 생성한다",
+        "모두 HTML 페이지를 렌더링한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@Component, @Service, @Repository는 모두 Spring Bean으로 등록하는 스테레오타입 어노테이션입니다. @Component는 일반적인 컴포넌트, @Service는 비즈니스 로직 계층, @Repository는 데이터 접근 계층을 표시하는 의미적 구분이 있지만, 기본적으로 모두 빈으로 등록됩니다."
+    },
+    {
+      "id": 9,
+      "chapter": 2,
+      "question": "바데부가 생성자 주입(Constructor Injection)을 사용하려고 합니다. 생성자 주입의 장점은?",
+      "options": [
+        "필수 의존성을 명확히 하고 불변성을 보장한다",
+        "코드가 더 짧아진다",
+        "실행 속도가 빨라진다",
+        "메모리를 덜 사용한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "생성자 주입은 필드 주입이나 세터 주입보다 권장되는 방식입니다. 필수 의존성을 명확히 표현할 수 있고, final 키워드로 불변성을 보장하며, 순환 참조를 컴파일 시점에 발견할 수 있습니다. Spring 4.3부터는 단일 생성자의 경우 @Autowired를 생략할 수 있습니다."
+    },
+    {
+      "id": 10,
+      "chapter": 2,
+      "question": "바데부가 @Bean 어노테이션을 사용하려고 합니다. 이 어노테이션은 어디에 사용되나요?",
+      "options": [
+        "@Configuration 클래스의 메서드에 사용하여 수동으로 빈을 등록한다",
+        "모든 클래스의 필드에 사용한다",
+        "main 메서드에만 사용한다",
+        "인터페이스 선언에 사용한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@Bean 어노테이션은 @Configuration 클래스 내의 메서드에 사용하여 수동으로 빈을 등록합니다. 주로 외부 라이브러리 객체나 복잡한 초기화가 필요한 객체를 빈으로 등록할 때 사용합니다. 메서드의 리턴 객체가 Spring 컨테이너에 빈으로 등록됩니다."
+    },
+    {
+      "id": 11,
+      "chapter": 3,
+      "question": "바데부가 REST API를 만들려고 합니다. @RestController와 @Controller의 차이점은?",
+      "options": [
+        "@RestController는 @ResponseBody가 자동으로 적용되어 JSON을 반환한다",
+        "@RestController는 HTML만 반환할 수 있다",
+        "둘은 완전히 동일하다",
+        "@RestController는 데이터베이스 연결만 담당한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@RestController는 @Controller와 @ResponseBody를 합친 어노테이션입니다. 모든 메서드에 @ResponseBody가 자동으로 적용되어 리턴 값이 HTTP Response Body에 직접 작성됩니다. 주로 JSON이나 XML 형태의 데이터를 반환하는 RESTful API에 사용됩니다."
+    },
+    {
+      "id": 12,
+      "chapter": 3,
+      "question": "바데부가 GET 요청을 처리하려고 합니다. 올바른 어노테이션은?",
+      "options": [
+        "@GetMapping(\"/api/users\")",
+        "@PostMapping(\"/api/users\")",
+        "@GetRequest(\"/api/users\")",
+        "@Get(\"/api/users\")"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@GetMapping은 HTTP GET 요청을 처리하는 어노테이션입니다. @RequestMapping(method = RequestMethod.GET)의 축약형이며, 데이터 조회에 사용됩니다. 비슷하게 @PostMapping, @PutMapping, @DeleteMapping, @PatchMapping이 있습니다."
+    },
+    {
+      "id": 13,
+      "chapter": 3,
+      "question": "바데부가 URL 경로에서 사용자 ID를 받아오려고 합니다. /api/users/123에서 123을 추출하는 방법은?",
+      "options": [
+        "@GetMapping(\"/api/users/{id}\")와 @PathVariable Long id",
+        "@GetMapping(\"/api/users\")와 @RequestParam Long id",
+        "@GetMapping(\"/api/users\")와 @RequestBody Long id",
+        "@GetMapping(\"/api/users/123\")로 하드코딩"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@PathVariable은 URL 경로의 일부를 변수로 받아올 때 사용합니다. {id}와 같이 중괄호로 경로 변수를 선언하고, 메서드 파라미터에 @PathVariable을 붙여 값을 받습니다. RESTful API에서 리소스의 ID를 전달할 때 많이 사용됩니다."
+    },
+    {
+      "id": 14,
+      "chapter": 3,
+      "question": "바데부가 POST 요청으로 JSON 데이터를 받으려고 합니다. 사용해야 할 어노테이션은?",
+      "options": [
+        "@RequestBody",
+        "@RequestParam",
+        "@PathVariable",
+        "@RequestHeader"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@RequestBody는 HTTP 요청의 본문(body)을 Java 객체로 변환할 때 사용합니다. 클라이언트가 JSON 형태로 보낸 데이터를 Jackson 라이브러리가 자동으로 Java 객체로 역직렬화합니다. POST, PUT, PATCH 요청에서 주로 사용됩니다."
+    },
+    {
+      "id": 15,
+      "chapter": 3,
+      "question": "바데부가 HTTP 상태 코드를 직접 지정하려고 합니다. ResponseEntity의 장점은?",
+      "options": [
+        "HTTP 상태 코드, 헤더, 바디를 모두 제어할 수 있다",
+        "코드가 자동으로 컴파일된다",
+        "데이터베이스 연결이 빨라진다",
+        "메모리 사용량이 줄어든다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ResponseEntity는 HTTP 응답을 세밀하게 제어할 수 있는 클래스입니다. 상태 코드(200, 404, 500 등), 헤더, 바디를 모두 설정할 수 있어 RESTful API 개발 시 유용합니다. ResponseEntity.ok(), ResponseEntity.notFound(), ResponseEntity.status() 등의 빌더 메서드를 제공합니다."
+    },
+    {
+      "id": 16,
+      "chapter": 4,
+      "question": "바데부가 JPA를 사용하려고 합니다. JPA의 주요 역할은 무엇인가요?",
+      "options": [
+        "Java 객체와 관계형 데이터베이스를 매핑하는 ORM 기술이다",
+        "HTML을 생성하는 템플릿 엔진이다",
+        "네트워크 통신을 담당하는 프로토콜이다",
+        "파일을 압축하는 라이브러리이다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "JPA(Java Persistence API)는 Java 객체와 관계형 데이터베이스 테이블을 매핑하는 ORM(Object-Relational Mapping) 기술의 표준 인터페이스입니다. SQL을 직접 작성하지 않고 객체 지향적으로 데이터베이스를 다룰 수 있게 해주며, Hibernate가 가장 많이 사용되는 구현체입니다."
+    },
+    {
+      "id": 17,
+      "chapter": 4,
+      "question": "바데부가 엔티티 클래스를 만들려고 합니다. 반드시 필요한 어노테이션은?",
+      "options": [
+        "@Entity와 @Id",
+        "@Controller와 @Service",
+        "@RestController와 @GetMapping",
+        "@Component와 @Autowired"
+      ],
+      "correctAnswer": 0,
+      "explanation": "JPA 엔티티 클래스에는 @Entity 어노테이션이 필수이며, 기본 키(Primary Key)를 나타내는 @Id 어노테이션도 반드시 필요합니다. @Entity는 해당 클래스가 데이터베이스 테이블과 매핑됨을 나타내고, @Id는 테이블의 기본 키에 해당하는 필드를 지정합니다."
+    },
+    {
+      "id": 18,
+      "chapter": 4,
+      "question": "바데부가 JpaRepository를 상속받으려고 합니다. JpaRepository의 장점은?",
+      "options": [
+        "기본적인 CRUD 메서드가 자동으로 제공된다",
+        "HTML 페이지를 자동으로 생성한다",
+        "보안 기능을 자동으로 추가한다",
+        "이메일을 자동으로 발송한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "JpaRepository를 상속받으면 save(), findById(), findAll(), delete() 등 기본적인 CRUD 메서드를 자동으로 사용할 수 있습니다. 또한 메서드 이름 규칙(Method Name Query)을 따르면 SQL을 작성하지 않고도 복잡한 쿼리를 만들 수 있습니다."
+    },
+    {
+      "id": 19,
+      "chapter": 4,
+      "question": "바데부가 application.properties에서 H2 데이터베이스 콘솔을 활성화하려고 합니다. 올바른 설정은?",
+      "options": [
+        "spring.h2.console.enabled=true",
+        "h2.console=true",
+        "database.console=true",
+        "spring.database.h2=true"
+      ],
+      "correctAnswer": 0,
+      "explanation": "H2 데이터베이스의 웹 콘솔을 활성화하려면 'spring.h2.console.enabled=true'로 설정합니다. 이후 /h2-console 경로로 접속하면 웹 브라우저에서 데이터베이스를 확인하고 쿼리를 실행할 수 있습니다. 개발 환경에서 매우 유용한 기능입니다."
+    },
+    {
+      "id": 20,
+      "chapter": 4,
+      "question": "바데부가 findByUsername()이라는 메서드를 Repository에 선언했습니다. 이것이 작동하는 원리는?",
+      "options": [
+        "Spring Data JPA가 메서드 이름을 분석해 자동으로 쿼리를 생성한다",
+        "개발자가 직접 SQL을 작성해야 한다",
+        "작동하지 않는 잘못된 방법이다",
+        "XML 설정 파일이 필요하다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Data JPA의 Query Method 기능은 메서드 이름 규칙에 따라 자동으로 쿼리를 생성합니다. findBy로 시작하고 엔티티의 필드명을 붙이면 해당 필드로 검색하는 쿼리가 자동 생성됩니다. findByUsernameAndEmail, findByAgeGreaterThan 등 다양한 조합이 가능합니다."
+    },
+    {
+      "id": 21,
+      "chapter": 5,
+      "question": "바데부가 서비스 계층을 만들려고 합니다. @Service 어노테이션의 역할은?",
+      "options": [
+        "비즈니스 로직을 담당하는 계층임을 표시하고 빈으로 등록한다",
+        "데이터베이스 테이블을 생성한다",
+        "REST API 엔드포인트를 만든다",
+        "HTML 파일을 렌더링한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@Service는 비즈니스 로직을 담당하는 서비스 계층임을 나타내는 스테레오타입 어노테이션입니다. Spring 컨테이너에 빈으로 등록되며, Controller와 Repository 사이에서 비즈니스 로직을 처리하는 중간 계층 역할을 합니다. 트랜잭션 관리도 주로 이 계층에서 이루어집니다."
+    },
+    {
+      "id": 22,
+      "chapter": 5,
+      "question": "바데부가 트랜잭션을 적용하려고 합니다. @Transactional 어노테이션의 효과는?",
+      "options": [
+        "메서드 실행 중 오류 발생 시 자동으로 롤백된다",
+        "메서드 실행 속도가 빨라진다",
+        "메모리 사용량이 줄어든다",
+        "로그가 자동으로 기록된다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@Transactional은 메서드를 하나의 트랜잭션으로 묶어줍니다. 메서드가 정상적으로 완료되면 커밋(commit)되고, 예외가 발생하면 자동으로 롤백(rollback)되어 데이터 일관성을 보장합니다. 클래스 레벨이나 메서드 레벨에 적용할 수 있으며, 주로 Service 계층에서 사용됩니다."
+    },
+    {
+      "id": 23,
+      "chapter": 5,
+      "question": "바데부가 계층 구조를 설계하고 있습니다. Controller → Service → Repository 구조의 장점은?",
+      "options": [
+        "관심사를 분리하여 유지보수가 쉽고 테스트하기 좋다",
+        "코드 실행 속도가 3배 빨라진다",
+        "데이터베이스가 필요 없어진다",
+        "서버 메모리를 절약할 수 있다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "계층형 아키텍처는 각 계층의 책임을 명확히 분리합니다. Controller는 HTTP 요청/응답 처리, Service는 비즈니스 로직, Repository는 데이터 접근을 담당합니다. 이렇게 관심사를 분리하면 코드 재사용성이 높아지고, 각 계층을 독립적으로 테스트할 수 있으며, 변경에 유연하게 대응할 수 있습니다."
+    },
+    {
+      "id": 24,
+      "chapter": 5,
+      "question": "바데부가 DTO(Data Transfer Object)를 사용하려고 합니다. DTO의 주요 목적은?",
+      "options": [
+        "계층 간 데이터 전달과 엔티티 노출 방지",
+        "데이터베이스 성능 향상",
+        "메모리 사용량 감소",
+        "코드 자동 생성"
+      ],
+      "correctAnswer": 0,
+      "explanation": "DTO는 계층 간 데이터를 전달하는 객체입니다. 엔티티를 직접 노출하면 불필요한 정보가 노출되거나 순환 참조 문제가 발생할 수 있습니다. DTO를 사용하면 필요한 데이터만 선택적으로 전달할 수 있고, API 스펙과 엔티티 구조를 분리하여 변경에 유연하게 대응할 수 있습니다."
+    },
+    {
+      "id": 25,
+      "chapter": 5,
+      "question": "바데부가 비즈니스 로직에서 예외를 발견했습니다. Service 계층에서 예외를 던지는 것이 좋은 이유는?",
+      "options": [
+        "예외를 상위 계층에서 일관되게 처리할 수 있다",
+        "예외가 자동으로 사라진다",
+        "코드가 더 빨리 실행된다",
+        "메모리 누수를 방지한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Service 계층에서 비즈니스 예외를 던지면, Controller나 @ControllerAdvice에서 일관된 방식으로 처리할 수 있습니다. 예를 들어 '사용자를 찾을 수 없음'과 같은 비즈니스 예외를 커스텀 예외로 정의하고, 이를 적절한 HTTP 상태 코드와 메시지로 변환하여 클라이언트에 응답할 수 있습니다."
+    },
+    {
+      "id": 26,
+      "chapter": 6,
+      "question": "바데부가 전역 예외 처리를 하려고 합니다. 사용해야 할 어노테이션은?",
+      "options": [
+        "@ControllerAdvice와 @ExceptionHandler",
+        "@Service와 @Transactional",
+        "@Entity와 @Id",
+        "@Component와 @Autowired"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@ControllerAdvice는 전역적으로 예외를 처리하는 클래스에 사용합니다. 내부에 @ExceptionHandler 메서드를 정의하여 특정 예외가 발생했을 때 실행할 로직을 작성합니다. 이를 통해 모든 Controller에서 발생하는 예외를 한 곳에서 일관되게 처리할 수 있습니다."
+    },
+    {
+      "id": 27,
+      "chapter": 6,
+      "question": "바데부가 입력값 검증을 하려고 합니다. @Valid 어노테이션의 역할은?",
+      "options": [
+        "객체의 필드에 선언된 검증 어노테이션을 실행한다",
+        "데이터베이스 연결을 검증한다",
+        "메서드 실행 속도를 검증한다",
+        "메모리 사용량을 검증한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@Valid는 Bean Validation을 실행하는 어노테이션입니다. DTO 클래스의 필드에 @NotNull, @NotBlank, @Size, @Email 등의 검증 어노테이션을 선언하고, Controller 메서드 파라미터에 @Valid를 붙이면 자동으로 검증이 수행됩니다. 검증 실패 시 MethodArgumentNotValidException이 발생합니다."
+    },
+    {
+      "id": 28,
+      "chapter": 6,
+      "question": "바데부가 사용자 이름이 비어있지 않은지 검증하려고 합니다. 적절한 어노테이션은?",
+      "options": [
+        "@NotBlank",
+        "@NotEmpty",
+        "@NotNull",
+        "@Valid"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@NotBlank는 문자열이 null이 아니고, 공백이 아니며, 최소 하나의 문자를 포함해야 함을 검증합니다. @NotNull은 null만 검증하고, @NotEmpty는 null과 빈 문자열('')만 검증합니다. 사용자 이름처럼 실제 내용이 필요한 문자열 필드에는 @NotBlank가 가장 적합합니다."
+    },
+    {
+      "id": 29,
+      "chapter": 6,
+      "question": "바데부가 커스텀 예외 클래스를 만들려고 합니다. RuntimeException을 상속받는 이유는?",
+      "options": [
+        "Unchecked Exception으로 만들어 try-catch를 강제하지 않기 위해",
+        "코드 실행 속도가 빨라진다",
+        "메모리 사용량이 줄어든다",
+        "데이터베이스 연결이 안정화된다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "RuntimeException은 Unchecked Exception으로, 컴파일러가 예외 처리를 강제하지 않습니다. 비즈니스 예외는 대부분 RuntimeException을 상속받아 만드는데, 이렇게 하면 모든 메서드에 throws를 선언하지 않아도 되고, 필요한 곳에서만 선택적으로 처리할 수 있습니다. Spring의 @Transactional도 기본적으로 RuntimeException에서만 롤백합니다."
+    },
+    {
+      "id": 30,
+      "chapter": 6,
+      "question": "바데부가 검증 오류 메시지를 처리하려고 합니다. BindingResult의 역할은?",
+      "options": [
+        "검증 오류 정보를 담고 있어 커스텀 에러 응답을 만들 수 있다",
+        "데이터베이스 바인딩을 처리한다",
+        "메서드 실행 결과를 캐싱한다",
+        "네트워크 연결 상태를 확인한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "BindingResult는 @Valid 검증 결과를 담는 객체입니다. Controller 메서드의 @Valid 파라미터 바로 다음에 선언하면, 검증 실패 시 예외가 발생하지 않고 BindingResult에 오류 정보가 저장됩니다. 이를 활용하여 어떤 필드에서 어떤 오류가 발생했는지 확인하고 커스텀 응답을 만들 수 있습니다."
+    },
+    {
+      "id": 31,
+      "chapter": 7,
+      "question": "바데부가 Spring Security를 추가하려고 합니다. Spring Security의 주요 기능은?",
+      "options": [
+        "인증(Authentication)과 인가(Authorization)를 처리한다",
+        "데이터베이스 성능을 향상시킨다",
+        "HTML을 자동으로 생성한다",
+        "파일을 압축한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Security는 인증(사용자가 누구인지 확인)과 인가(사용자가 어떤 권한을 가졌는지 확인)를 처리하는 보안 프레임워크입니다. 로그인, 로그아웃, 비밀번호 암호화, 권한 관리, CSRF 방어 등 웹 애플리케이션에 필요한 다양한 보안 기능을 제공합니다."
+    },
+    {
+      "id": 32,
+      "chapter": 7,
+      "question": "바데부가 비밀번호를 암호화하려고 합니다. Spring Security에서 권장하는 방법은?",
+      "options": [
+        "BCryptPasswordEncoder 사용",
+        "평문(Plain Text)으로 저장",
+        "MD5 해시 사용",
+        "단순 Base64 인코딩"
+      ],
+      "correctAnswer": 0,
+      "explanation": "BCryptPasswordEncoder는 Spring Security에서 권장하는 비밀번호 암호화 방식입니다. BCrypt는 솔트(salt)를 자동으로 생성하고, 강력한 해시 알고리즘을 사용하며, 계산 비용을 조절할 수 있어 안전합니다. MD5나 SHA-1은 더 이상 안전하지 않으며, 평문 저장은 절대 금지입니다."
+    },
+    {
+      "id": 33,
+      "chapter": 7,
+      "question": "바데부가 특정 URL에 인증을 요구하지 않으려고 합니다. SecurityFilterChain에서 어떻게 설정하나요?",
+      "options": [
+        "http.authorizeHttpRequests().requestMatchers(\"/public/**\").permitAll()",
+        "http.ignoreUrl(\"/public/**\")",
+        "http.allowAll(\"/public/**\")",
+        "http.noAuth(\"/public/**\")"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Security 6.0 이상에서는 authorizeHttpRequests()와 requestMatchers()를 사용합니다. permitAll()을 호출하면 해당 경로는 인증 없이 접근할 수 있습니다. 예를 들어 로그인 페이지, 회원가입 페이지, 정적 리소스 등은 permitAll()로 설정하여 누구나 접근 가능하게 만듭니다."
+    },
+    {
+      "id": 34,
+      "chapter": 7,
+      "question": "바데부가 JWT 토큰을 사용하려고 합니다. JWT의 장점은?",
+      "options": [
+        "Stateless하여 서버에 세션을 저장하지 않아도 된다",
+        "데이터베이스 속도가 빨라진다",
+        "코드가 자동으로 생성된다",
+        "메모리 사용량이 줄어든다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "JWT(JSON Web Token)는 토큰 자체에 사용자 정보를 포함하는 Self-contained 방식입니다. 서버에 세션을 저장할 필요가 없어 Stateless하며, 서버 확장이 쉽고 MSA 환경에 적합합니다. Header, Payload, Signature로 구성되며, Signature를 통해 토큰의 무결성을 검증할 수 있습니다."
+    },
+    {
+      "id": 35,
+      "chapter": 7,
+      "question": "바데부가 로그인한 사용자 정보를 가져오려고 합니다. Controller에서 사용할 수 있는 방법은?",
+      "options": [
+        "@AuthenticationPrincipal 어노테이션 사용",
+        "@CurrentUser 어노테이션 사용",
+        "@LoginUser 어노테이션 사용",
+        "@SessionUser 어노테이션 사용"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@AuthenticationPrincipal은 Spring Security의 인증 정보에서 Principal 객체를 가져오는 어노테이션입니다. Controller 메서드 파라미터에 사용하면 현재 로그인한 사용자의 정보를 쉽게 가져올 수 있습니다. UserDetails를 구현한 커스텀 클래스와 함께 사용하면 더욱 편리합니다."
+    },
+    {
+      "id": 36,
+      "chapter": 8,
+      "question": "바데부가 파일 업로드를 구현하려고 합니다. MultipartFile의 역할은?",
+      "options": [
+        "업로드된 파일을 표현하는 Spring의 인터페이스",
+        "여러 파일을 압축하는 라이브러리",
+        "데이터베이스에 파일을 저장하는 클래스",
+        "네트워크 전송 프로토콜"
+      ],
+      "correctAnswer": 0,
+      "explanation": "MultipartFile은 Spring에서 업로드된 파일을 표현하는 인터페이스입니다. 파일명, 크기, 컨텐츠 타입 등의 메타데이터를 제공하고, transferTo() 메서드로 파일을 저장하거나 getBytes()로 바이트 배열을 얻을 수 있습니다. Controller 메서드 파라미터로 받아서 사용합니다."
+    },
+    {
+      "id": 37,
+      "chapter": 8,
+      "question": "바데부가 업로드 파일 크기를 제한하려고 합니다. application.properties에서 설정하는 방법은?",
+      "options": [
+        "spring.servlet.multipart.max-file-size=10MB",
+        "file.upload.max-size=10MB",
+        "upload.max-file-size=10MB",
+        "server.max-file-size=10MB"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Boot에서 파일 업로드 크기는 'spring.servlet.multipart.max-file-size'로 개별 파일 크기를, 'spring.servlet.multipart.max-request-size'로 전체 요청 크기를 제한할 수 있습니다. 단위는 KB, MB, GB를 사용할 수 있으며, 기본값은 1MB입니다. 큰 파일 업로드가 필요하면 이 값을 적절히 증가시켜야 합니다."
+    },
+    {
+      "id": 38,
+      "chapter": 8,
+      "question": "바데부가 파일 다운로드를 구현하려고 합니다. ResponseEntity에 설정해야 할 헤더는?",
+      "options": [
+        "Content-Disposition: attachment; filename=\"파일명\"",
+        "Content-Type: application/download",
+        "Download-File: true",
+        "File-Transfer: enabled"
+      ],
+      "correctAnswer": 0,
+      "explanation": "파일 다운로드를 위해서는 Content-Disposition 헤더를 'attachment'로 설정하고 파일명을 지정해야 합니다. 이렇게 하면 브라우저가 파일을 화면에 표시하지 않고 다운로드합니다. Content-Type도 파일의 MIME 타입에 맞게 설정하고, 파일 데이터는 byte[] 또는 Resource로 응답 바디에 담습니다."
+    },
+    {
+      "id": 39,
+      "chapter": 8,
+      "question": "바데부가 파일명에 한글이 포함된 경우를 처리하려고 합니다. 주의해야 할 점은?",
+      "options": [
+        "URLEncoder로 파일명을 인코딩해야 브라우저에서 정상 표시된다",
+        "한글 파일명은 사용할 수 없다",
+        "파일명을 영어로 강제 변환해야 한다",
+        "별도의 처리가 필요 없다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "HTTP 헤더는 ASCII 문자만 사용할 수 있어, 한글 파일명은 URLEncoder.encode()로 UTF-8 인코딩해야 합니다. Content-Disposition 헤더의 filename*=UTF-8''인코딩된파일명 형식을 사용하거나, URLEncoder로 인코딩한 결과를 사용합니다. 이렇게 하지 않으면 브라우저에서 파일명이 깨져 보입니다."
+    },
+    {
+      "id": 40,
+      "chapter": 8,
+      "question": "바데부가 업로드된 파일을 안전하게 저장하려고 합니다. 보안상 주의할 점은?",
+      "options": [
+        "원본 파일명을 그대로 사용하지 않고 UUID 등으로 변경한다",
+        "파일을 데이터베이스에만 저장한다",
+        "모든 파일을 public 폴더에 저장한다",
+        "파일 확장자 검증은 필요 없다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "원본 파일명을 그대로 사용하면 경로 조작(Path Traversal) 공격에 취약합니다. 파일명에 '../'가 포함되면 의도하지 않은 경로에 파일이 저장될 수 있습니다. UUID나 타임스탬프로 고유한 파일명을 생성하고, 파일 확장자를 화이트리스트 방식으로 검증하며, 업로드 경로를 웹 루트 외부에 두는 것이 안전합니다."
+    },
+    {
+      "id": 41,
+      "chapter": 9,
+      "question": "바데부가 단위 테스트를 작성하려고 합니다. @SpringBootTest의 특징은?",
+      "options": [
+        "전체 Spring Context를 로드하여 통합 테스트를 수행한다",
+        "가장 빠른 테스트 방식이다",
+        "데이터베이스 없이만 실행된다",
+        "Controller만 테스트할 수 있다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@SpringBootTest는 전체 Spring Application Context를 로드하는 통합 테스트 어노테이션입니다. 실제 애플리케이션이 실행되는 것과 유사한 환경을 구성하여 여러 계층을 함께 테스트할 수 있지만, Context 로딩에 시간이 걸려 무겁습니다. 전체 흐름을 테스트할 때 사용하며, 단위 테스트에는 더 가벼운 방법을 사용하는 것이 좋습니다."
+    },
+    {
+      "id": 42,
+      "chapter": 9,
+      "question": "바데부가 Controller만 빠르게 테스트하려고 합니다. 적합한 어노테이션은?",
+      "options": [
+        "@WebMvcTest",
+        "@SpringBootTest",
+        "@DataJpaTest",
+        "@RestControllerTest"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@WebMvcTest는 MVC 계층만 로드하여 Controller를 빠르게 테스트하는 슬라이스 테스트 어노테이션입니다. MockMvc를 자동으로 구성해주고, Controller, @ControllerAdvice, Filter 등 웹 계층만 로드합니다. Service나 Repository는 @MockBean으로 모킹하여 Controller 로직만 집중적으로 테스트할 수 있습니다."
+    },
+    {
+      "id": 43,
+      "chapter": 9,
+      "question": "바데부가 JPA Repository를 테스트하려고 합니다. 사용해야 할 어노테이션은?",
+      "options": [
+        "@DataJpaTest",
+        "@SpringBootTest",
+        "@WebMvcTest",
+        "@RepositoryTest"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@DataJpaTest는 JPA 관련 컴포넌트만 로드하는 슬라이스 테스트 어노테이션입니다. Repository, Entity, JPA 설정만 로드하고, 내장 데이터베이스를 자동으로 구성합니다. 각 테스트 메서드는 기본적으로 트랜잭션이 적용되고 종료 후 롤백되어 테스트 간 격리가 보장됩니다."
+    },
+    {
+      "id": 44,
+      "chapter": 9,
+      "question": "바데부가 MockMvc로 API를 테스트하려고 합니다. MockMvc의 역할은?",
+      "options": [
+        "실제 서버 없이 HTTP 요청/응답을 시뮬레이션한다",
+        "데이터베이스를 모킹한다",
+        "외부 API를 호출한다",
+        "프론트엔드를 테스트한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "MockMvc는 Spring MVC의 동작을 모방하여 실제 서버를 띄우지 않고도 Controller를 테스트할 수 있게 해주는 도구입니다. perform()으로 HTTP 요청을 보내고, andExpect()로 응답을 검증합니다. 상태 코드, 헤더, 바디 내용 등을 확인할 수 있어 REST API 테스트에 매우 유용합니다."
+    },
+    {
+      "id": 45,
+      "chapter": 9,
+      "question": "바데부가 Service의 의존성을 모킹하려고 합니다. @MockBean의 역할은?",
+      "options": [
+        "Spring Context에 Mock 객체를 빈으로 등록한다",
+        "실제 객체를 생성한다",
+        "데이터베이스 연결을 끊는다",
+        "테스트를 자동으로 실행한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "@MockBean은 Mockito의 Mock 객체를 Spring Context에 빈으로 등록하는 어노테이션입니다. 같은 타입의 기존 빈이 있다면 대체됩니다. 예를 들어 Controller 테스트에서 Service를 @MockBean으로 선언하면, 실제 Service 대신 Mock 객체가 주입되어 Service의 동작을 when().thenReturn()으로 정의할 수 있습니다."
+    },
+    {
+      "id": 46,
+      "chapter": 10,
+      "question": "바데부가 프로덕션 환경 설정을 분리하려고 합니다. Spring Profile의 사용 방법은?",
+      "options": [
+        "application-prod.properties 파일을 만들고 spring.profiles.active=prod로 활성화",
+        "모든 설정을 하나의 파일에 작성",
+        "환경별로 프로젝트를 따로 만든다",
+        "코드에 하드코딩한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Profile은 환경별로 다른 설정을 관리하는 기능입니다. application-{profile}.properties 형식으로 파일을 만들고, spring.profiles.active 속성으로 활성화할 프로필을 지정합니다. 개발(dev), 스테이징(stage), 프로덕션(prod) 등으로 구분하여 데이터베이스 URL, 로그 레벨 등을 다르게 설정할 수 있습니다."
+    },
+    {
+      "id": 47,
+      "chapter": 10,
+      "question": "바데부가 애플리케이션 상태를 모니터링하려고 합니다. Spring Boot Actuator의 역할은?",
+      "options": [
+        "애플리케이션의 헬스체크, 메트릭, 환경정보 등을 제공한다",
+        "코드를 자동으로 컴파일한다",
+        "데이터베이스를 백업한다",
+        "이메일을 자동으로 발송한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Boot Actuator는 프로덕션 환경에서 애플리케이션을 모니터링하고 관리할 수 있는 기능을 제공합니다. /actuator/health로 상태를 확인하고, /actuator/metrics로 메트릭을 조회할 수 있습니다. 메모리 사용량, HTTP 요청 통계, 데이터베이스 연결 상태 등 다양한 정보를 제공하여 운영에 필수적입니다."
+    },
+    {
+      "id": 48,
+      "chapter": 10,
+      "question": "바데부가 로그 레벨을 설정하려고 합니다. application.properties에서 올바른 설정은?",
+      "options": [
+        "logging.level.com.example=DEBUG",
+        "log.level=DEBUG",
+        "spring.log.level=DEBUG",
+        "application.log=DEBUG"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Boot에서 로그 레벨은 'logging.level.{패키지명}={레벨}' 형식으로 설정합니다. TRACE, DEBUG, INFO, WARN, ERROR 순으로 레벨이 있으며, 개발 환경에서는 DEBUG, 프로덕션에서는 INFO나 WARN을 사용하는 것이 일반적입니다. 루트 로거는 logging.level.root로 설정할 수 있습니다."
+    },
+    {
+      "id": 49,
+      "chapter": 10,
+      "question": "바데부가 JAR 파일로 배포하려고 합니다. Spring Boot JAR의 특징은?",
+      "options": [
+        "내장 톰캣이 포함되어 java -jar로 바로 실행 가능하다",
+        "별도의 톰캣 서버가 반드시 필요하다",
+        "WAR 파일로만 배포할 수 있다",
+        "실행 파일(.exe)로 변환해야 한다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Spring Boot는 내장 톰캣을 포함한 실행 가능한 JAR(Executable JAR)를 생성합니다. 별도의 WAS 설치 없이 'java -jar application.jar'로 바로 실행할 수 있어 배포가 간편합니다. 의존 라이브러리도 모두 포함되어 있어 하나의 JAR 파일만으로 애플리케이션을 실행할 수 있습니다."
+    },
+    {
+      "id": 50,
+      "chapter": 10,
+      "question": "바데부가 민감한 정보를 안전하게 관리하려고 합니다. 데이터베이스 비밀번호를 코드에 직접 작성하지 않는 방법은?",
+      "options": [
+        "환경 변수나 외부 설정 파일을 사용하고 .gitignore에 추가한다",
+        "코드에 하드코딩하고 주석을 단다",
+        "README 파일에 비밀번호를 작성한다",
+        "공개 저장소에 그대로 올린다"
+      ],
+      "correctAnswer": 0,
+      "explanation": "민감한 정보는 절대 코드에 하드코딩하거나 Git에 커밋하면 안 됩니다. 환경 변수(${DB_PASSWORD}), application-local.properties(gitignore 처리), AWS Secrets Manager, HashiCorp Vault 같은 외부 설정 관리 도구를 사용해야 합니다. Spring Cloud Config를 사용하면 설정을 중앙에서 관리할 수 있습니다."
+    }
+  ]
+}

@@ -1,0 +1,1496 @@
+-- ============================================================================
+-- SQL Language Challenges (Complete)
+-- ============================================================================
+-- Generated: 2025-11-01T14:07:10.183Z
+-- ============================================================================
+
+-- ============================================================================
+-- SQL Language Challenges - Part 1 (Easy)
+-- ============================================================================
+-- Total: 50 challenges (5 per unit × 10 units)
+-- Difficulty: EASY (1)
+-- ============================================================================
+
+-- Unit 1: SELECT 기초 (SELECT Basics) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-select-all$$, $$sql$$, $$syntax$$, 1, $$모든 데이터 조회$$, $$SELECT * 사용하기$$, $$challenge$$, 1,
+$$users 테이블의 모든 데이터를 조회하세요.$$,
+$$- SELECT * FROM 테이블명$$,
+$$[{"input": "", "output": "모든 행과 열"}]$$,
+$func$-- users 테이블에서 모든 데이터를 조회하세요
+$func$,
+$$SELECT * FROM users;$$,
+$$[{"input": "", "expected": "all rows"}]$$,
+$$["*는 모든 컬럼을 의미합니다"]$$,
+$$["select", "basics"]$$, 5),
+
+($$sql-select-columns$$, $$sql$$, $$syntax$$, 2, $$특정 컬럼 조회$$, $$컬럼 지정하여 조회$$, $$challenge$$, 1,
+$$users 테이블에서 name과 email 컬럼만 조회하세요.$$,
+$$- SELECT 컬럼1, 컬럼2 FROM$$,
+$$[{"input": "", "output": "name, email 컬럼"}]$$,
+$func$-- users 테이블에서 name과 email을 조회하세요
+$func$,
+$$SELECT name, email FROM users;$$,
+$$[{"input": "", "expected": "name, email columns"}]$$,
+$$["컬럼명을 쉼표로 구분합니다"]$$,
+$$["select", "columns"]$$, 5),
+
+($$sql-select-distinct$$, $$sql$$, $$syntax$$, 3, $$중복 제거$$, $$DISTINCT 사용하기$$, $$challenge$$, 1,
+$$users 테이블에서 중복을 제거한 city를 조회하세요.$$,
+$$- SELECT DISTINCT$$,
+$$[{"input": "", "output": "고유한 city 값들"}]$$,
+$func$-- users 테이블에서 중복 없는 city를 조회하세요
+$func$,
+$$SELECT DISTINCT city FROM users;$$,
+$$[{"input": "", "expected": "unique cities"}]$$,
+$$["DISTINCT는 중복을 제거합니다"]$$,
+$$["select", "distinct"]$$, 5),
+
+($$sql-select-limit$$, $$sql$$, $$syntax$$, 4, $$결과 개수 제한$$, $$LIMIT 사용하기$$, $$challenge$$, 1,
+$$users 테이블에서 상위 5개 행만 조회하세요.$$,
+$$- LIMIT 숫자$$,
+$$[{"input": "", "output": "상위 5개 행"}]$$,
+$func$-- users 테이블에서 상위 5개만 조회하세요
+$func$,
+$$SELECT * FROM users LIMIT 5;$$,
+$$[{"input": "", "expected": "5 rows"}]$$,
+$$["LIMIT으로 행 개수를 제한합니다"]$$,
+$$["select", "limit"]$$, 5),
+
+($$sql-select-alias$$, $$sql$$, $$syntax$$, 5, $$별칭 사용$$, $$AS로 별칭 지정$$, $$challenge$$, 1,
+$$users 테이블에서 name을 "사용자명"이라는 별칭으로 조회하세요.$$,
+$$- AS 별칭$$,
+$$[{"input": "", "output": "name AS 사용자명"}]$$,
+$func$-- name 컬럼을 "사용자명"이라는 별칭으로 조회하세요
+$func$,
+$$SELECT name AS 사용자명 FROM users;$$,
+$$[{"input": "", "expected": "name with alias"}]$$,
+$$["AS로 별칭을 지정합니다"]$$,
+$$["select", "alias"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 2: WHERE 조건 (WHERE Clause) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-where-equal$$, $$sql$$, $$basics$$, 6, $$같음 조건$$, $$= 연산자 사용$$, $$challenge$$, 1,
+$$users 테이블에서 city가 "Seoul"인 사용자를 조회하세요.$$,
+$$- WHERE 컬럼 = 값$$,
+$$[{"input": "", "output": "city가 Seoul인 행들"}]$$,
+$func$-- city가 "Seoul"인 사용자를 조회하세요
+$func$,
+$$SELECT * FROM users WHERE city = 'Seoul';$$,
+$$[{"input": "", "expected": "Seoul users"}]$$,
+$$["WHERE 절로 조건을 지정합니다"]$$,
+$$["where", "equality"]$$, 5),
+
+($$sql-where-greater$$, $$sql$$, $$basics$$, 7, $$크기 비교$$, $$>, < 연산자$$, $$challenge$$, 1,
+$$products 테이블에서 price가 10000 이상인 제품을 조회하세요.$$,
+$$- WHERE 컬럼 >= 값$$,
+$$[{"input": "", "output": "price >= 10000인 제품"}]$$,
+$func$-- price가 10000 이상인 제품을 조회하세요
+$func$,
+$$SELECT * FROM products WHERE price >= 10000;$$,
+$$[{"input": "", "expected": "products with price >= 10000"}]$$,
+$$[">=는 이상, >는 초과를 의미합니다"]$$,
+$$["where", "comparison"]$$, 5),
+
+($$sql-where-and$$, $$sql$$, $$basics$$, 8, $$AND 조건$$, $$여러 조건 동시 만족$$, $$challenge$$, 1,
+$$users 테이블에서 city가 "Seoul"이고 age가 20 이상인 사용자를 조회하세요.$$,
+$$- WHERE 조건1 AND 조건2$$,
+$$[{"input": "", "output": "Seoul이고 age >= 20"}]$$,
+$func$-- city가 Seoul이고 age가 20 이상인 사용자를 조회하세요
+$func$,
+$$SELECT * FROM users WHERE city = 'Seoul' AND age >= 20;$$,
+$$[{"input": "", "expected": "Seoul users aged 20+"}]$$,
+$$["AND는 모든 조건을 만족해야 합니다"]$$,
+$$["where", "and"]$$, 5),
+
+($$sql-where-or$$, $$sql$$, $$basics$$, 9, $$OR 조건$$, $$조건 중 하나 만족$$, $$challenge$$, 1,
+$$users 테이블에서 city가 "Seoul" 또는 "Busan"인 사용자를 조회하세요.$$,
+$$- WHERE 조건1 OR 조건2$$,
+$$[{"input": "", "output": "Seoul 또는 Busan"}]$$,
+$func$-- city가 Seoul 또는 Busan인 사용자를 조회하세요
+$func$,
+$$SELECT * FROM users WHERE city = 'Seoul' OR city = 'Busan';',
+$$[{"input": "", "expected": "Seoul or Busan users"}]$$,
+$$["OR는 하나라도 만족하면 됩니다"]$$,
+$$["where", "or"]$$, 5),
+
+($$sql-where-in$$, $$sql$$, $$basics$$, 10, $$IN 조건$$, $$여러 값 중 하나$$, $$challenge$$, 1,
+$$users 테이블에서 city가 "Seoul", "Busan", "Incheon" 중 하나인 사용자를 조회하세요.$$,
+$$- WHERE 컬럼 IN (값1, 값2, ...)$$,
+$$[{"input": "", "output": "3개 도시 중 하나"}]$$,
+$func$-- city가 Seoul, Busan, Incheon 중 하나인 사용자를 조회하세요
+$func$,
+$$SELECT * FROM users WHERE city IN ('Seoul', 'Busan', 'Incheon');$$,
+$$[{"input": "", "expected": "users from 3 cities"}]$$,
+$$["IN은 여러 OR 조건을 간결하게 표현합니다"]$$,
+$$["where", "in"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 3: ORDER BY 정렬 (Sorting) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-order-asc$$, $$sql$$, $$basics$$, 11, $$오름차순 정렬$$, $$ASC로 정렬$$, $$challenge$$, 1,
+$$users 테이블을 name 기준 오름차순으로 조회하세요.$$,
+$$- ORDER BY 컬럼 ASC$$,
+$$[{"input": "", "output": "name 오름차순"}]$$,
+$func$-- name 기준 오름차순으로 조회하세요
+$func$,
+$$SELECT * FROM users ORDER BY name ASC;$$,
+$$[{"input": "", "expected": "ascending by name"}]$$,
+$$["ASC는 오름차순(기본값)입니다"]$$,
+$$["order-by", "asc"]$$, 5),
+
+($$sql-order-desc$$, $$sql$$, $$basics$$, 12, $$내림차순 정렬$$, $$DESC로 정렬$$, $$challenge$$, 1,
+$$products 테이블을 price 기준 내림차순으로 조회하세요.$$,
+$$- ORDER BY 컬럼 DESC$$,
+$$[{"input": "", "output": "price 내림차순"}]$$,
+$func$-- price 기준 내림차순으로 조회하세요
+$func$,
+$$SELECT * FROM products ORDER BY price DESC;$$,
+$$[{"input": "", "expected": "descending by price"}]$$,
+$$["DESC는 내림차순입니다"]$$,
+$$["order-by", "desc"]$$, 5),
+
+($$sql-order-multiple$$, $$sql$$, $$basics$$, 13, $$다중 정렬$$, $$여러 컬럼으로 정렬$$, $$challenge$$, 1,
+$$users 테이블을 city 오름차순, age 내림차순으로 조회하세요.$$,
+$$- ORDER BY 컬럼1, 컬럼2 DESC$$,
+$$[{"input": "", "output": "city ASC, age DESC"}]$$,
+$func$-- city 오름차순, age 내림차순으로 조회하세요
+$func$,
+$$SELECT * FROM users ORDER BY city ASC, age DESC;$$,
+$$[{"input": "", "expected": "sorted by city then age"}]$$,
+$$["첫 번째 컬럼으로 먼저 정렬, 같으면 두 번째 컬럼으로 정렬"]$$,
+$$["order-by", "multiple"]$$, 5),
+
+($$sql-order-limit$$, $$sql$$, $$basics$$, 14, $$정렬 후 제한$$, $$ORDER BY와 LIMIT 조합$$, $$challenge$$, 1,
+$$products 테이블에서 price가 가장 비싼 상위 3개를 조회하세요.$$,
+$$- ORDER BY ... DESC LIMIT$$,
+$$[{"input": "", "output": "가장 비싼 3개"}]$$,
+$func$-- 가장 비싼 상위 3개 제품을 조회하세요
+$func$,
+$$SELECT * FROM products ORDER BY price DESC LIMIT 3;$$,
+$$[{"input": "", "expected": "top 3 expensive products"}]$$,
+$$["내림차순 정렬 후 LIMIT 사용"]$$,
+$$["order-by", "limit"]$$, 5),
+
+($$sql-order-null$$, $$sql$$, $$basics$$, 15, $$NULL 정렬$$, $$NULL 값 처리$$, $$challenge$$, 1,
+$$users 테이블을 email 오름차순으로 조회하세요(NULL 포함).$$,
+$$- NULL은 정렬 시 특별 처리$$,
+$$[{"input": "", "output": "email 정렬"}]$$,
+$func$-- email 기준 오름차순으로 조회하세요
+$func$,
+$$SELECT * FROM users ORDER BY email ASC;$$,
+$$[{"input": "", "expected": "sorted by email"}]$$,
+$$["NULL은 오름차순에서 먼저 나타납니다"]$$,
+$$["order-by", "null"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 4: 집계 함수 (Aggregate Functions) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-count$$, $$sql$$, $$basics$$, 16, $$행 개수 세기$$, $$COUNT 함수$$, $$challenge$$, 1,
+$$users 테이블의 전체 행 개수를 조회하세요.$$,
+$$- COUNT(*) 또는 COUNT(컬럼)$$,
+$$[{"input": "", "output": "행 개수"}]$$,
+$func$-- users 테이블의 행 개수를 조회하세요
+$func$,
+$$SELECT COUNT(*) FROM users;$$,
+$$[{"input": "", "expected": "total count"}]$$,
+$$["COUNT(*)는 모든 행을 셉니다"]$$,
+$$["aggregate", "count"]$$, 5),
+
+($$sql-sum$$, $$sql$$, $$basics$$, 17, $$합계 구하기$$, $$SUM 함수$$, $$challenge$$, 1,
+$$orders 테이블의 amount 합계를 구하세요.$$,
+$$- SUM(컬럼)$$,
+$$[{"input": "", "output": "amount 합계"}]$$,
+$func$-- amount의 합계를 구하세요
+$func$,
+$$SELECT SUM(amount) FROM orders;$$,
+$$[{"input": "", "expected": "total amount"}]$$,
+$$["SUM은 숫자 컬럼의 합계를 구합니다"]$$,
+$$["aggregate", "sum"]$$, 5),
+
+($$sql-avg$$, $$sql$$, $$basics$$, 18, $$평균 구하기$$, $$AVG 함수$$, $$challenge$$, 1,
+$$products 테이블의 price 평균을 구하세요.$$,
+$$- AVG(컬럼)$$,
+$$[{"input": "", "output": "price 평균"}]$$,
+$func$-- price의 평균을 구하세요
+$func$,
+$$SELECT AVG(price) FROM products;$$,
+$$[{"input": "", "expected": "average price"}]$$,
+$$["AVG는 평균값을 구합니다"]$$,
+$$["aggregate", "avg"]$$, 5),
+
+($$sql-max-min$$, $$sql$$, $$basics$$, 19, $$최댓값과 최솟값$$, $$MAX, MIN 함수$$, $$challenge$$, 1,
+$$products 테이블의 price 최댓값과 최솟값을 조회하세요.$$,
+$$- MAX(컬럼), MIN(컬럼)$$,
+$$[{"input": "", "output": "최댓값, 최솟값"}]$$,
+$func$-- price의 최댓값과 최솟값을 조회하세요
+$func$,
+$$SELECT MAX(price), MIN(price) FROM products;$$,
+$$[{"input": "", "expected": "max and min price"}]$$,
+$$["MAX는 최댓값, MIN은 최솟값"]$$,
+$$["aggregate", "max", "min"]$$, 5),
+
+($$sql-count-distinct$$, $$sql$$, $$basics$$, 20, $$고유 값 개수$$, $$COUNT(DISTINCT)$$, $$challenge$$, 1,
+$$users 테이블의 고유한 city 개수를 세세요.$$,
+$$- COUNT(DISTINCT 컬럼)$$,
+$$[{"input": "", "output": "고유 city 개수"}]$$,
+$func$-- 고유한 city의 개수를 세세요
+$func$,
+$$SELECT COUNT(DISTINCT city) FROM users;$$,
+$$[{"input": "", "expected": "unique city count"}]$$,
+$$["COUNT(DISTINCT)는 중복 제거 후 개수를 셉니다"]$$,
+$$["aggregate", "count", "distinct"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 5: GROUP BY (Grouping) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-group-count$$, $$sql$$, $$basics$$, 21, $$그룹별 개수$$, $$GROUP BY로 그룹화$$, $$challenge$$, 1,
+$$users 테이블에서 city별 사용자 수를 조회하세요.$$,
+$$- GROUP BY 컬럼$$,
+$$[{"input": "", "output": "city별 count"}]$$,
+$func$-- city별 사용자 수를 조회하세요
+$func$,
+$$SELECT city, COUNT(*) FROM users GROUP BY city;$$,
+$$[{"input": "", "expected": "count by city"}]$$,
+$$["GROUP BY로 그룹을 나누고 집계합니다"]$$,
+$$["group-by", "count"]$$, 5),
+
+($$sql-group-sum$$, $$sql$$, $$basics$$, 22, $$그룹별 합계$$, $$GROUP BY와 SUM$$, $$challenge$$, 1,
+$$orders 테이블에서 user_id별 amount 합계를 조회하세요.$$,
+$$- GROUP BY user_id$$,
+$$[{"input": "", "output": "user_id별 sum"}]$$,
+$func$-- user_id별 amount 합계를 조회하세요
+$func$,
+$$SELECT user_id, SUM(amount) FROM orders GROUP BY user_id;$$,
+$$[{"input": "", "expected": "sum by user"}]$$,
+$$["각 그룹별로 SUM을 계산합니다"]$$,
+$$["group-by", "sum"]$$, 5),
+
+($$sql-group-avg$$, $$sql$$, $$basics$$, 23, $$그룹별 평균$$, $$GROUP BY와 AVG$$, $$challenge$$, 1,
+$$products 테이블에서 category별 price 평균을 조회하세요.$$,
+$$- GROUP BY category$$,
+$$[{"input": "", "output": "category별 avg"}]$$,
+$func$-- category별 price 평균을 조회하세요
+$func$,
+$$SELECT category, AVG(price) FROM products GROUP BY category;$$,
+$$[{"input": "", "expected": "average by category"}]$$,
+$$["그룹별로 평균을 구합니다"]$$,
+$$["group-by", "avg"]$$, 5),
+
+($$sql-group-multiple$$, $$sql$$, $$basics$$, 24, $$다중 그룹화$$, $$여러 컬럼으로 그룹화$$, $$challenge$$, 1,
+$$orders 테이블에서 user_id, status별 개수를 조회하세요.$$,
+$$- GROUP BY 컬럼1, 컬럼2$$,
+$$[{"input": "", "output": "user_id, status별 count"}]$$,
+$func$-- user_id, status별 개수를 조회하세요
+$func$,
+$$SELECT user_id, status, COUNT(*) FROM orders GROUP BY user_id, status;$$,
+$$[{"input": "", "expected": "count by user and status"}]$$,
+$$["여러 컬럼으로 그룹을 나눌 수 있습니다"]$$,
+$$["group-by", "multiple"]$$, 5),
+
+($$sql-group-order$$, $$sql$$, $$basics$$, 25, $$그룹 정렬$$, $$GROUP BY와 ORDER BY$$, $$challenge$$, 1,
+$$users 테이블에서 city별 사용자 수를 많은 순으로 조회하세요.$$,
+$$- GROUP BY ... ORDER BY COUNT(*) DESC$$,
+$$[{"input": "", "output": "count 내림차순"}]$$,
+$func$-- city별 사용자 수를 많은 순으로 조회하세요
+$func$,
+$$SELECT city, COUNT(*) AS cnt FROM users GROUP BY city ORDER BY cnt DESC;$$,
+$$[{"input": "", "expected": "cities by user count desc"}]$$,
+$$["집계 결과를 정렬할 수 있습니다"]$$,
+$$["group-by", "order-by"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 6: HAVING 조건 (HAVING Clause) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-having-count$$, $$sql$$, $$basics$$, 26, $$HAVING으로 필터$$, $$그룹 조건$$, $$challenge$$, 1,
+$$users 테이블에서 사용자가 3명 이상인 city만 조회하세요.$$,
+$$- HAVING COUNT(*) >= 3$$,
+$$[{"input": "", "output": "3명 이상인 city"}]$$,
+$func$-- 사용자가 3명 이상인 city를 조회하세요
+$func$,
+$$SELECT city, COUNT(*) FROM users GROUP BY city HAVING COUNT(*) >= 3;$$,
+$$[{"input": "", "expected": "cities with 3+ users"}]$$,
+$$["HAVING은 그룹화 후 조건을 적용합니다"]$$,
+$$["having", "count"]$$, 5),
+
+($$sql-having-sum$$, $$sql$$, $$basics$$, 27, $$HAVING과 SUM$$, $$합계 조건$$, $$challenge$$, 1,
+$$orders 테이블에서 총 주문액이 100000 이상인 user_id를 조회하세요.$$,
+$$- HAVING SUM(...) >= 100000$$,
+$$[{"input": "", "output": "sum >= 100000"}]$$,
+$func$-- 총 주문액이 100000 이상인 사용자를 조회하세요
+$func$,
+$$SELECT user_id, SUM(amount) FROM orders GROUP BY user_id HAVING SUM(amount) >= 100000;$$,
+$$[{"input": "", "expected": "users with high total"}]$$,
+$$["집계 함수 결과에 조건을 적용합니다"]$$,
+$$["having", "sum"]$$, 5),
+
+($$sql-having-avg$$, $$sql$$, $$basics$$, 28, $$HAVING과 AVG$$, $$평균 조건$$, $$challenge$$, 1,
+$$products 테이블에서 평균 가격이 50000 이상인 category를 조회하세요.$$,
+$$- HAVING AVG(...) >= 50000$$,
+$$[{"input": "", "output": "avg >= 50000"}]$$,
+$func$-- 평균 가격이 50000 이상인 category를 조회하세요
+$func$,
+$$SELECT category, AVG(price) FROM products GROUP BY category HAVING AVG(price) >= 50000;$$,
+$$[{"input": "", "expected": "categories with high avg"}]$$,
+$$["평균값으로 그룹을 필터링합니다"]$$,
+$$["having", "avg"]$$, 5),
+
+($$sql-where-having$$, $$sql$$, $$basics$$, 29, $$WHERE와 HAVING$$, $$조건 조합$$, $$challenge$$, 1,
+$$users 테이블에서 age가 20 이상인 사용자 중 city별로 2명 이상인 곳을 조회하세요.$$,
+$$- WHERE ... GROUP BY ... HAVING$$,
+$$[{"input": "", "output": "필터 후 그룹화"}]$$,
+$func$-- age >= 20인 사용자 중 city별 2명 이상인 곳을 조회하세요
+$func$,
+$$SELECT city, COUNT(*) FROM users WHERE age >= 20 GROUP BY city HAVING COUNT(*) >= 2;$$,
+$$[{"input": "", "expected": "filtered and grouped"}]$$,
+$$["WHERE는 그룹화 전, HAVING은 그룹화 후 조건"]$$,
+$$["where", "having"]$$, 5),
+
+($$sql-having-multiple$$, $$sql$$, $$basics$$, 30, $$복합 HAVING$$, $$여러 HAVING 조건$$, $$challenge$$, 1,
+$$orders 테이블에서 주문 건수가 5개 이상이고 총액이 500000 이상인 user_id를 조회하세요.$$,
+$$- HAVING 조건1 AND 조건2$$,
+$$[{"input": "", "output": "복합 조건"}]$$,
+$func$-- 주문 5개 이상이고 총액 500000 이상인 사용자를 조회하세요
+$func$,
+$func$SELECT user_id, COUNT(*), SUM(amount) FROM orders GROUP BY user_id HAVING COUNT(*) >= 5 AND SUM(amount) >= 500000;$func$,
+$$[{"input": "", "expected": "users with multiple conditions"}]$$,
+$$["HAVING 절에 AND로 여러 조건을 결합합니다"]$$,
+$$["having", "multiple"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 7: JOIN - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-inner-join$$, $$sql$$, $$basics$$, 31, $$INNER JOIN$$, $$내부 조인$$, $$challenge$$, 1,
+$$users와 orders를 user_id로 조인하여 조회하세요.$$,
+$$- INNER JOIN ... ON$$,
+$$[{"input": "", "output": "조인된 결과"}]$$,
+$func$-- users와 orders를 user_id로 조인하세요
+$func$,
+$$SELECT * FROM users INNER JOIN orders ON users.id = orders.user_id;$$,
+$$[{"input": "", "expected": "joined table"}]$$,
+$$["INNER JOIN은 양쪽에 모두 있는 데이터만 조회"]$$,
+$$["join", "inner-join"]$$, 5),
+
+($$sql-left-join$$, $$sql$$, $$basics$$, 32, $$LEFT JOIN$$, $$왼쪽 조인$$, $$challenge$$, 1,
+$$users와 orders를 LEFT JOIN하여 주문이 없는 사용자도 포함하여 조회하세요.$$,
+$$- LEFT JOIN ... ON$$,
+$$[{"input": "", "output": "모든 users 포함"}]$$,
+$func$-- users와 orders를 LEFT JOIN하세요
+$func$,
+$$SELECT * FROM users LEFT JOIN orders ON users.id = orders.user_id;$$,
+$$[{"input": "", "expected": "all users with orders"}]$$,
+$$["LEFT JOIN은 왼쪽 테이블의 모든 행을 포함"]$$,
+$$["join", "left-join"]$$, 5),
+
+($$sql-join-select$$, $$sql$$, $$basics$$, 33, $$JOIN 컬럼 선택$$, $$특정 컬럼만 조회$$, $$challenge$$, 1,
+$$users와 orders를 조인하여 name과 amount만 조회하세요.$$,
+$$- SELECT 테이블.컬럼$$,
+$$[{"input": "", "output": "name, amount"}]$$,
+$func$-- users의 name과 orders의 amount를 조회하세요
+$func$,
+$$SELECT users.name, orders.amount FROM users INNER JOIN orders ON users.id = orders.user_id;$$,
+$$[{"input": "", "expected": "name and amount"}]$$,
+$$["테이블명.컬럼명으로 구분합니다"]$$,
+$$["join", "select"]$$, 5),
+
+($$sql-join-where$$, $$sql$$, $$basics$$, 34, $$JOIN과 WHERE$$, $$조인 후 필터$$, $$challenge$$, 1,
+$$users와 orders를 조인하여 amount가 10000 이상인 주문만 조회하세요.$$,
+$$- JOIN ... WHERE$$,
+$$[{"input": "", "output": "amount >= 10000"}]$$,
+$func$-- 조인 후 amount >= 10000인 주문을 조회하세요
+$func$,
+$$SELECT * FROM users INNER JOIN orders ON users.id = orders.user_id WHERE orders.amount >= 10000;$$,
+$$[{"input": "", "expected": "high amount orders"}]$$,
+$$["JOIN 후 WHERE로 조건을 추가합니다"]$$,
+$$["join", "where"]$$, 5),
+
+($$sql-join-group$$, $$sql$$, $$basics$$, 35, $$JOIN과 GROUP BY$$, $$조인 후 그룹화$$, $$challenge$$, 1,
+$$users와 orders를 조인하여 사용자별 주문 총액을 조회하세요.$$,
+$$- JOIN ... GROUP BY$$,
+$$[{"input": "", "output": "user별 총액"}]$$,
+$func$-- 사용자별 주문 총액을 조회하세요
+$func$,
+$func$SELECT users.name, SUM(orders.amount) FROM users INNER JOIN orders ON users.id = orders.user_id GROUP BY users.name;$func$,
+$$[{"input": "", "expected": "total by user"}]$$,
+$$["JOIN 후 GROUP BY로 집계합니다"]$$,
+$$["join", "group-by"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 8: 서브쿼리 (Subqueries) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-subquery-where$$, $$sql$$, $$basics$$, 36, $$WHERE 서브쿼리$$, $$조건에 서브쿼리$$, $$challenge$$, 1,
+$$products에서 평균 가격보다 비싼 제품을 조회하세요.$$,
+$$- WHERE 컬럼 > (SELECT ...)$$,
+$$[{"input": "", "output": "평균 이상 제품"}]$$,
+$func$-- 평균 가격보다 비싼 제품을 조회하세요
+$func$,
+$$SELECT * FROM products WHERE price > (SELECT AVG(price) FROM products);$$,
+$$[{"input": "", "expected": "above average products"}]$$,
+$$["서브쿼리로 동적인 조건을 만듭니다"]$$,
+$$["subquery", "where"]$$, 5),
+
+($$sql-subquery-in$$, $$sql$$, $$basics$$, 37, $$IN 서브쿼리$$, $$IN절에 서브쿼리$$, $$challenge$$, 1,
+$$주문이 있는 사용자만 users에서 조회하세요.$$,
+$$- WHERE id IN (SELECT ...)$$,
+$$[{"input": "", "output": "주문 있는 사용자"}]$$,
+$func$-- 주문이 있는 사용자만 조회하세요
+$func$,
+$$SELECT * FROM users WHERE id IN (SELECT user_id FROM orders);$$,
+$$[{"input": "", "expected": "users with orders"}]$$,
+$$["서브쿼리 결과를 IN으로 필터링"]$$,
+$$["subquery", "in"]$$, 5),
+
+($$sql-subquery-exists$$, $$sql$$, $$basics$$, 38, $$EXISTS 서브쿼리$$, $$존재 여부 확인$$, $$challenge$$, 1,
+$$주문이 있는 사용자를 EXISTS로 조회하세요.$$,
+$$- WHERE EXISTS (SELECT ...)$$,
+$$[{"input": "", "output": "주문 있는 사용자"}]$$,
+$func$-- EXISTS를 사용하여 주문이 있는 사용자를 조회하세요
+$func$,
+$$SELECT * FROM users WHERE EXISTS (SELECT 1 FROM orders WHERE orders.user_id = users.id);$$,
+$$[{"input": "", "expected": "users with orders"}]$$,
+$$["EXISTS는 존재 여부만 확인합니다"]$$,
+$$["subquery", "exists"]$$, 5),
+
+($$sql-subquery-from$$, $$sql$$, $$basics$$, 39, $$FROM 서브쿼리$$, $$서브쿼리를 테이블로$$, $$challenge$$, 1,
+$$각 city별 평균 age를 구한 결과에서 평균이 30 이상인 city를 조회하세요.$$,
+$$- FROM (SELECT ...) AS alias$$,
+$$[{"input": "", "output": "avg >= 30인 city"}]$$,
+$func$-- city별 평균 age가 30 이상인 곳을 조회하세요
+$func$,
+$$SELECT * FROM (SELECT city, AVG(age) AS avg_age FROM users GROUP BY city) AS t WHERE avg_age >= 30;$$,
+$$[{"input": "", "expected": "cities with avg age 30+"}]$$,
+$$["서브쿼리를 임시 테이블처럼 사용합니다"]$$,
+$$["subquery", "from"]$$, 5),
+
+($$sql-subquery-select$$, $$sql$$, $$basics$$, 40, $$SELECT 서브쿼리$$, $$컬럼에 서브쿼리$$, $$challenge$$, 1,
+$$users와 함께 각 사용자의 주문 개수를 조회하세요.$$,
+$$- SELECT (SELECT ...) AS$$,
+$$[{"input": "", "output": "user와 주문 개수"}]$$,
+$func$-- 각 사용자와 주문 개수를 조회하세요
+$func$,
+$func$SELECT name, (SELECT COUNT(*) FROM orders WHERE orders.user_id = users.id) AS order_count FROM users;$func$,
+$$[{"input": "", "expected": "users with order count"}]$$,
+$$["SELECT 절에 서브쿼리를 사용합니다"]$$,
+$$["subquery", "select"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 9: INSERT, UPDATE, DELETE - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-insert-basic$$, $$sql$$, $$basics$$, 41, $$데이터 삽입$$, $$INSERT INTO$$, $$challenge$$, 1,
+$$users 테이블에 (name="John", age=25, city="Seoul") 데이터를 삽입하세요.$$,
+$$- INSERT INTO ... VALUES$$,
+$$[{"input": "", "output": "1 row inserted"}]$$,
+$func$-- users에 John, 25, Seoul을 삽입하세요
+$func$,
+$$INSERT INTO users (name, age, city) VALUES ('John', 25, 'Seoul');$$,
+$$[{"input": "", "expected": "inserted"}]$$,
+$$["VALUES로 값을 지정합니다"]$$,
+$$["insert", "basics"]$$, 5),
+
+($$sql-insert-multiple$$, $$sql$$, $$basics$$, 42, $$여러 행 삽입$$, $$한 번에 여러 데이터$$, $$challenge$$, 1,
+$$users에 2명의 데이터를 한 번에 삽입하세요.$$,
+$$- VALUES (...), (...)$$,
+$$[{"input": "", "output": "2 rows inserted"}]$$,
+$func$-- 2명의 데이터를 한 번에 삽입하세요
+$func$,
+$$INSERT INTO users (name, age, city) VALUES ('Alice', 30, 'Busan'), ('Bob', 22, 'Incheon');$$,
+$$[{"input": "", "expected": "2 inserted"}]$$,
+$$["VALUES를 쉼표로 구분합니다"]$$,
+$$["insert", "multiple"]$$, 5),
+
+($$sql-update-basic$$, $$sql$$, $$basics$$, 43, $$데이터 수정$$, $$UPDATE SET$$, $$challenge$$, 1,
+$$users에서 id=1인 사용자의 age를 30으로 수정하세요.$$,
+$$- UPDATE ... SET ... WHERE$$,
+$$[{"input": "", "output": "1 row updated"}]$$,
+$func$-- id=1인 사용자의 age를 30으로 수정하세요
+$func$,
+$$UPDATE users SET age = 30 WHERE id = 1;$$,
+$$[{"input": "", "expected": "updated"}]$$,
+$$["WHERE 없이 UPDATE하면 모든 행이 수정됩니다!"]$$,
+$$["update", "basics"]$$, 5),
+
+($$sql-update-multiple$$, $$sql$$, $$basics$$, 44, $$여러 컬럼 수정$$, $$SET 여러 컬럼$$, $$challenge$$, 1,
+$$users에서 id=2인 사용자의 name="Jane", city="Seoul"로 수정하세요.$$,
+$$- SET 컬럼1=값1, 컬럼2=값2$$,
+$$[{"input": "", "output": "1 row updated"}]$$,
+$func$-- id=2인 사용자의 name과 city를 수정하세요
+$func$,
+$$UPDATE users SET name = 'Jane', city = 'Seoul' WHERE id = 2;$$,
+$$[{"input": "", "expected": "updated"}]$$,
+$$["SET 절에 쉼표로 여러 컬럼을 지정합니다"]$$,
+$$["update", "multiple"]$$, 5),
+
+($$sql-delete-basic$$, $$sql$$, $$basics$$, 45, $$데이터 삭제$$, $$DELETE FROM$$, $$challenge$$, 1,
+$$users에서 age가 20 미만인 사용자를 삭제하세요.$$,
+$$- DELETE FROM ... WHERE$$,
+$$[{"input": "", "output": "rows deleted"}]$$,
+$func$-- age < 20인 사용자를 삭제하세요
+$func$,
+$$DELETE FROM users WHERE age < 20;$$,
+$$[{"input": "", "expected": "deleted"}]$$,
+$$["WHERE 없이 DELETE하면 모든 행이 삭제됩니다!"]$$,
+$$["delete", "basics"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 10: 테이블 관리 (Table Management) - 5 challenges
+-- ============================================================================
+
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-create-table$$, $$sql$$, $$basics$$, 46, $$테이블 생성$$, $$CREATE TABLE$$, $$challenge$$, 1,
+$$id(INT), name(VARCHAR), age(INT) 컬럼을 가진 students 테이블을 생성하세요.$$,
+$$- CREATE TABLE ... (...)$$,
+$$[{"input": "", "output": "table created"}]$$,
+$func$-- students 테이블을 생성하세요
+$func$,
+$$CREATE TABLE students (id INT, name VARCHAR(100), age INT);$$,
+$$[{"input": "", "expected": "created"}]$$,
+$$["각 컬럼의 타입을 지정합니다"]$$,
+$$["ddl", "create"]$$, 5),
+
+($$sql-create-primary-key$$, $$sql$$, $$basics$$, 47, $$PRIMARY KEY$$, $$기본키 설정$$, $$challenge$$, 1,
+$$id를 PRIMARY KEY로 하는 products 테이블을 생성하세요.$$,
+$$- PRIMARY KEY$$,
+$$[{"input": "", "output": "table with PK"}]$$,
+$func$-- id를 PRIMARY KEY로 하는 products를 생성하세요
+$func$,
+$$CREATE TABLE products (id INT PRIMARY KEY, name VARCHAR(100), price INT);$$,
+$$[{"input": "", "expected": "created with PK"}]$$,
+$$["PRIMARY KEY는 고유하고 NULL이 아닙니다"]$$,
+$$["ddl", "primary-key"]$$, 5),
+
+($$sql-alter-add-column$$, $$sql$$, $$basics$$, 48, $$컬럼 추가$$, $$ALTER TABLE ADD$$, $$challenge$$, 1,
+$$users 테이블에 email(VARCHAR) 컬럼을 추가하세요.$$,
+$$- ALTER TABLE ... ADD$$,
+$$[{"input": "", "output": "column added"}]$$,
+$func$-- users에 email 컬럼을 추가하세요
+$func$,
+$$ALTER TABLE users ADD email VARCHAR(100);$$,
+$$[{"input": "", "expected": "column added"}]$$,
+$$["ALTER TABLE로 테이블 구조를 변경합니다"]$$,
+$$["ddl", "alter", "add"]$$, 5),
+
+($$sql-drop-table$$, $$sql$$, $$basics$$, 49, $$테이블 삭제$$, $$DROP TABLE$$, $$challenge$$, 1,
+$$temp 테이블을 삭제하세요.$$,
+$$- DROP TABLE$$,
+$$[{"input": "", "output": "table dropped"}]$$,
+$func$-- temp 테이블을 삭제하세요
+$func$,
+$$DROP TABLE temp;$$,
+$$[{"input": "", "expected": "dropped"}]$$,
+$$["DROP TABLE은 테이블을 완전히 삭제합니다"]$$,
+$$["ddl", "drop"]$$, 5),
+
+($$sql-truncate$$, $$sql$$, $$basics$$, 50, $$테이블 비우기$$, $$TRUNCATE TABLE$$, $$challenge$$, 1,
+$$logs 테이블의 모든 데이터를 삭제하세요(구조는 유지).$$,
+$$- TRUNCATE TABLE$$,
+$$[{"input": "", "output": "table truncated"}]$$,
+$func$-- logs 테이블을 비우세요
+$func$,
+$$TRUNCATE TABLE logs;$$,
+$$[{"input": "", "expected": "truncated"}]$$,
+$$["TRUNCATE는 DELETE보다 빠르지만 롤백 불가"]$$,
+$$["ddl", "truncate"]$$, 5)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- ============================================================================
+-- End of SQL Language Part 1
+-- ============================================================================
+
+-- ====================================
+-- SQL Language Challenges - Part 2
+-- Levels 51-100 (MEDIUM 30개 + HARD 20개)
+-- ====================================
+
+-- Unit 11: 복잡한 JOIN (5 problems - MEDIUM)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-right-join$$, $$sql$$, $$syntax$$, 51, $$RIGHT JOIN 사용$$, $$오른쪽 테이블 기준 조인$$, $$challenge$$, 2,
+$$departments 테이블을 기준으로 employees와 RIGHT JOIN하여 부서명과 직원명을 조회하세요.$$,
+$$- RIGHT JOIN 사용\n- 부서가 있지만 직원이 없는 경우도 포함$$,
+$$[{"input": "", "output": "부서명, 직원명(NULL 포함)"}]$$,
+$$-- departments와 employees를 RIGHT JOIN하세요\n$$,
+$$SELECT d.dept_name, e.emp_name\nFROM employees e\nRIGHT JOIN departments d ON e.dept_id = d.dept_id;$$,
+$$[{"input": "", "expected": "right join result"}]$$,
+$$["RIGHT JOIN은 오른쪽 테이블의 모든 행을 포함합니다"]$$,
+$$["join", "right-join"]$$, 10),
+
+($$sql-full-outer-join$$, $$sql$$, $$syntax$$, 52, $$FULL OUTER JOIN$$, $$양쪽 모두 포함하는 조인$$, $$challenge$$, 2,
+$$employees와 departments를 FULL OUTER JOIN하여 모든 직원과 모든 부서를 조회하세요.$$,
+$$- FULL OUTER JOIN 또는 FULL JOIN 사용\n- 매칭되지 않는 경우 NULL$$,
+$$[{"input": "", "output": "직원명, 부서명 (모두 포함)"}]$$,
+$$-- employees와 departments를 FULL OUTER JOIN하세요\n$$,
+$func$SELECT e.emp_name, d.dept_name\nFROM employees e\nFULL OUTER JOIN departments d ON e.dept_id = d.dept_id;$func$,
+$$[{"input": "", "expected": "full outer join result"}]$$,
+$$["FULL OUTER JOIN은 양쪽 테이블의 모든 행을 포함합니다"]$$,
+$$["join", "full-outer-join"]$$, 10),
+
+($$sql-self-join$$, $$sql$$, $$syntax$$, 53, $$SELF JOIN$$, $$같은 테이블끼리 조인$$, $$challenge$$, 2,
+$$employees 테이블을 자기 자신과 조인하여 직원과 그의 매니저 이름을 조회하세요.$$,
+$$- 같은 테이블을 서로 다른 별칭으로 조인\n- manager_id로 조인$$,
+$$[{"input": "", "output": "직원명, 매니저명"}]$$,
+$$-- employees를 self join하여 직원과 매니저를 조회하세요\n$$,
+$func$SELECT e.emp_name AS employee, m.emp_name AS manager\nFROM employees e\nLEFT JOIN employees m ON e.manager_id = m.emp_id;$func$,
+$$[{"input": "", "expected": "employee-manager pairs"}]$$,
+$$["같은 테이블에 서로 다른 별칭을 사용하세요"]$$,
+$$["join", "self-join"]$$, 12),
+
+($$sql-cross-join$$, $$sql$$, $$syntax$$, 54, $$CROSS JOIN$$, $$카티션 곱 조인$$, $$challenge$$, 2,
+$$products와 colors 테이블을 CROSS JOIN하여 모든 조합을 만드세요.$$,
+$$- CROSS JOIN 사용\n- 모든 가능한 조합 생성$$,
+$$[{"input": "", "output": "제품명, 색상 모든 조합"}]$$,
+$$-- products와 colors를 CROSS JOIN하세요\n$$,
+$$SELECT p.product_name, c.color_name\nFROM products p\nCROSS JOIN colors c;$$,
+$$[{"input": "", "expected": "all combinations"}]$$,
+$$["CROSS JOIN은 ON 조건 없이 모든 조합을 만듭니다"]$$,
+$$["join", "cross-join"]$$, 10),
+
+($$sql-multiple-join$$, $$sql$$, $$syntax$$, 55, $$다중 테이블 조인$$, $$3개 이상 테이블 조인$$, $$challenge$$, 2,
+$$orders, customers, products 테이블을 조인하여 주문 정보를 상세히 조회하세요.$$,
+$$- 3개 테이블을 순차적으로 JOIN\n- 고객명, 제품명, 주문일 출력$$,
+$$[{"input": "", "output": "고객명, 제품명, 주문일"}]$$,
+$$-- orders, customers, products를 조인하세요\n$$,
+$func$SELECT c.customer_name, p.product_name, o.order_date\nFROM orders o\nJOIN customers c ON o.customer_id = c.customer_id\nJOIN products p ON o.product_id = p.product_id;$func$,
+$$[{"input": "", "expected": "detailed order info"}]$$,
+$$["첫 번째 JOIN 결과에 다시 JOIN을 추가하세요"]$$,
+$$["join", "multiple-tables"]$$, 12)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 12: 고급 서브쿼리 (5 problems - MEDIUM)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-correlated-subquery$$, $$sql$$, $$syntax$$, 56, $$상관 서브쿼리$$, $$외부 쿼리와 연관된 서브쿼리$$, $$challenge$$, 2,
+$$각 부서별로 평균 급여보다 높은 급여를 받는 직원을 조회하세요.$$,
+$$- 상관 서브쿼리 사용\n- 외부 쿼리의 dept_id를 서브쿼리에서 참조$$,
+$$[{"input": "", "output": "직원명, 급여, 부서ID"}]$$,
+$$-- 부서별 평균보다 높은 급여를 받는 직원 조회\n$$,
+$func$SELECT emp_name, salary, dept_id\nFROM employees e1\nWHERE salary > (SELECT AVG(salary) FROM employees e2 WHERE e2.dept_id = e1.dept_id);$func$,
+$$[{"input": "", "expected": "employees above dept average"}]$$,
+$$["서브쿼리에서 외부 테이블의 컬럼을 참조하세요"]$$,
+$$["subquery", "correlated"]$$, 15),
+
+($$sql-exists-not-exists$$, $$sql$$, $$syntax$$, 57, $$EXISTS와 NOT EXISTS$$, $$존재 여부 확인$$, $$challenge$$, 2,
+$$주문이 한 번이라도 있는 고객만 조회하세요.$$,
+$$- EXISTS 사용\n- 서브쿼리에서 orders 테이블 확인$$,
+$$[{"input": "", "output": "고객명"}]$$,
+$$-- 주문이 있는 고객을 EXISTS로 조회하세요\n$$,
+$func$SELECT customer_name\nFROM customers c\nWHERE EXISTS (SELECT 1 FROM orders o WHERE o.customer_id = c.customer_id);$func$,
+$$[{"input": "", "expected": "customers with orders"}]$$,
+$$["EXISTS는 결과가 하나라도 있으면 TRUE를 반환합니다"]$$,
+$$["subquery", "exists"]$$, 12),
+
+($$sql-any-all$$, $$sql$$, $$syntax$$, 58, $$ANY와 ALL 연산자$$, $$서브쿼리 결과와 비교$$, $$challenge$$, 2,
+$$영업부서의 어떤 직원보다도 급여가 높은 다른 부서 직원을 조회하세요.$$,
+$$- ALL 연산자 사용\n- 서브쿼리로 영업부 급여 조회$$,
+$$[{"input": "", "output": "직원명, 급여"}]$$,
+$$-- 영업부 모든 직원보다 급여가 높은 직원 조회\n$$,
+$func$SELECT emp_name, salary\nFROM employees\nWHERE salary > ALL (SELECT salary FROM employees WHERE dept_name = \$func$영업부\$$);$$,
+$$[{"input": "", "expected": "employees with higher salary"}]$$,
+$$["ALL은 서브쿼리의 모든 값보다 커야 합니다"]$$,
+$$["subquery", "all"]$$, 12),
+
+($$sql-scalar-subquery$$, $$sql$$, $$syntax$$, 59, $$스칼라 서브쿼리$$, $$SELECT절의 서브쿼리$$, $$challenge$$, 2,
+$$직원 정보와 함께 그 직원의 부서 평균 급여를 함께 출력하세요.$$,
+$$- SELECT절에 서브쿼리 사용\n- 단일 값 반환$$,
+$$[{"input": "", "output": "직원명, 급여, 부서평균급여"}]$$,
+$$-- SELECT절에 서브쿼리를 사용하세요\n$$,
+$func$SELECT emp_name, salary,\n  (SELECT AVG(salary) FROM employees e2 WHERE e2.dept_id = e1.dept_id) AS dept_avg\nFROM employees e1;$func$,
+$$[{"input": "", "expected": "employees with dept average"}]$$,
+$$["SELECT절의 서브쿼리는 하나의 값만 반환해야 합니다"]$$,
+$$["subquery", "scalar"]$$, 15),
+
+($$sql-derived-table$$, $$sql$$, $$syntax$$, 60, $$파생 테이블$$, $$FROM절의 서브쿼리$$, $$challenge$$, 2,
+$$부서별 평균 급여를 구한 후, 그 중 500만원 이상인 부서만 조회하세요.$$,
+$$- FROM절에 서브쿼리 사용\n- 서브쿼리에 별칭 부여$$,
+$$[{"input": "", "output": "부서ID, 평균급여"}]$$,
+$$-- FROM절에 서브쿼리를 사용하세요\n$$,
+$func$SELECT dept_id, avg_salary\nFROM (SELECT dept_id, AVG(salary) AS avg_salary FROM employees GROUP BY dept_id) AS dept_avg\nWHERE avg_salary >= 5000000;$func$,
+$$[{"input": "", "expected": "high average salary depts"}]$$,
+$$["FROM절의 서브쿼리는 반드시 별칭을 가져야 합니다"]$$,
+$$["subquery", "derived-table"]$$, 15)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 13: 집합 연산 (5 problems - MEDIUM)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-union$$, $$sql$$, $$syntax$$, 61, $$UNION 사용$$, $$중복 제거 합집합$$, $$challenge$$, 2,
+$$2023년 주문과 2024년 주문의 고객 목록을 중복 없이 조회하세요.$$,
+$$- UNION 사용\n- 중복 자동 제거$$,
+$$[{"input": "", "output": "고객ID (중복 제거)"}]$$,
+$$-- 2023년과 2024년 주문 고객을 UNION으로 조회\n$$,
+$func$SELECT customer_id FROM orders WHERE YEAR(order_date) = 2023\nUNION\nSELECT customer_id FROM orders WHERE YEAR(order_date) = 2024;$func$,
+$$[{"input": "", "expected": "unique customers"}]$$,
+$$["UNION은 자동으로 중복을 제거합니다"]$$,
+$$["set-operations", "union"]$$, 10),
+
+($$sql-union-all$$, $$sql$$, $$syntax$$, 62, $$UNION ALL$$, $$중복 포함 합집합$$, $$challenge$$, 2,
+$$모든 제품과 모든 서비스의 이름을 중복 포함하여 조회하세요.$$,
+$$- UNION ALL 사용\n- 중복 유지$$,
+$$[{"input": "", "output": "이름 (중복 포함)"}]$$,
+$$-- products와 services의 이름을 UNION ALL로 조회\n$$,
+$$SELECT product_name AS name FROM products\nUNION ALL\nSELECT service_name AS name FROM services;$$,
+$$[{"input": "", "expected": "all names with duplicates"}]$$,
+$$["UNION ALL은 중복을 제거하지 않습니다"]$$,
+$$["set-operations", "union-all"]$$, 10),
+
+($$sql-intersect$$, $$sql$$, $$syntax$$, 63, $$INTERSECT 사용$$, $$교집합$$, $$challenge$$, 2,
+$$2023년과 2024년 모두 주문한 고객을 조회하세요.$$,
+$$- INTERSECT 사용\n- 양쪽에 모두 존재하는 행$$,
+$$[{"input": "", "output": "고객ID"}]$$,
+$$-- 2023년과 2024년 모두 주문한 고객을 INTERSECT로 조회\n$$,
+$func$SELECT customer_id FROM orders WHERE YEAR(order_date) = 2023\nINTERSECT\nSELECT customer_id FROM orders WHERE YEAR(order_date) = 2024;$func$,
+$$[{"input": "", "expected": "customers in both years"}]$$,
+$$["INTERSECT는 양쪽에 모두 있는 행만 반환합니다"]$$,
+$$["set-operations", "intersect"]$$, 12),
+
+($$sql-except$$, $$sql$$, $$syntax$$, 64, $$EXCEPT/MINUS$$, $$차집합$$, $$challenge$$, 2,
+$$2023년에는 주문했지만 2024년에는 주문하지 않은 고객을 조회하세요.$$,
+$$- EXCEPT 또는 MINUS 사용\n- 첫 번째 집합에만 있는 행$$,
+$$[{"input": "", "output": "고객ID"}]$$,
+$$-- 2023년에만 주문한 고객을 EXCEPT로 조회\n$$,
+$func$SELECT customer_id FROM orders WHERE YEAR(order_date) = 2023\nEXCEPT\nSELECT customer_id FROM orders WHERE YEAR(order_date) = 2024;$func$,
+$$[{"input": "", "expected": "customers only in 2023"}]$$,
+$$["EXCEPT는 첫 번째 집합에서 두 번째 집합을 뺍니다"]$$,
+$$["set-operations", "except"]$$, 12),
+
+($$sql-set-operations-complex$$, $$sql$$, $$syntax$$, 65, $$복합 집합 연산$$, $$여러 집합 연산 조합$$, $$challenge$$, 2,
+$$(A UNION B) INTERSECT C 형태의 복합 집합 연산을 수행하세요.$$,
+$$- 괄호로 연산 순서 지정\n- 여러 집합 연산 조합$$,
+$$[{"input": "", "output": "결과 집합"}]$$,
+$$-- 복합 집합 연산을 수행하세요\n$$,
+$$(SELECT id FROM table_a UNION SELECT id FROM table_b)\nINTERSECT\nSELECT id FROM table_c;$$,
+$$[{"input": "", "expected": "complex set result"}]$$,
+$$["괄호를 사용하여 연산 순서를 지정하세요"]$$,
+$$["set-operations", "complex"]$$, 15)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 14: 윈도우 함수 (5 problems - MEDIUM)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-row-number$$, $$sql$$, $$syntax$$, 66, $$ROW_NUMBER 함수$$, $$행 번호 부여$$, $$challenge$$, 2,
+$$각 부서별로 급여 순으로 순위를 매기세요.$$,
+$$- ROW_NUMBER() OVER 사용\n- PARTITION BY와 ORDER BY$$,
+$$[{"input": "", "output": "직원명, 부서, 급여, 순위"}]$$,
+$$-- ROW_NUMBER로 부서별 급여 순위를 매기세요\n$$,
+$func$SELECT emp_name, dept_id, salary,\n  ROW_NUMBER() OVER (PARTITION BY dept_id ORDER BY salary DESC) AS rank\nFROM employees;$func$,
+$$[{"input": "", "expected": "ranked employees"}]$$,
+$$["PARTITION BY로 그룹을 나누고 ORDER BY로 정렬하세요"]$$,
+$$["window-function", "row-number"]$$, 15),
+
+($$sql-rank-dense-rank$$, $$sql$$, $$syntax$$, 67, $$RANK와 DENSE_RANK$$, $$순위 함수$$, $$challenge$$, 2,
+$$전체 직원의 급여 순위를 RANK와 DENSE_RANK로 각각 구하세요.$$,
+$$- RANK()와 DENSE_RANK() 비교\n- 동점 처리 방식 차이$$,
+$$[{"input": "", "output": "직원명, 급여, rank, dense_rank"}]$$,
+$$-- RANK와 DENSE_RANK로 급여 순위를 구하세요\n$$,
+$func$SELECT emp_name, salary,\n  RANK() OVER (ORDER BY salary DESC) AS rank,\n  DENSE_RANK() OVER (ORDER BY salary DESC) AS dense_rank\nFROM employees;$func$,
+$$[{"input": "", "expected": "ranks comparison"}]$$,
+$$["RANK는 동점 시 다음 순위를 건너뛰고, DENSE_RANK는 건너뛰지 않습니다"]$$,
+$$["window-function", "rank"]$$, 15),
+
+($$sql-lag-lead$$, $$sql$$, $$syntax$$, 68, $$LAG와 LEAD$$, $$이전/다음 행 참조$$, $$challenge$$, 2,
+$$각 직원의 급여와 이전 직원의 급여를 함께 출력하세요.$$,
+$$- LAG() 함수 사용\n- 정렬 순서에 따른 이전 값 참조$$,
+$$[{"input": "", "output": "직원명, 급여, 이전급여"}]$$,
+$$-- LAG로 이전 직원의 급여를 조회하세요\n$$,
+$$SELECT emp_name, salary,\n  LAG(salary) OVER (ORDER BY emp_id) AS prev_salary\nFROM employees;$$,
+$$[{"input": "", "expected": "salary with previous"}]$$,
+$$["LAG는 이전 행, LEAD는 다음 행을 참조합니다"]$$,
+$$["window-function", "lag-lead"]$$, 15),
+
+($$sql-sum-over$$, $$sql$$, $$syntax$$, 69, $$누적 합계$$, $$SUM OVER 윈도우 함수$$, $$challenge$$, 2,
+$$날짜별 매출의 누적 합계를 구하세요.$$,
+$$- SUM() OVER 사용\n- ROWS BETWEEN으로 범위 지정$$,
+$$[{"input": "", "output": "날짜, 매출, 누적합계"}]$$,
+$$-- 날짜별 매출의 누적 합계를 구하세요\n$$,
+$func$SELECT sale_date, amount,\n  SUM(amount) OVER (ORDER BY sale_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_sum\nFROM sales;$func$,
+$$[{"input": "", "expected": "cumulative sales"}]$$,
+$$["ROWS BETWEEN으로 첫 행부터 현재 행까지 합계를 구하세요"]$$,
+$$["window-function", "sum-over"]$$, 15),
+
+($$sql-ntile$$, $$sql$$, $$syntax$$, 70, $$NTILE 함수$$, $$그룹 분할$$, $$challenge$$, 2,
+$$직원을 급여 기준으로 4개 그룹(사분위)으로 나누세요.$$,
+$$- NTILE(4) 사용\n- 균등 분할$$,
+$$[{"input": "", "output": "직원명, 급여, 사분위"}]$$,
+$$-- NTILE로 직원을 4개 그룹으로 나누세요\n$$,
+$$SELECT emp_name, salary,\n  NTILE(4) OVER (ORDER BY salary DESC) AS quartile\nFROM employees;$$,
+$$[{"input": "", "expected": "employees in quartiles"}]$$,
+$$["NTILE(n)은 데이터를 n개의 균등한 그룹으로 나눕니다"]$$,
+$$["window-function", "ntile"]$$, 12)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 15: CTE와 재귀 쿼리 (5 problems - MEDIUM)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-simple-cte$$, $$sql$$, $$syntax$$, 71, $$기본 CTE$$, $$WITH 절 사용$$, $$challenge$$, 2,
+$$WITH 절을 사용하여 부서별 평균 급여를 구하고, 그 결과를 다시 사용하세요.$$,
+$$- WITH ... AS (...) 사용\n- CTE를 SELECT에서 참조$$,
+$$[{"input": "", "output": "부서ID, 평균급여"}]$$,
+$$-- WITH 절로 CTE를 만드세요\n$$,
+$func$WITH dept_avg AS (\n  SELECT dept_id, AVG(salary) AS avg_salary\n  FROM employees\n  GROUP BY dept_id\n)\nSELECT * FROM dept_avg WHERE avg_salary >= 5000000;$func$,
+$$[{"input": "", "expected": "high average depts"}]$$,
+$$["WITH로 임시 결과를 만들고 이름을 부여하세요"]$$,
+$$["cte", "with"]$$, 12),
+
+($$sql-multiple-cte$$, $$sql$$, $$syntax$$, 72, $$다중 CTE$$, $$여러 CTE 정의$$, $$challenge$$, 2,
+$$2개의 CTE를 정의하고 조인하여 사용하세요.$$,
+$$- WITH cte1 AS (...), cte2 AS (...)\n- CTE끼리 조인$$,
+$$[{"input": "", "output": "조인 결과"}]$$,
+$$-- 여러 CTE를 정의하고 조인하세요\n$$,
+$func$WITH high_salary AS (\n  SELECT emp_id, emp_name FROM employees WHERE salary > 5000000\n),\ndept_info AS (\n  SELECT dept_id, dept_name FROM departments\n)\nSELECT h.emp_name, d.dept_name\nFROM high_salary h\nJOIN employees e ON h.emp_id = e.emp_id\nJOIN dept_info d ON e.dept_id = d.dept_id;$func$,
+$$[{"input": "", "expected": "joined cte result"}]$$,
+$$["여러 CTE는 쉼표로 구분하여 정의합니다"]$$,
+$$["cte", "multiple"]$$, 15),
+
+($$sql-recursive-cte$$, $$sql$$, $$syntax$$, 73, $$재귀 CTE$$, $$계층 구조 조회$$, $$challenge$$, 2,
+$$재귀 CTE를 사용하여 1부터 10까지 숫자를 생성하세요.$$,
+$$- WITH RECURSIVE 사용\n- UNION ALL로 재귀 호출$$,
+$$[{"input": "", "output": "1부터 10까지"}]$$,
+$$-- 재귀 CTE로 1부터 10까지 생성하세요\n$$,
+$func$WITH RECURSIVE numbers AS (\n  SELECT 1 AS n\n  UNION ALL\n  SELECT n + 1 FROM numbers WHERE n < 10\n)\nSELECT * FROM numbers;$func$,
+$$[{"input": "", "expected": "numbers 1 to 10"}]$$,
+$$["기본 케이스와 재귀 케이스를 UNION ALL로 연결하세요"]$$,
+$$["cte", "recursive"]$$, 18),
+
+($$sql-hierarchy-query$$, $$sql$$, $$syntax$$, 74, $$조직도 조회$$, $$재귀로 계층 구조$$, $$challenge$$, 2,
+$$재귀 CTE로 직원의 전체 상위 관리자 체인을 조회하세요.$$,
+$$- 직원-매니저 관계를 재귀로 탐색\n- 최상위까지 올라가기$$,
+$$[{"input": "", "output": "직원명, 레벨, 경로"}]$$,
+$$-- 재귀 CTE로 조직도를 조회하세요\n$$,
+$func$WITH RECURSIVE org_chart AS (\n  SELECT emp_id, emp_name, manager_id, 1 AS level\n  FROM employees\n  WHERE manager_id IS NULL\n  UNION ALL\n  SELECT e.emp_id, e.emp_name, e.manager_id, o.level + 1\n  FROM employees e\n  JOIN org_chart o ON e.manager_id = o.emp_id\n)\nSELECT * FROM org_chart;$func$,
+$$[{"input": "", "expected": "org hierarchy"}]$$,
+$$["최상위(manager_id IS NULL)부터 시작하여 하위로 내려가세요"]$$,
+$$["cte", "hierarchy"]$$, 20),
+
+($$sql-cte-update$$, $$sql$$, $$syntax$$, 75, $$CTE로 UPDATE$$, $$CTE를 DML에 사용$$, $$challenge$$, 2,
+$$CTE를 사용하여 부서 평균보다 낮은 급여를 가진 직원의 급여를 10% 인상하세요.$$,
+$$- WITH 절 후 UPDATE 사용\n- CTE 결과를 WHERE 절에서 참조$$,
+$$[{"input": "", "output": "업데이트된 행 수"}]$$,
+$$-- CTE로 대상을 정하고 UPDATE하세요\n$$,
+$func$WITH dept_avg AS (\n  SELECT dept_id, AVG(salary) AS avg_salary\n  FROM employees\n  GROUP BY dept_id\n)\nUPDATE employees e\nSET salary = salary * 1.1\nFROM dept_avg d\nWHERE e.dept_id = d.dept_id AND e.salary < d.avg_salary;$func$,
+$$[{"input": "", "expected": "updated rows"}]$$,
+$$["CTE 결과를 UPDATE의 FROM 절에서 사용할 수 있습니다"]$$,
+$$["cte", "update"]$$, 15)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 16: CASE 문과 조건 로직 (5 problems - MEDIUM)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-simple-case$$, $$sql$$, $$syntax$$, 76, $$CASE WHEN 기본$$, $$조건부 값 반환$$, $$challenge$$, 2,
+$$급여 구간에 따라 등급을 부여하세요 (5백만 이상: A, 3백만 이상: B, 나머지: C).$$,
+$$- CASE WHEN ... THEN ... END\n- 여러 조건 분기$$,
+$$[{"input": "", "output": "직원명, 급여, 등급"}]$$,
+$$-- CASE WHEN으로 급여 등급을 부여하세요\n$$,
+$$SELECT emp_name, salary,\n  CASE\n    WHEN salary >= 5000000 THEN \$$A\$$\n    WHEN salary >= 3000000 THEN \$$B\$$\n    ELSE \$$C\$$\n  END AS grade\nFROM employees;$$,
+$$[{"input": "", "expected": "employees with grades"}]$$,
+$$["CASE는 위에서부터 순서대로 조건을 평가합니다"]$$,
+$$["case", "conditional"]$$, 12),
+
+($$sql-searched-case$$, $$sql$$, $$syntax$$, 77, $$Searched CASE$$, $$복잡한 조건 분기$$, $$challenge$$, 2,
+$$부서와 급여를 동시에 고려한 복합 등급을 부여하세요.$$,
+$$- 여러 컬럼을 조건으로 사용\n- AND/OR 조합$$,
+$$[{"input": "", "output": "직원명, 부서, 급여, 등급"}]$$,
+$$-- 부서와 급여를 함께 고려하여 등급을 부여하세요\n$$,
+$$SELECT emp_name, dept_name, salary,\n  CASE\n    WHEN dept_name = \$$영업부\$$ AND salary >= 5000000 THEN \$$영업A\$$\n    WHEN dept_name = \$$개발부\$$ AND salary >= 6000000 THEN \$$개발A\$$\n    WHEN salary >= 4000000 THEN \$$일반A\$$\n    ELSE \$$일반B\$$\n  END AS grade\nFROM employees;$$,
+$$[{"input": "", "expected": "complex grades"}]$$,
+$$["AND로 여러 조건을 결합할 수 있습니다"]$$,
+$$["case", "complex"]$$, 15),
+
+($$sql-case-in-aggregate$$, $$sql$$, $$syntax$$, 78, $$집계 함수의 CASE$$, $$조건부 집계$$, $$challenge$$, 2,
+$$부서별로 고급여(500만 이상)와 저급여(500만 미만) 직원 수를 각각 구하세요.$$,
+$$- SUM(CASE ...) 패턴\n- 조건부 카운트$$,
+$$[{"input": "", "output": "부서, 고급여수, 저급여수"}]$$,
+$$-- CASE를 집계 함수 안에서 사용하세요\n$$,
+$func$SELECT dept_id,\n  SUM(CASE WHEN salary >= 5000000 THEN 1 ELSE 0 END) AS high_salary_count,\n  SUM(CASE WHEN salary < 5000000 THEN 1 ELSE 0 END) AS low_salary_count\nFROM employees\nGROUP BY dept_id;$func$,
+$$[{"input": "", "expected": "conditional counts"}]$$,
+$$["CASE로 조건에 맞으면 1, 아니면 0을 반환하여 합계를 구하세요"]$$,
+$$["case", "aggregate"]$$, 15),
+
+($$sql-case-in-order-by$$, $$sql$$, $$syntax$$, 79, $$ORDER BY의 CASE$$, $$조건부 정렬$$, $$challenge$$, 2,
+$$부서가 "영업부"면 급여 내림차순, 나머지는 이름 오름차순으로 정렬하세요.$$,
+$$- ORDER BY CASE ...\n- 조건에 따른 정렬 방식 변경$$,
+$$[{"input": "", "output": "정렬된 직원 목록"}]$$,
+$$-- ORDER BY에 CASE를 사용하세요\n$$,
+$$SELECT emp_name, dept_name, salary\nFROM employees\nORDER BY\n  CASE WHEN dept_name = \$$영업부\$$ THEN salary END DESC,\n  CASE WHEN dept_name != \$$영업부\$$ THEN emp_name END ASC;$$,
+$$[{"input": "", "expected": "conditionally sorted"}]$$,
+$$["ORDER BY에 여러 CASE를 사용하여 조건별로 다른 정렬을 적용하세요"]$$,
+$$["case", "order-by"]$$, 15),
+
+($$sql-pivot-with-case$$, $$sql$$, $$syntax$$, 80, $$CASE로 피벗$$, $$행을 열로 변환$$, $$challenge$$, 2,
+$$월별 매출을 열로 펼쳐서 표시하세요 (1월, 2월, 3월 컬럼).$$,
+$$- CASE로 조건부 값 할당\n- 집계 함수와 함께 사용$$,
+$$[{"input": "", "output": "제품, 1월, 2월, 3월"}]$$,
+$$-- CASE로 월별 매출을 피벗하세요\n$$,
+$func$SELECT product_id,\n  SUM(CASE WHEN MONTH(sale_date) = 1 THEN amount ELSE 0 END) AS jan,\n  SUM(CASE WHEN MONTH(sale_date) = 2 THEN amount ELSE 0 END) AS feb,\n  SUM(CASE WHEN MONTH(sale_date) = 3 THEN amount ELSE 0 END) AS mar\nFROM sales\nGROUP BY product_id;$func$,
+$$[{"input": "", "expected": "pivoted sales"}]$$,
+$$["각 월에 해당하는 CASE를 만들어 SUM으로 집계하세요"]$$,
+$$["case", "pivot"]$$, 18)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 17: 문자열 함수 (5 problems - HARD)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-string-manipulation$$, $$sql$$, $$syntax$$, 81, $$문자열 가공$$, $$CONCAT, SUBSTRING 등$$, $$challenge$$, 3,
+$$이메일 주소에서 도메인 부분만 추출하고, 대문자로 변환하세요.$$,
+$$- SUBSTRING, POSITION, UPPER 사용\n- @ 이후 문자열 추출$$,
+$$[{"input": "", "output": "이메일, 도메인"}]$$,
+$$-- 이메일에서 도메인을 추출하고 대문자로 변환하세요\n$$,
+$$SELECT email,\n  UPPER(SUBSTRING(email FROM POSITION(\$$@\$$ IN email) + 1)) AS domain\nFROM users;$$,
+$$[{"input": "", "expected": "extracted domains"}]$$,
+$$["POSITION으로 @의 위치를 찾고, SUBSTRING으로 그 이후를 추출하세요"]$$,
+$$["string-function", "hard"]$$, 20),
+
+($$sql-pattern-matching$$, $$sql$$, $$syntax$$, 82, $$패턴 매칭$$, $$LIKE, REGEXP$$, $$challenge$$, 3,
+$$전화번호 형식이 올바른지 검증하세요 (###-####-####).$$,
+$$- REGEXP 또는 정규식 사용\n- 패턴 일치 확인$$,
+$$[{"input": "", "output": "이름, 전화번호, 유효성"}]$$,
+$$-- 전화번호가 패턴에 맞는지 확인하세요\n$$,
+$$SELECT name, phone,\n  CASE\n    WHEN phone ~ \$$^[0-9]{3}-[0-9]{4}-[0-9]{4}$\$$ THEN \$$유효\$$\n    ELSE \$$무효\$$\n  END AS validity\nFROM users;$$,
+$$[{"input": "", "expected": "validated phones"}]$$,
+$$["정규식 ~를 사용하여 패턴을 검증하세요"]$$,
+$$["string-function", "regexp", "hard"]$$, 20),
+
+($$sql-string-aggregation$$, $$sql$$, $$syntax$$, 83, $$문자열 집계$$, $$STRING_AGG, GROUP_CONCAT$$, $$challenge$$, 3,
+$$부서별로 직원 이름을 쉼표로 연결하여 하나의 문자열로 만드세요.$$,
+$$- STRING_AGG 또는 GROUP_CONCAT\n- 구분자 지정$$,
+$$[{"input": "", "output": "부서, 직원목록"}]$$,
+$$-- STRING_AGG로 직원 이름을 연결하세요\n$$,
+$$SELECT dept_id,\n  STRING_AGG(emp_name, \$$, \$$ ORDER BY emp_name) AS employees\nFROM employees\nGROUP BY dept_id;$$,
+$$[{"input": "", "expected": "concatenated names"}]$$,
+$$["STRING_AGG(컬럼, 구분자)로 그룹의 값들을 연결하세요"]$$,
+$$["string-function", "aggregation", "hard"]$$, 18),
+
+($$sql-split-string$$, $$sql$$, $$syntax$$, 84, $$문자열 분리$$, $$SPLIT_PART, UNNEST$$, $$challenge$$, 3,
+$$쉼표로 구분된 태그 문자열을 개별 행으로 분리하세요.$$,
+$$- STRING_TO_ARRAY, UNNEST 사용\n- 하나의 행을 여러 행으로 확장$$,
+$$[{"input": "", "output": "ID, 개별태그"}]$$,
+$$-- 태그 문자열을 개별 행으로 분리하세요\n$$,
+$$SELECT id, UNNEST(STRING_TO_ARRAY(tags, \$$,\$$)) AS tag\nFROM posts;$$,
+$$[{"input": "", "expected": "split tags"}]$$,
+$$["STRING_TO_ARRAY로 배열을 만들고 UNNEST로 행으로 확장하세요"]$$,
+$$["string-function", "split", "hard"]$$, 20),
+
+($$sql-levenshtein-distance$$, $$sql$$, $$syntax$$, 85, $$유사 문자열 찾기$$, $$편집 거리 계산$$, $$challenge$$, 3,
+$$Levenshtein 거리를 사용하여 이름이 유사한 고객을 찾으세요.$$,
+$$- LEVENSHTEIN 함수 또는 유사도 함수\n- 거리 3 이내$$,
+$$[{"input": "", "output": "고객1, 고객2, 거리"}]$$,
+$$-- 유사한 이름을 가진 고객 쌍을 찾으세요\n$$,
+$func$SELECT c1.name AS name1, c2.name AS name2,\n  LEVENSHTEIN(c1.name, c2.name) AS distance\nFROM customers c1\nJOIN customers c2 ON c1.id < c2.id\nWHERE LEVENSHTEIN(c1.name, c2.name) <= 3;$func$,
+$$[{"input": "", "expected": "similar name pairs"}]$$,
+$$["LEVENSHTEIN 함수로 두 문자열 간 편집 거리를 계산하세요"]$$,
+$$["string-function", "similarity", "hard"]$$, 25)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 18: 날짜/시간 함수 (5 problems - HARD)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-date-calculation$$, $$sql$$, $$syntax$$, 86, $$날짜 계산$$, $$날짜 연산$$, $$challenge$$, 3,
+$$각 주문일로부터 30일 후 날짜와 남은 일수를 계산하세요.$$,
+$$- DATE_ADD, DATEDIFF 사용\n- CURRENT_DATE와 비교$$,
+$$[{"input": "", "output": "주문일, 만료일, 남은일수"}]$$,
+$$-- 주문일로부터 30일 후와 남은 일수를 계산하세요\n$$,
+$$SELECT order_date,\n  order_date + INTERVAL \$$30 days\$$ AS expiry_date,\n  (order_date + INTERVAL \$$30 days\$$) - CURRENT_DATE AS days_left\nFROM orders;$$,
+$$[{"input": "", "expected": "date calculations"}]$$,
+$$["INTERVAL로 날짜에 일수를 더하고, 날짜끼리 빼서 차이를 구하세요"]$$,
+$$["date-function", "hard"]$$, 18),
+
+($$sql-extract-date-parts$$, $$sql$$, $$syntax$$, 87, $$날짜 부분 추출$$, $$EXTRACT, DATE_PART$$, $$challenge$$, 3,
+$$주문 날짜에서 년, 월, 요일, 주차를 각각 추출하세요.$$,
+$$- EXTRACT 또는 DATE_PART 사용\n- YEAR, MONTH, DOW, WEEK$$,
+$$[{"input": "", "output": "주문일, 년, 월, 요일, 주차"}]$$,
+$$-- 날짜에서 여러 부분을 추출하세요\n$$,
+$func$SELECT order_date,\n  EXTRACT(YEAR FROM order_date) AS year,\n  EXTRACT(MONTH FROM order_date) AS month,\n  EXTRACT(DOW FROM order_date) AS day_of_week,\n  EXTRACT(WEEK FROM order_date) AS week\nFROM orders;$func$,
+$$[{"input": "", "expected": "extracted date parts"}]$$,
+$$["EXTRACT(부분 FROM 날짜) 형식으로 사용하세요"]$$,
+$$["date-function", "extract", "hard"]$$, 18),
+
+($$sql-time-series-gap$$, $$sql$$, $$syntax$$, 88, $$시계열 간격 찾기$$, $$연속되지 않은 날짜$$, $$challenge$$, 3,
+$$일별 판매 데이터에서 판매가 없는 날짜를 찾으세요.$$,
+$$- 날짜 시리즈 생성\n- LEFT JOIN으로 누락 날짜 찾기$$,
+$$[{"input": "", "output": "누락된 날짜"}]$$,
+$$-- 판매가 없는 날짜를 찾으세요\n$$,
+$func$WITH date_series AS (\n  SELECT generate_series(\n    (SELECT MIN(sale_date) FROM sales),\n    (SELECT MAX(sale_date) FROM sales),\n    \$func$1 day\$func$::interval\n  )::date AS date\n)\nSELECT d.date AS missing_date\nFROM date_series d\nLEFT JOIN sales s ON d.date = s.sale_date\nWHERE s.sale_date IS NULL;$func$,
+$$[{"input": "", "expected": "missing dates"}]$$,
+$$["generate_series로 연속된 날짜를 만들고 LEFT JOIN으로 누락을 찾으세요"]$$,
+$$["date-function", "time-series", "hard"]$$, 25),
+
+($$sql-moving-average$$, $$sql$$, $$syntax$$, 89, $$이동 평균$$, $$날짜 기반 윈도우$$, $$challenge$$, 3,
+$$최근 7일간의 매출 이동 평균을 계산하세요.$$,
+$$- 윈도우 함수 사용\n- RANGE BETWEEN으로 날짜 범위 지정$$,
+$$[{"input": "", "output": "날짜, 매출, 7일평균"}]$$,
+$$-- 7일 이동 평균을 계산하세요\n$$,
+$func$SELECT sale_date, amount,\n  AVG(amount) OVER (\n    ORDER BY sale_date\n    RANGE BETWEEN INTERVAL \$func$6 days\$$ PRECEDING AND CURRENT ROW\n  ) AS moving_avg_7d\nFROM sales;$$,
+$$[{"input": "", "expected": "moving averages"}]$$,
+$$["RANGE BETWEEN으로 날짜 기준 범위를 지정하세요"]$$,
+$$["date-function", "window", "hard"]$$, 22),
+
+($$sql-fiscal-year$$, $$sql$$, $$syntax$$, 90, $$회계연도 계산$$, $$커스텀 연도 정의$$, $$challenge$$, 3,
+$$회계연도(4월 시작)를 기준으로 데이터를 그룹화하세요.$$,
+$$- CASE로 회계연도 계산\n- 4월~3월을 한 연도로$$,
+$$[{"input": "", "output": "회계연도, 총매출"}]$$,
+$$-- 회계연도별 매출을 집계하세요\n$$,
+$func$SELECT\n  CASE\n    WHEN EXTRACT(MONTH FROM sale_date) >= 4 THEN EXTRACT(YEAR FROM sale_date)\n    ELSE EXTRACT(YEAR FROM sale_date) - 1\n  END AS fiscal_year,\n  SUM(amount) AS total_sales\nFROM sales\nGROUP BY fiscal_year\nORDER BY fiscal_year;$func$,
+$$[{"input": "", "expected": "fiscal year sales"}]$$,
+$$["4월 이후면 해당 연도, 1~3월이면 전년도를 회계연도로 하세요"]$$,
+$$["date-function", "fiscal", "hard"]$$, 20)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 19: JSON 및 배열 (5 problems - HARD)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-json-extract$$, $$sql$$, $$syntax$$, 91, $$JSON 데이터 추출$$, $$JSON 필드 접근$$, $$challenge$$, 3,
+$$JSON 컬럼에서 특정 키의 값을 추출하세요.$$,
+$$- -> 또는 ->> 연산자 사용\n- JSON 경로 지정$$,
+$$[{"input": "", "output": "ID, 이름(JSON에서 추출)"}]$$,
+$$-- JSON 컬럼에서 name 키를 추출하세요\n$$,
+$$SELECT id, data->>\$$name\$$ AS name\nFROM users;$$,
+$$[{"input": "", "expected": "extracted json values"}]$$,
+$$["->>는 텍스트로, ->는 JSON 객체로 반환합니다"]$$,
+$$["json", "hard"]$$, 18),
+
+($$sql-json-array-elements$$, $$sql$$, $$syntax$$, 92, $$JSON 배열 확장$$, $$JSON 배열을 행으로$$, $$challenge$$, 3,
+$$JSON 배열 필드를 개별 행으로 확장하세요.$$,
+$$- json_array_elements 사용\n- LATERAL JOIN$$,
+$$[{"input": "", "output": "ID, 배열요소"}]$$,
+$$-- JSON 배열을 개별 행으로 확장하세요\n$$,
+$$SELECT id, elem->>\$$value\$$ AS item\nFROM products,\n  LATERAL json_array_elements(data->\$$items\$$) AS elem;$$,
+$$[{"input": "", "expected": "expanded array"}]$$,
+$$["json_array_elements로 배열의 각 요소를 행으로 만드세요"]$$,
+$$["json", "array", "hard"]$$, 22),
+
+($$sql-jsonb-aggregation$$, $$sql$$, $$syntax$$, 93, $$JSON 집계$$, $$json_agg 사용$$, $$challenge$$, 3,
+$$그룹별 행들을 JSON 배열로 집계하세요.$$,
+$$- json_agg 또는 jsonb_agg\n- JSON 객체로 변환$$,
+$$[{"input": "", "output": "부서, 직원배열(JSON)"}]$$,
+$$-- 부서별 직원을 JSON 배열로 집계하세요\n$$,
+$$SELECT dept_id,\n  jsonb_agg(jsonb_build_object(\$$name\$$, emp_name, \$$salary\$$, salary)) AS employees\nFROM employees\nGROUP BY dept_id;$$,
+$$[{"input": "", "expected": "json aggregated"}]$$,
+$$["jsonb_build_object로 객체를 만들고 jsonb_agg로 배열을 만드세요"]$$,
+$$["json", "aggregation", "hard"]$$, 22),
+
+($$sql-array-operations$$, $$sql$$, $$syntax$$, 94, $$배열 연산$$, $$ARRAY 함수$$, $$challenge$$, 3,
+$$배열 컬럼에서 특정 값이 포함된 행을 찾으세요.$$,
+$$- ANY, ALL 또는 @> 연산자\n- 배열 포함 여부 확인$$,
+$$[{"input": "", "output": "ID, 태그배열"}]$$,
+$$-- 태그 배열에 \$$sql\$$이 포함된 게시물을 찾으세요\n$$,
+$$SELECT id, tags\nFROM posts\nWHERE \$$sql\$$ = ANY(tags);\n-- 또는: WHERE tags @> $$["\$$sql\"]$$;$func$,
+$func$[{"input": "", "expected": "posts with sql tag"}]$func$,
+$func$["ANY(배열)는 배열의 어느 요소와 일치하는지 확인합니다"]$func$,
+$$["array", "hard"]$$, 18),
+
+($$sql-array-unnest-filter$$, $$sql$$, $$syntax$$, 95, $$배열 필터링$$, $$UNNEST와 조건$$, $$challenge$$, 3,
+$func$배열을 펼친 후 조건에 맞는 요소만 다시 배열로 수집하세요.$func$,
+$func$- UNNEST로 확장\n- WHERE로 필터\n- ARRAY_AGG로 재수집$func$,
+$func$[{"input": "", "output": "ID, 필터링된배열"}]$func$,
+$func$-- 점수 배열에서 80점 이상만 남기세요\n$func$,
+$func$SELECT id,\n  ARRAY_AGG(score) AS high_scores\nFROM (\n  SELECT id, UNNEST(scores) AS score\n  FROM students\n) AS expanded\nWHERE score >= 80\nGROUP BY id;$func$,
+$func$[{"input": "", "expected": "filtered arrays"}]$func$,
+$func$["UNNEST로 펼치고, WHERE로 필터하고, ARRAY_AGG로 다시 모으세요"]$func$,
+$$["array", "filter", "hard"]$$, 25)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- Unit 20: 트랜잭션과 고급 DML (5 problems - HARD)
+INSERT INTO challenges (slug, language, kind, level, title, description, category, difficulty, problem_description, constraints, examples, initial_code, solution_code, test_cases, hints, tags, estimated_time) VALUES
+($$sql-upsert$$, $$sql$$, $$syntax$$, 96, $$UPSERT 구현$$, $$INSERT ON CONFLICT$$, $$challenge$$, 3,
+$func$존재하면 UPDATE, 없으면 INSERT하는 UPSERT를 구현하세요.$func$,
+$func$- INSERT ... ON CONFLICT 사용\n- DO UPDATE SET$func$,
+$func$[{"input": "", "output": "처리된 행"}]$func$,
+$func$-- UPSERT를 구현하세요\n$func$,
+$func$INSERT INTO products (id, name, price)\nVALUES (1, \$$Product A\$$, 1000)\nON CONFLICT (id)\nDO UPDATE SET\n  name = EXCLUDED.name,\n  price = EXCLUDED.price;$func$,
+$func$[{"input": "", "expected": "upserted row"}]$func$,
+$func$["ON CONFLICT (키)로 충돌 시 동작을 지정하세요"]$func$,
+$$["dml", "upsert", "hard"]$$, 20),
+
+($$sql-merge-statement$$, $$sql$$, $$syntax$$, 97, $$MERGE 문$$, $$조건부 INSERT/UPDATE/DELETE$$, $$challenge$$, 3,
+$func$MERGE 문으로 소스 테이블을 타겟 테이블에 동기화하세요.$func$,
+$func$- MERGE INTO 사용\n- WHEN MATCHED / NOT MATCHED$func$,
+$func$[{"input": "", "output": "병합 결과"}]$func$,
+$func$-- MERGE로 두 테이블을 동기화하세요\n$func$,
+$func$MERGE INTO target t\nUSING source s ON t.id = s.id\nWHEN MATCHED THEN\n  UPDATE SET t.value = s.value\nWHEN NOT MATCHED THEN\n  INSERT (id, value) VALUES (s.id, s.value);$func$,
+$func$[{"input": "", "expected": "merged data"}]$func$,
+$func$["MERGE는 매칭 여부에 따라 다른 동작을 수행합니다"]$func$,
+$$["dml", "merge", "hard"]$$, 25),
+
+($$sql-returning-clause$$, $$sql$$, $$syntax$$, 98, $$RETURNING 절$$, $$DML 결과 반환$$, $$challenge$$, 3,
+$func$INSERT/UPDATE/DELETE 후 변경된 행의 정보를 반환하세요.$func$,
+$func$- RETURNING * 또는 특정 컬럼\n- DML 문 뒤에 추가$func$,
+$func$[{"input": "", "output": "삽입/수정/삭제된 행"}]$func$,
+$func$-- UPDATE 후 변경된 행을 반환하세요\n$func$,
+$func$UPDATE employees\nSET salary = salary * 1.1\nWHERE dept_id = 10\nRETURNING emp_id, emp_name, salary;$func$,
+$func$[{"input": "", "expected": "updated rows"}]$func$,
+$func$["RETURNING으로 DML 결과를 즉시 조회할 수 있습니다"]$func$,
+$$["dml", "returning", "hard"]$$, 18),
+
+($$sql-cte-delete$$, $$sql$$, $$syntax$$, 99, $$CTE로 복잡한 DELETE$$, $$조건부 삭제$$, $$challenge$$, 3,
+$func$CTE를 사용하여 특정 조건을 만족하는 중복 행만 삭제하세요.$func$,
+$func$- WITH ... DELETE 사용\n- ROW_NUMBER로 중복 판별$func$,
+$func$[{"input": "", "output": "삭제된 행 수"}]$func$,
+$func$-- 이메일 중복 중 최신 것만 남기고 삭제하세요\n$func$,
+$func$WITH ranked AS (\n  SELECT id,\n    ROW_NUMBER() OVER (PARTITION BY email ORDER BY created_at DESC) AS rn\n  FROM users\n)\nDELETE FROM users\nWHERE id IN (SELECT id FROM ranked WHERE rn > 1);$func$,
+$func$[{"input": "", "expected": "deleted duplicates"}]$func$,
+$func$["CTE로 삭제할 대상을 먼저 선정하세요"]$func$,
+$$["dml", "delete", "hard"]$$, 25),
+
+($$sql-multi-table-update$$, $$sql$$, $$syntax$$, 100, $$다중 테이블 UPDATE$$, $$조인을 통한 수정$$, $$challenge$$, 3,
+$func$다른 테이블의 정보를 기반으로 여러 컬럼을 동시에 UPDATE하세요.$func$,
+$func$- UPDATE ... FROM 사용\n- 서브쿼리 또는 조인 활용$func$,
+$func$[{"input": "", "output": "수정된 행 수"}]$func$,
+$func$-- 부서 정보를 기반으로 직원 정보를 업데이트하세요\n$func$,
+$func$UPDATE employees e\nSET\n  dept_name = d.dept_name,\n  location = d.location\nFROM departments d\nWHERE e.dept_id = d.dept_id\n  AND d.status = \$$active\$$;$func$,
+$func$[{"input": "", "expected": "updated employees"}]$func$,
+$func$["FROM 절로 다른 테이블을 참조하여 UPDATE할 수 있습니다"]$func$,
+$$["dml", "update", "hard"]$$, 22)
+
+ON CONFLICT (slug) DO UPDATE SET
+    language = EXCLUDED.language,
+    kind = EXCLUDED.kind,
+    level = EXCLUDED.level,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    category = EXCLUDED.category,
+    difficulty = EXCLUDED.difficulty,
+    problem_description = EXCLUDED.problem_description,
+    constraints = EXCLUDED.constraints,
+    examples = EXCLUDED.examples,
+    initial_code = EXCLUDED.initial_code,
+    solution_code = EXCLUDED.solution_code,
+    test_cases = EXCLUDED.test_cases,
+    hints = EXCLUDED.hints,
+    tags = EXCLUDED.tags,
+    estimated_time = EXCLUDED.estimated_time;
+
+-- ====================================
+-- 완료 메시지
+-- ====================================
+

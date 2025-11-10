@@ -1,0 +1,406 @@
+{
+  "language": "firebase",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "chapter": 1,
+      "question": "바데부가 Firebase에 대해 배우고 있습니다. Firebase는 어떤 회사가 제공하는 서비스인가요?",
+      "options": ["Amazon", "Google", "Microsoft", "Meta"],
+      "correctAnswer": 1,
+      "explanation": "Firebase는 Google이 제공하는 백엔드 플랫폼입니다. 2014년에 Google이 인수하여 현재는 Google Cloud의 일부입니다."
+    },
+    {
+      "id": 2,
+      "chapter": 1,
+      "question": "바데부가 Firebase 프로젝트를 초기화하려고 합니다. 어떤 함수를 사용해야 하나요?",
+      "options": ["createApp()", "initializeApp()", "startApp()", "setupApp()"],
+      "correctAnswer": 1,
+      "explanation": "initializeApp()는 Firebase 앱을 초기화하는 함수입니다. firebaseConfig 객체를 매개변수로 받습니다."
+    },
+    {
+      "id": 3,
+      "chapter": 1,
+      "question": "바데부가 Firebase API Key를 안전하게 관리하려고 합니다. 어디에 저장해야 하나요?",
+      "options": ["소스 코드에 직접 작성", "환경 변수 (.env 파일)", "README.md 파일", "package.json"],
+      "correctAnswer": 1,
+      "explanation": "API Key는 .env 파일에 환경 변수로 저장해야 합니다. 이 파일은 .gitignore에 추가하여 Git에 커밋되지 않도록 해야 합니다."
+    },
+    {
+      "id": 4,
+      "chapter": 1,
+      "question": "바데부가 Firebase 프로젝트에서 제공하는 서비스가 아닌 것은?",
+      "options": ["Authentication", "Firestore", "PostgreSQL", "Cloud Storage"],
+      "correctAnswer": 2,
+      "explanation": "PostgreSQL은 Firebase가 아닌 Supabase에서 제공하는 데이터베이스입니다. Firebase는 Firestore와 Realtime Database를 제공합니다."
+    },
+    {
+      "id": 5,
+      "chapter": 1,
+      "question": "바데부가 Firebase를 앱에서 여러 번 초기화했습니다. 올바른 방법은?",
+      "options": ["컴포넌트마다 초기화", "페이지마다 초기화", "앱 시작 시 한 번만 초기화", "함수 호출 시마다 초기화"],
+      "correctAnswer": 2,
+      "explanation": "Firebase는 앱 시작 시 한 번만 초기화해야 합니다. 여러 번 초기화하면 오류가 발생할 수 있습니다."
+    },
+    {
+      "id": 6,
+      "chapter": 2,
+      "question": "바데부가 이메일/비밀번호로 회원가입을 구현하려고 합니다. 어떤 함수를 사용해야 하나요?",
+      "options": ["signUp()", "createUser()", "createUserWithEmailAndPassword()", "registerUser()"],
+      "correctAnswer": 2,
+      "explanation": "createUserWithEmailAndPassword()는 이메일과 비밀번호로 새 사용자를 생성하는 함수입니다."
+    },
+    {
+      "id": 7,
+      "chapter": 2,
+      "question": "바데부가 로그인을 구현하려고 합니다. 어떤 함수를 사용해야 하나요?",
+      "options": ["login()", "signIn()", "signInWithEmailAndPassword()", "authenticate()"],
+      "correctAnswer": 2,
+      "explanation": "signInWithEmailAndPassword()는 이메일과 비밀번호로 로그인하는 함수입니다."
+    },
+    {
+      "id": 8,
+      "chapter": 2,
+      "question": "바데부가 현재 로그인된 사용자를 확인하려고 합니다. 어떤 속성을 사용하나요?",
+      "options": ["auth.user", "auth.currentUser", "auth.loggedInUser", "auth.activeUser"],
+      "correctAnswer": 1,
+      "explanation": "auth.currentUser는 현재 로그인된 사용자 객체를 반환합니다. 로그인되지 않았으면 null을 반환합니다."
+    },
+    {
+      "id": 9,
+      "chapter": 2,
+      "question": "바데부가 인증 상태 변화를 실시간으로 감지하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["watchAuth()", "onAuthStateChanged()", "listenAuth()", "subscribeAuth()"],
+      "correctAnswer": 1,
+      "explanation": "onAuthStateChanged()는 인증 상태가 변경될 때마다 콜백 함수를 호출합니다. 로그인, 로그아웃 시 자동으로 감지됩니다."
+    },
+    {
+      "id": 10,
+      "chapter": 2,
+      "question": "바데부가 Google 로그인을 구현하려고 합니다. 어떤 함수를 사용해야 하나요?",
+      "options": ["signInWithGoogle()", "googleSignIn()", "signInWithPopup(GoogleAuthProvider)", "loginWithGoogle()"],
+      "correctAnswer": 2,
+      "explanation": "signInWithPopup()에 GoogleAuthProvider를 전달하여 Google 로그인을 구현합니다."
+    },
+    {
+      "id": 11,
+      "chapter": 2,
+      "question": "바데부가 비밀번호 재설정 이메일을 보내려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["resetPassword()", "sendPasswordReset()", "sendPasswordResetEmail()", "forgotPassword()"],
+      "correctAnswer": 2,
+      "explanation": "sendPasswordResetEmail()은 사용자의 이메일로 비밀번호 재설정 링크를 전송합니다."
+    },
+    {
+      "id": 12,
+      "chapter": 2,
+      "question": "바데부가 Firebase Authentication에서 지원하지 않는 로그인 방법은?",
+      "options": ["이메일/비밀번호", "Google", "LinkedIn", "GitHub"],
+      "correctAnswer": 2,
+      "explanation": "Firebase Authentication은 LinkedIn을 기본적으로 지원하지 않습니다. 이메일, Google, GitHub, Facebook 등을 지원합니다."
+    },
+    {
+      "id": 13,
+      "chapter": 3,
+      "question": "바데부가 Firestore에 대해 배우고 있습니다. Firestore의 기본 데이터 구조는?",
+      "options": ["테이블과 행", "컬렉션과 문서", "버킷과 객체", "키와 값"],
+      "correctAnswer": 1,
+      "explanation": "Firestore는 컬렉션(Collection)과 문서(Document)로 데이터를 구성하는 NoSQL 데이터베이스입니다."
+    },
+    {
+      "id": 14,
+      "chapter": 3,
+      "question": "바데부가 Firestore에 새 문서를 추가하려고 합니다. 자동으로 ID를 생성하는 함수는?",
+      "options": ["setDoc()", "addDoc()", "createDoc()", "insertDoc()"],
+      "correctAnswer": 1,
+      "explanation": "addDoc()은 자동으로 고유한 ID를 생성하여 문서를 추가합니다. setDoc()은 ID를 직접 지정할 때 사용합니다."
+    },
+    {
+      "id": 15,
+      "chapter": 3,
+      "question": "바데부가 특정 ID의 문서를 읽으려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["readDoc()", "getDoc()", "fetchDoc()", "findDoc()"],
+      "correctAnswer": 1,
+      "explanation": "getDoc()은 특정 문서 참조를 받아 해당 문서를 읽어옵니다."
+    },
+    {
+      "id": 16,
+      "chapter": 3,
+      "question": "바데부가 Firestore에서 나이가 5살 이상인 사용자를 찾으려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["filter()", "where()", "find()", "query()"],
+      "correctAnswer": 1,
+      "explanation": "where()는 Firestore 쿼리에서 조건을 지정하는 함수입니다. where('age', '>=', 5)와 같이 사용합니다."
+    },
+    {
+      "id": 17,
+      "chapter": 3,
+      "question": "바데부가 Firestore 문서의 특정 필드만 업데이트하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["setDoc()", "updateDoc()", "modifyDoc()", "changeDoc()"],
+      "correctAnswer": 1,
+      "explanation": "updateDoc()은 문서의 특정 필드만 업데이트합니다. setDoc()은 문서 전체를 덮어씁니다."
+    },
+    {
+      "id": 18,
+      "chapter": 3,
+      "question": "바데부가 Firestore 데이터의 실시간 변경을 감지하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["watchDoc()", "onSnapshot()", "listenDoc()", "subscribeDoc()"],
+      "correctAnswer": 1,
+      "explanation": "onSnapshot()은 문서나 컬렉션의 변경사항을 실시간으로 감지하는 리스너를 설정합니다."
+    },
+    {
+      "id": 19,
+      "chapter": 3,
+      "question": "바데부가 Firestore 문서를 삭제하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["removeDoc()", "deleteDoc()", "eraseDoc()", "destroyDoc()"],
+      "correctAnswer": 1,
+      "explanation": "deleteDoc()은 Firestore에서 문서를 삭제하는 함수입니다."
+    },
+    {
+      "id": 20,
+      "chapter": 3,
+      "question": "바데부가 Firestore에서 문서 10개만 가져오려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["take(10)", "limit(10)", "max(10)", "count(10)"],
+      "correctAnswer": 1,
+      "explanation": "limit()은 쿼리 결과의 개수를 제한하는 함수입니다. limit(10)은 최대 10개의 문서만 가져옵니다."
+    },
+    {
+      "id": 21,
+      "chapter": 4,
+      "question": "바데부가 Realtime Database와 Firestore의 차이점을 배우고 있습니다. Realtime Database의 데이터 구조는?",
+      "options": ["컬렉션과 문서", "JSON 트리", "테이블과 행", "키-값 쌍"],
+      "correctAnswer": 1,
+      "explanation": "Realtime Database는 JSON 트리 구조로 데이터를 저장합니다. Firestore는 컬렉션과 문서 구조입니다."
+    },
+    {
+      "id": 22,
+      "chapter": 4,
+      "question": "바데부가 Realtime Database에 데이터를 쓰려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["write()", "set()", "put()", "insert()"],
+      "correctAnswer": 1,
+      "explanation": "set()은 Realtime Database의 특정 경로에 데이터를 쓰는 함수입니다."
+    },
+    {
+      "id": 23,
+      "chapter": 4,
+      "question": "바데부가 Realtime Database에 새 항목을 추가하며 자동으로 ID를 생성하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["add()", "push()", "create()", "append()"],
+      "correctAnswer": 1,
+      "explanation": "push()는 자동으로 고유한 ID를 생성하여 새 항목을 추가합니다."
+    },
+    {
+      "id": 24,
+      "chapter": 4,
+      "question": "바데부가 Realtime Database에서 데이터를 한 번만 읽으려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["read()", "get()", "fetch()", "once()"],
+      "correctAnswer": 1,
+      "explanation": "get()은 Realtime Database에서 데이터를 한 번만 읽어오는 함수입니다."
+    },
+    {
+      "id": 25,
+      "chapter": 4,
+      "question": "바데부가 Realtime Database의 실시간 변경을 감지하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["watch()", "onValue()", "listen()", "subscribe()"],
+      "correctAnswer": 1,
+      "explanation": "onValue()는 Realtime Database의 데이터 변경을 실시간으로 감지하는 리스너입니다."
+    },
+    {
+      "id": 26,
+      "chapter": 5,
+      "question": "바데부가 Cloud Storage에 파일을 업로드하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["upload()", "uploadBytes()", "putFile()", "saveFile()"],
+      "correctAnswer": 1,
+      "explanation": "uploadBytes()는 Cloud Storage에 파일을 업로드하는 함수입니다."
+    },
+    {
+      "id": 27,
+      "chapter": 5,
+      "question": "바데부가 업로드된 파일의 다운로드 URL을 가져오려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["getURL()", "getDownloadURL()", "fetchURL()", "downloadURL()"],
+      "correctAnswer": 1,
+      "explanation": "getDownloadURL()은 Storage에 업로드된 파일의 다운로드 URL을 반환합니다."
+    },
+    {
+      "id": 28,
+      "chapter": 5,
+      "question": "바데부가 파일 업로드 진행률을 표시하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["uploadWithProgress()", "uploadBytesResumable()", "trackUpload()", "monitorUpload()"],
+      "correctAnswer": 1,
+      "explanation": "uploadBytesResumable()은 업로드 작업 객체를 반환하여 진행률을 추적할 수 있습니다."
+    },
+    {
+      "id": 29,
+      "chapter": 5,
+      "question": "바데부가 Storage에서 파일을 삭제하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["removeFile()", "deleteObject()", "eraseFile()", "destroyFile()"],
+      "correctAnswer": 1,
+      "explanation": "deleteObject()는 Cloud Storage에서 파일을 삭제하는 함수입니다."
+    },
+    {
+      "id": 30,
+      "chapter": 5,
+      "question": "바데부가 Storage 폴더의 모든 파일 목록을 가져오려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["getFiles()", "listAll()", "fetchList()", "getAllFiles()"],
+      "correctAnswer": 1,
+      "explanation": "listAll()은 특정 경로의 모든 파일과 폴더 목록을 반환합니다."
+    },
+    {
+      "id": 31,
+      "chapter": 6,
+      "question": "바데부가 Cloud Functions를 배포하려고 합니다. 어떤 명령어를 사용하나요?",
+      "options": ["firebase push", "firebase deploy --only functions", "firebase upload", "firebase publish"],
+      "correctAnswer": 1,
+      "explanation": "firebase deploy --only functions는 Cloud Functions만 배포하는 명령어입니다."
+    },
+    {
+      "id": 32,
+      "chapter": 6,
+      "question": "바데부가 HTTP 요청을 처리하는 함수를 만들려고 합니다. 어떤 트리거를 사용하나요?",
+      "options": ["functions.http.onCreate", "functions.https.onRequest", "functions.api.onCall", "functions.web.onRequest"],
+      "correctAnswer": 1,
+      "explanation": "functions.https.onRequest는 HTTP 요청을 처리하는 함수를 생성합니다."
+    },
+    {
+      "id": 33,
+      "chapter": 6,
+      "question": "바데부가 Firestore 문서 생성 시 자동으로 실행되는 함수를 만들려고 합니다. 어떤 트리거를 사용하나요?",
+      "options": ["functions.firestore.document().onCreate", "functions.db.onCreate", "functions.firestore.onAdd", "functions.document.create"],
+      "correctAnswer": 0,
+      "explanation": "functions.firestore.document().onCreate는 Firestore 문서가 생성될 때 트리거되는 함수입니다."
+    },
+    {
+      "id": 34,
+      "chapter": 6,
+      "question": "바데부가 매일 자정에 실행되는 함수를 만들려고 합니다. 어떤 트리거를 사용하나요?",
+      "options": ["functions.cron.schedule", "functions.pubsub.schedule", "functions.time.schedule", "functions.scheduler.run"],
+      "correctAnswer": 1,
+      "explanation": "functions.pubsub.schedule()은 정해진 시간에 함수를 실행하는 예약 트리거입니다."
+    },
+    {
+      "id": 35,
+      "chapter": 6,
+      "question": "바데부가 클라이언트에서 직접 호출할 수 있는 함수를 만들려고 합니다. 어떤 트리거를 사용하나요?",
+      "options": ["functions.https.onRequest", "functions.https.onCall", "functions.client.onInvoke", "functions.api.onCall"],
+      "correctAnswer": 1,
+      "explanation": "functions.https.onCall은 클라이언트에서 직접 호출할 수 있는 Callable 함수를 생성합니다."
+    },
+    {
+      "id": 36,
+      "chapter": 7,
+      "question": "바데부가 Firebase Hosting에 배포하려고 합니다. 어떤 명령어를 사용하나요?",
+      "options": ["firebase push", "firebase deploy --only hosting", "firebase upload", "firebase publish"],
+      "correctAnswer": 1,
+      "explanation": "firebase deploy --only hosting은 Firebase Hosting에만 배포하는 명령어입니다."
+    },
+    {
+      "id": 37,
+      "chapter": 7,
+      "question": "바데부가 React 앱을 빌드한 후 어떤 폴더를 배포해야 하나요?",
+      "options": ["src", "public", "build", "dist"],
+      "correctAnswer": 2,
+      "explanation": "React 앱은 npm run build 실행 후 생성되는 build 폴더를 배포합니다."
+    },
+    {
+      "id": 38,
+      "chapter": 7,
+      "question": "바데부가 Firebase Hosting에서 SPA 라우팅을 설정하려고 합니다. firebase.json에 무엇을 추가해야 하나요?",
+      "options": ["redirects", "rewrites", "routes", "paths"],
+      "correctAnswer": 1,
+      "explanation": "rewrites는 모든 경로를 index.html로 리다이렉트하여 SPA 라우팅을 지원합니다."
+    },
+    {
+      "id": 39,
+      "chapter": 7,
+      "question": "바데부가 Firebase Hosting에서 자동으로 제공되는 것은?",
+      "options": ["데이터베이스", "SSL 인증서", "백엔드 서버", "사용자 인증"],
+      "correctAnswer": 1,
+      "explanation": "Firebase Hosting은 모든 사이트에 무료 SSL 인증서를 자동으로 제공하여 HTTPS를 지원합니다."
+    },
+    {
+      "id": 40,
+      "chapter": 7,
+      "question": "바데부가 배포 전에 로컬에서 테스트하려고 합니다. 어떤 명령어를 사용하나요?",
+      "options": ["firebase test", "firebase serve", "firebase preview", "firebase local"],
+      "correctAnswer": 1,
+      "explanation": "firebase serve는 로컬 서버를 실행하여 배포 전에 사이트를 테스트할 수 있습니다."
+    },
+    {
+      "id": 41,
+      "chapter": 8,
+      "question": "바데부가 FCM으로 푸시 알림을 보내려고 합니다. 먼저 무엇을 받아야 하나요?",
+      "options": ["API Key", "FCM 토큰", "사용자 ID", "알림 ID"],
+      "correctAnswer": 1,
+      "explanation": "FCM 토큰은 각 기기의 고유 식별자로, 푸시 알림을 보내기 위해 필요합니다."
+    },
+    {
+      "id": 42,
+      "chapter": 8,
+      "question": "바데부가 웹에서 FCM 토큰을 가져오려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["getFCMToken()", "getToken()", "requestToken()", "fetchToken()"],
+      "correctAnswer": 1,
+      "explanation": "getToken()은 Firebase Messaging에서 FCM 토큰을 가져오는 함수입니다."
+    },
+    {
+      "id": 43,
+      "chapter": 8,
+      "question": "바데부가 앱이 포그라운드일 때 메시지를 수신하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["onNotification()", "onMessage()", "receiveMessage()", "listenMessage()"],
+      "correctAnswer": 1,
+      "explanation": "onMessage()는 앱이 포그라운드(활성 상태)일 때 메시지를 수신하는 리스너입니다."
+    },
+    {
+      "id": 44,
+      "chapter": 8,
+      "question": "바데부가 여러 사용자에게 메시지를 그룹으로 보내려고 합니다. 어떤 기능을 사용하나요?",
+      "options": ["그룹 메시징", "토픽(Topic)", "브로드캐스트", "멀티캐스트"],
+      "correctAnswer": 1,
+      "explanation": "토픽(Topic)은 특정 주제를 구독한 모든 사용자에게 메시지를 보낼 수 있는 기능입니다."
+    },
+    {
+      "id": 45,
+      "chapter": 8,
+      "question": "바데부가 웹에서 FCM을 사용하려면 어떤 파일을 public 폴더에 추가해야 하나요?",
+      "options": ["fcm-worker.js", "firebase-messaging-sw.js", "service-worker.js", "push-worker.js"],
+      "correctAnswer": 1,
+      "explanation": "firebase-messaging-sw.js는 백그라운드 메시지를 처리하는 서비스 워커 파일입니다."
+    },
+    {
+      "id": 46,
+      "chapter": 9,
+      "question": "바데부가 Firebase Analytics에서 커스텀 이벤트를 로깅하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["trackEvent()", "logEvent()", "recordEvent()", "sendEvent()"],
+      "correctAnswer": 1,
+      "explanation": "logEvent()는 Firebase Analytics에서 커스텀 이벤트를 로깅하는 함수입니다."
+    },
+    {
+      "id": 47,
+      "chapter": 9,
+      "question": "바데부가 사용자 ID를 Analytics에 설정하려고 합니다. 어떤 함수를 사용하나요?",
+      "options": ["setUser()", "setUserId()", "setUserIdentifier()", "identifyUser()"],
+      "correctAnswer": 1,
+      "explanation": "setUserId()는 Analytics에서 사용자 ID를 설정하는 함수입니다."
+    },
+    {
+      "id": 48,
+      "chapter": 9,
+      "question": "바데부가 실시간으로 Analytics 이벤트를 확인하려고 합니다. 어떤 도구를 사용하나요?",
+      "options": ["실시간 뷰", "DebugView", "라이브 뷰", "모니터링"],
+      "correctAnswer": 1,
+      "explanation": "DebugView는 Firebase 콘솔에서 실시간으로 Analytics 이벤트를 확인할 수 있는 도구입니다."
+    },
+    {
+      "id": 49,
+      "chapter": 10,
+      "question": "바데부가 Firestore에서 인증된 사용자만 데이터를 읽을 수 있게 하려고 합니다. 보안 규칙에 무엇을 작성해야 하나요?",
+      "options": ["allow read: if auth != null", "allow read: if request.auth != null", "allow read: if user.authenticated", "allow read: if isAuthenticated()"],
+      "correctAnswer": 1,
+      "explanation": "request.auth != null은 사용자가 인증되었는지 확인하는 조건입니다."
+    },
+    {
+      "id": 50,
+      "chapter": 10,
+      "question": "바데부가 Storage에 5MB 이하의 이미지만 업로드되도록 제한하려고 합니다. 보안 규칙에 무엇을 추가해야 하나요?",
+      "options": ["request.size < 5000000", "request.resource.size < 5 * 1024 * 1024", "file.size < 5MB", "upload.size < 5000000"],
+      "correctAnswer": 1,
+      "explanation": "request.resource.size < 5 * 1024 * 1024는 업로드되는 파일의 크기를 5MB로 제한하는 조건입니다."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python merge_challenges.py:*)",
+      "Bash(python -c \"import os, glob; [os.replace(f, f.replace(''-merged'', '''')) for f in glob.glob(''*-challenges-merged.sql'')]; print(''Files replaced'')\")",
+      "Bash(for file in html-challenges.sql css-challenges.sql javascript-challenges.sql typescript-challenges.sql python-challenges.sql)",
+      "Bash(cat:*)",
+      "Bash(ALL-CHALLENGES-COMBINED.sql)",
+      "Bash(python fix_encoding.py:*)",
+      "Bash(python fix_all_korean.py:*)",
+      "Bash(python simple_fix.py:*)",
+      "Bash(python comprehensive_fix.py:*)",
+      "Bash(python final_fix.py:*)",
+      "Bash(python polish_fix.py:*)",
+      "Bash(copy ALL-CHALLENGES-READY.sql ALL-CHALLENGES-FINAL.sql)",
+      "Bash(python extract_clean.py:*)",
+      "Bash(python final_typo_fix.py:*)",
+      "Bash(grep:*)",
+      "Bash(python:*)",
+      "Bash(env)",
+      "Bash(curl:*)",
+      "Bash(pip install:*)",
+      "Bash(2-CREATE-AND-INSERT-NO-DROP.sql)",
+      "Bash(git init:*)",
+      "Bash(flutter config:*)",
+      "Bash(flutter build:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
