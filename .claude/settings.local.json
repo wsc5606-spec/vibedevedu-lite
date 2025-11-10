@@ -34,7 +34,8 @@
       "Bash(git remote set-url:*)",
       "Bash(vercel --version:*)",
       "Bash(vercel --prod --yes)",
-      "Bash(vercel:*)"
+      "Bash(vercel:*)",
+      "Bash(start https://vercel.com/jouijunes-projects/vibedevedu-lite/settings/deployment-protection)"
     ],
     "deny": [],
     "ask": []
